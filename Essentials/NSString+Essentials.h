@@ -46,6 +46,8 @@
 /// Removes all html tags (<...>), replaces escaped sequneces and escaped Unicode characters.
 - (NSString *)stringByDeletingHTML;
 
+/// Returns NSURL created using receiver, unless the receiver is empty.
+- (NSURL *)URLValue;
 
 
 @end

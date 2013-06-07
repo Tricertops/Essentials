@@ -75,6 +75,16 @@
 #pragma mark - Transformation
 
 
+- (NSURL *)URLValue {
+    if (self.length) {
+        return [NSURL URLWithString:self];
+    }
+    else {
+        return nil;
+    }
+}
+
+
 - (NSString *)stringByDeletingHTML {
     // Delete HTMl tags.
     /// http://stackoverflow.com/questions/277055/remove-html-tags-from-an-nsstring-on-the-iphone
