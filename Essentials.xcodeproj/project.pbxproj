@@ -15,6 +15,8 @@
 		5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
 		5BBFA5B617620AF70061E8B5 /* NSString+Essentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */; };
 		5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */; };
+		5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
+		5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA5B717620B7F0061E8B5 /* NSStringEssentialsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringEssentialsTest.h; sourceTree = "<group>"; };
 		5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringEssentialsTest.m; sourceTree = "<group>"; };
+		5BBFA5BC176213B50061E8B5 /* NSArray+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Essentials.h"; sourceTree = "<group>"; };
+		5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Essentials.m"; sourceTree = "<group>"; };
+		5BBFA5BF176214D00061E8B5 /* NSMutableArray+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Essentials.h"; sourceTree = "<group>"; };
+		5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Essentials.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				5BBFA590176205DF0061E8B5 /* Essentials.h */,
 				5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */,
 				5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */,
+				5BBFA5BC176213B50061E8B5 /* NSArray+Essentials.h */,
+				5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */,
+				5BBFA5BF176214D00061E8B5 /* NSMutableArray+Essentials.h */,
+				5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -222,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
+				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
+				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +388,7 @@
 				5BBFA5AF176205DF0061E8B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BBFA5B0176205DF0061E8B5 /* Build configuration list for PBXNativeTarget "EssentialsTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +397,7 @@
 				5BBFA5B2176205DF0061E8B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
