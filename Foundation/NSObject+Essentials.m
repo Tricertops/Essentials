@@ -37,23 +37,23 @@
 }
 
 
-- (void)associateObject:(id)object forKey:(void *)key policy:(objc_AssociationPolicy)policy {
+- (void)setAssociatedObject:(id)object forKey:(void *)key policy:(objc_AssociationPolicy)policy {
     objc_setAssociatedObject(self, key, object, policy);
 }
 
 
-- (void)associateStrongObject:(id)object forKey:(void *)key {
-    [self associateObject:object forKey:key policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
+- (void)setAssociatedStrongObject:(id)object forKey:(void *)key {
+    [self setAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
 }
 
 
-- (void)associateCopyObject:(id)object forKey:(void *)key {
-    [self associateObject:object forKey:key policy:OBJC_ASSOCIATION_COPY_NONATOMIC];
+- (void)setAssociatedCopyObject:(id)object forKey:(void *)key {
+    [self setAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_COPY_NONATOMIC];
 }
 
 
-- (void)associateAssignObject:(id)object forKey:(void *)key {
-    [self associateObject:object forKey:key policy:OBJC_ASSOCIATION_ASSIGN];
+- (void)setAssociatedAssignObject:(id)object forKey:(void *)key {
+    [self setAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_ASSIGN];
 }
 
 

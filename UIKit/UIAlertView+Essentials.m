@@ -29,7 +29,7 @@
 
 - (void)setCompletionBlock:(UIAlertViewCompletionBlock)completionBlock {
     self.delegate = self;
-    [self associateCopyObject:completionBlock forKey:@selector(completionBlock)];
+    [self setAssociatedCopyObject:completionBlock forKey:@selector(completionBlock)];
 }
 
 

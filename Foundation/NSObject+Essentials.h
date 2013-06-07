@@ -29,16 +29,16 @@
 - (id)associatedObject:(void *)key;
 
 /// Wrapper for objc_setAssociatedObject.
-- (void)associateObject:(id)object forKey:(void *)key policy:(objc_AssociationPolicy)policy;
+- (void)setAssociatedObject:(id)object forKey:(void *)key policy:(objc_AssociationPolicy)policy;
 
 /// Associates object using nonatomic retain policy.
-- (void)associateStrongObject:(id)object forKey:(void *)key;
+- (void)setAssociatedStrongObject:(id)object forKey:(void *)key;
 
 /// Associates object using nonatomic copy policy.
-- (void)associateCopyObject:(id)object forKey:(void *)key;
+- (void)setAssociatedCopyObject:(id)object forKey:(void *)key;
 
 /// Associates object using assign policy.
-- (void)associateAssignObject:(id)object forKey:(void *)key;
+- (void)setAssociatedAssignObject:(id)object forKey:(void *)key;
 
 
 
