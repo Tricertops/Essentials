@@ -16,6 +16,7 @@
 
 
 
+/// Calls -objectForKey: for every given key and returns first non-nil result. Method takes any number of keys terminated by nil.
 - (id)objectForAnyKey:(id)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
 
