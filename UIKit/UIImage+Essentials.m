@@ -43,4 +43,19 @@
 
 
 
+#pragma mark - Crop
+
+
+- (UIImage *)imageByCroppingRect:(CGRect)cropRect {
+    /// http://iosdevelopertips.com/graphics/how-to-crop-an-image-take-two.html
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imageRef);
+    return croppedImage;
+}
+
+
+
+
+
 @end

@@ -27,4 +27,11 @@
 
 
 
+#pragma mark - Crop
+
+/// Returns new instance that represents cropped portion of the receiver.
+- (UIImage *)imageByCroppingRect:(CGRect)cropRect;
+
+
+
 @end
