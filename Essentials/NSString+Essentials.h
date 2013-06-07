@@ -34,6 +34,13 @@
 
 
 
+#pragma mark Content
+
+/// Validates the receiver against email regex pattern.
+- (BOOL)isEmail;
+
+
+
 #pragma mark - Transformation
 
 /// Removes all html tags (<...>), replaces escaped sequneces and escaped Unicode characters.

@@ -53,6 +53,25 @@
 
 
 
+#pragma mark Content
+
+
+- (BOOL)isEmail {
+    static NSRegularExpression *regexEmail = nil;
+    if ( ! regexEmail) {
+        regexEmail = [NSRegularExpression regularExpressionWithPattern:
+                      @"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+                                                               options:NSRegularExpressionCaseInsensitive
+                                                                 error:nil];
+    }
+    NSUInteger matches = [regexEmail numberOfMatchesInString:self options:0 range:NSMakeRange(0, self.length)];
+    return (matches > 0); // Only one match can be found, since the pattern specifies beginning and end of string.
+}
+
+
+
+
+
 #pragma mark - Transformation
 
 

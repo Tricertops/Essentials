@@ -10,7 +10,6 @@
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA591176205DF0061E8B5 /* Essentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BBFA590176205DF0061E8B5 /* Essentials.h */; };
 		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
-		5BBFA59D176205DF0061E8B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59C176205DF0061E8B5 /* UIKit.framework */; };
 		5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA588176205DF0061E8B5 /* libEssentials.a */; };
 		5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
@@ -48,7 +47,6 @@
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
 		5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5BBFA59C176205DF0061E8B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5BBFA5A4176205DF0061E8B5 /* EssentialsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EssentialsTests-Info.plist"; sourceTree = "<group>"; };
 		5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Essentials.m"; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */,
-				5BBFA59D176205DF0061E8B5 /* UIKit.framework in Frameworks */,
 				5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */,
 				5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */,
 			);
@@ -103,7 +100,6 @@
 			children = (
 				5BBFA58B176205DF0061E8B5 /* Foundation.framework */,
 				5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */,
-				5BBFA59C176205DF0061E8B5 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +302,10 @@
 			buildSettings = {
 				DSTROOT = /tmp/Essentials.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -317,6 +317,10 @@
 			buildSettings = {
 				DSTROOT = /tmp/Essentials.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
