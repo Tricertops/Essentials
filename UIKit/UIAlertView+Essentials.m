@@ -51,8 +51,7 @@
 }
 
 - (void)alertViewCancel:(UIAlertView *)alertView {
-    if (self.completionBlock) self.completionBlock(self.cancelButtonIndex);
-    self.completionBlock = nil;
+    [self alertView:alertView clickedButtonAtIndex:alertView.cancelButtonIndex];
 }
 
 
