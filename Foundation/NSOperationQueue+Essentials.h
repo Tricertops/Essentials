@@ -21,7 +21,7 @@
 /// Shorthand for -initWithNameSuffix:
 + (instancetype)queueWithNameSuffix:(NSString *)nameSuffix;
 
-/// Initialize new instance and compose the name by appentign given name suffix to application identifier. Example: com.iAdverti.App.processingQueue
+/// Initialize new instance and compose the name by appentign given name suffix to application identifier. Example: com.iAdverti.App.nameSuffix
 - (id)initWithNameSuffix:(NSString *)nameSuffix;
 
 

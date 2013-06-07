@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "NSObject+Essentials.h"
 #import "NSString+Essentials.h"
 #import "NSArray+Essentials.h"
 #import "NSMutableArray+Essentials.h"
