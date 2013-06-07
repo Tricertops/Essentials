@@ -63,4 +63,57 @@
 
 
 
+#pragma mark - Corner Radius
+
+- (CGFloat)cornerRadius {
+    return self.layer.cornerRadius;
+}
+
+
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = ( ! self.layer.masksToBounds && cornerRadius > 0); // Turn on if not already.
+}
+
+
+
+
+
+#pragma mark - Structs Adjustments
+
+
+- (void)adjustFrame:(void(^)(CGRect *))block {
+    CGRect frame = self.frame;
+    block(&frame);
+    self.frame = frame;
+}
+
+
+- (void)adjustBounds:(void(^)(CGRect *))block {
+    CGRect bounds = self.bounds;
+    block(&bounds);
+    self.bounds = bounds;
+}
+
+
+- (void)adjustCenter:(void(^)(CGPoint *))block {
+    CGPoint center = self.center;
+    block(&center);
+    self.center = center;
+}
+
+- (void)adjustTransform:(CGAffineTransform(^)(CGAffineTransform))block {
+    CGAffineTransform transform = self.transform;
+    transform = block(transform);
+    self.transform = transform;
+}
+
+
+
+
+
+
+
+
+
 @end

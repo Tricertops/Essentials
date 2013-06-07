@@ -33,4 +33,27 @@
 
 
 
+#pragma mark - Corner Radius
+
+/// Forwards to the underlaying layer.
+@property (nonatomic, readwrite) CGFloat cornerRadius;
+
+
+
+#pragma mark - Structs Adjustments
+
+/// Allows you to quickly adjust frame.
+- (void)adjustFrame:(void(^)(CGRect *))block;
+
+/// Allows you to quickly adjust bounds.
+- (void)adjustBounds:(void(^)(CGRect *))block;
+
+/// Allows you to quickly adjust center.
+- (void)adjustCenter:(void(^)(CGPoint *))block;
+
+/// Allows you to quickly adjust transform.
+- (void)adjustTransform:(CGAffineTransform(^)(CGAffineTransform))block;
+
+
+
 @end
