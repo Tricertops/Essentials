@@ -22,18 +22,18 @@
 #pragma mark - Completion Block
 
 
-- (void (^)(NSInteger))completionBlock {
+- (UIAlertViewCompletionBlock)completionBlock {
     return [self associatedObject:@selector(completionBlock)];
 }
 
 
-- (void)setCompletionBlock:(void (^)(NSInteger))completionBlock {
+- (void)setCompletionBlock:(UIAlertViewCompletionBlock)completionBlock {
     self.delegate = self;
     [self associateCopyObject:completionBlock forKey:@selector(completionBlock)];
 }
 
 
-- (void)showWithCompletion:(void(^)(NSInteger buttonIndex))block {
+- (void)showWithCompletion:(UIAlertViewCompletionBlock)block {
     self.completionBlock = block;
     [self show];
 }

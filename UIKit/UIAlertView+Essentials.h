@@ -11,6 +11,10 @@
 
 
 
+typedef void(^UIAlertViewCompletionBlock)(NSInteger buttonIndex);
+
+
+
 
 
 @interface UIAlertView (Essentials) < UIAlertViewDelegate >
@@ -20,10 +24,10 @@
 #pragma mark Completion Block
 
 /// Block to be invoked automatically after the alert view is cancelled or a button is clicked. Setting this property also sets delegate to self.
-@property (nonatomic, readwrite, copy) void (^completionBlock)(NSInteger buttonIndex);
+@property (nonatomic, readwrite, copy) UIAlertViewCompletionBlock completionBlock;
 
 /// Sets completion block and show the alerti view.
-- (void)showWithCompletion:(void(^)(NSInteger buttonIndex))block;
+- (void)showWithCompletion:(UIAlertViewCompletionBlock)block;
 
 
 
