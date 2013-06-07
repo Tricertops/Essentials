@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1340FC17622309008F8F1E /* UIAlertView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */; };
+		5B1340FD17622309008F8F1E /* UIAlertView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */; };
 		5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
 		5B134101176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
@@ -49,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B1340FA17622309008F8F1E /* UIAlertView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Essentials.h"; sourceTree = "<group>"; };
+		5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Essentials.m"; sourceTree = "<group>"; };
 		5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Essentials.h"; sourceTree = "<group>"; };
 		5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,11 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B1340F9176222DF008F8F1E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5B1340FA17622309008F8F1E /* UIAlertView+Essentials.h */,
+				5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		5BBFA57F176205DF0061E8B5 = {
 			isa = PBXGroup;
 			children = (
 				5BBFA590176205DF0061E8B5 /* Essentials.h */,
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
+				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BBFA5A2176205DF0061E8B5 /* Tests */,
 				5BBFA58A176205DF0061E8B5 /* Frameworks */,
 				5BBFA589176205DF0061E8B5 /* Products */,
@@ -258,6 +272,7 @@
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
 				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
 				5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */,
+				5B1340FC17622309008F8F1E /* UIAlertView+Essentials.m in Sources */,
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */,
+				5B1340FD17622309008F8F1E /* UIAlertView+Essentials.m in Sources */,
 				5B134101176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
