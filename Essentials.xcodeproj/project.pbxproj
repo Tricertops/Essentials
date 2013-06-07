@@ -18,6 +18,7 @@
 		5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
 		5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
 		5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
+		5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA5CF17621E490061E8B5 /* NSError+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Essentials.m"; sourceTree = "<group>"; };
+		5BBFA5D217621EC30061E8B5 /* NSInvocation+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Essentials.h"; sourceTree = "<group>"; };
+		5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Essentials.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */,
 				5BBFA5CF17621E490061E8B5 /* NSError+Essentials.h */,
 				5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */,
+				5BBFA5D217621EC30061E8B5 /* NSInvocation+Essentials.h */,
+				5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
 				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
+				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
