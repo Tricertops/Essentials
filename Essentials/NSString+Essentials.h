@@ -57,4 +57,13 @@
 
 
 
+#pragma mark Splitting
+
+/// Shorthand for -componentsSeparatedByString:
+- (NSArray *)split:(NSString *)separator;
+
+
+
+
+
 @end

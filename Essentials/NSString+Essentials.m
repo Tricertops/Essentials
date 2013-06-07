@@ -149,4 +149,15 @@
 
 
 
+#pragma mark Splitting
+
+
+- (NSArray *)split:(NSString *)separator {
+    return [self componentsSeparatedByString:separator];
+}
+
+
+
+
+
 @end
