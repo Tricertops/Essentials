@@ -45,6 +45,8 @@
 
 #pragma mark Class Shorthands
 
+/// These methods call appropriate instance methods on [UIDevice currentDevice] object.
+
 + (NSString *)modelVersion;
 + (BOOL)iPhone;
 + (BOOL)iPad;
