@@ -10,15 +10,32 @@
 
 
 
+
+
 @interface NSArray (Essentials)
 
 
+
+#pragma mark Mapping
 
 /// Returns new array with mapped objects using given block. The block takes object.
 - (NSArray *)map:(id(^)(id object))block;
 
 /// Returns new array with mapped objects using given block. The block takes index and object.
 - (NSArray *)mapIndex:(id(^)(NSUInteger index, id object))block;
+
+
+
+#pragma mark Joining
+
+/// Extended -componentsJoinedByString: to support different last string.
+- (NSString *)componentsJoinedByString:(NSString *)separator lastString:(NSString *)lastSeparator;
+
+/// Shorthand for -componentsJoinedByString:
+- (NSString *)join:(NSString *)separator;
+
+/// Shorthand for -componentsJoinedByString:lastString:
+- (NSString *)join:(NSString *)separator last:(NSString *)last;
 
 
 

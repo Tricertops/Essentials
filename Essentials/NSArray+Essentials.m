@@ -18,6 +18,9 @@
 
 
 
+#pragma mark Mapping
+
+
 - (NSArray *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
@@ -42,6 +45,35 @@
     }
     return [mutable copy];
 }
+
+
+
+
+
+#pragma mark Joining
+
+
+- (NSString *)componentsJoinedByString:(NSString *)separator lastString:(NSString *)lastSeparator {
+    if (self.count > 1) {
+        NSArray *selfWithoutLast = [self subarrayWithRange:NSMakeRange(0, self.count-1)];
+        NSString *string = [NSString stringWithFormat:@"%@%@%@", [selfWithoutLast componentsJoinedByString:separator], lastSeparator, self.lastObject];
+        return string;
+    }
+    else {
+        return [self componentsJoinedByString:separator];
+    }
+}
+
+
+- (NSString *)join:(NSString *)separator {
+    return [self componentsJoinedByString:separator];
+}
+
+
+- (NSString *)join:(NSString *)separator last:(NSString *)last {
+    return [self componentsJoinedByString:separator lastString:last];
+}
+
 
 
 
