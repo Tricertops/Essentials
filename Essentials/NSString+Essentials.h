@@ -49,5 +49,12 @@
 /// Returns NSURL created using receiver, unless the receiver is empty.
 - (NSURL *)URLValue;
 
+/// Returns MD5 hash of the receiver.
+- (NSString *)MD5;
+
+/// Returns SHA1 hash of the receiver.
+- (NSString *)SHA1;
+
+
 
 @end
