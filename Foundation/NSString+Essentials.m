@@ -117,6 +117,17 @@
     return string;
 }
 
+- (NSString *)trimmedString {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+
+- (NSString *)stringByStrippingDiacritics {
+    CFMutableStringRef stringRef = (__bridge CFMutableStringRef)[NSMutableString stringWithString:self];
+    Boolean success = CFStringTransform(stringRef, NULL, kCFStringTransformStripDiacritics, false);
+    return success ? (__bridge NSString *)stringRef : nil;
+}
+
 
 - (NSString *)MD5 {
 	const char *cString = [self UTF8String];

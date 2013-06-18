@@ -46,6 +46,12 @@
 /// Removes all html tags (<...>), replaces escaped sequneces and escaped Unicode characters.
 - (NSString *)stringByDeletingHTML;
 
+/// Returns a string trimmed of whitespace and new line characters
+- (NSString *)trimmedString;
+
+/// Returns a string without diacritics
+- (NSString *)stringByStrippingDiacritics;
+
 /// Returns NSURL created using receiver, unless the receiver is empty.
 - (NSURL *)URLValue;
 
