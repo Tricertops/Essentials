@@ -8,12 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSObject+Essentials.h"
-#import "NSString+Essentials.h"
-#import "NSArray+Essentials.h"
-#import "NSMutableArray+Essentials.h"
-#import "NSDictionary+Essentials.h"
-#import "NSError+Essentials.h"
-#import "NSInvocation+Essentials.h"
-#import "NSOperationQueue+Essentials.h"
-
+#import "Foundation+Essentials.h"
+#import "UIKit+Essentials.h"
