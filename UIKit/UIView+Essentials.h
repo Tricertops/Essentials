@@ -43,16 +43,16 @@
 #pragma mark - Structs Adjustments
 
 /// Allows you to quickly adjust frame.
-- (void)adjustFrame:(void(^)(CGRect *))block;
+- (void)adjustFrame:(void(^)(CGRect *frame))block;
 
 /// Allows you to quickly adjust bounds.
-- (void)adjustBounds:(void(^)(CGRect *))block;
+- (void)adjustBounds:(void(^)(CGRect *bounds))block;
 
 /// Allows you to quickly adjust center.
-- (void)adjustCenter:(void(^)(CGPoint *))block;
+- (void)adjustCenter:(void(^)(CGPoint *center))block;
 
 /// Allows you to quickly adjust transform.
-- (void)adjustTransform:(CGAffineTransform(^)(CGAffineTransform))block;
+- (void)adjustTransform:(CGAffineTransform(^)(CGAffineTransform transform))block;
 
 
 
