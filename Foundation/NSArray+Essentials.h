@@ -18,6 +18,16 @@
 
 #pragma mark Mapping
 
+/// Enumerates contents of the receiver.
+- (void)forEach:(void(^)(id object))block;
+
+/// Enumerates contents of the receiver providing index.
+- (void)forEachIndex:(void(^)(NSUInteger index, id object))block;
+
+
+
+#pragma mark Mapping
+
 /// Returns new array with mapped objects using given block. The block takes object.
 - (NSArray *)map:(id(^)(id object))block;
 

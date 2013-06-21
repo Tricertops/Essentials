@@ -21,6 +21,32 @@
 #pragma mark Mapping
 
 
+- (void)forEach:(void(^)(id object))block {
+    NSParameterAssert(block);
+    
+    for (id object in self) {
+        block(object);
+    }
+}
+
+
+- (void)forEachIndex:(void(^)(NSUInteger index, id object))block {
+    NSParameterAssert(block);
+    
+    NSUInteger index = 0;
+    for (id object in self) {
+        block(index, object);
+        index++;
+    }
+}
+
+
+
+
+
+#pragma mark Mapping
+
+
 - (NSArray *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
