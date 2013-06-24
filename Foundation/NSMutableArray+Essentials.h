@@ -16,6 +16,18 @@
 
 
 
+
+#pragma mark Mapping
+
+///
+- (NSMutableArray *)replace:(id(^)(id object))block;
+
+///
+- (NSMutableArray *)replaceIndex:(id(^)(NSUInteger index, id object))block;
+
+
+#pragma mark Filtering
+
 /// Removes all objects from the receiver for which the block returns NO. Method returns receiver.
 - (NSMutableArray *)filter:(BOOL(^)(id object))block;
 

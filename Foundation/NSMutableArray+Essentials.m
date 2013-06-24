@@ -18,6 +18,53 @@
 
 
 
+#pragma mark Mapping
+
+
+- (NSMutableArray *)replace:(id(^)(id object))block {
+    NSParameterAssert(block);
+    
+    for (NSUInteger index = 0; index < self.count; ) {
+        id object = [self objectAtIndex:index];
+        id replacement = block(object);
+        
+        if (replacement) {
+            [self replaceObjectAtIndex:index withObject:replacement];
+            index++;
+        }
+        else {
+            [self removeObjectAtIndex:index];
+        }
+    }
+    return self;
+}
+
+
+- (NSMutableArray *)replaceIndex:(id(^)(NSUInteger index, id object))block {
+    NSParameterAssert(block);
+    
+    for (NSUInteger index = 0; index < self.count; ) {
+        id object = [self objectAtIndex:index];
+        id replacement = block(index, object);
+        
+        if (replacement) {
+            [self replaceObjectAtIndex:index withObject:replacement];
+            index++;
+        }
+        else {
+            [self removeObjectAtIndex:index];
+        }
+    }
+    return self;
+}
+
+
+
+
+
+#pragma mark Filtering
+
+
 - (NSMutableArray *)filter:(BOOL(^)(id object))block {
     NSParameterAssert(block);
     
