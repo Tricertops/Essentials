@@ -50,7 +50,7 @@
 - (NSArray *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray *mutable = [self mutableCopy];
+    NSMutableArray *mutable = [[NSMutableArray alloc] init];
     for (id object in self) {
         id mapped = block(object);
         if (mapped) [mutable addObject:mapped];
@@ -62,7 +62,7 @@
 - (NSArray *)mapIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray *mutable = [self mutableCopy];
+    NSMutableArray *mutable = [[NSMutableArray alloc] init];
     NSUInteger index = 0;
     for (id object in self) {
         id mapped = block(index, object);
