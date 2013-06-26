@@ -13,3 +13,4 @@
 #import "UIImage+Essentials.h"
 #import "UIScreen+Essentials.h"
 #import "UIView+Essentials.h"
+#import "UIScrollView+Essentials.h"
