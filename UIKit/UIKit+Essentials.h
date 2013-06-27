@@ -13,3 +13,39 @@
 #import "UIImage+Essentials.h"
 #import "UIScreen+Essentials.h"
 #import "UIView+Essentials.h"
+
+
+
+#pragma mark Rectangle
+
+extern CGPoint CGRectGetCenter(CGRect);
+extern CGRect CGRectMakeSize(CGSize);
+extern CGRect CGRectMakeOrigin(CGPoint);
+extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);
+
+
+
+#pragma mark Rounding
+
+extern CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode mode);
+extern CGPoint CGPointRoundToScale(CGPoint point, CGFloat scale, NSRoundingMode mode);
+extern CGSize CGSizeRoundToScale(CGSize size, CGFloat scale, NSRoundingMode mode);
+extern CGRect CGRectRoundToScale(CGRect rect, CGFloat scale, NSRoundingMode mode);
+
+extern CGFloat CGFloatRoundToScreenScale(CGFloat);
+extern CGPoint CGPointRoundToScreenScale(CGPoint);
+extern CGSize CGSizeRoundToScreenScale(CGSize);
+extern CGRect CGRectRoundToScreenScale(CGRect);
+
+
+
+#pragma mark Autoresizing
+
+enum {
+    UIViewAutoresizingFlexibleMargins = (UIViewAutoresizingFlexibleTopMargin
+                                         | UIViewAutoresizingFlexibleBottomMargin
+                                         | UIViewAutoresizingFlexibleLeftMargin
+                                         | UIViewAutoresizingFlexibleRightMargin),
+    UIViewAutoresizingFlexibleSize = (UIViewAutoresizingFlexibleWidth
+                                      | UIViewAutoresizingFlexibleHeight),
+};

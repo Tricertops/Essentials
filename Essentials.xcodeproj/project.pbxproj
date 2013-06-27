@@ -18,6 +18,7 @@
 		5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13411417624235008F8F1E /* UIScreen+Essentials.m */; };
 		5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B134117176243C2008F8F1E /* UIView+Essentials.m */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
+		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA591176205DF0061E8B5 /* Essentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BBFA590176205DF0061E8B5 /* Essentials.h */; };
 		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
@@ -79,6 +80,7 @@
 		5B134117176243C2008F8F1E /* UIView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Essentials.m"; sourceTree = "<group>"; };
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
+		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA58B176205DF0061E8B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				5F906B4517709E9400097175 /* UIKit+Essentials.h */,
+				5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */,
 				5B1340FA17622309008F8F1E /* UIAlertView+Essentials.h */,
 				5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */,
 				5B13410217622955008F8F1E /* UIActionSheet+Essentials.h */,
@@ -328,6 +331,7 @@
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
 				5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */,
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
+				5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
