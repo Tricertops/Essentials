@@ -19,6 +19,8 @@
 #pragma mark Rectangle
 
 extern CGPoint CGRectGetCenter(CGRect);
+extern CGPoint CGRectGetPoint(CGRect rect, CGFloat relativeX, CGFloat relativeY);
+
 extern CGRect CGRectMakeSize(CGSize);
 extern CGRect CGRectMakeOrigin(CGPoint);
 extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);

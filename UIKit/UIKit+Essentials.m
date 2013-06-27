@@ -16,8 +16,18 @@
 
 
 extern CGPoint CGRectGetCenter(CGRect rect) {
-    return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    return CGRectGetPoint(rect, 0.5, 0.5);
 }
+
+
+extern CGPoint CGRectGetPoint(CGRect rect, CGFloat relativeX, CGFloat relativeY) {
+    CGPoint point;
+    point.x = rect.origin.x + (rect.size.width * relativeX);
+    point.y = rect.origin.y + (rect.size.height * relativeY);
+    return point;
+}
+
+
 
 
 extern CGRect CGRectMakeSize(CGSize size) {
