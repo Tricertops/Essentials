@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
+
 @interface UIScrollView (Essentials)
+
 
 
 #pragma mark - Structs Adjustments
@@ -18,6 +23,12 @@
 
 /// Allows you to quickly adjust scroll indicator insets.
 - (void)adjustScrollIndicatorInsets:(void(^)(UIEdgeInsets *insets))block;
+
+
+
+#pragma mark Content Progress
+
+@property (nonatomic, readwrite, assign) CGPoint contentProgress;
 
 
 
