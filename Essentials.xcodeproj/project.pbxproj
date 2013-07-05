@@ -17,15 +17,17 @@
 		5B13411217624043008F8F1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13411117624043008F8F1E /* QuartzCore.framework */; };
 		5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13411417624235008F8F1E /* UIScreen+Essentials.m */; };
 		5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B134117176243C2008F8F1E /* UIView+Essentials.m */; };
+		5B13C0B71786DEB9001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
+		5B13C0B91786DED0001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
+		5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
+		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
-		5BBFA591176205DF0061E8B5 /* Essentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BBFA590176205DF0061E8B5 /* Essentials.h */; };
 		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
 		5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA588176205DF0061E8B5 /* libEssentials.a */; };
 		5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
-		5BBFA5B617620AF70061E8B5 /* NSString+Essentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */; };
 		5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */; };
 		5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
 		5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
@@ -52,8 +54,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				5BBFA591176205DF0061E8B5 /* Essentials.h in CopyFiles */,
-				5BBFA5B617620AF70061E8B5 /* NSString+Essentials.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +79,8 @@
 		5B13411417624235008F8F1E /* UIScreen+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Essentials.m"; sourceTree = "<group>"; };
 		5B134116176243C2008F8F1E /* UIView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Essentials.h"; sourceTree = "<group>"; };
 		5B134117176243C2008F8F1E /* UIView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Essentials.m"; sourceTree = "<group>"; };
+		5B13C0B61786DEB8001666F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5B13C0B81786DED0001666F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */,
+				5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */,
 				5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B13C0B91786DED0001666F4 /* CoreGraphics.framework in Frameworks */,
+				5B13C0B71786DEB9001666F4 /* UIKit.framework in Frameworks */,
 				5B13411217624043008F8F1E /* QuartzCore.framework in Frameworks */,
 				5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */,
 				5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */,
@@ -180,9 +186,11 @@
 		5BBFA58A176205DF0061E8B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B13C0B81786DED0001666F4 /* CoreGraphics.framework */,
 				5B13411117624043008F8F1E /* QuartzCore.framework */,
 				5BBFA58B176205DF0061E8B5 /* Foundation.framework */,
 				5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */,
+				5B13C0B61786DEB8001666F4 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
