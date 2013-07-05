@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "Foundation+Essentials.h"
+
+#import <UIKit/UIKit.h>
 #import "UIKit+Essentials.h"
