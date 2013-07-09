@@ -28,15 +28,15 @@
 #if !defined(NS_BLOCK_ASSERTIONS)
 
 #define ESSAssert(CONDITION, MESSAGE, ...)\
-if ( ! (CONDITION) && (( [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] file:[NSString stringWithUTF8String:__FILE__] lineNumber:__LINE__ description:(MESSAGE), ##__VA_ARGS__], YES)) )
+if ( ! (CONDITION) && (( [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] file:[NSString stringWithUTF8String:__FILE__] lineNumber:__LINE__ description:MESSAGE, ##__VA_ARGS__], YES)) )
 
 #else
 
 #define ESSAssert(CONDITION, MESSAGE, ...)\
-if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" (MESSAGE) "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__), YES)) )
+if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__), YES)) )
 
 #endif
 
-#define ESSAssertReturn(CONDITION, MESSAGE, ...)        SGBAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return;
-#define ESSAssertReturnNil(CONDITION, MESSAGE, ...)     SGBAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return nil;
-#define ESSAssertException(CONDITION, MESSAGE, ...)     SGBAssert(CONDITION, MESSAGE, ##__VA_ARGS__) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" (MESSAGE) "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil];
+#define ESSAssertReturn(CONDITION, MESSAGE, ...)        ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return
+#define ESSAssertReturnNil(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return nil
+#define ESSAssertException(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
