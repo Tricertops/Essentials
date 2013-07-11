@@ -42,9 +42,10 @@
 
 
 - (CGPoint)contentProgress {
+    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
+    CGSize boundsSize = viewport.size;
+    CGPoint contentOffset = viewport.origin;
     CGSize contentSize = self.contentSize;
-    CGSize boundsSize = self.bounds.size;
-    CGPoint contentOffset = self.contentOffset;
     
     CGSize scrollableSize = {
         .width = contentSize.width - boundsSize.width,
@@ -60,8 +61,9 @@
 
 
 - (void)setContentProgress:(CGPoint)contentProgress {
+    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
+    CGSize boundsSize = viewport.size;
     CGSize contentSize = self.contentSize;
-    CGSize boundsSize = self.bounds.size;
     
     CGPoint contentOffset = {
         .x = (contentSize.width - boundsSize.width) * contentProgress.x,
@@ -72,7 +74,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingContentProgress {
-    return [NSSet setWithObjects:@"contentSize", @"frame", @"contentOffset", nil];
+    return [NSSet setWithObjects:@"contentSize", @"frame", @"contentOffset", @"contentInset", nil];
 }
 
 
