@@ -76,6 +76,21 @@
 
 
 
+#pragma mark Nested Arrays
+
+
+- (NSArray *)flattenedArray {
+    NSMutableArray *builder = [[NSMutableArray alloc] init];
+    for (NSArray *subarray in self) {
+        [builder addObjectsFromArray:builder];
+    }
+    return builder;
+}
+
+
+
+
+
 #pragma mark Joining
 
 

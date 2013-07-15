@@ -26,6 +26,13 @@
 - (NSMutableArray *)replaceIndex:(id(^)(NSUInteger index, id object))block;
 
 
+
+#pragma mark Nester Arrays
+
+- (NSMutableArray *)flatten;
+
+
+
 #pragma mark Filtering
 
 /// Removes all objects from the receiver for which the block returns NO. Method returns receiver.

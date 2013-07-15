@@ -16,7 +16,7 @@
 
 
 
-#pragma mark Mapping
+#pragma mark Iterating
 
 /// Enumerates contents of the receiver.
 - (void)forEach:(void(^)(id object))block;
@@ -33,6 +33,13 @@
 
 /// Returns new array with mapped objects using given block. The block takes index and object.
 - (NSArray *)mapIndex:(id(^)(NSUInteger index, id object))block;
+
+
+
+#pragma mark Nested Arrays
+
+/// Combines nested subarrays to single array.
+- (NSArray *)flattenedArray;
 
 
 
