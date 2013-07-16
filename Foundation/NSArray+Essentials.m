@@ -82,7 +82,7 @@
 - (NSArray *)flattenedArray {
     NSMutableArray *builder = [[NSMutableArray alloc] init];
     for (NSArray *subarray in self) {
-        [builder addObjectsFromArray:builder];
+        [builder addObjectsFromArray:subarray];
     }
     return builder;
 }
