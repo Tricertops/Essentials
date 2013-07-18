@@ -169,6 +169,32 @@
 
 
 
+#pragma mark Joining
+
+- (NSString *) :(NSString *)a { return [self.class concat:a, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b { return [NSString concat:self, a, b, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c  { return [NSString concat:self, a, b, c, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d { return [NSString concat:self, a, b, c, d, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e { return [NSString concat:self, a, b, c, d, e, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f { return [NSString concat:self, a, b, c, d, e, f, nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f :(NSString *)g { return [NSString concat:self, a, b, c, d, e, f, g, nil]; }
+
++ (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION {
+    va_list list;
+    va_start(list, firstString);
+    
+    NSMutableArray *strings = [[NSMutableArray alloc] init];
+    NSString *string = firstString;
+    while (string) {
+        [strings addObject:string];
+        string = va_arg(list, NSString *);
+    }
+    
+    va_end(list);
+    
+    return [strings componentsJoinedByString:@""];
+}
+
 
 
 @end
