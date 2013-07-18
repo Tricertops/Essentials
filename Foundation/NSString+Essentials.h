@@ -70,6 +70,18 @@
 
 
 
+#pragma mark Joining
+
+- (NSString *) :(NSString *)a;
+- (NSString *) :(NSString *)a :(NSString *)b;
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c;
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d;
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e;
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f;
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f :(NSString *)g;
+
++ (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION;
+
 
 
 @end

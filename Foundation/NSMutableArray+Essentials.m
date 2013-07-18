@@ -62,6 +62,21 @@
 
 
 
+#pragma mark Nester Arrays
+
+
+- (NSMutableArray *)flatten {
+    NSMutableArray *builder = [[NSMutableArray alloc] init];
+    for (NSArray *subarray in self) {
+        [builder addObjectsFromArray:subarray];
+    }
+    [self setArray:builder];
+    return self;
+}
+
+
+
+
 #pragma mark Filtering
 
 
