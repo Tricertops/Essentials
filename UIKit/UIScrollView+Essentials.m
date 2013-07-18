@@ -66,8 +66,8 @@
     CGSize contentSize = self.contentSize;
     
     CGPoint contentOffset = {
-        .x = (contentSize.width - boundsSize.width) * contentProgress.x,
-        .y = (contentSize.height - boundsSize.height) * contentProgress.y,
+        .x = (contentSize.width - boundsSize.width) * contentProgress.x - self.contentInset.left,
+        .y = (contentSize.height - boundsSize.height) * contentProgress.y - self.contentInset.top,
     };
     self.contentOffset = contentOffset;
 }
