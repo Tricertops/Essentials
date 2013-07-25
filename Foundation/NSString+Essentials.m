@@ -171,7 +171,7 @@
 
 #pragma mark Joining
 
-- (NSString *) :(NSString *)a { return [self.class concat:a, nil]; }
+- (NSString *) :(NSString *)a { return [self.class concat:self, a, nil]; }
 - (NSString *) :(NSString *)a :(NSString *)b { return [NSString concat:self, a, b, nil]; }
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c  { return [NSString concat:self, a, b, c, nil]; }
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d { return [NSString concat:self, a, b, c, d, nil]; }
