@@ -38,45 +38,109 @@
 
 
 
+#pragma mark Maximum Content Offset
+
+
+- (CGPoint)maximumContentOffset {
+    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
+    CGSize boundsSize = viewport.size;
+    CGSize contentSize = self.contentSize;
+    
+    CGPoint maximumContentOffset = {
+        .x = MAX(contentSize.width - boundsSize.width, 0),
+        .y = MAX(contentSize.height - boundsSize.height, 0),
+    };
+    return maximumContentOffset;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingMaximumContentOffset {
+    return [NSSet setWithObjects:@"contentSize", @"bounds", nil];
+}
+
+
+
+
+
+#pragma mark Content Progress Offset
+
+
+- (CGPoint)contentProgressOffset {
+    CGPoint contentOffset = self.contentOffset;
+    UIEdgeInsets contentInset = self.contentInset;
+    CGPoint offset = {
+        .x = contentOffset.x + contentInset.left,
+        .y = contentOffset.y + contentInset.top,
+    };
+    return offset;
+}
+
+
+- (void)setContentProgressOffset:(CGPoint)contentProgressOffset {
+    UIEdgeInsets contentInset = self.contentInset;
+    CGPoint offset = {
+        .x = contentProgressOffset.x - contentInset.left,
+        .y = contentProgressOffset.y - contentInset.top,
+    };
+    self.contentOffset = offset;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingContentProgressOffset {
+    return [NSSet setWithObjects:@"contentOffset", @"contentInset", nil];
+}
+
+
+
+
+
 #pragma mark Content Progress
 
 
 - (CGPoint)contentProgress {
-    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
-    CGSize boundsSize = viewport.size;
-    CGPoint contentOffset = viewport.origin;
-    CGSize contentSize = self.contentSize;
-    
-    CGSize scrollableSize = {
-        .width = contentSize.width - boundsSize.width,
-        .height = contentSize.height - boundsSize.height,
-    };
-    
+    CGPoint maximumContentOffset = self.maximumContentOffset;
+    CGPoint contentOffset = self.contentProgressOffset;
     CGPoint contentProgress = {
-        .x = (scrollableSize.width > 0? contentOffset.x / scrollableSize.width : 0),
-        .y = (scrollableSize.height > 0? contentOffset.y / scrollableSize.height : 0),
+        .x = (maximumContentOffset.x > 0? contentOffset.x / maximumContentOffset.x : 0),
+        .y = (maximumContentOffset.y > 0? contentOffset.y / maximumContentOffset.y : 0),
     };
     return contentProgress;
 }
 
 
 - (void)setContentProgress:(CGPoint)contentProgress {
-    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
-    CGSize boundsSize = viewport.size;
-    CGSize contentSize = self.contentSize;
-    
+    CGPoint maximumContentOffset = self.maximumContentOffset;
     CGPoint contentOffset = {
-        .x = (contentSize.width - boundsSize.width) * contentProgress.x - self.contentInset.left,
-        .y = (contentSize.height - boundsSize.height) * contentProgress.y - self.contentInset.top,
+        .x = maximumContentOffset.x * contentProgress.x,
+        .y = maximumContentOffset.y * contentProgress.y,
     };
-    self.contentOffset = contentOffset;
+    self.contentProgressOffset = contentOffset;
 }
 
 
 + (NSSet *)keyPathsForValuesAffectingContentProgress {
-    return [NSSet setWithObjects:@"contentSize", @"frame", @"contentOffset", @"contentInset", nil];
+    return [NSSet setWithObjects:@"contentProgressOffset", @"maximumContentOffset", nil];
 }
 
+
+
+- (UIEdgeInsets)bouncingInsets {
+    CGPoint contentOffset = self.contentProgressOffset;
+    CGPoint maximumContentOffset = self.maximumContentOffset;
+    
+    UIEdgeInsets bouncingInsets = {
+        .left = MAX(-contentOffset.x, 0),
+        .top = MAX(-contentOffset.y, 0),
+        .right = MAX(contentOffset.x - maximumContentOffset.x, 0),
+        .bottom = MAX(contentOffset.y - maximumContentOffset.y, 0),
+    };
+    return bouncingInsets;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingBouncingInsets {
+    return [NSSet setWithObjects:@"contentProgressOffset", @"maximumContentOffset", nil];
+}
 
 
 

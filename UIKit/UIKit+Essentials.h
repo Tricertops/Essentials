@@ -42,6 +42,12 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 
 
 
+#pragma mark Edge Insets
+
+extern UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets, UIEdgeInsets);
+
+
+
 #pragma mark Autoresizing
 
 enum {

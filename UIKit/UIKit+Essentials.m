@@ -108,3 +108,19 @@ extern CGRect CGRectRoundToScreenScale(CGRect rect) {
 }
 
 
+
+
+
+#pragma mark Edge Insets
+
+UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets a, UIEdgeInsets b) {
+    UIEdgeInsets insets = {
+        .top = a.top + b.top,
+        .left = a.left + b.left,
+        .right = a.right + b.right,
+        .bottom = a.bottom + b.bottom,
+    };
+    return insets;
+}
+
+
