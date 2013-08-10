@@ -40,3 +40,17 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #define ESSAssertReturn(CONDITION, MESSAGE, ...)        ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return
 #define ESSAssertReturnNil(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return nil
 #define ESSAssertException(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
+
+
+
+
+
+#pragma mark Key Path Operators
+
+#define keypathOperation(OPERATION, CLASS, KEYPATH)    (((void)(NO && ((void)CLASS.new.KEYPATH, NO)), "@" # OPERATION "." # KEYPATH))
+
+#define keypathCount(CLASS, KEYPATH)   keypathOperation(count, CLASS, KEYPATH)
+#define keypathSum(CLASS, KEYPATH)     keypathOperation(sum, CLASS, KEYPATH)
+#define keypathAverage(CLASS, KEYPATH) keypathOperation(avg, CLASS, KEYPATH)
+#define keypathMin(CLASS, KEYPATH)     keypathOperation(min, CLASS, KEYPATH)
+#define keypathMax(CLASS, KEYPATH)     keypathOperation(max, CLASS, KEYPATH)
