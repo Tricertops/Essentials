@@ -49,8 +49,9 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 #define keypathOperation(OPERATION, CLASS, KEYPATH)    (((void)(NO && ((void)CLASS.new.KEYPATH, NO)), "@" # OPERATION "." # KEYPATH))
 
-#define keypathCount(CLASS, KEYPATH)   keypathOperation(count, CLASS, KEYPATH)
-#define keypathSum(CLASS, KEYPATH)     keypathOperation(sum, CLASS, KEYPATH)
-#define keypathAverage(CLASS, KEYPATH) keypathOperation(avg, CLASS, KEYPATH)
-#define keypathMin(CLASS, KEYPATH)     keypathOperation(min, CLASS, KEYPATH)
-#define keypathMax(CLASS, KEYPATH)     keypathOperation(max, CLASS, KEYPATH)
+#define keypathCount(CLASS, KEYPATH)    keypathOperation(count, CLASS, KEYPATH)
+#define keypathSum(CLASS, KEYPATH)      keypathOperation(sum, CLASS, KEYPATH)
+#define keypathAverage(CLASS, KEYPATH)  keypathOperation(avg, CLASS, KEYPATH)
+#define keypathMin(CLASS, KEYPATH)      keypathOperation(min, CLASS, KEYPATH)
+#define keypathMax(CLASS, KEYPATH)      keypathOperation(max, CLASS, KEYPATH)
+#define keypathUnique(CLASS, KEYPATH)   keypathOperation(distinctUnionOfObjects, CLASS, KEYPATH)
