@@ -18,6 +18,9 @@
 
 #pragma mark Iterating
 
+/// Return object at index 0. If the receiver is empty, returns nil.
+- (id)firstObject;
+
 /// Enumerates contents of the receiver.
 - (void)forEach:(void(^)(id object))block;
 
