@@ -72,7 +72,9 @@
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     self.layer.cornerRadius = cornerRadius;
-    self.layer.masksToBounds = ( ! self.layer.masksToBounds && cornerRadius > 0); // Turn on if not already.
+    if ( ! self.layer.masksToBounds && cornerRadius > 0) {
+        self.layer.masksToBounds = YES; // Turn on if not already.
+    }
 }
 
 
