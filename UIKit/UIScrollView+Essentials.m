@@ -124,6 +124,11 @@
 
 
 
+
+
+#pragma mark Bouncing Insets
+
+
 - (UIEdgeInsets)bouncingInsets {
     CGPoint contentOffset = self.contentProgressOffset;
     CGPoint maximumContentOffset = self.maximumContentOffset;
@@ -141,6 +146,31 @@
 + (NSSet *)keyPathsForValuesAffectingBouncingInsets {
     return [NSSet setWithObjects:@"contentProgressOffset", @"maximumContentOffset", nil];
 }
+
+
+
+
+
+#pragma mark Page
+
+
+- (CGFloat)page {
+    if ( self.bounds.size.width <= 0) return 0;
+    return self.bounds.origin.x / self.bounds.size.width;
+}
+
+
+- (void)setPage:(CGFloat)page {
+    CGRect bounds = self.bounds;
+    bounds.origin.x = page * bounds.size.width;
+    self.bounds = bounds;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingPage {
+    return [NSSet setWithObjects:@"bounds", nil];
+}
+
 
 
 

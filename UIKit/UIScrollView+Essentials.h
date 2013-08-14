@@ -39,6 +39,9 @@
 /// Provides current bouncing in all directions. Values are never negative and takes into account content insets.
 @property (nonatomic, readonly, assign) UIEdgeInsets bouncingInsets;
 
+/// Horizontal page index. This is in fact floating point number, not just page index. Can be used for tracking progress between two pages.
+@property (nonatomic, readwrite, assign) CGFloat page;
+
 
 
 @end
