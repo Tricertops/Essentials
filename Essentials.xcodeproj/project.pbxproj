@@ -24,6 +24,7 @@
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
 		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
+		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
 		5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
@@ -87,6 +88,7 @@
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
 		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
+		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA58B176205DF0061E8B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				5F906B4417709E8700097175 /* Foundation+Essentials.h */,
+				5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */,
 				5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */,
 				5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */,
 				5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */,
@@ -336,6 +339,7 @@
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
 				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
 				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
+				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
 				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
 				5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */,

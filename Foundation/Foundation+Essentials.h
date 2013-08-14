@@ -55,3 +55,10 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #define keypathMin(CLASS, KEYPATH)      keypathOperation(min, CLASS, KEYPATH)
 #define keypathMax(CLASS, KEYPATH)      keypathOperation(max, CLASS, KEYPATH)
 #define keypathUnique(CLASS, KEYPATH)   keypathOperation(distinctUnionOfObjects, CLASS, KEYPATH)
+
+
+
+
+extern NSUInteger NSUIntegerRandom(NSUInteger count);
+
+
