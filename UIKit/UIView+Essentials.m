@@ -79,6 +79,96 @@
 
 
 
+#pragma mark - Shadow
+
+
+- (NSShadow *)shadow {
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = self.layer.shadowOffset;
+    UIColor *color = self.shadowColor;
+    CGFloat alpha = CGColorGetAlpha(color.CGColor) * self.shadowAlpha;
+    shadow.shadowColor = [color colorWithAlphaComponent:alpha];
+    shadow.shadowBlurRadius = self.shadowBlurRadius;
+    return shadow;
+}
+
+
+- (void)setShadow:(NSShadow *)shadow {
+    self.layer.shadowOffset = shadow.shadowOffset;
+    self.shadowColor = shadow.shadowColor;
+    self.shadowBlurRadius = shadow.shadowBlurRadius;
+    self.shadowAlpha = 1;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadow {
+    return [NSSet setWithObjects:@"layer.shadowOffset", @"shadowColor", @"shadowAlpha", @"shadowBlurRadius", nil];
+}
+
+
+- (UIOffset)shadowOffset {
+    return UIOffsetMake(self.layer.shadowOffset.width, self.layer.shadowOffset.height);
+}
+
+
+- (void)setShadowOffset:(UIOffset)shadowOffset {
+    self.layer.shadowOffset = CGSizeMake(shadowOffset.horizontal, shadowOffset.vertical);
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadowOffset {
+    return [NSSet setWithObjects:@"layer.shadowOffset", @"shadow.shadowOffset", nil];
+}
+
+
+- (UIColor *)shadowColor {
+    return [UIColor colorWithCGColor:self.layer.shadowColor];
+}
+
+
+- (void)setShadowColor:(UIColor *)shadowColor {
+    self.layer.shadowColor = shadowColor.CGColor;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadowColor {
+    return [NSSet setWithObjects:@"layer.shadowColor", @"shadow.shadowColor", nil];
+}
+
+
+- (CGFloat)shadowBlurRadius {
+    return self.layer.shadowRadius;
+}
+
+
+- (void)setShadowBlurRadius:(CGFloat)shadowBlurRadius {
+    self.layer.shadowRadius = shadowBlurRadius;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadowBlurRadius {
+    return [NSSet setWithObjects:@"layer.shadowRadius", @"shadow.shadowBlurRadius", nil];
+}
+
+
+- (CGFloat)shadowAlpha {
+    return self.layer.shadowOpacity;
+}
+
+
+- (void)setShadowAlpha:(CGFloat)shadowAlpha {
+    self.layer.shadowOpacity = shadowAlpha;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadowAlpha {
+    return [NSSet setWithObjects:@"layer.shadowOpacity", @"shadow.shadowColor", nil];
+}
+
+
+
+
+
 #pragma mark - Structs Adjustments
 
 

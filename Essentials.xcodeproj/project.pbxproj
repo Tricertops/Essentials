@@ -23,6 +23,7 @@
 		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
+		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
 		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
 		5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
@@ -84,6 +85,8 @@
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
+		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
+		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA58B176205DF0061E8B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				5B134117176243C2008F8F1E /* UIView+Essentials.m */,
 				5FC56AAF177B3ACE00AB6A4A /* UIScrollView+Essentials.h */,
 				5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */,
+				5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */,
+				5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
 				5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */,
 				5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */,
+				5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,6 +40,25 @@
 
 
 
+#pragma mark - Shadow
+
+/// Wraps all shadow attributes in single object. Color is premultiplied by alpha, since NSShadow doesn't have opacity property.
+@property (nonatomic, readwrite) NSShadow *shadow;
+
+/// Forwards to the underlaying layer, transforms CGSize to UIOffset.
+@property (nonatomic, readwrite) UIOffset shadowOffset;
+
+/// Forwards to the underlaying layer, transforms color classes.
+@property (nonatomic, readwrite) UIColor *shadowColor;
+
+/// Forwards to the underlaying layer.
+@property (nonatomic, readwrite) CGFloat shadowBlurRadius;
+
+/// Forwards to the underlaying layer.
+@property (nonatomic, readwrite) CGFloat shadowAlpha;
+
+
+
 #pragma mark - Structs Adjustments
 
 /// Allows you to quickly adjust frame.
