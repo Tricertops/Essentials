@@ -14,6 +14,7 @@
 #import "UIScreen+Essentials.h"
 #import "UIView+Essentials.h"
 #import "UIScrollView+Essentials.h"
+#import "NSShadow+Essentials.h"
 
 
 
