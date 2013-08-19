@@ -47,6 +47,7 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 #pragma mark Key Path Operators
 
+
 #define keypathOperation(OPERATION, CLASS, KEYPATH)    (((void)(NO && ((void)CLASS.new.KEYPATH, NO)), "@" # OPERATION "." # KEYPATH))
 
 #define keypathCount(CLASS, KEYPATH)    keypathOperation(count, CLASS, KEYPATH)
@@ -59,6 +60,20 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 
 
+
+#pragma mark - Random
+
+
 extern NSUInteger NSUIntegerRandom(NSUInteger count);
+
+
+
+
+
+#pragma mark - Types
+
+
+typedef uint8_t NSUByte;
+typedef int8_t NSByte;
 
 
