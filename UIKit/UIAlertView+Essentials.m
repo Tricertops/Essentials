@@ -23,7 +23,7 @@
 
 
 - (UIAlertViewCompletionBlock)completionBlock {
-    return [self associatedObject:@selector(completionBlock)];
+    return [self associatedObjectForKey:@selector(completionBlock)];
 }
 
 

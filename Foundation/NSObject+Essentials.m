@@ -32,8 +32,13 @@
 #pragma mark - Runtime Associations
 
 
-- (id)associatedObject:(void *)key {
+- (id)associatedObjectForKey:(void *)key {
     return objc_getAssociatedObject(self, key);
+}
+
+
+- (id)associatedObjectForString:(NSString *const __autoreleasing *)string {
+    return [self associatedObjectForKey:(void *)string];
 }
 
 
@@ -42,8 +47,18 @@
 }
 
 
+- (void)setAssociatedObject:(id)object forString:(NSString *const __autoreleasing *)string policy:(objc_AssociationPolicy)policy {
+    [self setAssociatedObject:object forKey:(void *)string policy:policy];
+}
+
+
 - (void)setAssociatedStrongObject:(id)object forKey:(void *)key {
     [self setAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
+}
+
+
+- (void)setAssociatedStrongObject:(id)object forString:(NSString *const __autoreleasing *)string {
+    [self associatedObjectForKey:(void *)string];
 }
 
 
@@ -52,8 +67,18 @@
 }
 
 
+- (void)setAssociatedCopyObject:(id)object forString:(NSString *const __autoreleasing *)string {
+    [self setAssociatedCopyObject:object forKey:(void *)string];
+}
+
+
 - (void)setAssociatedAssignObject:(id)object forKey:(void *)key {
     [self setAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_ASSIGN];
+}
+
+
+- (void)setAssociatedAssignObject:(id)object forString:(NSString *const __autoreleasing *)string {
+    [self setAssociatedAssignObject:object forKey:(void *)string];
 }
 
 

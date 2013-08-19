@@ -59,6 +59,10 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 }\
 
 
+#define ESSStringDefinition(PREFIX, TYPE, NAME)\
+NSString * const   PREFIX ## TYPE ## NAME   =   @ #PREFIX "." #TYPE "." #NAME;
+
+
 
 
 
