@@ -60,4 +60,14 @@
 
 
 
+#pragma mark - Null
+
+- (BOOL)isNotNull {
+    return (self != NSNull.null);
+}
+
+
+
+
+
 @end

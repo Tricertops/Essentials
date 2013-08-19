@@ -19,7 +19,7 @@
 #pragma mark - Delayed Action
 
 /// Delayed execution of block
-- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block;
+- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block __deprecated;
 
 
 
@@ -39,6 +39,13 @@
 
 /// Associates object using assign policy.
 - (void)setAssociatedAssignObject:(id)object forKey:(void *)key;
+
+
+
+#pragma mark - Null
+
+/// Returns YES, if the receiver is not kind of NSNull class, otherwise NO (including case when the method is called on nil).
+- (BOOL)isNotNull;
 
 
 
