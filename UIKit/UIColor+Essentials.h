@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Foundation+Essentials.h"
 
 
 
@@ -29,4 +30,30 @@
 
 
 
+#pragma mark - Components
+
+/// Red component of RGB or grayscale color.
+- (CGFloat)redComponent;
+
+/// Green component of RGB or grayscale color.
+- (CGFloat)greenComponent;
+
+/// Blue component of RGB or grayscale color.
+- (CGFloat)blueComponent;
+
+/// Alpha component of the receiver.
+- (CGFloat)alphaComponent;
+
+
+
 @end
+
+
+
+/// Convenience function for creating RGBA colors using byte values.
+extern inline UIColor * UIColorByteRGBA(NSUByte r, NSUByte g, NSUByte b, CGFloat a);
+
+/// Convenience function for creating RGB colors using byte values with alpha 1.
+extern inline UIColor * UIColorByteRGB(NSUByte r, NSUByte g, NSUByte b);
+
+
