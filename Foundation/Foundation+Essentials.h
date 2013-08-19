@@ -45,6 +45,23 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 
 
+#pragma mark - Shared Values
+
+
+#define ESSShared(TYPE, NAME, VALUE)\
++ (TYPE)NAME {\
+    static TYPE NAME = nil;\
+    static dispatch_once_t onceToken;\
+    dispatch_once(&onceToken, ^{\
+        NAME = VALUE;\
+    });\
+    return NAME;\
+}\
+
+
+
+
+
 #pragma mark Key Path Operators
 
 
