@@ -15,6 +15,8 @@
 #import "UIView+Essentials.h"
 #import "UIScrollView+Essentials.h"
 #import "NSShadow+Essentials.h"
+#import "NSAttributedString+Essentials.h"
+#import "NSMutableAttributedString+Essentials.h"
 
 
 
