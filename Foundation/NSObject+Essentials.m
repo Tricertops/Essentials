@@ -58,7 +58,7 @@
 
 
 - (void)setAssociatedStrongObject:(id)object forString:(NSString *const __autoreleasing *)string {
-    [self associatedObjectForKey:(void *)string];
+    [self setAssociatedStrongObject:object forKey:(void *)string];
 }
 
 
