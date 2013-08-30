@@ -90,6 +90,17 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 
 
 
+#pragma mark - Clamping
+
+#define CLAMP(MIN, VALUE, MAX) ({\
+    typeof(MIN) __min = (MIN);\
+    typeof(VALUE) __value = (VALUE);\
+    typeof(MAX) __max = (MAX);\
+    (__value > __max ? __max : (__value < __min ? __min : __value));\
+})
+
+
+
 
 #pragma mark - Types
 
