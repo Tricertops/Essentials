@@ -168,6 +168,21 @@
 }
 
 
+- (UIBezierPath *)shadowPath {
+    return [UIBezierPath bezierPathWithCGPath:self.layer.shadowPath];
+}
+
+
+- (void)setShadowPath:(UIBezierPath *)shadowPath {
+    self.layer.shadowPath = [shadowPath CGPath];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingShadowPath {
+    return [NSSet setWithObjects:@"layer.shadowPath", nil];
+}
+
+
 
 
 

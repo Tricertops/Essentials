@@ -57,6 +57,9 @@
 /// Forwards to the underlaying layer.
 @property (nonatomic, readwrite) CGFloat shadowAlpha;
 
+/// Forwards to the underlaying layer, transforms CGPathRef to UIBezierPath and vice versa.
+@property (nonatomic, readwrite) UIBezierPath *shadowPath;
+
 
 
 #pragma mark - Structs Adjustments
