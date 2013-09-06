@@ -106,6 +106,6 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 
 
 typedef uint8_t NSUByte;
-typedef int8_t NSByte;
+typedef unsigned char NSByte;
 
 

@@ -38,6 +38,10 @@
 }
 
 
+- (NSComparisonResult)compareInversed:(NSNumber *)otherNumber {
+    return [otherNumber compare:self];
+}
+
 
 
 

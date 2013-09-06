@@ -22,6 +22,9 @@
 /// Invokes given block N times with iteration indexes, where N is receiver's unsignedIntegerValue.
 - (void)timesIndex:(void(^)(NSUInteger index))block;
 
+/// return [otherNumber compare:self];
+- (NSComparisonResult)compareInversed:(NSNumber *)otherNumber;
+
 
 
 @end
