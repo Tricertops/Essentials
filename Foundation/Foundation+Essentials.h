@@ -116,6 +116,19 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 - (TYPE)make_##GETTER\
 
 
+#define ESSSynthesizeValue(TYPE, GETTER, SETTER)\
+- (TYPE)GETTER {\
+    TYPE GETTER;\
+    NSValue *value = [self associatedObjectForKey:@selector(GETTER)];\
+    [value getValue:&GETTER];\
+    return GETTER;\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    NSValue *value = [NSValue valueWithBytes:&GETTER objCType:@encode(TYPE)];\
+    [self setAssociatedStrongObject:value forKey:@selector(GETTER)];\
+}\
+
+
 
 
 
