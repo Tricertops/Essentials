@@ -21,8 +21,17 @@
 /// Shorthand for -initWithNameSuffix:
 + (instancetype)queueWithNameSuffix:(NSString *)nameSuffix;
 
-/// Initialize new instance and compose the name by appentign given name suffix to application identifier. Example: com.iAdverti.App.nameSuffix
-- (id)initWithNameSuffix:(NSString *)nameSuffix;
+/// Shorthand for -initWithNameSuffix:numberOfConcurrentOperations: with 1 concurrent operation.
++ (instancetype)serialQueueWithNameSuffix:(NSString *)nameSuffix;
+
+/// Shorthand for -initWithNameSuffix:numberOfConcurrentOperations: with default number of concurrent operation.
++ (instancetype)parallelQueueWithNameSuffix:(NSString *)nameSuffix;
+
+/// Initialize new instance of serial queue.
+- (instancetype)initWithNameSuffix:(NSString *)nameSuffix;
+
+/// Initialize new instance and compose the name by appenting given name suffix to application identifier. Example: com.iAdverti.App.nameSuffix
+- (instancetype)initWithNameSuffix:(NSString *)nameSuffix numberOfConcurrentOperations:(NSUInteger)concurrent;
 
 
 

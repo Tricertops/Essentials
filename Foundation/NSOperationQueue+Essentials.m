@@ -26,11 +26,27 @@
 }
 
 
++ (instancetype)serialQueueWithNameSuffix:(NSString *)nameSuffix {
+    return [[self alloc] initWithNameSuffix:nameSuffix numberOfConcurrentOperations:1];
+}
+
+
++ (instancetype)parallelQueueWithNameSuffix:(NSString *)nameSuffix {
+    return [[self alloc] initWithNameSuffix:nameSuffix numberOfConcurrentOperations:NSOperationQueueDefaultMaxConcurrentOperationCount];
+}
+
+
 - (instancetype)initWithNameSuffix:(NSString *)nameSuffix {
+    return [self initWithNameSuffix:nameSuffix numberOfConcurrentOperations:1];
+}
+
+
+- (instancetype)initWithNameSuffix:(NSString *)nameSuffix numberOfConcurrentOperations:(NSUInteger)concurrent {
     self = [self init];
     if (self) {
         NSString *appIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
-        self.name = [appIdentifier stringByAppendingFormat:@".%@", nameSuffix];
+        self.name = [appIdentifier stringByAppendingFormat:@".%@", nameSuffix ?: [[NSUUID UUID] UUIDString]];
+        self.maxConcurrentOperationCount = concurrent;
     }
     return self;
 }
