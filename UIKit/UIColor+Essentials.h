@@ -46,16 +46,23 @@
 
 
 
-#pragma mark Brightness
+#pragma mark - Brightness
 
-/// Grayscale value of this color.
-- (CGFloat)brightness;
+/// Luminance of the receiver. Value of the receiver in grayscale.
+- (CGFloat)luminance;
+
+/// Return new color with the same hue as the receiver, but different luminance.
+- (UIColor *)colorWithLuminance:(CGFloat)luminance;
 
 
 
 @end
 
 
+
+
+
+#pragma mark - Functions
 
 /// Convenience function for creating RGBA colors using byte values.
 extern inline UIColor * UIColorByteRGBA(NSUByte r, NSUByte g, NSUByte b, CGFloat a);
