@@ -128,6 +128,25 @@
 
 
 
+#pragma mark Brightness
+
+
+- (CGFloat)brightness {
+    CGFloat red, green, blue;
+    BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:NULL];
+    if (hasRGBColorSpace) return (red * 0.3 + green * 0.59 + blue * 0.11);
+    
+    CGFloat brightness;
+    BOOL hasGrayscaleColorSpace = [self getWhite:&brightness alpha:NULL];
+    if (hasGrayscaleColorSpace) return brightness;
+    
+    return 0;
+}
+
+
+
+
+
 @end
 
 

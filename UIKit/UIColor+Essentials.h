@@ -46,6 +46,13 @@
 
 
 
+#pragma mark Brightness
+
+/// Grayscale value of this color.
+- (CGFloat)brightness;
+
+
+
 @end
 
 

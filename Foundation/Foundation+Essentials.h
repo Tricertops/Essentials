@@ -77,6 +77,17 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #pragma mark Properties
 
 
+#define ESSLazyLoad(TYPE, GETTER)\
+- (TYPE)GETTER {\
+    if ( ! self->_##GETTER) {\
+        [self load_##GETTER];\
+    }\
+    return self->_##GETTER;\
+}\
+- (void)load_##GETTER\
+
+
+
 #define ESSSynthesizeStrong(TYPE, GETTER, SETTER)\
 - (TYPE)GETTER {\
     return [self associatedObjectForKey:@selector(GETTER)];\
@@ -134,6 +145,9 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 #pragma mark String Definitions
 
+
+#define ESSStringDeclaration(PREFIX, TYPE, NAME)\
+extern NSString * const   PREFIX ## TYPE ## NAME;
 
 #define ESSStringDefinition(PREFIX, TYPE, NAME)\
 NSString * const   PREFIX ## TYPE ## NAME   =   @ #PREFIX "." #TYPE "." #NAME;
