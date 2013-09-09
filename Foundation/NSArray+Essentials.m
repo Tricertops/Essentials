@@ -7,7 +7,7 @@
 //
 
 #import "NSArray+Essentials.h"
-
+#import "NSMutableArray+Essentials.h"
 
 
 
@@ -121,7 +121,10 @@
     return [self componentsJoinedByString:separator lastString:last];
 }
 
-
+- (NSArray *)arrayByRandomizingOrder {
+    
+   return [self.mutableCopy randomizeOrder];
+}
 
 
 

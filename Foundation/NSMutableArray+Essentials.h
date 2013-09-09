@@ -41,6 +41,10 @@
 /// Removes all objects from the receiver for which the block returns NO. Method returns receiver.
 - (NSMutableArray *)filterIndex:(BOOL(^)(NSUInteger index, id object))block;
     
-    
-    
+
+#pragma mark Randomize
+
+/// Changes positions of all objects in array, in random order. Method returns reordered array.
+- (NSMutableArray *)randomizeOrder;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "NSMutableArray+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -105,7 +106,17 @@
     return self;
 }
 
+#pragma mark Randomize
 
+- (NSMutableArray *)randomizeOrder {
+    
+    for (NSInteger i = self.count-1; i > 0; i--)
+    {
+        [self exchangeObjectAtIndex:i withObjectAtIndex:NSUIntegerRandom(i+1)];
+    }
+    
+    return self;
+}
 
 
 

@@ -57,6 +57,10 @@
 /// Shorthand for -componentsJoinedByString:lastString:
 - (NSString *)join:(NSString *)separator last:(NSString *)last;
 
+#pragma mark Randomizing
+
+///Returns copy with randmized order of elements.
+- (NSArray *)arrayByRandomizingOrder;
 
 
 @end
