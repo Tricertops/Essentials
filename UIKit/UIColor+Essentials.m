@@ -128,6 +128,49 @@
 
 
 
+#pragma mark Brightness
+
+
+- (CGFloat)luminance {
+    CGFloat red, green, blue;
+    BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:NULL];
+    if (hasRGBColorSpace) return (red * 0.299 + green * 0.587 + blue * 0.114);
+    
+    CGFloat luminance;
+    BOOL hasGrayscaleColorSpace = [self getWhite:&luminance alpha:NULL];
+    if (hasGrayscaleColorSpace) return luminance;
+    
+    return 0;
+}
+
+
+- (UIColor *)colorWithLuminance:(CGFloat)newLuminance {
+    if (newLuminance <= 0) return [UIColor blackColor];
+    if (newLuminance >= 1) return [UIColor whiteColor];
+    
+    CGFloat oldLuminance = self.luminance;
+    if (oldLuminance == newLuminance) return self;
+    
+    CGFloat white;
+    BOOL hasGrayscaleColorSpace = [self getWhite:&white alpha:NULL];
+    if (hasGrayscaleColorSpace) return [UIColor colorWithWhite:newLuminance alpha:1];
+    
+    CGFloat red, green, blue;
+    BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:NULL];
+    if ( ! hasRGBColorSpace) return self;
+    
+    
+    CGFloat multiplier = (newLuminance / oldLuminance);
+    return [UIColor colorWithRed:red * multiplier
+                           green:green * multiplier
+                            blue:blue * multiplier
+                           alpha:1];
+}
+
+
+
+
+
 @end
 
 

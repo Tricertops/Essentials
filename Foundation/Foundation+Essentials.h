@@ -45,7 +45,7 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 
 
-#pragma mark - Shared Values
+#pragma mark - Shared Class Values
 
 
 #define ESSShared(TYPE, NAME, VALUE)\
@@ -58,6 +58,96 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
     return NAME;\
 }\
 
+
+#define ESSSharedMake(TYPE, NAME)\
++ (TYPE)NAME {\
+    static TYPE NAME = nil;\
+    static dispatch_once_t onceToken;\
+    dispatch_once(&onceToken, ^{\
+        NAME = [self make_##NAME];\
+    });\
+    return NAME;\
+}\
++ (TYPE)make_##NAME\
+
+
+
+
+
+#pragma mark Properties
+
+
+#define ESSLazyLoad(TYPE, GETTER)\
+- (TYPE)GETTER {\
+    if ( ! self->_##GETTER) {\
+        [self load_##GETTER];\
+    }\
+    return self->_##GETTER;\
+}\
+- (void)load_##GETTER\
+
+
+
+#define ESSSynthesizeStrong(TYPE, GETTER, SETTER)\
+- (TYPE)GETTER {\
+    return [self associatedObjectForKey:@selector(GETTER)];\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    [self setAssociatedStrongObject:GETTER forKey:@selector(GETTER)];\
+}\
+
+
+#define ESSSynthesizeStrongLoad(TYPE, GETTER, SETTER)\
+- (TYPE)GETTER {\
+    TYPE GETTER = [self associatedObjectForKey:@selector(GETTER)];\
+    if ( ! GETTER) {\
+        [self load_##GETTER];\
+        GETTER = [self associatedObjectForKey:@selector(GETTER)];\
+    }\
+    return GETTER;\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    [self setAssociatedStrongObject:GETTER forKey:@selector(GETTER)];\
+}\
+- (void)load_##GETTER\
+
+
+#define ESSSynthesizeStrongMake(TYPE, GETTER, SETTER)\
+- (TYPE)GETTER {\
+    TYPE GETTER = [self associatedObjectForKey:@selector(GETTER)];\
+    if ( ! GETTER) {\
+        GETTER = [self make_##GETTER];\
+        [self SETTER:GETTER];\
+    }\
+    return GETTER;\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    [self setAssociatedStrongObject:GETTER forKey:@selector(GETTER)];\
+}\
+- (TYPE)make_##GETTER\
+
+
+#define ESSSynthesizeValue(TYPE, GETTER, SETTER)\
+- (TYPE)GETTER {\
+    TYPE GETTER;\
+    NSValue *value = [self associatedObjectForKey:@selector(GETTER)];\
+    [value getValue:&GETTER];\
+    return GETTER;\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    NSValue *value = [NSValue valueWithBytes:&GETTER objCType:@encode(TYPE)];\
+    [self setAssociatedStrongObject:value forKey:@selector(GETTER)];\
+}\
+
+
+
+
+
+#pragma mark String Definitions
+
+
+#define ESSStringDeclaration(PREFIX, TYPE, NAME)\
+extern NSString * const   PREFIX ## TYPE ## NAME;
 
 #define ESSStringDefinition(PREFIX, TYPE, NAME)\
 NSString * const   PREFIX ## TYPE ## NAME   =   @ #PREFIX "." #TYPE "." #NAME;
@@ -106,6 +196,6 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 
 
 typedef uint8_t NSUByte;
-typedef int8_t NSByte;
+typedef unsigned char NSByte;
 
 
