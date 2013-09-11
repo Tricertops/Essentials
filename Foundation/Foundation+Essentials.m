@@ -12,5 +12,5 @@
 
 NSUInteger NSUIntegerRandom(NSUInteger count) {
     if (count == NSUIntegerMax) return arc4random();
-    else return arc4random_uniform(count);
+    else return arc4random_uniform((uint32_t)count);
 }

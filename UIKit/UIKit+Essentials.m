@@ -52,12 +52,12 @@ extern CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
 
 
 extern CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode mode) {
-    CGFloat (*function)(CGFloat);
+    double (*function)(double);
     switch (mode) {
-        case NSRoundPlain:   function = &roundf; break;
-        case NSRoundUp:      function = &ceilf; break;
-        case NSRoundDown:    function = &floorf; break;
-        case NSRoundBankers: function = &roundf; break;
+        case NSRoundPlain:   function = &round; break;
+        case NSRoundUp:      function = &ceil; break;
+        case NSRoundDown:    function = &floor; break;
+        case NSRoundBankers: function = &round; break;
     }
     if ( ! scale) scale = [[UIScreen mainScreen] scale];
     CGFloat result = function(value * scale) / scale;

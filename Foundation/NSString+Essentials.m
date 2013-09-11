@@ -133,7 +133,7 @@
 	const char *cString = [self UTF8String];
 	unsigned char hashBuffer[CC_MD5_DIGEST_LENGTH];
     
-	CC_MD5(cString, strlen(cString), hashBuffer);
+	CC_MD5(cString, (unsigned int)strlen(cString), hashBuffer);
     
 	NSMutableString *hash = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
 	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
@@ -147,7 +147,7 @@
 	const char *cString = [self UTF8String];
 	unsigned char hashBuffer[CC_SHA1_DIGEST_LENGTH];
     
-	CC_SHA1(cString, strlen(cString), hashBuffer);
+	CC_SHA1(cString, (unsigned int)strlen(cString), hashBuffer);
     
 	NSMutableString *hash = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
 	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
