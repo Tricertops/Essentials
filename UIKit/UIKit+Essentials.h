@@ -43,6 +43,9 @@ extern CGPoint CGPointRoundToScreenScale(CGPoint);
 extern CGSize CGSizeRoundToScreenScale(CGSize);
 extern CGRect CGRectRoundToScreenScale(CGRect);
 
+#pragma mark Float
+
+extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
 
 
 #pragma mark Edge Insets
