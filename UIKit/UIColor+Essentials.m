@@ -160,10 +160,10 @@
     if ( ! hasRGBColorSpace) return self;
     
     
-    CGFloat multiplier = (newLuminance / oldLuminance);
-    return [UIColor colorWithRed:red * multiplier
-                           green:green * multiplier
-                            blue:blue * multiplier
+    CGFloat delta = (newLuminance - oldLuminance);
+    return [UIColor colorWithRed:CLAMP(0, red + delta, 1)
+                           green:CLAMP(0, green + delta, 1)
+                            blue:CLAMP(0, blue + delta, 1)
                            alpha:1];
 }
 
