@@ -21,12 +21,6 @@
 #pragma mark Iterating
 
 
-- (id)firstObject {
-    if (self.count) return [self objectAtIndex:0];
-    else return nil;
-}
-
-
 - (void)forEach:(void(^)(id object))block {
     NSParameterAssert(block);
     
