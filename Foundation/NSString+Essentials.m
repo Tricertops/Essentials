@@ -198,3 +198,17 @@
 
 
 @end
+
+
+
+NSString * NSStringFormat(NSString *format, ...) {
+    va_list list;
+    va_start(list, format);
+    
+    NSString *string = [[NSString alloc] initWithFormat:format arguments:list];
+    
+    va_end(list);
+    return string;
+}
+
+
