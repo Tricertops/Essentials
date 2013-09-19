@@ -87,6 +87,16 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 - (void)load_##GETTER\
 
 
+#define ESSLazyMake(TYPE, GETTER)\
+- (TYPE)GETTER {\
+    if ( ! self->_##GETTER) {\
+        self->_##GETTER = [self make_##GETTER];\
+    }\
+    return self->_##GETTER;\
+}\
+- (TYPE)make_##GETTER\
+
+
 
 #define ESSSynthesizeStrong(TYPE, GETTER, SETTER)\
 - (TYPE)GETTER {\
