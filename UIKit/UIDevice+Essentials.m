@@ -26,6 +26,11 @@
 }
 
 
+- (NSUInteger)numberOfCores {
+    return [[NSProcessInfo processInfo] processorCount];
+}
+
+
 - (BOOL)iPhone {
     return (self.userInterfaceIdiom == UIUserInterfaceIdiomPhone);
 }
@@ -86,6 +91,11 @@
 
 + (NSString *)resource:(NSString *)string {
     return [self.currentDevice resource:string];
+}
+
+
++ (NSUInteger)numberOfCores {
+    return self.currentDevice.numberOfCores;
 }
 
 

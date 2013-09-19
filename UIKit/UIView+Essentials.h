@@ -38,6 +38,9 @@
 /// Forwards to the underlaying layer.
 @property (nonatomic, readwrite) CGFloat cornerRadius;
 
+/// Forwards to undelaying layer and sets rasterization scale to screen scale.
+@property (nonatomic, readwrite, assign) BOOL shouldRasterize;
+
 
 
 #pragma mark - Shadow

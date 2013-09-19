@@ -78,6 +78,19 @@
 }
 
 
+- (BOOL)shouldRasterize {
+    return self.layer.shouldRasterize;
+}
+
+
+- (void)setShouldRasterize:(BOOL)shouldRasterize {
+    self.layer.shouldRasterize = shouldRasterize;
+    if (shouldRasterize) {
+        self.layer.rasterizationScale = UIScreen.mainScreen.scale;
+    }
+}
+
+
 
 
 

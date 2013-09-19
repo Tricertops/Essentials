@@ -22,6 +22,9 @@
 /// Returns hardware model identifier. Example: iPhone5,2
 - (NSString *)modelVersion;
 
+/// Returns the number of CPU cores of the device.
+- (NSUInteger)numberOfCores;
+
 
 
 #pragma mark - Idiom
@@ -45,7 +48,7 @@
 
 #pragma mark Class Shorthands
 
-/// These methods call appropriate instance methods on [UIDevice currentDevice] object.
+/// These methods call corresponding instance methods on [UIDevice currentDevice] object.
 
 + (NSString *)modelVersion;
 + (BOOL)iPhone;
@@ -53,6 +56,7 @@
 + (NSString *)idiomName;
 + (NSString *)resourceSuffix;
 + (NSString *)resource:(NSString *)string;
++ (NSUInteger)numberOfCores;
 
 
 
