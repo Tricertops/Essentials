@@ -77,6 +77,11 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #pragma mark Properties
 
 
+#define ESSPropertyLazy(MEMORY, TYPE, NAME)\
+@property (nonatomic, readonly, MEMORY) TYPE NAME;\
+- (TYPE)ess_make_##NAME;
+
+
 #define ESSLazyLoad(TYPE, GETTER)\
 - (TYPE)GETTER {\
     if ( ! self->_##GETTER) {\
@@ -88,13 +93,14 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 
 
 #define ESSLazyMake(TYPE, GETTER)\
+@synthesize GETTER = _##GETTER;\
 - (TYPE)GETTER {\
     if ( ! self->_##GETTER) {\
-        self->_##GETTER = [self make_##GETTER];\
+        self->_##GETTER = [self ess_make_##GETTER];\
     }\
     return self->_##GETTER;\
 }\
-- (TYPE)make_##GETTER\
+- (TYPE)ess_make_##GETTER\
 
 
 
