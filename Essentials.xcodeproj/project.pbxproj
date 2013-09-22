@@ -38,6 +38,7 @@
 		5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
 		5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
 		5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
+		5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
 		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA5D517621F7A0061E8B5 /* NSOperationQueue+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+Essentials.m"; sourceTree = "<group>"; };
+		5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Essentials.h"; sourceTree = "<group>"; };
+		5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Essentials.m"; sourceTree = "<group>"; };
 		5F906B4417709E8700097175 /* Foundation+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Essentials.h"; sourceTree = "<group>"; };
 		5F906B4517709E9400097175 /* UIKit+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+Essentials.h"; sourceTree = "<group>"; };
 		5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Essentials.m"; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */,
 				5B7A38C217C3A43300C2F24C /* NSMutableAttributedString+Essentials.h */,
 				5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */,
+				5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */,
+				5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
+				5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */,
 				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
 				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
 				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
