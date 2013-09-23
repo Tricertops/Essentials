@@ -40,6 +40,7 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #define ESSAssertReturn(CONDITION, MESSAGE, ...)        ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return
 #define ESSAssertReturnNil(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) return nil
 #define ESSAssertException(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
+#define ESSAssertFail(MESSAGE, ...)                     ESSAssertException(NO, MESSAGE, ##__VA_ARGS__)
 
 
 
@@ -184,6 +185,10 @@ NSString * const   PREFIX ## TYPE ## NAME   =   @ #PREFIX "." #TYPE "." #NAME;
 #define keypathMax(CLASS, KEYPATH)      keypathOperation(max, CLASS, KEYPATH)
 #define keypathUnique(CLASS, KEYPATH)   keypathOperation(distinctUnionOfObjects, CLASS, KEYPATH)
 
+
+
+
+#define ESSSelector(SELECTOR)  NSStringFromSelector(@selector(SELECTOR))
 
 
 
