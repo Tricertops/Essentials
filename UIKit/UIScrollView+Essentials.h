@@ -24,6 +24,9 @@
 /// Allows you to quickly adjust scroll indicator insets.
 - (void)adjustScrollIndicatorInsets:(void(^)(UIEdgeInsets *insets))block;
 
+/// Allows you to quickly adjust content size.
+- (void)adjustContentSize:(void(^)(CGSize *size))block;
+
 
 
 #pragma mark Content Position

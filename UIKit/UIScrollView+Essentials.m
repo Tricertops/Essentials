@@ -35,6 +35,12 @@
 }
 
 
+- (void)adjustContentSize:(void (^)(CGSize *))block {
+    CGSize size = self.contentSize;
+    block(&size);
+    self.contentSize = size;
+}
+
 
 
 

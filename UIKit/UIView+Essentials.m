@@ -28,7 +28,7 @@
 
 - (UIImage *)snapshotWithScale:(CGFloat)scale {
     if (CGSizeEqualToSize(CGSizeZero, self.bounds.size)) return nil;
-    
+
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, scale);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();

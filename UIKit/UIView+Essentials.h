@@ -18,6 +18,7 @@
 
 
 #pragma mark - Snapshots
+//TODO - drawViewHierarchyInRect
 
 /// Returns snapshot of the receiver with screen scale.
 - (UIImage *)snapshot;
