@@ -107,12 +107,21 @@ extern CGRect CGRectRoundToScreenScale(CGRect rect) {
     return CGRectRoundToScale(rect, 0, NSRoundUp);
 }
 
+
+
+
+
 #pragma mark Float
 
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum) {
     CGFloat delta = maximum - minimum;
     return (delta * share) + minimum;
 }
+
+
+CGFloat const UITouchMin = 44;
+
+
 
 
 

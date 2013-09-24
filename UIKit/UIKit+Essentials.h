@@ -47,6 +47,8 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 #pragma mark Float
 
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
+extern CGFloat const UITouchMin;
+
 
 
 #pragma mark Edge Insets
