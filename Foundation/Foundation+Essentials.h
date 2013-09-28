@@ -220,3 +220,9 @@ typedef uint8_t NSUByte;
 typedef unsigned char NSByte;
 
 
+
+#pragma mark - Equality
+
+extern inline BOOL NSEqual(NSObject *, NSObject *);
+
+

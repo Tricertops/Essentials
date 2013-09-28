@@ -14,3 +14,8 @@ NSUInteger NSUIntegerRandom(NSUInteger count) {
     if (count == NSUIntegerMax) return arc4random();
     else return arc4random_uniform((uint32_t)count);
 }
+
+
+BOOL NSEqual(NSObject * A, NSObject * B) {
+    return (A == B || (A && [B isEqual:A]));
+}
