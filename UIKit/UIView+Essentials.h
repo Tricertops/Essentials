@@ -82,4 +82,8 @@
 
 
 
+/// Recursively enuemerates all subviews.
+- (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block;
+
+
 @end

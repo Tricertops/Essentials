@@ -233,6 +233,22 @@
 
 
 
+- (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block {
+    NSMutableArray *stack = [[NSMutableArray alloc] initWithArray:self.subviews];
+    BOOL stop = NO;
+    while (stack.count) {
+        UIView *subview = [stack firstObject];
+        [stack removeObjectAtIndex:0];
+        
+        block(subview, &stop);
+        // The block may even change the subviews and they will be enumerated.
+        [stack addObjectsFromArray:subview.subviews];
+        
+        if (stop) break;
+    }
+}
+
+
 
 
 
