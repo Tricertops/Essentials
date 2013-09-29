@@ -44,6 +44,9 @@
 /// Alpha component of the receiver.
 - (CGFloat)alphaComponent;
 
+/// Returns new color that has one minus component of the receiver.
+- (UIColor *)invertedColor;
+
 
 
 #pragma mark - Brightness

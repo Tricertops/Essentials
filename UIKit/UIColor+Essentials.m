@@ -125,6 +125,20 @@
 }
 
 
+- (UIColor *)invertedColor {
+    CGFloat red, green, blue, alpha;
+    BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    if (hasRGBColorSpace) return [UIColor colorWithRed:1 - red
+                                                 green:1 - green
+                                                  blue:1 - blue
+                                                 alpha:alpha];
+    CGFloat white;
+    BOOL hasGrayscaleColorSpace = [self getWhite:&white alpha:&alpha];
+    if (hasGrayscaleColorSpace) return [UIColor colorWithWhite:1- white
+                                                         alpha:alpha];
+    return nil;
+}
+
 
 
 
