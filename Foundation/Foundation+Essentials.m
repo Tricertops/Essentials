@@ -16,6 +16,9 @@ NSUInteger NSUIntegerRandom(NSUInteger count) {
 }
 
 
+NSTimeInterval const NSTimeIntervalInfinity = HUGE_VAL;
+
+
 BOOL NSEqual(NSObject * A, NSObject * B) {
     return (A == B || (A && [B isEqual:A]));
 }

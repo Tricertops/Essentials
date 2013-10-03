@@ -120,6 +120,7 @@ extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maxim
 
 
 CGFloat const UITouchMin = 44;
+CGFloat const CGFloatInfinity = HUGE_VAL;
 
 
 

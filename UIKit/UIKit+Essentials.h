@@ -48,6 +48,7 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
 extern CGFloat const UITouchMin;
+extern CGFloat const CGFloatInfinity;
 
 
 

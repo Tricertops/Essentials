@@ -219,6 +219,8 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 typedef uint8_t NSUByte;
 typedef unsigned char NSByte;
 
+extern NSTimeInterval const NSTimeIntervalInfinity;
+
 
 
 #pragma mark - Equality
