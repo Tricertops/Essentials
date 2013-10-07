@@ -22,7 +22,7 @@
 #pragma mark - Delayed Action
 
 
-- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block {
+- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block __deprecated {
     [[NSOperationQueue currentQueue] performSelector:@selector(addOperationWithBlock:) withObject:block afterDelay:seconds];
 }
 
@@ -99,20 +99,25 @@
 }
 
 
-+ (Class)deriveClass:(NSString *)name {
-    ESSAssertException(name.length > 0, @"Can not derive class with no name!");
++ (Class)subclass:(NSString *)name {
+    ESSAssertException(name.length > 0, @"Can not create class with no name!");
     
-    Class derivedClass = NSClassFromString(name);
+    Class subclass = NSClassFromString(name);
     
-    if ( ! derivedClass) {
-        derivedClass = objc_allocateClassPair(self, name.UTF8String, 0);
-        objc_registerClassPair(derivedClass);
+    if ( ! subclass) {
+        subclass = objc_allocateClassPair(self, name.UTF8String, 0);
+        objc_registerClassPair(subclass);
     }
     else {
-        ESSAssert([derivedClass isSubclassOfClass:self], @"Found existing class '%@' but it's not subclassed from '%@'!", derivedClass, self) return self;
+        ESSAssert([subclass isSubclassOfClass:self], @"Found existing class '%@' but it's not subclassed from '%@'!", subclass, self) return self;
     }
     
-    return derivedClass ?: self;
+    return subclass ?: self;
+}
+
+
++ (Class)deriveClass:(NSString *)name {
+    return [self subclass:name];
 }
 
 

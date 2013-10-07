@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "Foundation+Essentials.h"
 
 
 
@@ -56,7 +57,8 @@
 - (instancetype)ofClass:(Class)class or:(id)replacement;
 
 /// Creates subclass with given name or returns existing subclass.
-+ (Class)deriveClass:(NSString *)name;
++ (Class)subclass:(NSString *)name;
++ (Class)deriveClass:(NSString *)name __attribute__((deprecated("Use +subclass: instead")));
 
 
 
