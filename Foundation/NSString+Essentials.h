@@ -39,6 +39,12 @@
 /// Validates the receiver against email regex pattern.
 - (BOOL)isEmail;
 
+/// Returns YES, if the receiver contains given substring.
+- (BOOL)containsSubstring:(NSString *)string;
+
+/// Returns YES, if the receiver contains given substring using given compare option.
+- (BOOL)containsSubstring:(NSString *)string options:(NSStringCompareOptions)options;
+
 
 
 #pragma mark - Transformation
@@ -51,6 +57,12 @@
 
 /// Returns a string without diacritics
 - (NSString *)stringByStrippingDiacritics;
+
+/// Deletes all characters from given set.
+- (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet;
+
+/// Deletes all characters except for those in given set.
+- (NSString *)stringByPreservingOnlyCharactersFromSet:(NSCharacterSet *)characterSet;
 
 /// Returns NSURL created using receiver, unless the receiver is empty.
 - (NSURL *)URLValue;

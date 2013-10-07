@@ -70,6 +70,17 @@
 }
 
 
+- (BOOL)containsSubstring:(NSString *)string {
+    NSRange range = [self rangeOfString:string];
+    return (range.location != NSNotFound);
+}
+
+
+- (BOOL)containsSubstring:(NSString *)string options:(NSStringCompareOptions)options {
+    NSRange range = [self rangeOfString:string options:options];
+    return (range.location != NSNotFound);
+}
+
 
 
 
@@ -126,6 +137,24 @@
     CFMutableStringRef stringRef = (__bridge CFMutableStringRef)[NSMutableString stringWithString:self];
     Boolean success = CFStringTransform(stringRef, NULL, kCFStringTransformStripDiacritics, false);
     return success ? (__bridge NSString *)stringRef : nil;
+}
+
+
+- (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet {
+    NSMutableString *mutable = [self mutableCopy];
+    NSRange range = NSMakeRange(0, 0);
+    while (range.location == NSNotFound) {
+        range = [mutable rangeOfCharacterFromSet:characterSet];
+        if (range.location == NSNotFound) break;
+        
+        [mutable deleteCharactersInRange:range];
+    }
+    return mutable;
+}
+
+
+- (NSString *)stringByPreservingOnlyCharactersFromSet:(NSCharacterSet *)characterSet {
+    return [self stringByDeletingCharactersFromSet:[characterSet invertedSet]];
 }
 
 
