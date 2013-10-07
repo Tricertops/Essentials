@@ -30,6 +30,15 @@
 }
 
 
+- (CGRect)landscapeBounds {
+    CGRect portraitBounds = self.bounds;
+    CGRect landscapeBounds = CGRectZero;
+    landscapeBounds.size.width = portraitBounds.size.height;
+    landscapeBounds.size.height = portraitBounds.size.width;
+    return landscapeBounds;
+}
+
+
 
 
 
@@ -43,6 +52,11 @@
 
 + (BOOL)retina {
     return self.mainScreen.retina;
+}
+
+
++ (CGRect)landscapeBounds {
+    return self.mainScreen.landscapeBounds;
 }
 
 

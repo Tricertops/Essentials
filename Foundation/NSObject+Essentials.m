@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -85,10 +86,33 @@
 
 
 
-#pragma mark - Null
+#pragma mark - Operations
+
 
 - (BOOL)isNotNull {
     return (self != NSNull.null);
+}
+
+
+- (instancetype)ofClass:(Class)class or:(id)replacement {
+    return [self isKindOfClass:class] ? self : replacement;
+}
+
+
++ (Class)deriveClass:(NSString *)name {
+    ESSAssertException(name.length > 0, @"Can not derive class with no name!");
+    
+    Class derivedClass = NSClassFromString(name);
+    
+    if ( ! derivedClass) {
+        derivedClass = objc_allocateClassPair(self, name.UTF8String, 0);
+        objc_registerClassPair(derivedClass);
+    }
+    else {
+        ESSAssert([derivedClass isSubclassOfClass:self], @"Found existing class '%@' but it's not subclassed from '%@'!", derivedClass, self) return self;
+    }
+    
+    return derivedClass ?: self;
 }
 
 

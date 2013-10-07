@@ -47,10 +47,16 @@
 
 
 
-#pragma mark - Null
+#pragma mark - Operations
 
 /// Returns YES, if the receiver is not kind of NSNull class, otherwise NO (including case when the method is called on nil).
 - (BOOL)isNotNull;
+
+/// Returns the receiver is is kind of given class, otherwise returns replacement.
+- (instancetype)ofClass:(Class)class or:(id)replacement;
+
+/// Creates subclass with given name or returns existing subclass.
++ (Class)deriveClass:(NSString *)name;
 
 
 
