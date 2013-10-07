@@ -48,6 +48,7 @@
 
 
 #pragma mark - Transformation
+//TODO: NSMutableString alteratives
 
 /// Removes all html tags (<...>), replaces escaped sequneces and escaped Unicode characters.
 - (NSString *)stringByDeletingHTML;
@@ -57,6 +58,9 @@
 
 /// Returns a string without diacritics
 - (NSString *)stringByStrippingDiacritics;
+
+/// Returns a string that contains only ASCII characters. Slightly faster than -stringByStrippingDiacritics.
+- (NSString *)stringByConvertingToASCII;
 
 /// Deletes all characters from given set.
 - (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet;

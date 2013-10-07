@@ -134,9 +134,15 @@
 
 
 - (NSString *)stringByStrippingDiacritics {
-    CFMutableStringRef stringRef = (__bridge CFMutableStringRef)[NSMutableString stringWithString:self];
+    CFMutableStringRef stringRef = (__bridge CFMutableStringRef)[NSMutableString stringWithString:self]; // -mutableCopy didn't work with the transformation
     Boolean success = CFStringTransform(stringRef, NULL, kCFStringTransformStripDiacritics, false);
     return success ? (__bridge NSString *)stringRef : nil;
+}
+
+
+- (NSString *)stringByConvertingToASCII {
+    NSData *ASCIIData = [self dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    return [[NSString alloc] initWithData:ASCIIData encoding:NSASCIIStringEncoding];
 }
 
 
