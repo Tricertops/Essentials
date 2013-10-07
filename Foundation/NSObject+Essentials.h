@@ -17,13 +17,6 @@
 
 
 
-#pragma mark - Delayed Action
-
-/// Delayed execution of block
-- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block __deprecated;
-
-
-
 #pragma mark - Runtime Associations
 
 /// Wrapper for objc_getAssociatedObject.
