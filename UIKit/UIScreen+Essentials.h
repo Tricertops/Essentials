@@ -24,6 +24,9 @@
 /// Return whether the receiver has scale of 2 (or more).
 - (BOOL)retina;
 
+/// Returns landscape bounds of the screen.
+- (CGRect)landscapeBounds;
+
 
 
 #pragma mark - Class Shorthands
@@ -32,6 +35,7 @@
 
 + (BOOL)tall;
 + (BOOL)retina;
++ (CGRect)landscapeBounds;
 
 
 
