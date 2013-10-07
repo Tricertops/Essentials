@@ -12,15 +12,17 @@
 
 
 
+
+
 #pragma mark Rectangle
 
 
-extern CGPoint CGRectGetCenter(CGRect rect) {
+CGPoint CGRectGetCenter(CGRect rect) {
     return CGRectGetPoint(rect, 0.5, 0.5);
 }
 
 
-extern CGPoint CGRectGetPoint(CGRect rect, CGFloat relativeX, CGFloat relativeY) {
+CGPoint CGRectGetPoint(CGRect rect, CGFloat relativeX, CGFloat relativeY) {
     CGPoint point;
     point.x = rect.origin.x + (rect.size.width * relativeX);
     point.y = rect.origin.y + (rect.size.height * relativeY);
@@ -28,19 +30,17 @@ extern CGPoint CGRectGetPoint(CGRect rect, CGFloat relativeX, CGFloat relativeY)
 }
 
 
-
-
-extern CGRect CGRectMakeSize(CGSize size) {
+CGRect CGRectMakeSize(CGSize size) {
     return CGRectMakeOriginSize(CGPointZero, size);
 }
 
 
-extern CGRect CGRectMakeOrigin(CGPoint origin) {
+CGRect CGRectMakeOrigin(CGPoint origin) {
     return CGRectMakeOriginSize(origin, CGSizeZero);
 }
 
 
-extern CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
+CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
     return CGRectMake(origin.x, origin.y, size.width, size.height);
 }
 
@@ -51,7 +51,7 @@ extern CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
 #pragma mark Rounding
 
 
-extern CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode mode) {
+CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode mode) {
     double (*function)(double);
     switch (mode) {
         case NSRoundPlain:   function = &round; break;
@@ -65,45 +65,43 @@ extern CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode 
 }
 
 
-extern CGPoint CGPointRoundToScale(CGPoint point, CGFloat scale, NSRoundingMode mode) {
+CGPoint CGPointRoundToScale(CGPoint point, CGFloat scale, NSRoundingMode mode) {
     point.x = CGFloatRoundToScale(point.x, scale, mode);
     point.y = CGFloatRoundToScale(point.y, scale, mode);
     return point;
 }
 
 
-extern CGSize CGSizeRoundToScale(CGSize size, CGFloat scale, NSRoundingMode mode) {
+CGSize CGSizeRoundToScale(CGSize size, CGFloat scale, NSRoundingMode mode) {
     size.width = CGFloatRoundToScale(size.width, scale, mode);
     size.height = CGFloatRoundToScale(size.height, scale, mode);
     return size;
 }
 
 
-extern CGRect CGRectRoundToScale(CGRect rect, CGFloat scale, NSRoundingMode mode) {
+CGRect CGRectRoundToScale(CGRect rect, CGFloat scale, NSRoundingMode mode) {
     rect.origin = CGPointRoundToScale(rect.origin, scale, mode);
     rect.size = CGSizeRoundToScale(rect.size, scale, mode);
     return rect;
 }
 
 
-
-
-extern CGFloat CGFloatRoundToScreenScale(CGFloat value) {
+CGFloat CGFloatRoundToScreenScale(CGFloat value) {
     return CGFloatRoundToScale(value, 0, NSRoundUp);
 }
 
 
-extern CGPoint CGPointRoundToScreenScale(CGPoint point) {
+CGPoint CGPointRoundToScreenScale(CGPoint point) {
     return CGPointRoundToScale(point, 0, NSRoundUp);
 }
 
 
-extern CGSize CGSizeRoundToScreenScale(CGSize size) {
+CGSize CGSizeRoundToScreenScale(CGSize size) {
     return CGSizeRoundToScale(size, 0, NSRoundUp);
 }
 
 
-extern CGRect CGRectRoundToScreenScale(CGRect rect) {
+CGRect CGRectRoundToScreenScale(CGRect rect) {
     return CGRectRoundToScale(rect, 0, NSRoundUp);
 }
 
@@ -113,13 +111,16 @@ extern CGRect CGRectRoundToScreenScale(CGRect rect) {
 
 #pragma mark Float
 
-extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum) {
+
+CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum) {
     CGFloat delta = maximum - minimum;
     return (delta * share) + minimum;
 }
 
 
 CGFloat const UITouchMin = 44;
+
+
 CGFloat const CGFloatInfinity = HUGE_VAL;
 
 
@@ -127,6 +128,7 @@ CGFloat const CGFloatInfinity = HUGE_VAL;
 
 
 #pragma mark Edge Insets
+
 
 UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets a, UIEdgeInsets b) {
     UIEdgeInsets insets = {
@@ -137,5 +139,9 @@ UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets a, UIEdgeInsets b) {
     };
     return insets;
 }
+
+
+
+
 
 
