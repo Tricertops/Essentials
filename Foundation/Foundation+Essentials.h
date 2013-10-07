@@ -192,6 +192,10 @@ NSString * const   PREFIX ## TYPE ## NAME   =   @ #PREFIX "." #TYPE "." #NAME;
 
 
 
+#define ESSDeprecated      __attribute__((deprecated(message)))
+#define ESSDeprecatedUse(selector)  ESSDeprecated("Use " # selector " instead")
+
+
 
 #pragma mark - Random
 
