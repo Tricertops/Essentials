@@ -274,6 +274,9 @@ extern NSTimeInterval const NSTimeIntervalInfinity;
 extern inline BOOL NSEqual(NSObject *, NSObject *);
 
 
+/// Safely compares two strings using `==` and `-isEqualToString:` to really tell is those two are equal. Exception-free.
+extern inline BOOL NSStringEqual(NSString *, NSString *);
+
 
 
 
