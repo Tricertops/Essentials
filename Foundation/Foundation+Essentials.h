@@ -219,7 +219,7 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #define ESSSelector(SELECTOR)  NSStringFromSelector(@selector(SELECTOR))
 
 /// Use to create string from selector. Full validation and completion included.
-#define ESSKeypath(OBJECT, KEYPATH)         (((void)(NO && ((void)OBJECT.KEYPATH, NO)), # KEYPATH))
+#define ESSKeypath(OBJECT, KEYPATH)         @(((void)(NO && ((void)OBJECT.KEYPATH, NO)), # KEYPATH))
 
 /// Use to create string from selector if you don't have an instance by hand. Full validation and completion included.
 #define ESSKeypathClass(CLASS, KEYPATH)     ESSKeypath(CLASS.new, KEYPATH)
