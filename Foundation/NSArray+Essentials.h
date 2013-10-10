@@ -61,3 +61,26 @@
 
 
 @end
+
+
+
+
+#define NSArrayFromVariadicArguments(FIRST)\
+(NSMutableArray *)({\
+    va_list list;\
+    va_start(list, FIRST);\
+    NSMutableArray *objects = [[NSMutableArray alloc] init];\
+    id object = FIRST;\
+    while (object) {\
+        [objects addObject:object];\
+        object = va_arg(list, id);\
+    }\
+    va_end(list);\
+    objects;\
+})
+
+
+
+
+
+
