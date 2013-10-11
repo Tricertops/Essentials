@@ -64,7 +64,11 @@
 /// Forwards to the underlaying layer, transforms CGPathRef to UIBezierPath and vice versa.
 @property (nonatomic, readwrite) UIBezierPath *shadowPath;
 
+#pragma mark - Border
 
+@property (nonatomic, readwrite) CGFloat borderWidth;
+
+@property (nonatomic, readwrite) UIColor *borderColor;
 
 #pragma mark - Structs Adjustments
 
