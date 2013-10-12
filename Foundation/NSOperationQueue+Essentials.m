@@ -85,7 +85,7 @@
 
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [self performSelector:@selector(addOperation:) withObject:operation afterDelay:delay];
+    [self performSelector:@selector(addOperation:) withObject:operation afterDelay:delay inModes:@[NSRunLoopCommonModes]];
     return operation;
 }
 
