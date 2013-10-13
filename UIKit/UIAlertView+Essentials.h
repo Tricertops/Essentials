@@ -26,6 +26,9 @@ typedef void(^UIAlertViewCompletionBlock)(NSInteger buttonIndex);
 /// Block to be invoked automatically after the alert view is cancelled or a button is clicked. Setting this property also sets delegate to self.
 @property (nonatomic, readwrite, copy) UIAlertViewCompletionBlock completionBlock;
 
+/// YES for completion block to be invoked after the alert was dismissed. NO, the default, for to be invoked immediately on click.
+@property (nonatomic, readwrite, assign) BOOL shouldInvokeCompletionBlockOnDismiss;
+
 /// Sets completion block and show the alert view.
 - (void)showWithCompletion:(UIAlertViewCompletionBlock)block;
 

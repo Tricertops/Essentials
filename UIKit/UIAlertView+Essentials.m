@@ -33,6 +33,16 @@
 }
 
 
+- (BOOL)shouldInvokeCompletionBlockOnDismiss {
+    return [[self associatedObjectForKey:@selector(shouldInvokeCompletionBlockOnDismiss)] boolValue];
+}
+
+
+- (void)setShouldInvokeCompletionBlockOnDismiss:(BOOL)shouldInvokeCompletionBlockOnDismiss {
+    [self setAssociatedStrongObject:@(shouldInvokeCompletionBlockOnDismiss) forKey:@selector(shouldInvokeCompletionBlockOnDismiss)];
+}
+
+
 - (void)showWithCompletion:(UIAlertViewCompletionBlock)block {
     self.completionBlock = block;
     [self show];
@@ -46,12 +56,26 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (self.completionBlock) self.completionBlock(buttonIndex);
-    self.completionBlock = nil;
+    if ( ! self.shouldInvokeCompletionBlockOnDismiss) {
+        if (self.completionBlock) self.completionBlock(buttonIndex);
+        self.completionBlock = nil;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (self.shouldInvokeCompletionBlockOnDismiss) {
+        if (self.completionBlock) self.completionBlock(buttonIndex);
+        self.completionBlock = nil;
+    }
 }
 
 - (void)alertViewCancel:(UIAlertView *)alertView {
-    [self alertView:alertView clickedButtonAtIndex:alertView.cancelButtonIndex];
+    if (self.shouldInvokeCompletionBlockOnDismiss) {
+        [self alertView:alertView didDismissWithButtonIndex:alertView.cancelButtonIndex];
+    }
+    else {
+        [self alertView:alertView clickedButtonAtIndex:alertView.cancelButtonIndex];
+    }
 }
 
 
