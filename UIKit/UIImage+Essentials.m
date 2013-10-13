@@ -56,10 +56,14 @@
 
 
 
+
+
 #pragma mark - Decoding 
 
 
 - (UIImage *)imageByDecodingBitmap {
+    /// https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDWebImageDecoder.m
+    
     if (self.images)
     {
         // Do not decode animated images
@@ -118,6 +122,8 @@
     CGImageRelease(decompressedImageRef);
     return decompressedImage;
 }
+
+
 
 
 
