@@ -34,4 +34,10 @@
 
 
 
+#pragma mark - Decoding
+
+/// Returns a decoded image
+- (UIImage *)imageByDecodingBitmap;
+
+
 @end
