@@ -25,6 +25,7 @@
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
 		5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
 		5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */; };
+		5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
 		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
 		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
@@ -93,6 +94,8 @@
 		5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Essentials.m"; sourceTree = "<group>"; };
 		5B7A38C217C3A43300C2F24C /* NSMutableAttributedString+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Essentials.h"; sourceTree = "<group>"; };
 		5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Essentials.m"; sourceTree = "<group>"; };
+		5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Essentials.h"; sourceTree = "<group>"; };
+		5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
 		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */,
 				5BBFA5D517621F7A0061E8B5 /* NSOperationQueue+Essentials.h */,
 				5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */,
+				5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */,
+				5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
 				5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */,
 				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
+				5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */,
 				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
 				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
