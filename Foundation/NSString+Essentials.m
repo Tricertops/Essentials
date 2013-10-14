@@ -109,9 +109,9 @@
     // Replace escaped sequences.
     NSDictionary *escapes = @{
                               @"&quot;": @"\"",
-                              @"&apos;": @"",
-                              @"&lt;"  : @"",
-                              @"&gt;"  : @"",
+                              @"&apos;": @"'",
+                              @"&lt;"  : @"<",
+                              @"&gt;"  : @">",
                               @"&amp;" : @"&", // Should be last.
                               };
     for (NSString *toFind in escapes) {
