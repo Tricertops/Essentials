@@ -64,7 +64,7 @@
 
 
 
-
+/// Use inside of a method/function with variable arguments to quickly convert these arguments to NSArray.
 #define NSArrayFromVariadicArguments(FIRST)\
 (NSMutableArray *)({\
     va_list list;\
