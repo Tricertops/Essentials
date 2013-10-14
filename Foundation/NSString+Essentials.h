@@ -104,7 +104,5 @@
 
 
 
-extern NSString * NSStringFormat(NSString *format, ...);
 #define ESS(number)      (@(number).stringValue)
-
 
