@@ -39,6 +39,9 @@
 /// Returns a decoded image.
 - (UIImage *)imageByDecodingBitmap;
 
+/// Returns a decoded image with applied drawings in the block.
+- (UIImage *)imageByDecodingBitmapWithDrawing:(void (^)(CGRect rect))drawBlock;
+
 
 
 @end
