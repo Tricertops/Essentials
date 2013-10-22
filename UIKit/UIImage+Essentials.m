@@ -66,7 +66,7 @@
 }
 
 
-- (UIImage *)imageByDecodingBitmapWithDrawing:(void (^)(CGRect rect))drawBlock {
+- (UIImage *)imageByDecodingBitmapWithDrawing:(void (^)(CGRect rect, BOOL *mask))drawBlock {
     if (self.images) return self; // Do not decode animated images
     
     CGRect rect = (CGRect){.origin = CGPointZero, .size = self.size};
@@ -74,8 +74,11 @@
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     
     [self drawInRect:rect blendMode:kCGBlendModeNormal alpha:1]; // Draw the receiver.
-    if (drawBlock) drawBlock(rect); // Perform custom drawing on the image.
-    [self drawInRect:rect blendMode:kCGBlendModeDestinationIn alpha:1]; // Apply masking of the receiver.
+    BOOL mask = NO;
+    if (drawBlock) drawBlock(rect, &mask); // Perform custom drawing on the image.
+    if (mask) {
+        [self drawInRect:rect blendMode:kCGBlendModeDestinationIn alpha:1]; // Apply masking of the receiver.
+    }
     
     UIImage *decodedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
