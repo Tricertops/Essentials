@@ -31,6 +31,11 @@
 }
 
 
+- (BOOL)is64Bit {
+    return sizeof(void *) >= 8; // Ready for 128-bit!
+}
+
+
 - (BOOL)iPhone {
     return (self.userInterfaceIdiom == UIUserInterfaceIdiomPhone);
 }
@@ -96,6 +101,11 @@
 
 + (NSUInteger)numberOfCores {
     return self.currentDevice.numberOfCores;
+}
+
+
++ (BOOL)is64Bit {
+    return self.currentDevice.is64Bit;
 }
 
 

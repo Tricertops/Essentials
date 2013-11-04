@@ -25,6 +25,9 @@
 /// Returns the number of CPU cores of the device.
 - (NSUInteger)numberOfCores;
 
+/// Returns YES only if size of pointer is at least 8 bytes.
+- (BOOL)is64Bit;
+
 
 
 #pragma mark - Idiom
@@ -57,6 +60,7 @@
 + (NSString *)resourceSuffix;
 + (NSString *)resource:(NSString *)string;
 + (NSUInteger)numberOfCores;
++ (BOOL)is64Bit;
 
 
 
