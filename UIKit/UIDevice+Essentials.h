@@ -25,7 +25,7 @@
 /// Returns the number of CPU cores of the device.
 - (NSUInteger)numberOfCores;
 
-/// Returns YES only if size of pointer is at least 8 bytes.
+/// Returns YES only if size of pointer is at least 8 bytes. This means that your app needs to be 64-bit too.
 - (BOOL)is64Bit;
 
 
