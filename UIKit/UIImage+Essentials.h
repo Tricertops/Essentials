@@ -39,6 +39,9 @@
 /// Returns a decoded image.
 - (UIImage *)imageByDecodingBitmap;
 
+/// Returns a decoded image with applied drawings in the block. You can optionally set out parameter to YES, if you want your drawing to be masked by the image, so they will not get out of its real shape.
+- (UIImage *)imageByDecodingBitmapWithDrawing:(void (^)(CGRect rect, BOOL *mask))drawBlock;
+
 
 
 @end

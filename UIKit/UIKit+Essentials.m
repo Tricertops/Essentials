@@ -118,6 +118,16 @@ CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum) {
 }
 
 
+CGFloat CGPointDistanceToPoint(CGPoint a, CGPoint b) {
+    return CGPointDistance(CGPointMake(a.x - b.x, a.y - b.y));
+}
+
+
+CGFloat CGPointDistance(CGPoint p) {
+    return sqrt(p.x * p.x + p.y * p.y);
+}
+
+
 CGFloat const UITouchMin = 44;
 
 

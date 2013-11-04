@@ -75,6 +75,12 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 /// Returns value between edge-points in given share.
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
 
+/// Calculates distance between points.
+extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
+
+/// Calculates distance from this point to zero.
+extern CGFloat CGPointDistance(CGPoint);
+
 
 /// Minimal touch size for UIKit components: 44 points.
 extern CGFloat const UITouchMin;
