@@ -458,6 +458,7 @@
 		5BBFA5AE176205DF0061E8B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Essentials.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				LIBRARY_SEARCH_PATHS = (
@@ -473,6 +474,7 @@
 		5BBFA5AF176205DF0061E8B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Essentials.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				LIBRARY_SEARCH_PATHS = (
