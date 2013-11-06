@@ -46,6 +46,13 @@
 /// Returns YES, if the receiver is not kind of NSNull class, otherwise NO (including case when the method is called on nil).
 - (BOOL)isNotNull;
 
+
+
+#pragma mark - Classes
+
+/// Returns name of the receiver using NSStringFromClass().
++ (NSString *)name;
+
 /// Returns the receiver is is kind of given class, otherwise returns replacement.
 - (instancetype)ofClass:(Class)class or:(id)replacement;
 

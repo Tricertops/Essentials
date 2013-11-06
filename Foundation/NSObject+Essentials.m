@@ -94,6 +94,17 @@
 }
 
 
+
+
+
+#pragma mark - Classes
+
+
++ (NSString *)name {
+    return NSStringFromClass(self);
+}
+
+
 - (instancetype)ofClass:(Class)class or:(id)replacement {
     return [self isKindOfClass:class] ? self : replacement;
 }
