@@ -209,13 +209,13 @@
 
 #pragma mark Joining
 
-- (NSString *) :(NSString *)a { return [self.class concat:self, a, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b { return [NSString concat:self, a, b, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c  { return [NSString concat:self, a, b, c, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d { return [NSString concat:self, a, b, c, d, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e { return [NSString concat:self, a, b, c, d, e, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f { return [NSString concat:self, a, b, c, d, e, f, nil]; }
-- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f :(NSString *)g { return [NSString concat:self, a, b, c, d, e, f, g, nil]; }
+- (NSString *) :(NSString *)a { return [self.class concat:self, a?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b { return [NSString concat:self, a?:@"", b?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c  { return [NSString concat:self, a?:@"", b?:@"", c?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d { return [NSString concat:self, a?:@"", b?:@"", c?:@"", d?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e { return [NSString concat:self, a?:@"", b?:@"", c?:@"", d?:@"", e?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f { return [NSString concat:self, a?:@"", b?:@"", c?:@"", d?:@"", e?:@"", f?:@"", nil]; }
+- (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f :(NSString *)g { return [NSString concat:self, a?:@"", b?:@"", c?:@"", d?:@"", e?:@"", f?:@"", g?:@"", nil]; }
 
 + (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION {
     return [NSArrayFromVariadicArguments(firstString) join:@""];
