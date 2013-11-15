@@ -68,6 +68,9 @@
 /// Deletes all characters except for those in given set.
 - (NSString *)stringByPreservingOnlyCharactersFromSet:(NSCharacterSet *)characterSet;
 
+/// Converts first character to uppercase.
+- (NSString *)stringByCapitalizingFirstCharacter;
+
 /// Returns NSURL created using receiver, unless the receiver is empty.
 - (NSURL *)URLValue;
 

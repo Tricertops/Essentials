@@ -165,6 +165,16 @@
 }
 
 
+- (NSString *)stringByCapitalizingFirstCharacter {
+    if (self.length < 1) return [self copy];
+    if (self.length == 1) return [self uppercaseString];
+    
+    NSString *firstCharacter = [self substringToIndex:1];
+    NSString *theRest = [self substringFromIndex:1];
+    return [firstCharacter.uppercaseString : theRest];
+}
+
+
 - (NSString *)MD5 {
 	const char *cString = [self UTF8String];
 	unsigned char hashBuffer[CC_MD5_DIGEST_LENGTH];
