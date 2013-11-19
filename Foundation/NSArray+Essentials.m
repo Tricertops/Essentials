@@ -117,6 +117,16 @@
 }
 
 
+- (NSArray *)subarrayToIndex:(NSUInteger)index {
+    return [self subarrayWithRange:NSMakeRange(0, index + 1)];
+}
+
+
+- (NSArray *)subarrayFromIndex:(NSUInteger)index {
+    return [self subarrayWithRange:NSMakeRange(index, self.count - index)];
+}
+
+
 
 
 

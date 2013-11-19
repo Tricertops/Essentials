@@ -54,6 +54,12 @@
 /// Shorthand for -componentsJoinedByString:lastString:
 - (NSString *)join:(NSString *)separator last:(NSString *)last;
 
+/// Returns a new array containing the receiving array’s elements up to given index.
+- (NSArray *)subarrayToIndex:(NSUInteger)index;
+
+/// Returns a new array containing the receiving array’s elements from given index.
+- (NSArray *)subarrayFromIndex:(NSUInteger)index;
+
 
 
 #pragma mark Randomizing
