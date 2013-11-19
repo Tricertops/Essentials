@@ -8,6 +8,7 @@
 
 #import "NSArray+Essentials.h"
 #import "NSMutableArray+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -115,10 +116,24 @@
     return [self componentsJoinedByString:separator lastString:last];
 }
 
+
+
+
+
+#pragma mark Randomizing
+
+
 - (NSArray *)arrayByRandomizingOrder {
-    
    return [self.mutableCopy randomizeOrder];
 }
+
+
+- (id)randomObject {
+    NSUInteger randomIndex = NSUIntegerRandom(self.count);
+    return [self objectAtIndex:randomIndex];
+}
+
+
 
 
 
