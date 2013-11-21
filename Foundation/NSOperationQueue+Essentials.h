@@ -35,6 +35,13 @@
 
 
 
+#pragma mark - Shared
+
+/// Shared parallel queue.
++ (instancetype)backgroundQueue;
+
+
+
 #pragma mark - Blocks
 
 /// Adds block operation to the receiver and returns it.
