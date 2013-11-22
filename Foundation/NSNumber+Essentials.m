@@ -7,6 +7,7 @@
 //
 
 #import "NSNumber+Essentials.h"
+#import "NSObject+Essentials.h"
 
 
 
@@ -38,8 +39,23 @@
 }
 
 
+
+
+#pragma mark - Comparisons
+
+
 - (NSComparisonResult)compareInversed:(NSNumber *)otherNumber {
     return [otherNumber compare:self];
+}
+
+
+- (BOOL)isNaN {
+    return [self isEqualToNumber:[NSDecimalNumber notANumber]];
+}
+
+
+- (BOOL)isNumber {
+    return ([self isNotNull] && ! [self isNaN]);
 }
 
 
