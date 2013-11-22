@@ -7,6 +7,7 @@
 //
 
 #import "NSOperationQueue+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -49,6 +50,17 @@
         self.maxConcurrentOperationCount = concurrent;
     }
     return self;
+}
+
+
+
+
+
+#pragma mark - Shared
+
+
+ESSSharedMake(NSOperationQueue *, backgroundQueue) {
+    return [NSOperationQueue parallelQueueWithNameSuffix:@"sharedBackgroundQueue"];
 }
 
 
