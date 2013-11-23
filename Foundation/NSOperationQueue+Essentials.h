@@ -42,6 +42,13 @@
 
 
 
+#pragma mark Current
+
+/// Whether the receiver is current queue.
+- (BOOL)isCurrent;
+
+
+
 #pragma mark - Operations
 
 /// Adds block operation to the receiver and returns it. The operation is returned, so can be cancelled or waited. This method respects Barriers.
@@ -52,10 +59,6 @@
 
 /// Can be used to enqueue custom operation with respect to Barriers.
 - (void)addAsynchronousOperation:(NSOperation *)operation;
-
-
-/// Adds block operation to the receiver and waits until it is completed. Deadlock safe, so can be used on the current operation queue.
-- (void)synchronous:(void(^)(void))block __attribute__((deprecated("Use -asynchronous: and then -waitUntilCompleted instead.")));
 
 
 

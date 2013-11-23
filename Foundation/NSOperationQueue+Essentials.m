@@ -68,6 +68,17 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 
+#pragma mark - Current
+
+
+- (BOOL)isCurrent {
+    return (self == [NSOperationQueue currentQueue]);
+}
+
+
+
+
+
 #pragma mark - Operations
 
 
@@ -102,18 +113,6 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 - (void)addAsynchronousOperation:(NSOperation *)operation {
     [self addDependencies:[self barriers] toOperation:operation];
     [self addOperation:operation];
-}
-
-
-- (void)synchronous:(void(^)(void))block {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    if (self == [NSOperationQueue currentQueue] && operation.dependencies.count == 0) {
-        [operation start];
-    }
-    else {
-        [self addOperation:operation];
-        [operation waitUntilFinished];
-    }
 }
 
 
