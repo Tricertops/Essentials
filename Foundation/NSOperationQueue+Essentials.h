@@ -42,20 +42,35 @@
 
 
 
-#pragma mark - Blocks
+#pragma mark - Operations
 
-/// Adds block operation to the receiver and returns it.
+/// Adds block operation to the receiver and returns it. The operation is returned, so can be cancelled or waited. This method respects Barriers.
 - (NSOperation *)asynchronous:(void(^)(void))block;
 
-/// Adds block operation to the receiver and waits until it is completed. Deadlock safe, so can be used on the current operation queue.
-- (void)synchronous:(void(^)(void))block;
-
-
-
-#pragma mark - Delayed
-
-/// Delays call to -asynchronous: using given block.
+/// Delays call to -asynchronous: using given block. The operation is returned immediatelly, so can be cancelled or waited. This method respects Barriers.
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block;
+
+/// Can be used to enqueue custom operation with respect to Barriers.
+- (void)addAsynchronousOperation:(NSOperation *)operation;
+
+
+/// Adds block operation to the receiver and waits until it is completed. Deadlock safe, so can be used on the current operation queue.
+- (void)synchronous:(void(^)(void))block __attribute__((deprecated("Use -asynchronous: and then -waitUntilCompleted instead.")));
+
+
+
+#pragma mark - Barriers
+
+/// Add block operation that will be executed after all existing operations (including other Barriers) are finished. The operation is returned, so can be cancelled or waited.
+- (NSOperation *)asynchronousBarrier:(void(^)(void))block;
+
+/// Delays call to -asynchronousBarrier: using given block. The operation is returned immediatelly, so can be cancelled or waited.
+- (NSOperation *)delay:(NSTimeInterval)delay asynchronousBarrier:(void(^)(void))block;
+
+/// Can be used to use custom operation as a Barrier.
+- (void)addAsynchronousBarrier:(NSOperation *)barrier;
+
+
 
 
 

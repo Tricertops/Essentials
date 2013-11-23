@@ -8,6 +8,7 @@
 
 #import "NSOperationQueue+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "NSObject+Essentials.h"
 
 
 
@@ -67,19 +68,46 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 
-#pragma mark - Blocks
+#pragma mark - Operations
+
+
+//TODO: NSOperation+Essentials
+- (void)addDependencies:(id<NSFastEnumeration>)dependencies toOperation:(NSOperation *)operation {
+    for (NSOperation *dependency in dependencies) {
+        BOOL alreadyThere = [operation.dependencies containsObject:dependency];
+        if ( ! alreadyThere) {
+            [operation addDependency:dependency];
+        }
+    }
+}
 
 
 - (NSOperation *)asynchronous:(void(^)(void))block {
-    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [self addOperation:operation];
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    [self addAsynchronousOperation:operation];
     return operation;
 }
 
 
+- (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    [self performSelector:@selector(addAsynchronousOperation:)
+               withObject:operation
+               afterDelay:delay
+                  inModes:@[NSRunLoopCommonModes]];
+    return operation;
+}
+
+
+- (void)addAsynchronousOperation:(NSOperation *)operation {
+    [self addDependencies:[self barriers] toOperation:operation];
+    [self addOperation:operation];
+}
+
+
 - (void)synchronous:(void(^)(void))block {
-    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    if (self == [NSOperationQueue currentQueue]) {
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    if (self == [NSOperationQueue currentQueue] && operation.dependencies.count == 0) {
         [operation start];
     }
     else {
@@ -92,13 +120,35 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 
-#pragma mark - Delayed
+#pragma mark - Barriers
 
 
-- (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
-    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [self performSelector:@selector(addOperation:) withObject:operation afterDelay:delay inModes:@[NSRunLoopCommonModes]];
-    return operation;
+ESSSynthesizeStrongMake(NSHashTable *, barriers, setBarriers) {
+    return [NSHashTable weakObjectsHashTable];
+}
+
+
+- (NSOperation *)asynchronousBarrier:(void (^)(void))block {
+    NSOperation *barrier = [NSBlockOperation blockOperationWithBlock:block];
+    [self addAsynchronousBarrier:barrier];
+    return barrier;
+}
+
+
+- (NSOperation *)delay:(NSTimeInterval)delay asynchronousBarrier:(void (^)(void))block {
+    NSOperation *barrier = [NSBlockOperation blockOperationWithBlock:block];
+    [self performSelector:@selector(addAsynchronousBarrier:)
+               withObject:block
+               afterDelay:delay
+                  inModes:@[NSRunLoopCommonModes]];
+    return barrier;
+}
+
+
+- (void)addAsynchronousBarrier:(NSOperation *)barrier {
+    [self addDependencies:self.operations toOperation:barrier];
+    [[self barriers] addObject:barrier];
+    [self addOperation:barrier];
 }
 
 
