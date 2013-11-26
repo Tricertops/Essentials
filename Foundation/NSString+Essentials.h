@@ -109,3 +109,11 @@
 
 #define ESS(number)      (@(number).stringValue)
 
+#define NSStringFromFormat(format)\
+({\
+    va_list __vargs;\
+    va_start(__vargs, format);\
+    NSString *__string = [[NSString alloc] initWithFormat:format arguments:__vargs];\
+    va_end(__vargs);\
+    __string;\
+})
