@@ -43,6 +43,9 @@
 /// Executes blocks submitted to the main queue. This methos "parks" the main thread and waits for blocks to be submitted to the main queue.
 + (void)runMainQueue;
 
+/// This method calls `runMainQueue`, but it causes the program to exit when all operations submitted to any queue are finished. Exitting waits for all operations submitted AFTER calling this method AND those already in the receving queue. This method is intended to be used by CLI programs that takes advantage of operation queues. You can provide a block that will be called just before calling `exit(0)`.
+- (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock;
+
 
 
 #pragma mark Current

@@ -73,6 +73,32 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 }
 
 
+static NSOperation * NSOperationQueueExitOperation = nil;
+
+- (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock {
+    NSOperationQueueExitOperation = [NSBlockOperation blockOperationWithBlock:^{
+        if (finalBlock) finalBlock();
+        exit(EXIT_SUCCESS);
+    }];
+    
+    for (NSOperation *operation in self.operations) {
+        [NSOperationQueue addExitDependencyOperation:operation];
+    }
+    
+    [self addOperation:NSOperationQueueExitOperation];
+    [NSOperationQueue runMainQueue];
+}
+
+
++ (void)addExitDependencyOperation:(NSOperation *)operation {
+    if ( ! NSOperationQueueExitOperation) return;
+    if (operation == NSOperationQueueExitOperation) return;
+    if ([NSOperationQueueExitOperation.dependencies containsObject:operation]) return;
+    
+    [NSOperationQueueExitOperation addDependency:operation];
+}
+
+
 
 
 
@@ -93,6 +119,9 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 //TODO: NSOperation+Essentials
 - (void)addDependencies:(id<NSFastEnumeration>)dependencies toOperation:(NSOperation *)operation {
     for (NSOperation *dependency in dependencies) {
+        
+        if (operation == NSOperationQueueExitOperation) continue;
+        
         BOOL alreadyThere = [operation.dependencies containsObject:dependency];
         if ( ! alreadyThere) {
             [operation addDependency:dependency];
@@ -121,6 +150,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 - (void)addAsynchronousOperation:(NSOperation *)operation {
     [self addDependencies:[self barriers] toOperation:operation];
     [self addOperation:operation];
+    [NSOperationQueue addExitDependencyOperation:operation];
 }
 
 
@@ -156,6 +186,7 @@ ESSSynthesizeStrongMake(NSHashTable *, barriers, setBarriers) {
     [self addDependencies:self.operations toOperation:barrier];
     [[self barriers] addObject:barrier];
     [self addOperation:barrier];
+    [NSOperationQueue addExitDependencyOperation:barrier];
 }
 
 
