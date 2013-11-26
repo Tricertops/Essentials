@@ -40,6 +40,18 @@
 		5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
 		5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
 		5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
+		5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
+		5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
+		5BFBAC071844BB8900179483 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
+		5BFBAC081844BB8900179483 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
+		5BFBAC091844BB8900179483 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
+		5BFBAC0A1844BB8900179483 /* NSDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410C17623C53008F8F1E /* NSDictionary+Essentials.m */; };
+		5BFBAC0B1844BB8900179483 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
+		5BFBAC0C1844BB8900179483 /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
+		5BFBAC0D1844BB8900179483 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
+		5BFBAC0E1844BB8900179483 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
+		5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
+		5BFBAC181844BD7F00179483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFBAC171844BD7F00179483 /* Foundation.framework */; };
 		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +133,8 @@
 		5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+Essentials.m"; sourceTree = "<group>"; };
 		5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Essentials.h"; sourceTree = "<group>"; };
 		5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Essentials.m"; sourceTree = "<group>"; };
+		5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentialsOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFBAC171844BD7F00179483 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5F906B4417709E8700097175 /* Foundation+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Essentials.h"; sourceTree = "<group>"; };
 		5F906B4517709E9400097175 /* UIKit+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+Essentials.h"; sourceTree = "<group>"; };
 		5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Essentials.m"; sourceTree = "<group>"; };
@@ -148,6 +162,14 @@
 				5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */,
 				5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */,
 				5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFBABDC1844BAC300179483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFBAC181844BD7F00179483 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +226,7 @@
 			children = (
 				5BBFA588176205DF0061E8B5 /* libEssentials.a */,
 				5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */,
+				5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,11 +234,8 @@
 		5BBFA58A176205DF0061E8B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B13C0B81786DED0001666F4 /* CoreGraphics.framework */,
-				5B13411117624043008F8F1E /* QuartzCore.framework */,
-				5BBFA58B176205DF0061E8B5 /* Foundation.framework */,
-				5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */,
-				5B13C0B61786DEB8001666F4 /* UIKit.framework */,
+				5BFBAC161844BD7300179483 /* iOS */,
+				5BFBAC191844BD8200179483 /* OS X */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,7 +279,37 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		5BFBAC161844BD7300179483 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5B13C0B81786DED0001666F4 /* CoreGraphics.framework */,
+				5B13411117624043008F8F1E /* QuartzCore.framework */,
+				5BBFA58B176205DF0061E8B5 /* Foundation.framework */,
+				5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */,
+				5B13C0B61786DEB8001666F4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5BFBAC191844BD8200179483 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				5BFBAC171844BD7F00179483 /* Foundation.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5BFBABDD1844BAC300179483 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5BBFA587176205DF0061E8B5 /* Essentials */ = {
@@ -298,6 +348,23 @@
 			productReference = 5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		5BFBABDE1844BAC300179483 /* Essentials OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFBAC031844BAC300179483 /* Build configuration list for PBXNativeTarget "Essentials OS X" */;
+			buildPhases = (
+				5BFBABDB1844BAC300179483 /* Sources */,
+				5BFBABDC1844BAC300179483 /* Frameworks */,
+				5BFBABDD1844BAC300179483 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Essentials OS X";
+			productName = "Foundation OS X";
+			productReference = 5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -320,6 +387,7 @@
 			projectRoot = "";
 			targets = (
 				5BBFA587176205DF0061E8B5 /* Essentials */,
+				5BFBABDE1844BAC300179483 /* Essentials OS X */,
 				5BBFA598176205DF0061E8B5 /* EssentialsTests */,
 			);
 		};
@@ -388,6 +456,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFBABDB1844BAC300179483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFBAC0C1844BB8900179483 /* NSNumber+Essentials.m in Sources */,
+				5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */,
+				5BFBAC081844BB8900179483 /* NSArray+Essentials.m in Sources */,
+				5BFBAC071844BB8900179483 /* NSString+Essentials.m in Sources */,
+				5BFBAC0A1844BB8900179483 /* NSDictionary+Essentials.m in Sources */,
+				5BFBAC0E1844BB8900179483 /* NSOperationQueue+Essentials.m in Sources */,
+				5BFBAC0D1844BB8900179483 /* NSInvocation+Essentials.m in Sources */,
+				5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */,
+				5BFBAC0B1844BB8900179483 /* NSError+Essentials.m in Sources */,
+				5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */,
+				5BFBAC091844BB8900179483 /* NSMutableArray+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +603,54 @@
 			};
 			name = Release;
 		};
+		5BFBABFF1844BAC300179483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = EssentialsOSX;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5BFBAC001844BAC300179483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = EssentialsOSX;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -546,6 +680,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5BFBAC031844BAC300179483 /* Build configuration list for PBXNativeTarget "Essentials OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFBABFF1844BAC300179483 /* Debug */,
+				5BFBAC001844BAC300179483 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
