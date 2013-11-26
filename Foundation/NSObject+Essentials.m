@@ -19,17 +19,6 @@
 
 
 
-#pragma mark - Delayed Action
-
-
-- (void)performAfter:(NSTimeInterval)seconds block:(void(^)(void))block __deprecated {
-    [[NSOperationQueue currentQueue] performSelector:@selector(addOperationWithBlock:) withObject:block afterDelay:seconds];
-}
-
-
-
-
-
 #pragma mark - Runtime Associations
 
 
