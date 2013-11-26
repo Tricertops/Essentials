@@ -74,6 +74,18 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 }\
 
 
+/// Use to create class method `shared` that uses dispatch_once to alloc/init single instance.
+#define ESSSharedInstance(CLASS)\
++ (instancetype)shared {\
+    static CLASS *shared = nil;\
+    static dispatch_once_t onceToken;\
+    dispatch_once(&onceToken, ^{\
+        shared = [[CLASS alloc] init];\
+    });\
+    return shared;\
+}\
+
+
 /// Use to create class method that uses dispatch_once with additional code. Append method body just after the macro and return object to be shared.
 #define ESSSharedMake(TYPE, NAME)\
 + (TYPE)NAME {\
