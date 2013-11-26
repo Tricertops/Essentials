@@ -124,4 +124,25 @@
 
 
 
+#pragma mark - Locking
+
+
+- (void)locked:(void(^)(void))block {
+    if ([self conformsToProtocol:@protocol(NSLocking)]) {
+        id<NSLocking> lock = (id<NSLocking>)self;
+        [lock lock];
+        block();
+        [lock unlock];
+    }
+    else {
+        @synchronized(self) {
+            block();
+        }
+    }
+}
+
+
+
+
+
 @end

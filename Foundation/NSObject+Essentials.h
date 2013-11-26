@@ -62,4 +62,11 @@
 
 
 
+#pragma mark - Locking
+
+/// If the receiver conforms for to NSLocking protocol, this method uses a pair of lock/unlock calls, otherwise it uses @synchronized
+- (void)locked:(void(^)(void))block;
+
+
+
 @end
