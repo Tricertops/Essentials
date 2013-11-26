@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Foundation+Essentials.h"
 
-#import <UIKit/UIKit.h>
-#import "UIKit+Essentials.h"
+#if TARGET_OS_IPHONE
+    #import <UIKit/UIKit.h>
+    #import "UIKit+Essentials.h"
+#endif
