@@ -65,6 +65,14 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 }
 
 
++ (void)runMainQueue {
+    ESSAssertException([NSThread isMainThread], @"Must be called on Main Thread.");
+    // To the infinity ...
+    dispatch_main();
+    // ... and beyond.
+}
+
+
 
 
 

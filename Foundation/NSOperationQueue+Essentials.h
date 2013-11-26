@@ -40,6 +40,9 @@
 /// Shared parallel queue.
 + (instancetype)backgroundQueue;
 
+/// Executes blocks submitted to the main queue. This methos "parks" the main thread and waits for blocks to be submitted to the main queue.
++ (void)runMainQueue;
+
 
 
 #pragma mark Current
