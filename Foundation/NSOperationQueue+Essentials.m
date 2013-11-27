@@ -76,7 +76,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 static NSOperation * NSOperationQueueExitOperation = nil;
 
 - (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock {
-    NSOperationQueueExitOperation = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperationQueueExitOperation = [[NSBlockOperation subclass:@"ESSExitOperation"] blockOperationWithBlock:^{
         if (finalBlock) finalBlock();
         exit(EXIT_SUCCESS);
     }];
@@ -118,9 +118,11 @@ static NSOperation * NSOperationQueueExitOperation = nil;
 
 //TODO: NSOperation+Essentials
 - (void)addDependencies:(id<NSFastEnumeration>)dependencies toOperation:(NSOperation *)operation {
+    if (operation == NSOperationQueueExitOperation) return;
+    
     for (NSOperation *dependency in dependencies) {
-        
-        if (operation == NSOperationQueueExitOperation) continue;
+        if (dependency == NSOperationQueueExitOperation) continue;
+        if (operation == dependency) continue;
         
         BOOL alreadyThere = [operation.dependencies containsObject:dependency];
         if ( ! alreadyThere) {
