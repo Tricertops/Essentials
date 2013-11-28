@@ -20,5 +20,13 @@
 - (id)objectForAnyKey:(id)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
 
 
+/// Returns an array of strings, each key and value strings (or numbers via stringValue) joined by the given string.
+- (NSArray *)pairsJoinedByString:(NSString *)joiningString;
+
+
+/// Shorthand for -pairsJoinedByString:
+- (NSArray *)join:(NSString *)string;
+
+
 
 @end

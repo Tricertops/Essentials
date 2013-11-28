@@ -29,6 +29,21 @@
 }
 
 
+- (NSArray *)pairsJoinedByString:(NSString *)joiningString {
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:self.count];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSArray *pair = @[ [key stringValue], [obj stringValue] ];
+        [array addObject:[pair join:joiningString]];
+    }];
+    return [array copy];
+}
+
+
+- (NSArray *)join:(NSString *)string {
+    return [self pairsJoinedByString:string];
+}
+
+
 
 
 
