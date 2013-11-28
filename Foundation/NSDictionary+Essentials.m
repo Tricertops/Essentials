@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+Essentials.h"
+#import "NSArray+Essentials.h"
 
 
 
@@ -19,18 +20,8 @@
 
 
 - (id)objectForAnyKey:(id<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION {
-    va_list list;
-    va_start(list, firstKey);
-    
-    NSMutableArray *keys = [[NSMutableArray alloc] init];
-    id<NSCopying> key = nil;;
-    while ((key = va_arg(list, id))) {
-        [keys addObject:key];
-    }
-    
-    va_end(list);
-    
-    for (key in keys) {
+    NSArray *keys = NSArrayFromVariadicArguments(firstKey);
+    for (NSString *key in keys) {
         id value = [self objectForKey:key];
         if (value) return value;
     }
