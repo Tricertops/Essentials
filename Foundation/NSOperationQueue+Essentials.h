@@ -47,6 +47,10 @@
 - (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock;
 
 
+/// Uses dispatch_after to delay execution of the block on dispatch queue with default priority. Doesn't use any NSOperationQueue, so can be called by operations on serial queues without being deadlocked.
++ (void)after:(NSTimeInterval)delay block:(void(^)(void))block;
+
+
 
 #pragma mark Current
 

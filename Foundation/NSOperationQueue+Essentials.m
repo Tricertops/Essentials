@@ -99,6 +99,12 @@ static NSOperation * NSOperationQueueExitOperation = nil;
 }
 
 
++ (void)after:(NSTimeInterval)delay block:(void(^)(void))block {
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+}
+
+
 
 
 
@@ -141,10 +147,9 @@ static NSOperation * NSOperationQueueExitOperation = nil;
 
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [self performSelector:@selector(addAsynchronousOperation:)
-               withObject:operation
-               afterDelay:delay
-                  inModes:@[NSRunLoopCommonModes]];
+    [NSOperationQueue after:delay block:^{
+        [self addAsynchronousOperation:operation];
+    }];
     return operation;
 }
 
@@ -176,10 +181,9 @@ ESSSynthesizeStrongMake(NSHashTable *, barriers, setBarriers) {
 
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronousBarrier:(void (^)(void))block {
     NSOperation *barrier = [NSBlockOperation blockOperationWithBlock:block];
-    [self performSelector:@selector(addAsynchronousBarrier:)
-               withObject:block
-               afterDelay:delay
-                  inModes:@[NSRunLoopCommonModes]];
+    [NSOperationQueue after:delay block:^{
+        [self addAsynchronousBarrier:barrier];
+    }];
     return barrier;
 }
 
