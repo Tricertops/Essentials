@@ -35,7 +35,7 @@
 
 
 
-#pragma mark - Shared
+#pragma mark - General
 
 /// Shared parallel queue.
 + (instancetype)backgroundQueue;
@@ -43,21 +43,19 @@
 /// Executes blocks submitted to the main queue. This methos "parks" the main thread and waits for blocks to be submitted to the main queue.
 + (void)runMainQueue;
 
+//TODO: Remove Exit Operation mechanism?
 /// This method calls `runMainQueue`, but it causes the program to exit when all operations submitted to any queue are finished. Exitting waits for all operations submitted AFTER calling this method AND those already in the receving queue. This method is intended to be used by CLI programs that takes advantage of operation queues. You can provide a block that will be called just before calling `exit(0)`.
 - (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock;
 
-
 /// Uses dispatch_after to delay execution of the block on dispatch queue with default priority. Doesn't use any NSOperationQueue, so can be called by operations on serial queues without being deadlocked.
 + (void)after:(NSTimeInterval)delay block:(void(^)(void))block;
-
-
-
-#pragma mark Current
 
 /// Whether the receiver is current queue.
 - (BOOL)isCurrent;
 
 
+
+//TODO: Better names for methods, maybe swizzle original names?
 
 #pragma mark - Operations
 
