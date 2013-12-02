@@ -87,6 +87,9 @@
 /// Shorthand for -componentsSeparatedByString:
 - (NSArray *)split:(NSString *)separator;
 
+/// Returns an array of strings, each with length of 1.
+- (NSArray *)letters;
+
 
 
 #pragma mark Joining

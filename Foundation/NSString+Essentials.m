@@ -214,6 +214,16 @@
 }
 
 
+- (NSArray *)letters {
+    NSMutableArray *builder = [[NSMutableArray alloc] initWithCapacity:self.length];
+    for (NSUInteger index = 0; index < self.length; index++) {
+        NSString *letter = [self substringWithRange:NSMakeRange(index, 1)];
+        [builder addObject:letter];
+    }
+    return builder;
+}
+
+
 
 
 
