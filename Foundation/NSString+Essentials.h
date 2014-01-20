@@ -112,6 +112,8 @@
 
 #define ESS(number)      (@(number).stringValue)
 
+#define ESSString(FORMAT...)     [NSString stringWithFormat:FORMAT]
+
 #define NSStringFromFormat(format)\
 ({\
     va_list __vargs;\
