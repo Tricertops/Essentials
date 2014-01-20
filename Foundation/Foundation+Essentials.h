@@ -235,7 +235,7 @@ if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition n
 #define ESSKeypath(OBJECT, KEYPATH)         @(((void)(NO && ((void)OBJECT.KEYPATH, NO)), # KEYPATH))
 
 /// Use to create string from selector if you don't have an instance by hand. Full validation and completion included.
-#define ESSKeypathClass(CLASS, KEYPATH)     ESSKeypath(CLASS.new, KEYPATH)
+#define ESSKeypathClass(CLASS, KEYPATH)     ESSKeypath([CLASS new], KEYPATH)
 
 
 /// Unusable in current version of Clang.
