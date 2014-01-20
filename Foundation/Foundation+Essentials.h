@@ -16,6 +16,7 @@
 #import "NSInvocation+Essentials.h"
 #import "NSOperationQueue+Essentials.h"
 #import "NSDate+Essentials.h"
+#import "NSData+Essentials.h"
 
 
 
@@ -30,28 +31,34 @@
 
 
 #if !defined(NS_BLOCK_ASSERTIONS)
-
-
-/// Use like NSAssert, but you can append code to be executed on Release.
-#define ESSAssert(CONDITION, MESSAGE, ...)\
-if ( ! (CONDITION) && (( [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] file:[NSString stringWithUTF8String:__FILE__] lineNumber:__LINE__ description:MESSAGE, ##__VA_ARGS__], YES)) )
-
+    /// Use like NSAssert, but you can append code to be executed on Release.
+    #define ESSAssert(CONDITION, MESSAGE, ...)\
+    if ( ! (CONDITION)\
+        && (( [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__]\
+                                                                      file:[NSString stringWithUTF8String:__FILE__]\
+                                                                lineNumber:__LINE__\
+                                                               description:@"Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE, __PRETTY_FUNCTION__, __FILE__, __LINE__, # CONDITION, ##__VA_ARGS__],\
+             YES)) )
 #else
-
-
-/// Use like NSAssert, but you can append code to be executed on Release.
-#define ESSAssert(CONDITION, MESSAGE, ...)\
-if ( ! (CONDITION) && (( NSLog(@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__), YES)) )
-
+    /// Use like NSAssert, but you can append code to be executed on Release.
+    #define ESSAssert(CONDITION, MESSAGE, ...)\
+    if ( ! (CONDITION)\
+        && (( NSLog(@"*** Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE,\
+                    __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__),\
+             YES)) )
 #endif
 
 
 /// Use like NSAssert, but this one will throw exception even on Release.
-#define ESSAssertException(CONDITION, MESSAGE, ...)     ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d, Condition not satisfied: %s, reason: '" MESSAGE "'", __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
+#define ESSAssertException(CONDITION, MESSAGE, ...)\
+    ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__)\
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException\
+                                       reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE, __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
 
 
 /// Use like NSAssert(NO, ...), append code to be executed on Release.
-#define ESSAssertFail(MESSAGE, ...)                     ESSAssert(NO, MESSAGE, ##__VA_ARGS__)
+#define ESSAssertFail(MESSAGE, ...)\
+    ESSAssert(NO, MESSAGE, ##__VA_ARGS__)
 
 
 

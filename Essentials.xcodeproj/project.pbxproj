@@ -21,6 +21,9 @@
 		5B13C0B91786DED0001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
 		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
+		5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */; };
+		5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
+		5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
 		5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
@@ -99,6 +102,8 @@
 		5B134117176243C2008F8F1E /* UIView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Essentials.m"; sourceTree = "<group>"; };
 		5B13C0B61786DEB8001666F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5B13C0B81786DED0001666F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Essentials.h"; sourceTree = "<group>"; };
+		5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Essentials.m"; sourceTree = "<group>"; };
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
@@ -265,6 +270,8 @@
 				5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */,
 				5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */,
 				5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */,
+				5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */,
+				5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -306,6 +313,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +439,7 @@
 				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
 				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
+				5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */,
 				5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */,
 				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
 				5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */,
@@ -466,6 +475,7 @@
 				5BFBAC0C1844BB8900179483 /* NSNumber+Essentials.m in Sources */,
 				5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */,
 				5BFBAC081844BB8900179483 /* NSArray+Essentials.m in Sources */,
+				5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */,
 				5BFBAC071844BB8900179483 /* NSString+Essentials.m in Sources */,
 				5BFBAC0A1844BB8900179483 /* NSDictionary+Essentials.m in Sources */,
 				5BFBAC0E1844BB8900179483 /* NSOperationQueue+Essentials.m in Sources */,
