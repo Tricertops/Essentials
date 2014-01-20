@@ -72,7 +72,30 @@
 
 
 
+#pragma mark Safe Values
+
+/*!
+ Returns an object at given index except:
+   1. Negative indexes are counted from tail, so -1 is last object.
+   2. Indexes that are out of range returns nil.
+   3. NSNull is replaced by nil.
+ !*/
+- (id)valueAtIndex:(NSInteger)index;
+
+/// Convenience methods for `valueAtIndex:`.
+- (id)firstValue;
+- (id)secondValue;
+- (id)thirdValue;
+- (id)fourthValue;
+- (id)fifthValue;
+- (id)sixthValue;
+- (id)lastValue;
+
+
+
 @end
+
+
 
 
 

@@ -147,6 +147,39 @@
 
 
 
+#pragma mark Safe Values
+
+
+- (id)valueAtIndex:(NSInteger)index {
+    
+    // Negative indexes starts from tail and go backwards.
+    NSInteger realIndex = (index >= 0? index : self.count + index);
+    
+    // Out of range indexes results in nil.
+    if (realIndex < 0) return nil;
+    if (realIndex >= self.count) return nil;
+    
+    id value = [self objectAtIndex:realIndex];
+    
+     // NSNull is replaced by nil.
+    if (value == NSNull.null) return nil;
+    
+    return value;
+}
+
+
+- (id)firstValue  { return [self valueAtIndex:0]; }
+- (id)secondValue { return [self valueAtIndex:1]; }
+- (id)thirdValue  { return [self valueAtIndex:2]; }
+- (id)fourthValue { return [self valueAtIndex:3]; }
+- (id)fifthValue  { return [self valueAtIndex:4]; }
+- (id)sixthValue  { return [self valueAtIndex:5]; }
+- (id)lastValue   { return [self valueAtIndex:-1]; }
+
+
+
+
+
 @end
 
 
