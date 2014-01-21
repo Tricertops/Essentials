@@ -99,6 +99,19 @@
 }
 
 
+- (instancetype)collectionOfClass:(Class)class or:(id)replacement {
+    if ( ! [self conformsToProtocol:@protocol(NSFastEnumeration)]) return replacement;
+    
+    NSObject<NSFastEnumeration> *collection = (typeof(collection))self;
+    for (id object in collection) {
+        if ( ! [object isKindOfClass:class]) {
+            return replacement;
+        }
+    }
+    return self;
+}
+
+
 + (Class)subclass:(NSString *)name {
     ESSAssertException(name.length > 0, @"Can not create class with no name!");
     

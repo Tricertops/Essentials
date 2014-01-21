@@ -53,8 +53,11 @@
 /// Returns name of the receiver using NSStringFromClass().
 + (NSString *)name;
 
-/// Returns the receiver is is kind of given class, otherwise returns replacement.
+/// Returns the receiver if is kind of given class, otherwise returns replacement.
 - (instancetype)ofClass:(Class)class or:(id)replacement;
+
+/// Returns the receiver if it conforms to NSFastEnumeration and contains only objects of given class, otherwise returns replacement.
+- (instancetype)collectionOfClass:(Class)class or:(id)replacement;
 
 /// Creates subclass with given name or returns existing subclass.
 + (Class)subclass:(NSString *)name;
