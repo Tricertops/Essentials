@@ -30,7 +30,7 @@
     if (CGSizeEqualToSize(CGSizeZero, self.bounds.size)) return nil;
 
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, scale);
-    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
