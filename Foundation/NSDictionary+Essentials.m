@@ -8,6 +8,7 @@
 
 #import "NSDictionary+Essentials.h"
 #import "NSArray+Essentials.h"
+#import "NSMutableDictionary+Essentials.h"
 
 
 
@@ -41,6 +42,16 @@
 
 - (NSArray *)join:(NSString *)string {
     return [self pairsJoinedByString:string];
+}
+
+
+- (NSDictionary *)dictionaryByAddingValuesFromDictionary:(NSDictionary *)otherDictionary {
+    return [[self mutableCopy] addValuesFromDictionary:otherDictionary];
+}
+
+
+- (NSDictionary *)merged:(NSDictionary *)other {
+    return [self dictionaryByAddingValuesFromDictionary:other];
 }
 
 

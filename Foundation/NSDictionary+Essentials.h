@@ -28,5 +28,13 @@
 - (NSArray *)join:(NSString *)string;
 
 
+/// Returns new dictionary that is a copy of the receiving dictionary with values from the other dictionary added or overwirtten.
+- (NSDictionary *)dictionaryByAddingValuesFromDictionary:(NSDictionary *)otherDictionary;
+
+
+/// Shorthand for -dictionaryByAddingValuesFromDictionary:
+- (NSDictionary *)merged:(NSDictionary *)other;
+
+
 
 @end

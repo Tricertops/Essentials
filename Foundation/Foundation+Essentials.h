@@ -11,6 +11,7 @@
 #import "NSArray+Essentials.h"
 #import "NSMutableArray+Essentials.h"
 #import "NSDictionary+Essentials.h"
+#import "NSMutableDictionary+Essentials.h"
 #import "NSError+Essentials.h"
 #import "NSNumber+Essentials.h"
 #import "NSInvocation+Essentials.h"
