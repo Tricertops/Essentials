@@ -267,7 +267,7 @@ typedef int8_t NSByte;
 
 
 /// Uses arc4random_uniform(). Pass NSUIntegerMax to use arc4random().
-extern inline NSUInteger NSUIntegerRandom(NSUInteger count);
+extern NSUInteger NSUIntegerRandom(NSUInteger count);
 
 
 /// Use to make sure the VALUE is no less than MIN and no more than MAX.
@@ -291,11 +291,11 @@ extern NSTimeInterval const NSTimeIntervalInfinity;
 #pragma mark - Objects
 
 /// Safely compares two objects using `==` and `-isEqual:` to really tell is those two are equal. Exception-free.
-extern inline BOOL NSEqual(NSObject *, NSObject *);
+extern BOOL NSEqual(NSObject *, NSObject *);
 
 
 /// Safely compares two strings using `==` and `-isEqualToString:` to really tell is those two are equal. Exception-free.
-extern inline BOOL NSStringEqual(NSString *, NSString *);
+extern BOOL NSStringEqual(NSString *, NSString *);
 
 
 
