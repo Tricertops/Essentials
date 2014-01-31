@@ -18,6 +18,7 @@
 #import "NSOperationQueue+Essentials.h"
 #import "NSDate+Essentials.h"
 #import "NSData+Essentials.h"
+#import "NSUUID+Essentials.h"
 
 
 

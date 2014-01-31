@@ -45,6 +45,9 @@
 		5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */; };
 		5BE79BFD189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */; };
 		5BE79BFE189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */; };
+		5BE79C01189BFE69004A02B1 /* NSUUID+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */; };
+		5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
+		5BE79C03189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
 		5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
 		5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
@@ -141,6 +144,8 @@
 		5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+Essentials.m"; sourceTree = "<group>"; };
 		5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Essentials.h"; sourceTree = "<group>"; };
 		5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Essentials.m"; sourceTree = "<group>"; };
+		5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUUID+Essentials.h"; sourceTree = "<group>"; };
+		5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUUID+Essentials.m"; sourceTree = "<group>"; };
 		5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Essentials.h"; sourceTree = "<group>"; };
 		5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Essentials.m"; sourceTree = "<group>"; };
 		5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentialsOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +284,8 @@
 				5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */,
 				5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */,
 				5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */,
+				5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */,
+				5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 			files = (
 				5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */,
 				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
+				5BE79C01189BFE69004A02B1 /* NSUUID+Essentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +465,7 @@
 				5B13410417622955008F8F1E /* UIActionSheet+Essentials.m in Sources */,
 				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
 				5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */,
+				5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */,
 				5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */,
 				5B1341101762401C008F8F1E /* UIImage+Essentials.m in Sources */,
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
@@ -489,6 +498,7 @@
 				5BFBAC071844BB8900179483 /* NSString+Essentials.m in Sources */,
 				5BFBAC0A1844BB8900179483 /* NSDictionary+Essentials.m in Sources */,
 				5BFBAC0E1844BB8900179483 /* NSOperationQueue+Essentials.m in Sources */,
+				5BE79C03189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */,
 				5BFBAC0D1844BB8900179483 /* NSInvocation+Essentials.m in Sources */,
 				5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */,
 				5BFBAC0B1844BB8900179483 /* NSError+Essentials.m in Sources */,
