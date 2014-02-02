@@ -17,7 +17,7 @@
 
 
 - (NSMutableDictionary *)addValuesFromDictionary:(NSDictionary *)otherDictionary {
-    if ([otherDictionary isEqualToDictionary:otherDictionary]) return self;
+    if ([self isEqualToDictionary:otherDictionary]) return self;
     
     [otherDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [self setObject:obj forKey:key];
