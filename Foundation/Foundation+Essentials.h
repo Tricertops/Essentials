@@ -133,16 +133,21 @@
 - (void)load_##GETTER\
 
 
-/// Use to create lazy-loading getter. Append implementation that returns desired value.
-#define ESSLazyMake(TYPE, GETTER)\
-@synthesize GETTER = _##GETTER;\
+/// Use to create lazy-loading getter with custom ivar. Append implementation that returns desired value.
+#define ESSLazyMakeUsingIvar(TYPE, GETTER, IVAR)\
 - (TYPE)GETTER {\
-    if ( ! self->_##GETTER) {\
-        self->_##GETTER = [self ess_make_##GETTER];\
+    if ( ! self->IVAR) {\
+        self->IVAR = [self ess_make_##GETTER];\
     }\
-    return self->_##GETTER;\
+    return self->IVAR;\
 }\
 - (TYPE)ess_make_##GETTER\
+
+
+/// Use to create lazy-loading getter using standard _ivar. Append implementation that returns desired value.
+#define ESSLazyMake(TYPE, GETTER)\
+@synthesize GETTER = _##GETTER;\
+ESSLazyMakeUsingIvar(TYPE, GETTER, _##GETTER)
 
 
 /// Use to create accessors for associated property.
