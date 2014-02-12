@@ -83,6 +83,24 @@
 }
 
 
+- (void)enumerateOccurencesOfString:(NSString *)string options:(NSStringCompareOptions)options usingBlock:(void(^)(NSString *match, NSRange range, BOOL *stop))block {
+    NSRange searchRange = NSMakeRange(0, self.length);
+    
+    while (INFINITY) {
+        NSRange range = [self rangeOfString:string options:options range:searchRange];
+        if (range.location == NSNotFound) break;
+        
+        searchRange.location = range.location + range.length;
+        searchRange.length = self.length - searchRange.location;
+        
+        NSString *match = [self substringWithRange:range];
+        BOOL stop = NO;
+        block(match, range, &stop);
+        if (stop) break;
+    }
+}
+
+
 
 
 #pragma mark - Transformation
