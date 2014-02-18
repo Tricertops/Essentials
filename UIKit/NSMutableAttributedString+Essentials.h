@@ -27,4 +27,15 @@
 - (void)enumerateParagraphStyles:(void(^)(NSMutableParagraphStyle *paragraphStyle))block;
 
 
+#pragma mark Superscript
+
+/// Modifies attributes of the receiver in given range to make superscript effect just like in Pages.app
+- (void)applySuperscriptInRange:(NSRange)range;
+
+/// Uses superscript in all REGISTERED SIGN characters (®).
+- (void)applySuperscriptForRegisteredSigns;
+
+
+
+
 @end

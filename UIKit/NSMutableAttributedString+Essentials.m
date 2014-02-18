@@ -7,6 +7,9 @@
 //
 
 #import "NSMutableAttributedString+Essentials.h"
+#import "Foundation+Essentials.h"
+
+
 
 
 
@@ -58,6 +61,36 @@
                                    value:[mutableParagraphStyle copy]
                                    range:range];
                   }];
+}
+
+
+
+
+#pragma mark Superscript
+
+
+- (void)applySuperscriptInRange:(NSRange)range {
+    // Values taken empirically from Pages 5.1
+    
+    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
+    
+    [self addAttribute:NSFontAttributeName
+                 value:[UIFont boldSystemFontOfSize:existingFont.pointSize / 1.5]
+                 range:range];
+    
+    [self addAttribute:NSBaselineOffsetAttributeName
+                 value:@(existingFont.pointSize * 0.26)
+                 range:range];
+}
+
+
+- (void)applySuperscriptForRegisteredSigns {
+    [self.string enumerateOccurencesOfString:@"®"
+                                     options:kNilOptions
+                                  usingBlock:^(NSString *match, NSRange range, BOOL *stop) {
+                                      [self applySuperscriptInRange:range];
+                                  }];
 }
 
 
