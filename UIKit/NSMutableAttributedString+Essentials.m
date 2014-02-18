@@ -98,3 +98,26 @@
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+@implementation NSString (Essentials_NSMutableAttributedString)
+
+
+
+- (NSMutableAttributedString *)attributedStringWithFont:(UIFont *)font {
+    return [[NSMutableAttributedString alloc] initWithString:self attributes:@{ NSFontAttributeName: font }];
+}
+
+
+
+@end
+
+

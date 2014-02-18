@@ -39,3 +39,25 @@
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+@interface NSString (Essentials_NSMutableAttributedString)
+
+
+
+/// Returns new attributed string with receiver as the content and given font applied to whole range.
+- (NSMutableAttributedString *)attributedStringWithFont:(UIFont *)font;
+
+
+
+@end
+
+
