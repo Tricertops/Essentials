@@ -162,19 +162,19 @@
 
 - (CGFloat)page {
     if ( self.bounds.size.width <= 0) return 0;
-    return self.bounds.origin.x / self.bounds.size.width;
+    return self.contentOffset.x / self.bounds.size.width;
 }
 
 
 - (void)setPage:(CGFloat)page {
-    CGRect bounds = self.bounds;
-    bounds.origin.x = page * bounds.size.width;
-    self.bounds = bounds;
+    CGPoint contentOffset = self.contentOffset;
+    contentOffset.x = page * self.bounds.size.width;
+    self.contentOffset = contentOffset;;
 }
 
 
 + (NSSet *)keyPathsForValuesAffectingPage {
-    return [NSSet setWithObjects:@"bounds", nil];
+    return [NSSet setWithObjects:@"contentOffset", @"bounds", nil];
 }
 
 
