@@ -132,7 +132,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowOffset {
-    return [NSSet setWithObjects:@"layer.shadowOffset", @"shadow.shadowOffset", nil];
+    return [NSSet setWithObjects:@"layer.shadowOffset", nil];
 }
 
 
@@ -147,7 +147,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowColor {
-    return [NSSet setWithObjects:@"layer.shadowColor", @"shadow.shadowColor", nil];
+    return [NSSet setWithObjects:@"layer.shadowColor", nil];
 }
 
 
@@ -162,7 +162,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowBlurRadius {
-    return [NSSet setWithObjects:@"layer.shadowRadius", @"shadow.shadowBlurRadius", nil];
+    return [NSSet setWithObjects:@"layer.shadowRadius", nil];
 }
 
 
@@ -177,7 +177,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowAlpha {
-    return [NSSet setWithObjects:@"layer.shadowOpacity", @"shadow.shadowColor", nil];
+    return [NSSet setWithObjects:@"layer.shadowOpacity", nil];
 }
 
 
