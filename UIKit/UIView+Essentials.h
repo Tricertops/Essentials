@@ -90,4 +90,12 @@
 - (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block;
 
 
+
+#pragma mark - Interaction
+
+- (void)addVerticalMotionEffectWithIntensity:(CGFloat)intensity;
+- (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity;
+
+
+
 @end

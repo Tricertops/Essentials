@@ -268,4 +268,31 @@
 
 
 
+
+#pragma mark - Interaction
+
+
+- (void)addVerticalMotionEffectWithIntensity:(CGFloat)intensity {
+    UIInterpolatingMotionEffect *horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
+                                                                                                    type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    horizontalMotion.minimumRelativeValue = @(-intensity);
+    horizontalMotion.maximumRelativeValue = @(intensity);
+    
+    [self addMotionEffect:horizontalMotion];
+}
+
+
+- (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity {
+    UIInterpolatingMotionEffect *horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
+                                                                                                    type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotion.minimumRelativeValue = @(-intensity);
+    horizontalMotion.maximumRelativeValue = @(intensity);
+    
+    [self addMotionEffect:horizontalMotion];
+}
+
+
+
+
+
 @end
