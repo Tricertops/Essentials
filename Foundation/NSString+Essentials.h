@@ -83,6 +83,12 @@
 /// Returns SHA1 hash of the receiver.
 - (NSString *)SHA1;
 
+/// Replaces {key} placeholders with the return value of the block
+- (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block;
+
+/// Replaces {key} placeholders with the values of substitutions[key]
+- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions;
+
 
 
 #pragma mark Splitting

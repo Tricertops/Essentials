@@ -221,6 +221,50 @@
 }
 
 
+- (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block {
+    NSMutableString *mutable = [self mutableCopy];
+    
+    NSRange matchedRange = NSMakeRange(NSNotFound, 0);
+    while ((matchedRange = [mutable rangeOfOpening:@"{" closing:@"}"]).location != NSNotFound) {
+        NSRange placeholderRange = NSMakeRange(matchedRange.location + 1, matchedRange.length - 2);
+        NSString *placeholder = [mutable substringWithRange:placeholderRange];
+        
+        NSString *replacement = block(placeholder);
+        [mutable replaceCharactersInRange:matchedRange withString:replacement ?: @""];
+        
+        //TODO: Detect enclosing spaces and remove one of them.
+    }
+    return mutable;
+}
+
+
+- (NSRange)rangeOfOpening:(NSString *)opening closing:(NSString *)closing {
+    NSRange notFound = NSMakeRange(NSNotFound, 0);
+    
+    if ( ! opening.length) return notFound;
+    if ( ! closing.length) return notFound;
+    
+    NSRange or = [self rangeOfString:opening];
+    if (or.location == NSNotFound) return notFound;
+    
+    NSUInteger orEnd = or.location + or.length;
+    NSRange r = NSMakeRange(orEnd, self.length - orEnd);
+    NSRange cr = [self rangeOfString:closing options:kNilOptions range:r];
+    if (cr.location == NSNotFound) return notFound;
+    
+    NSUInteger crEnd = cr.location + cr.length;
+    return NSMakeRange(or.location, crEnd - or.location);
+}
+
+
+- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions {
+    return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholderKey) {
+        return [[substitutions objectForKey:placeholderKey] description];
+    }];
+}
+
+
+
 
 
 
