@@ -76,7 +76,7 @@
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
     
     [self addAttribute:NSFontAttributeName
-                 value:[UIFont boldSystemFontOfSize:existingFont.pointSize / 1.5]
+                 value:[existingFont fontWithSize:existingFont.pointSize / 1.5]
                  range:range];
     
     [self addAttribute:NSBaselineOffsetAttributeName
