@@ -140,6 +140,30 @@
 }
 
 
++ (UIColor *)averageColor:(NSArray *)colors {
+    if ( ! colors.count) return nil;
+    if (colors.count == 1) return colors.firstObject;
+    
+    CGFloat red = 0;
+    CGFloat green = 0;
+    CGFloat blue = 0;
+    CGFloat alpha = 0;
+    
+    for (UIColor *color in colors) {
+        red += [color redComponent];
+        green += [color greenComponent];
+        blue += [color blueComponent];
+        alpha += [color alphaComponent];
+    }
+    
+    return [UIColor colorWithRed:red / colors.count
+                           green:green / colors.count
+                            blue:blue / colors.count
+                           alpha:alpha / colors.count];
+}
+
+
+
 
 
 #pragma mark Brightness

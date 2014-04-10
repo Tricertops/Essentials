@@ -47,6 +47,9 @@
 /// Returns new color that has one minus component of the receiver.
 - (UIColor *)invertedColor;
 
+/// Returns average color from those provided.
++ (UIColor *)averageColor:(NSArray *)colors;
+
 
 
 #pragma mark - Brightness
