@@ -19,6 +19,7 @@
 #import "NSDate+Essentials.h"
 #import "NSData+Essentials.h"
 #import "NSUUID+Essentials.h"
+#import "NSSortDescriptor+Essentials.h"
 
 
 
