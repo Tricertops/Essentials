@@ -48,6 +48,14 @@ CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
 
 
 
+CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation) {
+    return CGAffineTransformRotate(CGAffineTransformScale(CGAffineTransformMakeTranslation(translation.horizontal, translation.vertical), scale, scale), rotation);
+}
+
+
+
+
+
 #pragma mark Rounding
 
 

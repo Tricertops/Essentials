@@ -49,6 +49,15 @@ extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);
 
 
 
+#pragma mark Affine Transform
+
+
+extern CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation);
+
+
+
+
+
 #pragma mark Rounding
 
 
