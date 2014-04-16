@@ -26,4 +26,9 @@
 
 
 
+
++ (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName;
+
+
+
 @end

@@ -35,4 +35,16 @@
 
 
 
++ (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName {
+    NSDate *start = [NSDate new];
+    block();
+    NSTimeInterval duration = -start.timeIntervalSinceNow;
+    if (logName.length) NSLog(@"%@: %g seconds", logName, duration);
+    return duration;
+}
+
+
+
+
+
 @end
