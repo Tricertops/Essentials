@@ -46,9 +46,82 @@
 #pragma mark - Crop
 
 
+
++ (CGFloat)rotationForOrientation:(UIImageOrientation)orientation {
+    switch (orientation) {
+        case UIImageOrientationUp:      return 0;
+        case UIImageOrientationLeft:    return M_PI_2;  //  90
+        case UIImageOrientationDown:    return M_PI;    // 180
+        case UIImageOrientationRight:   return -M_PI_2; // -90
+            
+        case UIImageOrientationUpMirrored:      return 0;
+        case UIImageOrientationLeftMirrored:    return -M_PI_2; // -90
+        case UIImageOrientationDownMirrored:    return M_PI;    // 180
+        case UIImageOrientationRightMirrored:   return M_PI_2;  //  90
+    }
+    return 0;
+}
+
+
++ (CGPoint)relativeTranslationForOrientation:(UIImageOrientation)orientation {
+    switch (orientation) {
+        case UIImageOrientationUp:      return CGPointZero;
+        case UIImageOrientationLeft:    return CGPointMake(0, 1);
+        case UIImageOrientationDown:    return CGPointMake(1, 1);
+        case UIImageOrientationRight:   return CGPointMake(1, 0);
+            
+        case UIImageOrientationUpMirrored:      return CGPointMake(1, 0);
+        case UIImageOrientationLeftMirrored:    return CGPointZero;
+        case UIImageOrientationDownMirrored:    return CGPointMake(0, 1);
+        case UIImageOrientationRightMirrored:   return CGPointMake(1, 1);
+    }
+    return CGPointZero;
+}
+
+
++ (BOOL)mirroringForOrientation:(UIImageOrientation)orientation {
+    switch (orientation) {
+        case UIImageOrientationUp:     
+        case UIImageOrientationLeft:   
+        case UIImageOrientationDown:   
+        case UIImageOrientationRight:
+            return NO;
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationDownMirrored:
+        case UIImageOrientationRightMirrored:
+            return YES;
+    }
+}
+
+
++ (CGAffineTransform)transformForOrientation:(UIImageOrientation)orientation size:(CGSize)size scale:(CGFloat)scale {
+    CGFloat rotation = [self rotationForOrientation:orientation];
+    CGPoint relativeTranslation = [self relativeTranslationForOrientation:orientation];
+    BOOL mirroring = [self mirroringForOrientation:orientation];
+    if (scale == 0) {
+        scale = [[UIScreen mainScreen] scale];
+    }
+    
+    CGAffineTransform t = CGAffineTransformIdentity;
+    t = CGAffineTransformScale(t, scale * (mirroring? -1 : 1), scale);
+    t = CGAffineTransformRotate(t, rotation);
+    t = CGAffineTransformTranslate(t, relativeTranslation.x * -size.width * scale,
+                                      relativeTranslation.y * -size.height * scale);
+    return t;
+}
+
+
+- (CGAffineTransform)transform {
+    return [UIImage transformForOrientation:self.imageOrientation size:self.size scale:self.scale];
+}
+
+
 - (UIImage *)imageByCroppingRect:(CGRect)cropRect {
+    CGRect transformedCropRect = CGRectApplyAffineTransform(cropRect, [self transform]);
+    
     /// http://iosdevelopertips.com/graphics/how-to-crop-an-image-take-two.html
-    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, cropRect);
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, transformedCropRect);
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return croppedImage;

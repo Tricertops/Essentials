@@ -27,9 +27,19 @@
 
 
 
+#pragma mark - Coordinates
+
+/// Calculates affine transform that converts coordinates from receiver's logical to native space. Used for crop rectanges.
+- (CGAffineTransform)transform;
+
+/// Generalized version of the above method.
++ (CGAffineTransform)transformForOrientation:(UIImageOrientation)orientation size:(CGSize)size scale:(CGFloat)scale;
+
+
+
 #pragma mark - Crop
 
-/// Returns new instance that represents cropped portion of the receiver.
+/// Returns new instance that represents cropped portion of the receiver. Transforms the crop rect to match image orientation.
 - (UIImage *)imageByCroppingRect:(CGRect)cropRect;
 
 
