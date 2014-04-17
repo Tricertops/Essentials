@@ -12,6 +12,11 @@
 
 
 
+typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
+
+
+
+
 
 @interface NSObject (Essentials)
 
@@ -38,6 +43,10 @@
 /// Associates object using assign policy.
 - (void)setAssociatedAssignObject:(id)object forKey:(void *)key;
 - (void)setAssociatedAssignObject:(id)object forString:(NSString * const *)string;
+
+
++ (void)swizzleSelector:(SEL)original with:(SEL)replacement;
++ (void)swizzleSelector:(SEL)selector usingBlock:(ESSSwizzleBlock)block;
 
 
 

@@ -75,6 +75,49 @@
 
 
 
+#pragma mark Method Swizzling
+
+
++ (void)swizzleClass:(Class)class selector:(SEL)originalSelector with:(SEL)replacementSelector {
+    /// http://nshipster.com/method-swizzling/
+    
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method replacementMethod = class_getInstanceMethod(class, replacementSelector);
+    
+    BOOL didAdd = class_addMethod(class,
+                                  originalSelector,
+                                  method_getImplementation(replacementMethod),
+                                  method_getTypeEncoding(replacementMethod));
+    if (didAdd) {
+        class_replaceMethod(class,
+                            replacementSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, replacementMethod);
+    }
+}
+
+
++ (void)swizzleSelector:(SEL)original with:(SEL)replacement {
+    [NSObject swizzleClass:self selector:original with:replacement];
+}
+
+
++ (void)swizzleSelector:(SEL)selector usingBlock:(ESSSwizzleBlock)swizzleBlock {
+    Method method = class_getInstanceMethod(self, selector);
+    IMP originalImplementation = method_getImplementation(method);
+    
+    id replacementBlock = swizzleBlock(selector, originalImplementation);
+    IMP replacementImplementation = imp_implementationWithBlock(replacementBlock);
+    
+    class_replaceMethod(self, selector, replacementImplementation, method_getTypeEncoding(method));
+}
+
+
+
+
+
 #pragma mark - Operations
 
 
