@@ -140,11 +140,16 @@
 
 
 - (UIImage *)imageByDecodingBitmapWithDrawing:(void (^)(CGRect rect, BOOL *mask))drawBlock {
+    return [self imageByDecodingBitmapWithSize:self.size drawing:drawBlock];
+}
+
+
+- (UIImage *)imageByDecodingBitmapWithSize:(CGSize)size drawing:(void (^)(CGRect rect, BOOL *mask))drawBlock {
     if (self.images) return self; // Do not decode animated images
     
-    CGRect rect = (CGRect){.origin = CGPointZero, .size = self.size};
+    CGRect rect = (CGRect){.origin = CGPointZero, .size = size};
     
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
     
     [self drawInRect:rect blendMode:kCGBlendModeNormal alpha:1]; // Draw the receiver.
     BOOL mask = NO;
