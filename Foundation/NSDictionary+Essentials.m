@@ -20,14 +20,21 @@
 
 
 
-- (id)objectForAnyKey:(id<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION {
-    NSArray *keys = NSArrayFromVariadicArguments(firstKey);
+- (id)objectForAnyKeyInArray:(NSArray *)keys {
     for (NSString *key in keys) {
         id value = [self objectForKey:key];
         if (value) return value;
     }
     return nil;
 }
+
+
+- (id)objectForAnyKey:(id<NSCopying>)firstKey, ... NS_REQUIRES_NIL_TERMINATION {
+    return [self objectForAnyKeyInArray:NSArrayFromVariadicArguments(firstKey)];
+}
+
+
+
 
 
 - (NSArray *)pairsJoinedByString:(NSString *)joiningString {
@@ -59,3 +66,5 @@
 
 
 @end
+
+
