@@ -55,7 +55,7 @@
                      inRange:NSMakeRange(0, self.length)
                      options:kNilOptions
                   usingBlock:^(NSParagraphStyle *paragraphStyle, NSRange range, BOOL *stop) {
-                      NSMutableParagraphStyle *mutableParagraphStyle = [paragraphStyle mutableCopy];
+                      NSMutableParagraphStyle *mutableParagraphStyle = [(paragraphStyle ?: [NSParagraphStyle defaultParagraphStyle]) mutableCopy];
                       block(mutableParagraphStyle);
                       [self addAttribute:NSParagraphStyleAttributeName
                                    value:[mutableParagraphStyle copy]
