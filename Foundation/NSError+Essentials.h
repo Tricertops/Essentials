@@ -20,5 +20,8 @@
 - (NSString *)underlayingLocalizedDescription;
 
 
+- (BOOL)isRecoverable;
+
+
 
 @end

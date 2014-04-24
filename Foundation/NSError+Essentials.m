@@ -32,6 +32,11 @@
 }
 
 
+- (BOOL)isRecoverable {
+    return (self.recoveryAttempter && self.localizedRecoveryOptions.count);
+}
+
+
 
 
 
