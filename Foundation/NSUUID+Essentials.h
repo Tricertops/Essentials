@@ -18,10 +18,12 @@
 
 
 + (NSUUID *)UUIDWithData:(NSData *)data;
++ (NSUUID *)UUIDWithHexString:(NSString *)hexString;
 + (NSUUID *)UUIDWithBase64String:(NSString *)base64String;
 
 
 - (NSData *)UUIDData;
+- (NSString *)UUIDHexString;
 - (NSString *)UUIDBase64String;
 
 

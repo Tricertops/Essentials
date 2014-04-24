@@ -7,6 +7,7 @@
 //
 
 #import "NSUUID+Essentials.h"
+#import "NSData+Essentials.h"
 
 
 
@@ -28,16 +29,30 @@
 }
 
 
++ (NSUUID *)UUIDWithHexString:(NSString *)hexString {
+    NSData *data = [NSData dataWithHexString:hexString];
+    return [self UUIDWithData:data];
+}
+
+
 + (NSUUID *)UUIDWithBase64String:(NSString *)base64String {
     NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String options:kNilOptions];
     return [self UUIDWithData:data];
 }
 
 
+
+
+
 - (NSData *)UUIDData {
     uuid_t bytes;
     [self getUUIDBytes:bytes];
     return [NSData dataWithBytes:bytes length:sizeof(bytes)];
+}
+
+
+- (NSString *)UUIDHexString {
+    return [[self UUIDData] hexString];
 }
 
 

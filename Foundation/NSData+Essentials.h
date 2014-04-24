@@ -19,4 +19,11 @@
 - (NSString *)stringUsingUTF8Encoding;
 
 
+
++ (NSData *)dataWithHexString:(NSString *)hexString;
+
+- (NSString *)hexString;
+
+
+
 @end
