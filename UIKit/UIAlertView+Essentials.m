@@ -108,4 +108,39 @@
 
 
 
++ (instancetype)alertViewWithError:(NSError *)error title:(NSString *)title cancelButton:(NSString *)cancelButton {
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    alert.title = title ?: @"Error";
+    
+    NSMutableArray *messageComponents = [NSMutableArray arrayWithObjects:
+                                         error.localizedDescription ?: @"",
+                                         error.localizedFailureReason ?: @"",
+                                         error.localizedRecoverySuggestion ?: @"",
+                                         error.helpAnchor ?: @"",
+                                         nil];
+    [messageComponents removeObject:@""];
+    
+    alert.message = [messageComponents componentsJoinedByString:@"\n\n"];
+    
+    [alert addButtonWithTitle:cancelButton ?: @"Cancel"];
+    alert.cancelButtonIndex = 0;
+    
+    for (NSString *recoveryOption in error.localizedRecoveryOptions) {
+        [alert addButtonWithTitle:recoveryOption];
+    }
+    
+    [alert setCompletionBlock:^(NSInteger buttonIndex) {
+        if (buttonIndex <= 0) return ;
+        
+        NSInteger recoveryOptionIndex = buttonIndex - 1;
+        [error.recoveryAttempter attemptRecoveryFromError:error optionIndex:recoveryOptionIndex];
+    }];
+    
+    return alert;
+}
+
+
+
+
+
 @end

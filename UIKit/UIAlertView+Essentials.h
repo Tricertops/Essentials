@@ -44,4 +44,8 @@ typedef void(^UIAlertViewCompletionBlock)(NSInteger buttonIndex);
 
 
 
++ (instancetype)alertViewWithError:(NSError *)error title:(NSString *)title cancelButton:(NSString *)cancelButton;
+
+
+
 @end
