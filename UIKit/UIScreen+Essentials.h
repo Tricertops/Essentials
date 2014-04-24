@@ -27,6 +27,8 @@
 /// Returns landscape bounds of the screen.
 - (CGRect)landscapeBounds;
 
+/// Returns a value that indicates how many points represent an actual screen pixel. (i.e. 0.5 @2x devices)
+- (CGFloat)pixel;
 
 
 #pragma mark - Class Shorthands
@@ -36,7 +38,7 @@
 + (BOOL)tall;
 + (BOOL)retina;
 + (CGRect)landscapeBounds;
-
++ (CGFloat)pixel;
 
 
 @end

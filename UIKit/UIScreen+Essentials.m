@@ -39,6 +39,10 @@
 }
 
 
+- (CGFloat)pixel {
+    return 1.0 / self.scale;
+}
+
 
 
 
@@ -59,6 +63,9 @@
     return self.mainScreen.landscapeBounds;
 }
 
++ (CGFloat)pixel {
+    return self.mainScreen.pixel;
+}
 
 
 
