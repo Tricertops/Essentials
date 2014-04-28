@@ -97,5 +97,12 @@
 - (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity;
 
 
+#pragma mark - Debugging
+
+- (void)debugDisplayBackgrounds;
+- (void)debugDisplayBorders;
+
+
+
 
 @end

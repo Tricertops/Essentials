@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Essentials.h"
+#import "UIColor+Essentials.h"
 
 
 
@@ -289,6 +290,27 @@
     horizontalMotion.maximumRelativeValue = @(intensity);
     
     [self addMotionEffect:horizontalMotion];
+}
+
+
+
+
+
+#pragma mark - 
+
+
+- (void)debugDisplayBackgrounds {
+    [self enumerateSubviewsRecursivelyWithBlock:^(UIView *view, BOOL *stop) {
+        view.backgroundColor = [[UIColor randomColor] colorWithAlphaComponent:0.3333];
+    }];
+}
+
+
+- (void)debugDisplayBorders {
+    [self enumerateSubviewsRecursivelyWithBlock:^(UIView *view, BOOL *stop) {
+        view.borderColor = [[UIColor randomColor] colorWithAlphaComponent:0.6667];
+        view.borderWidth = 0.5;
+    }];
 }
 
 
