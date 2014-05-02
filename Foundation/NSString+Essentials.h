@@ -48,6 +48,9 @@
 /// Enumerates all occurrences of a given string within the receiver, subject to given options. Block takes the matched string and its range in the receiver.
 - (void)enumerateOccurencesOfString:(NSString *)string options:(NSStringCompareOptions)options usingBlock:(void(^)(NSString *match, NSRange range, BOOL *stop))block;
 
+/// Returns indexes of all characters from given set.
+- (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset;
+
 
 
 #pragma mark - Transformation

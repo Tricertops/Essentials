@@ -101,6 +101,24 @@
 }
 
 
+- (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset {
+    NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
+    NSRange searchRange = NSMakeRange(0, self.length);
+    
+    while (INFINITY) {
+        NSRange range = [self rangeOfCharacterFromSet:charset options:kNilOptions range:searchRange];
+        if (range.location == NSNotFound) break;
+        
+        [indexes addIndexesInRange:range];
+        
+        searchRange.location = range.location + range.length;
+        searchRange.length = self.length - searchRange.location;
+    }
+    
+    return indexes;
+}
+
+
 
 
 #pragma mark - Transformation
