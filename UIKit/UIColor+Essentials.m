@@ -170,15 +170,9 @@
 
 
 - (CGFloat)luminance {
-    CGFloat red, green, blue;
-    BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:NULL];
-    if (hasRGBColorSpace) return (red * 0.299 + green * 0.587 + blue * 0.114);
-    
-    CGFloat luminance;
-    BOOL hasGrayscaleColorSpace = [self getWhite:&luminance alpha:NULL];
-    if (hasGrayscaleColorSpace) return luminance;
-    
-    return 0;
+    CGFloat luminance = 0;
+    [self getWhite:&luminance alpha:NULL];
+    return luminance;
 }
 
 
