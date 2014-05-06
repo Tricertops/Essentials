@@ -189,10 +189,6 @@
     CGFloat oldLuminance = self.luminance;
     if (oldLuminance == newLuminance) return self;
     
-    CGFloat white;
-    BOOL hasGrayscaleColorSpace = [self getWhite:&white alpha:NULL];
-    if (hasGrayscaleColorSpace) return [UIColor colorWithWhite:newLuminance alpha:1];
-    
     CGFloat red, green, blue;
     BOOL hasRGBColorSpace = [self getRed:&red green:&green blue:&blue alpha:NULL];
     if ( ! hasRGBColorSpace) return self;
