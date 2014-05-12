@@ -309,3 +309,12 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 
 
+#pragma mark - Encoding Types
+
+
+#define ESST(TYPE)   @(@encode(TYPE))
+#define ESSTypes(...)   ( [@[ __VA_ARGS__ ] componentsJoinedByString:@""] )
+
+
+
+
