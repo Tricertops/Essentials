@@ -165,6 +165,15 @@
 }
 
 
+- (UIImage *)imageByTintingToColor:(UIColor *)tintColor {
+    return [self imageByDecodingBitmapWithDrawing:^(CGRect rect, BOOL *mask) {
+        [tintColor setFill];
+        CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+        *mask = YES;
+    }];
+}
+
+
 
 
 
