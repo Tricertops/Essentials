@@ -166,11 +166,11 @@
 
 
 - (UIImage *)imageByTintingToColor:(UIColor *)tintColor {
-    return [self imageByDecodingBitmapWithDrawing:^(CGRect rect, BOOL *mask) {
+    return [[self imageByDecodingBitmapWithDrawing:^(CGRect rect, BOOL *mask) {
         [tintColor setFill];
         CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
         *mask = YES;
-    }];
+    }] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; // Why would you tint, if you wanted template image, huh?
 }
 
 
