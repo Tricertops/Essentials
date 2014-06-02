@@ -101,6 +101,7 @@
 
 - (void)debugDisplayBackgrounds;
 - (void)debugDisplayBorders;
++ (void)debugGuardMainThread;
 
 
 
