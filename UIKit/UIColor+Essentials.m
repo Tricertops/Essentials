@@ -140,6 +140,12 @@
 }
 
 
+
+
+
+#pragma mark - Combining
+
+
 + (UIColor *)averageColor:(NSArray *)colors {
     if ( ! colors.count) return nil;
     if (colors.count == 1) return colors.firstObject;
@@ -160,6 +166,21 @@
                            green:green / colors.count
                             blue:blue / colors.count
                            alpha:alpha / colors.count];
+}
+
+
+- (UIColor *)blendedColorOn:(UIColor *)other {
+    return [self blendedColorOn:other alpha:1];
+}
+
+
+- (UIColor *)blendedColorOn:(UIColor *)other alpha:(CGFloat)additionalAlpha {
+    //TODO: Does this really work in all cases?!
+    CGFloat alpha = additionalAlpha * self.alphaComponent;
+    return [UIColor colorWithRed:self.redComponent * alpha + other.redComponent * (1 - alpha)
+                           green:self.greenComponent * alpha + other.greenComponent * (1 - alpha)
+                            blue:self.blueComponent * alpha + other.blueComponent * (1 - alpha)
+                           alpha:1 - (1 - alpha) * (1 - other.alphaComponent)];
 }
 
 

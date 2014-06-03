@@ -47,8 +47,21 @@
 /// Returns new color that has one minus component of the receiver.
 - (UIColor *)invertedColor;
 
+
+
+#pragma mark - Combining
+
 /// Returns average color from those provided.
 + (UIColor *)averageColor:(NSArray *)colors;
+
+/// Returns new color that is a result from blending receiver onto argument.
+- (UIColor *)blendedColorOn:(UIColor *)other;
+
+/// Returns new color that is a result from blending receiver onto argument with additional alpha applied on the receiver.
+- (UIColor *)blendedColorOn:(UIColor *)other alpha:(CGFloat)additionalAlpha;
+
+
+//TODO: - (UIColor *)blendedColorOn:(UIColor *)other mode:(CGBlendMode)mode alpha:(CGFloat;
 
 
 
