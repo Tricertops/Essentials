@@ -33,6 +33,17 @@
 }
 
 
+- (BOOL)shouldInvokeCompletionBlockOnDismiss {
+    return [[self associatedObjectForKey:_cmd] boolValue];
+}
+
+
+- (void)setShouldInvokeCompletionBlockOnDismiss:(BOOL)shouldInvokeCompletionBlockOnDismiss {
+    [self setAssociatedStrongObject:@(shouldInvokeCompletionBlockOnDismiss) forKey:@selector(shouldInvokeCompletionBlockOnDismiss)];
+}
+
+
+
 - (void)showInView:(UIView *)view completion:(void(^)(NSInteger buttonIndex))block {
     self.completionBlock = block;
     [self showInView:view];
@@ -66,8 +77,18 @@
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (self.completionBlock) self.completionBlock(buttonIndex);
-    self.completionBlock = nil; // Release the block
+    if ( ! self.shouldInvokeCompletionBlockOnDismiss) {
+        if (self.completionBlock) self.completionBlock(buttonIndex);
+        self.completionBlock = nil; // Release the block
+    }
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (self.shouldInvokeCompletionBlockOnDismiss) {
+        if (self.completionBlock) self.completionBlock(buttonIndex);
+        self.completionBlock = nil; // Release the block
+    }
 }
 
 

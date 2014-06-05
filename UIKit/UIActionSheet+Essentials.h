@@ -25,6 +25,10 @@ typedef void(^UIActionSheetCompletionBlock)(NSInteger buttonIndex);
 /// Block to be invoked automatically after the action sheet is cancelled or a button is clicked. Setting this property also sets delegate to self.
 @property (nonatomic, readwrite, copy) UIActionSheetCompletionBlock completionBlock;
 
+/// YES for completion block to be invoked after the sheet was dismissed. NO, the default, for to be invoked immediately on click.
+@property (nonatomic, readwrite, assign) BOOL shouldInvokeCompletionBlockOnDismiss;
+
+
 /// Sets completion block and shows the action sheet in given view.
 - (void)showInView:(UIView *)view completion:(UIActionSheetCompletionBlock)block;
 
