@@ -125,6 +125,7 @@
 
 /// Use to create lazy-loading getter. Append implementation that assigns desired value into the property.
 #define ESSLazyLoad(TYPE, GETTER)\
+@synthesize GETTER = _##GETTER;\
 - (TYPE)GETTER {\
     if ( ! self->_##GETTER) {\
         [self load_##GETTER];\
