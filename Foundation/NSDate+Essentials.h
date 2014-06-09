@@ -17,7 +17,7 @@
 
 
 
-#pragma mark Comparisons
+#pragma mark - Comparisons
 
 /// Whether the receiver comes before the argument.
 - (BOOL)isBefore:(NSDate *)date;
@@ -26,7 +26,23 @@
 
 
 
+#pragma mark - Timestamps
 
+/// Shorter alias for -dateWithTimeIntervalSinceReferenceDate:
++ (instancetype)dateWithTimestamp:(NSTimeInterval)timestamp;
+/// Shorter alias for -dateWithTimeIntervalSince1970:
++ (instancetype)dateWithUNIXTimstamp:(NSTimeInterval)unixTimestamp;
+
+/// Shorter alias for timeIntervalSinceReferenceDate
+@property (atomic, readonly, assign) NSTimeInterval timestamp;
+/// Shorter alias for timeIntervalSince1970
+@property (atomic, readonly, assign) NSTimeInterval UNIXTimestamp;
+
+
+
+#pragma mark - Debug
+
+/// Invokes the block while measuring its execution time. Returns the measured time and optionally log it to the console.
 + (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName;
 
 

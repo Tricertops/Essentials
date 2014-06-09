@@ -35,6 +35,35 @@
 
 
 
+#pragma mark - Timestamps
+
+
++ (instancetype)dateWithTimestamp:(NSTimeInterval)timestamp {
+    return [self dateWithTimeIntervalSinceReferenceDate:timestamp];
+}
+
+
++ (instancetype)dateWithUNIXTimstamp:(NSTimeInterval)unixTimestamp {
+    return [self dateWithTimeIntervalSince1970:unixTimestamp];
+}
+
+
+- (NSTimeInterval)timestamp {
+    return self.timeIntervalSinceReferenceDate;
+}
+
+
+- (NSTimeInterval)UNIXTimestamp {
+    return self.timeIntervalSince1970;
+}
+
+
+
+
+
+#pragma mark - Debug
+
+
 + (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName {
     NSDate *start = [NSDate new];
     block();
