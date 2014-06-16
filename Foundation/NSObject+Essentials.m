@@ -137,6 +137,11 @@
 }
 
 
++ (instancetype)cast:(id)something {
+    return [something isKindOfClass:self] ? something : nil;
+}
+
+
 - (instancetype)ofClass:(Class)class or:(id)replacement {
     return [self isKindOfClass:class] ? self : replacement;
 }
