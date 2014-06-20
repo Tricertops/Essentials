@@ -300,6 +300,7 @@
 
 
 - (void)debugDisplayBackgrounds {
+    self.backgroundColor = [UIColor randomColor];
     [self enumerateSubviewsRecursivelyWithBlock:^(UIView *view, BOOL *stop) {
         view.backgroundColor = [[UIColor randomColor] colorWithAlphaComponent:0.3333];
     }];
@@ -307,6 +308,8 @@
 
 
 - (void)debugDisplayBorders {
+    self.borderColor = [UIColor randomColor];
+    self.borderWidth = 0.5;
     [self enumerateSubviewsRecursivelyWithBlock:^(UIView *view, BOOL *stop) {
         view.borderColor = [[UIColor randomColor] colorWithAlphaComponent:0.6667];
         view.borderWidth = 0.5;
