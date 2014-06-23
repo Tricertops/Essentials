@@ -39,6 +39,10 @@
 @property (atomic, readonly, assign) NSTimeInterval UNIXTimestamp;
 
 
+/// Returns receiver rounded to the beginning of the day.
+- (NSDate *)midnight;
+
+
 
 #pragma mark - Debug
 

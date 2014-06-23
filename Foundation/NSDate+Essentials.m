@@ -61,6 +61,16 @@
 
 
 
+- (NSDate *)midnight {
+    NSDate *midnight = nil;
+    [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&midnight interval:nil forDate:self];
+    return midnight;
+}
+
+
+
+
+
 #pragma mark - Debug
 
 
