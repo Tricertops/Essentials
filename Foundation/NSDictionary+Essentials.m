@@ -62,6 +62,13 @@
 }
 
 
+- (instancetype)invertedDictionary {
+    NSArray *keys = self.allKeys;
+    NSArray *values = [self objectsForKeys:keys notFoundMarker:NSNull.null];
+    return [self.class dictionaryWithObjects:keys forKeys:values];
+}
+
+
 
 
 

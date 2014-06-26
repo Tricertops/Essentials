@@ -44,6 +44,10 @@
 - (NSDictionary *)merged:(NSDictionary *)other;
 
 
+/// Returns new dictionary whose keys are receiver's values and whose values are corresponding receiver's keys. Count of the resulting dictionary is the same as count of the receiver unless one value is stored under multiple keys. In that case, only one of those keys will be preserved. Returned object respects the mutability of the receiver.
+- (instancetype)invertedDictionary;
+
+
 
 
 
