@@ -23,6 +23,10 @@
 - (BOOL)isBefore:(NSDate *)date;
 /// Whether the receiver comes after the argument.
 - (BOOL)isAfter:(NSDate *)date;
+/// Whether the receiver is earlier than current date.
+- (BOOL)isPast;
+/// Whether the receiver is later than current date.
+- (BOOL)isFuture;
 
 
 
@@ -38,6 +42,8 @@
 /// Shorter alias for timeIntervalSince1970
 @property (atomic, readonly, assign) NSTimeInterval UNIXTimestamp;
 
+/// Returns current date.
++ (instancetype)now;
 
 /// Returns receiver rounded to the beginning of the day.
 - (NSDate *)midnight;

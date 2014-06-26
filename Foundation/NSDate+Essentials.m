@@ -32,6 +32,16 @@
 }
 
 
+- (BOOL)isPast {
+    return [self isBefore:[NSDate new]];
+}
+
+
+- (BOOL)isFuture {
+    return [self isAfter:[NSDate new]];
+}
+
+
 
 
 
@@ -59,6 +69,11 @@
 
 
 
+
+
++ (instancetype)now {
+    return [NSDate new];
+}
 
 
 - (NSDate *)midnight {
