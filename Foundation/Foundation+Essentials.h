@@ -208,6 +208,26 @@ ESSLazyMakeUsingIvar(TYPE, GETTER, _##GETTER)
 }\
 
 
+/// Use to create accessors for property of object type stored in User Defaults.
+#define ESSSynthesizeUserDefaults(TYPE, GETTER, SETTER, KEY)\
+- (TYPE)GETTER {\
+    return [[NSUserDefaults standardUserDefaults] objectForKey:KEY];\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    [[NSUserDefaults standardUserDefaults] setObject:GETTER forKey:KEY];\
+}\
+
+
+/// Use to create accessors for property of numeric type stored in User Defaults.
+#define ESSSynthesizeNumericUserDefaults(TYPE, GETTER, SETTER, KEY)\
+- (TYPE)GETTER {\
+    return [[NSUserDefaults standardUserDefaults] doubleForKey:KEY];\
+}\
+- (void)SETTER:(TYPE)GETTER {\
+    [[NSUserDefaults standardUserDefaults] setDouble:GETTER forKey:KEY];\
+}\
+
+
 
 
 
