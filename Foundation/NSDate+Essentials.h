@@ -45,6 +45,9 @@
 /// Returns current date.
 + (instancetype)now;
 
+/// Returns current date rounded to the beginning of the day.
++ (NSDate *)midnight;
+
 /// Returns receiver rounded to the beginning of the day.
 - (NSDate *)midnight;
 

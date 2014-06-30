@@ -72,7 +72,12 @@
 
 
 + (instancetype)now {
-    return [NSDate new];
+    return [self new];
+}
+
+
++ (instancetype)midnight {
+    return [[self new] midnight];
 }
 
 
