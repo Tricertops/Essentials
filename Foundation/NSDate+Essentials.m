@@ -53,7 +53,7 @@
 }
 
 
-+ (instancetype)dateWithUNIXTimstamp:(NSTimeInterval)unixTimestamp {
++ (instancetype)dateWithUNIXTimestamp:(NSTimeInterval)unixTimestamp {
     return [self dateWithTimeIntervalSince1970:unixTimestamp];
 }
 
@@ -73,6 +73,16 @@
 
 + (instancetype)now {
     return [self new];
+}
+
+
++ (NSTimeInterval)timestamp {
+    return [self timeIntervalSinceReferenceDate];
+}
+
+
++ (NSTimeInterval)UNIXTimestamp {
+    return [self timeIntervalSinceReferenceDate] + NSTimeIntervalSince1970;
 }
 
 

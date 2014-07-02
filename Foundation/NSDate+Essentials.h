@@ -35,15 +35,21 @@
 /// Shorter alias for -dateWithTimeIntervalSinceReferenceDate:
 + (instancetype)dateWithTimestamp:(NSTimeInterval)timestamp;
 /// Shorter alias for -dateWithTimeIntervalSince1970:
-+ (instancetype)dateWithUNIXTimstamp:(NSTimeInterval)unixTimestamp;
++ (instancetype)dateWithUNIXTimestamp:(NSTimeInterval)unixTimestamp;
 
-/// Shorter alias for timeIntervalSinceReferenceDate
+/// Shorter alias for -timeIntervalSinceReferenceDate
 @property (atomic, readonly, assign) NSTimeInterval timestamp;
-/// Shorter alias for timeIntervalSince1970
+/// Shorter alias for -timeIntervalSince1970
 @property (atomic, readonly, assign) NSTimeInterval UNIXTimestamp;
 
 /// Returns current date.
 + (instancetype)now;
+
+/// Shorter alias for +timeIntervalSinceReferenceDate
++ (NSTimeInterval)timestamp;
+
+/// Returns time interval since UNIX epoch.
++ (NSTimeInterval)UNIXTimestamp;
 
 /// Returns current date rounded to the beginning of the day.
 + (NSDate *)midnight;
