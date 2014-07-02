@@ -8,6 +8,7 @@
 
 #import "UIActionSheet+Essentials.h"
 #import "NSObject+Essentials.h"
+#import "UIDevice+Essentials.h"
 
 
 
@@ -70,6 +71,17 @@
 }
 
 
+- (void)showFrom:(id<UIActionSheetSource>)source completion:(void(^)(NSInteger buttonIndex))block {
+    self.completionBlock = block;
+    [self showFrom:source];
+}
+
+
+- (void)showFrom:(id<UIActionSheetSource>)source {
+    [source showActionSheet:self];
+}
+
+
 
 
 
@@ -101,3 +113,85 @@
 
 
 @end
+
+
+
+
+
+@implementation UIView (UIActionSheetSource)
+
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet {
+    if (UIDevice.iPad) {
+        [actionSheet showFromRect:self.bounds inView:self animated:YES];
+    }
+    else {
+        [actionSheet showInView:self];
+    }
+    return YES;
+}
+
+@end
+
+
+
+@implementation UIBarButtonItem (UIActionSheetSource)
+
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet {
+    if (UIDevice.iPad) {
+        [actionSheet showFromBarButtonItem:self animated:YES];
+        return YES;
+    }
+    return NO;
+}
+
+@end
+
+
+
+@implementation UITabBar (UIActionSheetSource)
+
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet {
+    if (UIDevice.iPhone) {
+        [actionSheet showFromTabBar:self];
+        return YES;
+    }
+    return NO;
+}
+
+@end
+
+
+
+@implementation UIToolbar (UIActionSheetSource)
+
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet {
+    if (UIDevice.iPhone) {
+        [actionSheet showFromToolbar:self];
+        return YES;
+    }
+    return NO;
+}
+
+@end
+
+
+
+@implementation UIViewController (UIActionSheetSource)
+
+- (BOOL)showActionSheet:(UIActionSheet *)sheet {
+    BOOL didShow = ([self.tabBarController.tabBar showActionSheet:sheet]
+                    ?: [self.navigationController.toolbar showActionSheet:sheet]
+                    ?: [self showActionSheet:sheet]);
+    if ( ! didShow) {
+        [sheet showInView:self.view];
+    }
+    return YES;
+}
+
+- (BOOL)showActionSheet:(UIActionSheet *)sheet from:(id<UIActionSheetSource>)source {
+    return [source showActionSheet:sheet] ?: [self showActionSheet:sheet];
+}
+
+@end
+
+
