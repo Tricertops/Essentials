@@ -59,6 +59,25 @@
 
 
 
+#pragma mark - Components
+
+/// Returns given date components using current calendar.
+- (NSDateComponents *)components:(NSCalendarUnit)units;
+
+/// Returns given date components between the receiver and other date using current calendar.
+- (NSDateComponents *)components:(NSCalendarUnit)units toDate:(NSDate *)other;
+
+/// Returns start date of calendar unit in which is the reciever.
+- (NSDate *)startDateOfComponent:(NSCalendarUnit)unit;
+
+/// Returns duration of calendar unit in which is the reciever.
+- (NSTimeInterval)durationOfComponent:(NSCalendarUnit)unit;
+
+/// Returns end date of calendar unit in which is the reciever.
+- (NSDate *)endDateOfComponent:(NSCalendarUnit)unit;
+
+
+
 #pragma mark - Debug
 
 /// Invokes the block while measuring its execution time. Returns the measured time and optionally log it to the console.

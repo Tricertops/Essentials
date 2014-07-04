@@ -92,9 +92,48 @@
 
 
 - (NSDate *)midnight {
-    NSDate *midnight = nil;
-    [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&midnight interval:nil forDate:self];
-    return midnight;
+    return [self startDateOfComponent:NSCalendarUnitDay];
+}
+
+
+
+
+
+#pragma mark - Components
+
+
+- (NSDateComponents *)components:(NSCalendarUnit)units {
+    return [[NSCalendar currentCalendar] components:units fromDate:self];
+}
+
+
+- (NSDateComponents *)components:(NSCalendarUnit)units toDate:(NSDate *)other {
+    return [[NSCalendar currentCalendar] components:units fromDate:self toDate:other options:kNilOptions];
+}
+
+
+- (NSDate *)startDateOfComponent:(NSCalendarUnit)unit {
+    NSDate *startDate = nil;
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:&startDate interval:nil forDate:self];
+    if ( ! ok) return nil;
+    else return startDate;
+}
+
+
+- (NSTimeInterval)durationOfComponent:(NSCalendarUnit)unit {
+    NSTimeInterval duration = 0;
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:nil interval:&duration forDate:self];
+    if ( ! ok) return 0;
+    else return duration;
+}
+
+
+- (NSDate *)endDateOfComponent:(NSCalendarUnit)unit {
+    NSDate *startDate = nil;
+    NSTimeInterval duration = 0;
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:&startDate interval:&duration forDate:self];
+    if ( ! ok) return nil;
+    else return [startDate dateByAddingTimeInterval:duration];
 }
 
 
