@@ -102,6 +102,11 @@
 #pragma mark - Components
 
 
++ (instancetype)dateFromComponents:(NSDateComponents *)components {
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+
 - (NSDateComponents *)components:(NSCalendarUnit)units {
     return [[NSCalendar currentCalendar] components:units fromDate:self];
 }

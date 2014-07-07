@@ -61,6 +61,9 @@
 
 #pragma mark - Components
 
+/// Returns new date from given components using current calendar.
++ (instancetype)dateFromComponents:(NSDateComponents *)components;
+
 /// Returns given date components using current calendar.
 - (NSDateComponents *)components:(NSCalendarUnit)units;
 
