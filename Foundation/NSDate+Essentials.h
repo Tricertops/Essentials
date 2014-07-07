@@ -76,6 +76,12 @@
 /// Returns end date of calendar unit in which is the reciever.
 - (NSDate *)endDateOfComponent:(NSCalendarUnit)unit;
 
+/// Whether the receiver and other date share the same component (week, month, day, year, ...).
+- (BOOL)isWithinUnit:(NSCalendarUnit)unit ofDate:(NSDate *)other;
+
+/// Whether the receiver shared the same day component as current date.
+- (BOOL)isToday;
+
 
 
 #pragma mark - Debug

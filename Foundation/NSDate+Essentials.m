@@ -129,11 +129,20 @@
 
 
 - (NSDate *)endDateOfComponent:(NSCalendarUnit)unit {
-    NSDate *startDate = nil;
-    NSTimeInterval duration = 0;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:&startDate interval:&duration forDate:self];
-    if ( ! ok) return nil;
-    else return [startDate dateByAddingTimeInterval:duration];
+    return [[self startDateOfComponent:unit] dateByAddingTimeInterval:[self durationOfComponent:unit]];
+}
+
+
+- (BOOL)isWithinUnit:(NSCalendarUnit)unit ofDate:(NSDate *)other {
+    NSDate *startDate = [other startDateOfComponent:unit];
+    if ([self isBefore:startDate]) return NO;
+    NSDate *endDate = [other endDateOfComponent:unit];
+    return [self isBefore:endDate]; // endDate is already out of unit
+}
+
+
+- (BOOL)isToday {
+    return [self isWithinUnit:NSCalendarUnitDay ofDate:[NSDate now]];
 }
 
 
