@@ -45,6 +45,9 @@
 /// Returns current date.
 + (instancetype)now;
 
+/// Shorter alias for -dateWithTimeIntervalSinceNow:
++ (instancetype)now:(NSTimeInterval)interval;
+
 /// Shorter alias for +timeIntervalSinceReferenceDate
 + (NSTimeInterval)timestamp;
 

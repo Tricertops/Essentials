@@ -76,6 +76,11 @@
 }
 
 
++ (instancetype)now:(NSTimeInterval)interval {
+    return [self dateWithTimeIntervalSinceNow:interval];
+}
+
+
 + (NSTimeInterval)timestamp {
     return [self timeIntervalSinceReferenceDate];
 }
