@@ -20,6 +20,7 @@
 #import "NSData+Essentials.h"
 #import "NSUUID+Essentials.h"
 #import "NSSortDescriptor+Essentials.h"
+#import "NSIndexPath+Essentials.h"
 
 
 

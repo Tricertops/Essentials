@@ -52,6 +52,8 @@
 		5BE79C01189BFE69004A02B1 /* NSUUID+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */; };
 		5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
 		5BE79C03189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
+		5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */; };
+		5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */; };
 		5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
 		5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
@@ -154,6 +156,8 @@
 		5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Essentials.m"; sourceTree = "<group>"; };
 		5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUUID+Essentials.h"; sourceTree = "<group>"; };
 		5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUUID+Essentials.m"; sourceTree = "<group>"; };
+		5BE8AABC19702FC300F0B09A /* NSIndexPath+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+Essentials.h"; sourceTree = "<group>"; };
+		5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+Essentials.m"; sourceTree = "<group>"; };
 		5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Essentials.h"; sourceTree = "<group>"; };
 		5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Essentials.m"; sourceTree = "<group>"; };
 		5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentialsOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +302,8 @@
 				5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */,
 				5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */,
 				5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */,
+				5BE8AABC19702FC300F0B09A /* NSIndexPath+Essentials.h */,
+				5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
 				5B13410417622955008F8F1E /* UIActionSheet+Essentials.m in Sources */,
 				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
+				5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */,
 				5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */,
 				5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */,
 				5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */,
@@ -520,6 +527,7 @@
 				5BFBAC0B1844BB8900179483 /* NSError+Essentials.m in Sources */,
 				5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */,
 				5BFBAC091844BB8900179483 /* NSMutableArray+Essentials.m in Sources */,
+				5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
