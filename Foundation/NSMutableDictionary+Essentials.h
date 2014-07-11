@@ -19,6 +19,9 @@
 /// Adds the values contained in another given dictionary to the receiving dictionary. Returns the receiver.
 - (NSMutableDictionary *)addValuesFromDictionary:(NSDictionary *)otherDictionary;
 
+/// Adds a given key-value pairs to the dictionary.
+- (void)setObjects:(NSArray *)objects forKeys:(NSArray *)keys;
+
 
 
 @end

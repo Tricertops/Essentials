@@ -19,10 +19,14 @@
 - (NSMutableDictionary *)addValuesFromDictionary:(NSDictionary *)otherDictionary {
     if ([self isEqualToDictionary:otherDictionary]) return self;
     
-    [otherDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [self setObject:obj forKey:key];
-    }];
+    [self addEntriesFromDictionary:otherDictionary];
     return self;
+}
+
+
+- (void)setObjects:(NSArray *)objects forKeys:(NSArray *)keys {
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    [self addEntriesFromDictionary:dictionary];
 }
 
 
