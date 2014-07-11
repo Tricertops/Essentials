@@ -34,6 +34,9 @@
 /// Returns new array with mapped objects using given block. The block takes index and object.
 - (NSArray *)mapIndex:(id(^)(NSUInteger index, id object))block;
 
+/// Returns new dictionary, whose values are objects from the receiver and keys are obejcts returned for given key-path.
+- (NSDictionary *)dictionaryByKeyPath:(NSString *)keyPath;
+
 
 
 #pragma mark Nested Arrays

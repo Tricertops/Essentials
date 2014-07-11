@@ -74,6 +74,12 @@
 }
 
 
+- (NSDictionary *)dictionaryByKeyPath:(NSString *)keyPath {
+    NSArray *keys = [self valueForKeyPath:keyPath];
+    return [NSDictionary dictionaryWithObjects:self forKeys:keys];
+}
+
+
 
 
 
