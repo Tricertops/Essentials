@@ -177,6 +177,10 @@
 - (UIColor *)blendedColorOn:(UIColor *)other alpha:(CGFloat)additionalAlpha {
     //TODO: Does this really work in all cases?!
     CGFloat alpha = additionalAlpha * self.alphaComponent;
+    
+    if (alpha >= 1) return self;
+    if (alpha <= 0) return other;
+        
     return [UIColor colorWithRed:self.redComponent * alpha + other.redComponent * (1 - alpha)
                            green:self.greenComponent * alpha + other.greenComponent * (1 - alpha)
                             blue:self.blueComponent * alpha + other.blueComponent * (1 - alpha)

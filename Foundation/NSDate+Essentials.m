@@ -32,7 +32,134 @@
 }
 
 
+- (BOOL)isPast {
+    return [self isBefore:[NSDate new]];
+}
 
+
+- (BOOL)isFuture {
+    return [self isAfter:[NSDate new]];
+}
+
+
+
+
+
+#pragma mark - Timestamps
+
+
++ (instancetype)dateWithTimestamp:(NSTimeInterval)timestamp {
+    return [self dateWithTimeIntervalSinceReferenceDate:timestamp];
+}
+
+
++ (instancetype)dateWithUNIXTimestamp:(NSTimeInterval)unixTimestamp {
+    return [self dateWithTimeIntervalSince1970:unixTimestamp];
+}
+
+
+- (NSTimeInterval)timestamp {
+    return self.timeIntervalSinceReferenceDate;
+}
+
+
+- (NSTimeInterval)UNIXTimestamp {
+    return self.timeIntervalSince1970;
+}
+
+
+
+
+
++ (instancetype)now {
+    return [self new];
+}
+
+
++ (instancetype)now:(NSTimeInterval)interval {
+    return [self dateWithTimeIntervalSinceNow:interval];
+}
+
+
++ (NSTimeInterval)timestamp {
+    return [self timeIntervalSinceReferenceDate];
+}
+
+
++ (NSTimeInterval)UNIXTimestamp {
+    return [self timeIntervalSinceReferenceDate] + NSTimeIntervalSince1970;
+}
+
+
++ (instancetype)midnight {
+    return [[self new] midnight];
+}
+
+
+- (NSDate *)midnight {
+    return [self startDateOfComponent:NSCalendarUnitDay];
+}
+
+
+
+
+
+#pragma mark - Components
+
+
++ (instancetype)dateFromComponents:(NSDateComponents *)components {
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+
+- (NSDateComponents *)components:(NSCalendarUnit)units {
+    return [[NSCalendar currentCalendar] components:units fromDate:self];
+}
+
+
+- (NSDateComponents *)components:(NSCalendarUnit)units toDate:(NSDate *)other {
+    return [[NSCalendar currentCalendar] components:units fromDate:self toDate:other options:kNilOptions];
+}
+
+
+- (NSDate *)startDateOfComponent:(NSCalendarUnit)unit {
+    NSDate *startDate = nil;
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:&startDate interval:nil forDate:self];
+    if ( ! ok) return nil;
+    else return startDate;
+}
+
+
+- (NSTimeInterval)durationOfComponent:(NSCalendarUnit)unit {
+    NSTimeInterval duration = 0;
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:unit startDate:nil interval:&duration forDate:self];
+    if ( ! ok) return 0;
+    else return duration;
+}
+
+
+- (NSDate *)endDateOfComponent:(NSCalendarUnit)unit {
+    return [[self startDateOfComponent:unit] dateByAddingTimeInterval:[self durationOfComponent:unit]];
+}
+
+
+- (BOOL)isWithinUnit:(NSCalendarUnit)unit ofDate:(NSDate *)other {
+    NSDate *startDate = [other startDateOfComponent:unit];
+    if ([self isBefore:startDate]) return NO;
+    NSDate *endDate = [other endDateOfComponent:unit];
+    return [self isBefore:endDate]; // endDate is already out of unit
+}
+
+
+- (BOOL)isToday {
+    return [self isWithinUnit:NSCalendarUnitDay ofDate:[NSDate now]];
+}
+
+
+
+
+
+#pragma mark - Debug
 
 
 + (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName {

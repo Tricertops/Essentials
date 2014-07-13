@@ -13,10 +13,28 @@
 typedef void(^UIActionSheetCompletionBlock)(NSInteger buttonIndex);
 
 
+/// Defines classes that can be used as source fo presentation.
+@protocol UIActionSheetSource @required
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet;
+@end
+@interface UIView (UIActionSheetSource) <UIActionSheetSource> @end
+@interface UIBarButtonItem (UIActionSheetSource) <UIActionSheetSource> @end
+@interface UITabBar (UIActionSheetSource) <UIActionSheetSource> @end
+@interface UIToolbar (UIActionSheetSource) <UIActionSheetSource> @end
+@interface UIViewController (UIActionSheetSource) <UIActionSheetSource>
+- (BOOL)showActionSheet:(UIActionSheet *)actionSheet from:(id<UIActionSheetSource>)source;
+@end
 
 
 
 @interface UIActionSheet (Essentials) < UIActionSheetDelegate >
+
+
+
+#pragma mark - Show
+
+/// Universal method to present the receiver on iPhone and iPad.
+- (void)showFrom:(id<UIActionSheetSource>)source;
 
 
 
@@ -44,6 +62,11 @@ typedef void(^UIActionSheetCompletionBlock)(NSInteger buttonIndex);
 /// Sets completion block and shows the action sheet from given bar button item.
 - (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated completion:(UIActionSheetCompletionBlock)block;
 
+/// Sets completion block and shows the action sheet using universal presentation method.
+- (void)showFrom:(id<UIActionSheetSource>)source completion:(UIActionSheetCompletionBlock)block;
+
 
 
 @end
+
+
