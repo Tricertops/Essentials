@@ -111,7 +111,7 @@
 
 - (void)setShadow:(NSShadow *)shadow {
     self.layer.shadowOffset = shadow.shadowOffset;
-    self.shadowColor = shadow.shadowColor;
+    self.shadowColor = shadow.shadowColor ?: [UIColor clearColor];
     self.shadowBlurRadius = shadow.shadowBlurRadius;
     self.shadowAlpha = 1;
 }
