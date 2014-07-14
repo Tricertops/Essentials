@@ -23,7 +23,7 @@
 
 
 - (UIImage *)snapshot {
-    return [self snapshotWithScale:0];
+    return [self snapshotWithScale:self.contentScaleFactor];
 }
 
 
