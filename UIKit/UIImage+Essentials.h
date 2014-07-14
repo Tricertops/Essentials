@@ -60,4 +60,14 @@
 
 
 
+#pragma mark - Rendering Modes
+
+/// Shortcut for -imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate
+- (UIImage *)templateImage;
+
+/// Shortcut for -imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal
+- (UIImage *)originalImage;
+
+
+
 @end

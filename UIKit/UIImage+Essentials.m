@@ -177,4 +177,20 @@
 
 
 
+#pragma mark - Rendering Modes
+
+
+- (UIImage *)templateImage {
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+}
+
+
+- (UIImage *)originalImage {
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
+
+
+
+
 @end
