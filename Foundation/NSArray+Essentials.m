@@ -150,6 +150,11 @@
 }
 
 
+- (NSSet *)set {
+    return [NSSet setWithArray:self];
+}
+
+
 
 
 

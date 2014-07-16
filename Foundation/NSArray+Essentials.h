@@ -73,6 +73,9 @@
 /// Return object at random index.
 - (id)randomObject;
 
+/// Returns a set containing all values from the receiver.
+- (NSSet *)set;
+
 
 
 #pragma mark Safe Values
