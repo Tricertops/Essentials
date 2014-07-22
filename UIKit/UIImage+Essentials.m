@@ -193,4 +193,28 @@
 
 
 
+#pragma mark – Adjustments
+
+
+- (UIImage *)imageWrappedInCircleWithSize:(CGSize)circleSize lineWidth:(CGFloat)lineWidth circleColor:(UIColor *)circleColor {
+    UIImageRenderingMode originalRenderingMode = self.renderingMode;
+    CGFloat circleWidth = circleSize.width;
+    CGFloat circleHeight = circleSize.height;
+    
+    UIGraphicsBeginImageContextWithOptions(circleSize, NO, [[UIScreen mainScreen] scale]);
+    
+    [self drawInRect:CGRectMake(ceil(circleWidth/2-self.size.width/2), ceil(circleHeight/2-self.size.height/2), self.size.width, self.size.height)];
+    [circleColor setStroke];
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, circleWidth, circleHeight)];
+    [path addClip]; //Stroke the inside
+    path.lineWidth = lineWidth*2;
+    [path stroke];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return [resultImage imageWithRenderingMode:originalRenderingMode];
+}
+
+
 @end

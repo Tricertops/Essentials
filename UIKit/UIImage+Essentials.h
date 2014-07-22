@@ -70,4 +70,10 @@
 
 
 
+#pragma mark - Adjustment
+
+/// Returns a image that has a circle drawn around it, with appropriate size
+- (UIImage *)imageWrappedInCircleWithSize:(CGSize)circleSize lineWidth:(CGFloat)lineWidth circleColor:(UIColor *)circleColor;
+
+
 @end
