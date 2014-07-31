@@ -26,6 +26,10 @@
 
 
 + (NSData *)dataWithHexString:(NSString *)hexString {
+    NSArray *ignoringSymbols = @[@"-", @"\n", @" "];
+    for (NSString *symbol in ignoringSymbols) {
+        hexString = [hexString stringByReplacingOccurrencesOfString:symbol withString:@""];
+    }
     
     const char *hex = [hexString cStringUsingEncoding:NSUTF8StringEncoding];
     NSUInteger length = strlen(hex);
