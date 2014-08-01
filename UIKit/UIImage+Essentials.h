@@ -44,6 +44,16 @@
 
 
 
+#pragma  mark - Drawing
+
+/// Returns new image draw using instructions in provided block.
++ (instancetype)drawWithSize:(CGSize)size block:(void(^)(void))block;
+
+/// Returns new image draw using instructions in provided block with given opaqueness and scale.
++ (instancetype)drawWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(void))block;
+
+
+
 #pragma mark - Decoding
 
 /// Returns a decoded image.

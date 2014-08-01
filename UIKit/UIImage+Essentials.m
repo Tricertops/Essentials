@@ -131,6 +131,26 @@
 
 
 
+#pragma  mark - Drawing
+
+
++ (instancetype)drawWithSize:(CGSize)size block:(void(^)(void))block {
+    return [self drawWithSize:size opaque:NO scale:0 block:block];
+}
+
+
++ (instancetype)drawWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(void))block {
+    UIGraphicsBeginImageContextWithOptions(size, opaque, scale);
+    block();
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
+
+
+
 #pragma mark - Decoding 
 
 
