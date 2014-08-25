@@ -38,6 +38,16 @@ typedef void(^UIActionSheetCompletionBlock)(NSInteger buttonIndex);
 
 
 
+#pragma mark Cancellation
+
+/// Dismisses with cancel action. Animated.
+- (void)cancel;
+
+/// Dismisses with cancel action.
+- (void)cancelAnimated:(BOOL)animated;
+
+
+
 #pragma mark - Completion Block
 
 /// Block to be invoked automatically after the action sheet is cancelled or a button is clicked. Setting this property also sets delegate to self.

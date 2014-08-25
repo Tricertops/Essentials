@@ -20,6 +20,22 @@
 
 
 
+#pragma mark Cancellation
+
+
+- (void)cancel {
+    [self cancelAnimated:YES];
+}
+
+
+- (void)cancelAnimated:(BOOL)animated {
+    [self dismissWithClickedButtonIndex:self.cancelButtonIndex animated:animated];
+}
+
+
+
+
+
 #pragma mark - Completion Block
 
 
