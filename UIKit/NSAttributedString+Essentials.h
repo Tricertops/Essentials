@@ -14,6 +14,13 @@
 
 
 
+#pragma mark - Range
+
+/// Range covering all characters of the receiver.
+@property (readonly) NSRange fullRange;
+
+
+
 #pragma mark Resizing
 
 /// Returns a copy of the receiver whose font size is adjusted to fit into given size. Never smaller than minimum scale.

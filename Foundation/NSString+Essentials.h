@@ -21,6 +21,13 @@
 
 
 
+#pragma mark - Range
+
+/// Range covering all characters of the receiver.
+@property (readonly) NSRange fullRange;
+
+
+
 #pragma mark - Shortnen Description
 
 /// Shortens string to given number of characters and appends given string to the end.

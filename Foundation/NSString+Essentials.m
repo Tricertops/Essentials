@@ -28,6 +28,17 @@
 
 
 
+#pragma mark - Range
+
+
+- (NSRange)fullRange {
+    return NSMakeRange(0, self.length);
+}
+
+
+
+
+
 #pragma mark - Shortnen Description
 
 
