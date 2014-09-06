@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <GLKit/GLKit.h>
 
 
 
@@ -58,6 +59,19 @@
 
 /// Returns new image draw using instructions in provided block with given opaqueness and scale.
 + (instancetype)drawWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(void))block;
+
+
+
+#pragma mark - Bitmap Processing
+
+/// Extracts bitmap from the receiver, passes it to the block and then returns new image from that bitmap.
+- (UIImage *)imageByProcessingBitmap:(void(^)(NSMutableData *bitmap))block;
+
+/// Returns new image created by processing receiver's samples using given block.
+- (UIImage *)imageByEnumeratingPixels:(GLKVector4(^)(GLKVector4 color))block;
+
+/// Returns image with inverted red, green and blue and preserved alpha.
+- (UIImage *)invertedImage;
 
 
 

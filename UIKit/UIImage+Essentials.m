@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -157,6 +158,70 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+
+
+
+
+#pragma mark - Processing Bitmap
+
+
+- (UIImage *)imageByProcessingBitmap:(void(^)(NSMutableData *bitmap))block {
+    NSUInteger width = self.size.width * self.scale;
+    NSUInteger height = self.size.height * self.scale;
+    
+    
+    NSMutableData *bitmap = [NSMutableData dataWithLength:width * height * 4];
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRelease(colorSpace);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), [self CGImage]);
+    
+    block(bitmap);
+    
+    CGImageRef cgImage = CGBitmapContextCreateImage(context);
+    UIImage *processedImage = [UIImage imageWithCGImage:cgImage scale:self.scale orientation:UIImageOrientationUp];
+    
+    CGImageRelease(cgImage);
+    CGContextRelease(context);
+    
+    return [processedImage imageWithRenderingMode:self.renderingMode];
+}
+
+
+- (UIImage *)imageByEnumeratingPixels:(GLKVector4(^)(GLKVector4 color))block {
+    static float const multiplier = 255;
+    
+    return [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
+        NSUByte *bytes = bitmap.mutableBytes;
+        NSUInteger count = bitmap.length;
+        
+        for (NSUInteger index = 0; index < count; index += 4) {
+            GLKVector4 color = GLKVector4Make(bytes[index +0] / multiplier,
+                                              bytes[index +1] / multiplier,
+                                              bytes[index +2] / multiplier,
+                                              bytes[index +3] / multiplier);
+            color = block(color);
+            bytes[index +0] = color.r * multiplier;
+            bytes[index +1] = color.g * multiplier;
+            bytes[index +2] = color.b * multiplier;
+            bytes[index +3] = color.a * multiplier;
+        }
+    }];
+}
+
+
+- (UIImage *)invertedImage {
+    return [self imageByEnumeratingPixels:^GLKVector4(GLKVector4 color) {
+        return GLKVector4Make(1 - color.r,
+                              1 - color.g,
+                              1 - color.b,
+                              color.a);
+    }];
+}
+
 
 
 
