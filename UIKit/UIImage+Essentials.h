@@ -13,7 +13,14 @@
 
 
 
-@interface UIImage (Essentials)
+@interface UIImage (Essentials) <NSCopying>
+
+
+
+#pragma mark - NSCopying
+
+/// Returns self.
+- (instancetype)copyWithZone:(NSZone *)zone;
 
 
 
