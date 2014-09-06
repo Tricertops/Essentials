@@ -7,6 +7,7 @@
 //
 
 #import "UIScrollView+Essentials.h"
+#import "NSObject+Essentials.h"
 
 
 
@@ -175,6 +176,27 @@
 
 + (NSSet *)keyPathsForValuesAffectingPage {
     return [NSSet setWithObjects:@"contentOffset", @"bounds", nil];
+}
+
+
+
+
+
+#pragma mark - Touch Handling
+
+
++ (void)enableNaturalButtonHandling {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self swizzleSelector:@selector(touchesShouldCancelInContentView:)
+                         with:@selector(ess_naturalButtonHandling_touchesShouldCancelInContentView:)];
+    });
+}
+
+
+- (BOOL)ess_naturalButtonHandling_touchesShouldCancelInContentView:(UIView *)view {
+    BOOL original = [self ess_naturalButtonHandling_touchesShouldCancelInContentView:view];
+    return (original || [view isKindOfClass:[UIButton class]]);
 }
 
 

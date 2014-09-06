@@ -29,7 +29,7 @@
 
 
 
-#pragma mark Content Position
+#pragma mark - Content Position
 
 /// Maximum value the content offset can contain (excluding bouncing) in current content size and bounds.
 @property (nonatomic, readonly, assign) CGPoint maximumContentOffset;
@@ -44,6 +44,13 @@
 
 /// Horizontal page index. This is in fact floating point number, not just page index. Can be used for tracking progress between two pages.
 @property (nonatomic, readwrite, assign) CGFloat page;
+
+
+
+#pragma mark - Touch Handling
+
+/// Cause all scroll views to cancel touches in UIButton subviews. This is the same behavior as with UITableViewCells.
++ (void)enableNaturalButtonHandling;
 
 
 
