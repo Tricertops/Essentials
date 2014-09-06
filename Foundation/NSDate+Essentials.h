@@ -92,8 +92,8 @@
 
 #pragma mark - Debug
 
-/// Invokes the block while measuring its execution time. Returns the measured time and optionally log it to the console.
-+ (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName;
+// Deprecated, use +[NSObject measure:log:] to measure creating an instance fo given class.
++ (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName __deprecated;
 
 
 
