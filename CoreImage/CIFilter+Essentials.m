@@ -136,11 +136,11 @@
 + (instancetype)transformRed:(CIVector *)rRGBA green:(CIVector *)gRGBA blue:(CIVector *)bRGBA alpha:(CIVector *)aRGBA bias:(CIVector *)biasRGBA {
     return [CIFilter filterWithName:@"CIColorMatrix"
                       keysAndValues:
-            @"inputRVector", rRGBA,
-            @"inputGVector", gRGBA,
-            @"inputBVector", bRGBA,
-            @"inputAVector", aRGBA,
-            @"inputBiasVector", biasRGBA,
+            @"inputRVector", rRGBA ?: [CIVector vectorWithX:1 Y:0 Z:0 W:0],
+            @"inputGVector", gRGBA ?: [CIVector vectorWithX:0 Y:1 Z:0 W:0],
+            @"inputBVector", bRGBA ?: [CIVector vectorWithX:0 Y:0 Z:1 W:0],
+            @"inputAVector", aRGBA ?: [CIVector vectorWithX:0 Y:0 Z:0 W:1],
+            @"inputBiasVector", biasRGBA ?: [CIVector vectorWithX:0 Y:0 Z:0 W:0],
             nil];
 }
 
