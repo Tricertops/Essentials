@@ -13,3 +13,6 @@
     #import <UIKit/UIKit.h>
     #import "UIKit+Essentials.h"
 #endif
+
+#import <CoreImage/CoreImage.h>
+#import "CoreImage+Essentials.h"
