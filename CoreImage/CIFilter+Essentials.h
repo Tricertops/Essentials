@@ -47,20 +47,36 @@ typedef CGFloat CIAngle;
 
 #pragma mark Category: Color Adjustments
 
-//TODO: CIColorClamp
-//TODO: CIColorMatrix
+/// Modifies color values to keep them within a specified range. (CIColorClamp)
++ (instancetype)clampColorsFrom:(CIVector *)minRGBA to:(CIVector *)maxRGBA;
+/// Modifies red component values to keep them within a specified range. (CIColorClamp)
++ (instancetype)clampRedFrom:(CIScalar)min to:(CIScalar)max;
+/// Modifies green component values to keep them within a specified range. (CIColorClamp)
++ (instancetype)clampGreenFrom:(CIScalar)min to:(CIScalar)max;
+/// Modifies blue component values to keep them within a specified range. (CIColorClamp)
++ (instancetype)clampBlueFrom:(CIScalar)min to:(CIScalar)max;
+/// Modifies alpha component values to keep them within a specified range. (CIColorClamp)
++ (instancetype)clampAlphaFrom:(CIScalar)min to:(CIScalar)max;
 
 /// Adjusts saturation, brightness, and contrast values. Parameter details below. (CIColorControls)
 + (instancetype)adjustSaturation:(CIScalar)s brightness:(CIScalar)b contrast:(CIScalar)c;
-
 /// Adjusts saturation only. Pass 0.0 for grayscale, 1.0 for original or >1 for to increase saturation. (CIColorControls)
 + (instancetype)adjustSaturation:(CIScalar)saturation;
-
 /// Adjusts brightness only. Parameter is added to add color components. (CIColorControls)
 + (instancetype)adjustBrightness:(CIScalar)brightness;
-
 /// Adjusts contrast only. Pass 1.0 for original. (CIColorControls)
 + (instancetype)adjustContrast:(CIScalar)contrast;
+
+/// Multiplies source color values and adds a bias factor to each color component.
++ (instancetype)transformRed:(CIVector *)rRGBA green:(CIVector *)gRGBA blue:(CIVector *)bRGBA alpha:(CIVector *)aRGBA bias:(CIVector *)biasRGBA;
+/// Multiplies source color values and adds a bias factor to red color component.
++ (instancetype)transformRed:(CIVector *)RGBA bias:(CIScalar)bias;
+/// Multiplies source color values and adds a bias factor to green color component.
++ (instancetype)transformGreen:(CIVector *)RGBA bias:(CIScalar)bias;
+/// Multiplies source color values and adds a bias factor to blue color component.
++ (instancetype)transformBlue:(CIVector *)RGBA bias:(CIScalar)bias;
+/// Multiplies source color values and adds a bias factor to alpha color component.
++ (instancetype)transformAlpha:(CIVector *)RGBA bias:(CIScalar)bias;
 
 /// Adjusts the exposure setting for an image similar to the way you control exposure for a camera when you change the F-stop. (CIExposureAdjust)
 + (instancetype)adjustExposure:(CIScalar)EV;
@@ -70,8 +86,6 @@ typedef CGFloat CIAngle;
 
 /// Changes the overall hue, or tint, of the source pixels. (CIHueAdjust)
 + (instancetype)adjustHue:(CIAngle)angle;
-
-//TODO: CITemperatureAndTint
 
 /// Adjusts the saturation of an image while keeping pleasing skin tones. (CIVibrance)
 + (instancetype)adjustVibrance:(CIScalar)amount;

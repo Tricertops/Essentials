@@ -70,6 +70,35 @@
 #pragma mark Category: Color Adjustments
 
 
++ (instancetype)clampColorsFrom:(CIVector *)minRGBA to:(CIVector *)maxRGBA {
+    return [CIFilter filterWithName:@"CIColorClamp"
+                      keysAndValues:
+            @"inputMinComponents", minRGBA,
+            @"inputMaxComponents", maxRGBA,
+            nil];
+}
+
++ (instancetype)clampRedFrom:(CIScalar)min to:(CIScalar)max {
+    return [self clampColorsFrom:[CIVector vectorWithX:min Y:0 Z:0 W:0]
+                              to:[CIVector vectorWithX:max Y:1 Z:1 W:1]];
+}
+
++ (instancetype)clampGreenFrom:(CIScalar)min to:(CIScalar)max {
+    return [self clampColorsFrom:[CIVector vectorWithX:0 Y:min Z:0 W:0]
+                              to:[CIVector vectorWithX:1 Y:max Z:1 W:1]];
+}
+
++ (instancetype)clampBlueFrom:(CIScalar)min to:(CIScalar)max {
+    return [self clampColorsFrom:[CIVector vectorWithX:0 Y:0 Z:min W:0]
+                              to:[CIVector vectorWithX:1 Y:1 Z:max W:1]];
+}
+
++ (instancetype)clampAlphaFrom:(CIScalar)min to:(CIScalar)max {
+    return [self clampColorsFrom:[CIVector vectorWithX:0 Y:0 Z:0 W:min]
+                              to:[CIVector vectorWithX:1 Y:1 Z:1 W:max]];
+}
+
+
 + (instancetype)adjustSaturation:(CIScalar)s brightness:(CIScalar)b contrast:(CIScalar)c {
     return [CIFilter filterWithName:@"CIColorControls"
                       keysAndValues:
@@ -101,6 +130,34 @@
                       keysAndValues:
             kCIInputContrastKey, @(contrast),
             nil];
+}
+
+
++ (instancetype)transformRed:(CIVector *)rRGBA green:(CIVector *)gRGBA blue:(CIVector *)bRGBA alpha:(CIVector *)aRGBA bias:(CIVector *)biasRGBA {
+    return [CIFilter filterWithName:@"CIColorMatrix"
+                      keysAndValues:
+            @"inputRVector", rRGBA,
+            @"inputGVector", gRGBA,
+            @"inputBVector", bRGBA,
+            @"inputAVector", aRGBA,
+            @"inputBiasVector", biasRGBA,
+            nil];
+}
+
++ (instancetype)transformRed:(CIVector *)RGBA bias:(CIScalar)bias {
+    return [self transformRed:RGBA green:nil blue:nil alpha:nil bias:[CIVector vectorWithX:bias Y:0 Z:0 W:0]];
+}
+
++ (instancetype)transformGreen:(CIVector *)RGBA bias:(CIScalar)bias {
+    return [self transformRed:nil green:RGBA blue:nil alpha:nil bias:[CIVector vectorWithX:0 Y:bias Z:0 W:0]];
+}
+
++ (instancetype)transformBlue:(CIVector *)RGBA bias:(CIScalar)bias {
+    return [self transformRed:nil green:nil blue:RGBA alpha:nil bias:[CIVector vectorWithX:0 Y:0 Z:bias W:0]];
+}
+
++ (instancetype)transformAlpha:(CIVector *)RGBA bias:(CIScalar)bias {
+    return [self transformRed:nil green:nil blue:nil alpha:RGBA bias:[CIVector vectorWithX:0 Y:0 Z:0 W:bias]];
 }
 
 
