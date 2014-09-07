@@ -41,3 +41,17 @@
 
 @end
 
+
+
+
+
+@implementation NSString (NSAttributedString_Essentials)
+
+
+- (NSAttributedString *)attributed:(NSDictionary *)attributes {
+    return [[NSAttributedString alloc] initWithString:self attributes:attributes];
+}
+
+
+@end
+

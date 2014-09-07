@@ -29,3 +29,18 @@
 
 
 @end
+
+
+
+
+
+@interface NSString (NSAttributedString_Essentials)
+
+
+/// Returns new attributed string created from the receiver and given attributes.
+- (NSAttributedString *)attributed:(NSDictionary *)attributes;
+
+
+@end
+
+
