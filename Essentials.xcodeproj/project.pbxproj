@@ -409,7 +409,7 @@
 			name = EssentialsTests;
 			productName = EssentialsTests;
 			productReference = 5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		5BFBABDE1844BAC300179483 /* Essentials OS X */ = {
 			isa = PBXNativeTarget;
@@ -434,7 +434,7 @@
 		5BBFA580176205DF0061E8B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = iAdverti;
 			};
 			buildConfigurationList = 5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */;
@@ -683,6 +683,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -708,6 +709,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
