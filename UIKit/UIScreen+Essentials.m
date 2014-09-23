@@ -21,7 +21,7 @@
 
 
 - (BOOL)tall {
-    return (self.bounds.size.height >= 568);
+    return (self.fixedBounds.size.height >= 568);
 }
 
 
@@ -31,11 +31,40 @@
 
 
 - (CGRect)landscapeBounds {
-    CGRect portraitBounds = self.bounds;
+    CGRect portraitBounds = self.fixedBounds;
     CGRect landscapeBounds = CGRectZero;
     landscapeBounds.size.width = portraitBounds.size.height;
     landscapeBounds.size.height = portraitBounds.size.width;
     return landscapeBounds;
+}
+
+
+- (CGRect)fixedBounds {
+    if ([self respondsToSelector:@selector(fixedCoordinateSpace)]) {
+        /// iOS 8.0 and later
+        return [self.fixedCoordinateSpace bounds];
+    }
+    else {
+        /// iOS 7.1 and earlier
+        return self.bounds;
+    }
+}
+
+
+- (CGRect)rotatedBounds {
+    CGRect bounds = self.bounds;
+    
+    if ( ! [self respondsToSelector:@selector(fixedCoordinateSpace)]) {
+        /// iOS 7.1 and earlier
+        UIApplication *app =[UIApplication sharedApplication];
+        UIWindow *window = app.keyWindow ?: [app.delegate window];
+        BOOL isLandscape = UIInterfaceOrientationIsLandscape(window.rootViewController.interfaceOrientation);
+        if (isLandscape) {
+            bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
+        }
+    }
+    
+    return bounds;
 }
 
 
@@ -61,6 +90,15 @@
 
 + (CGRect)landscapeBounds {
     return self.mainScreen.landscapeBounds;
+}
+
+
++ (CGRect)fixedBounds {
+    return self.mainScreen.fixedBounds;
+}
+
++ (CGRect)rotatedBounds {
+    return self.mainScreen.rotatedBounds;
 }
 
 + (CGFloat)pixel {
