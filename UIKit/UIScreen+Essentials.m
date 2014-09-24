@@ -56,9 +56,7 @@
     
     if ( ! [self respondsToSelector:@selector(fixedCoordinateSpace)]) {
         /// iOS 7.1 and earlier
-        UIApplication *app =[UIApplication sharedApplication];
-        UIWindow *window = app.keyWindow ?: [app.delegate window];
-        BOOL isLandscape = UIInterfaceOrientationIsLandscape(window.rootViewController.interfaceOrientation);
+        BOOL isLandscape = UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
         if (isLandscape) {
             bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
         }
@@ -70,6 +68,11 @@
 
 - (CGFloat)pixel {
     return 1.0 / self.scale;
+}
+
+
+- (UIInterfaceOrientation)interfaceOrientation {
+    return [[UIApplication sharedApplication] statusBarOrientation];
 }
 
 
@@ -103,6 +106,10 @@
 
 + (CGFloat)pixel {
     return self.mainScreen.pixel;
+}
+
++ (UIInterfaceOrientation)interfaceOrientation {
+    return self.mainScreen.interfaceOrientation;
 }
 
 

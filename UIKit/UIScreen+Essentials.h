@@ -36,6 +36,9 @@
 /// Returns a value that indicates how many points represent an actual screen pixel (i.e. 0.5 @2x devices).
 - (CGFloat)pixel;
 
+/// Returns orientation of the screen.
+- (UIInterfaceOrientation)interfaceOrientation;
+
 
 #pragma mark - Class Shorthands
 
@@ -47,6 +50,7 @@
 + (CGRect)fixedBounds;
 + (CGRect)rotatedBounds;
 + (CGFloat)pixel;
++ (UIInterfaceOrientation)interfaceOrientation;
 
 
 @end
