@@ -124,7 +124,7 @@
 
 
 - (NSArray *)subarrayToIndex:(NSUInteger)index {
-    return [self subarrayWithRange:NSMakeRange(0, index + 1)];
+    return [self subarrayWithRange:NSMakeRange(0, index)];
 }
 
 
