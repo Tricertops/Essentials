@@ -17,6 +17,16 @@
 
 
 
+
+#pragma mark - Mutating
+
+/// Inserts a given object at the end of the array. If the object is nil, does nothing.
+- (void)addObjectIfAny:(id)object;
+
+
+
+
+
 #pragma mark Mapping
 
 ///
