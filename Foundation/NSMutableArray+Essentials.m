@@ -19,6 +19,19 @@
 
 
 
+#pragma mark - Mutating
+
+
+- (void)addObjectIfAny:(id)object {
+    if (object) {
+        [self addObject:object];
+    }
+}
+
+
+
+
+
 #pragma mark Mapping
 
 
