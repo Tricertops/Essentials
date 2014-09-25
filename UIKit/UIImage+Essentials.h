@@ -82,6 +82,9 @@
 /// Returns colors that are contained in the image mapped to their share. Only colors with more than the minimum threshold.
 - (NSDictionary *)createColorHistogramWithThreshold:(CGFloat)minimum;
 
+/// Returns colors that are contained in the image mapped to their share. Colors are grouped by their -naturalName and only with more than 1%
+- (NSDictionary *)createColorHistogramGroupedByNaturalNames;
+
 
 
 #pragma mark - Decoding

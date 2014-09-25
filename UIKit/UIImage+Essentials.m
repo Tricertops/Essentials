@@ -289,6 +289,37 @@
 }
 
 
+- (NSDictionary *)createColorHistogramGroupedByNaturalNames {
+    NSDictionary *colorsToShare = [self createColorHistogramWithThreshold:0]; // all
+    NSMutableDictionary *namesToShare = [NSMutableDictionary new];
+    NSMutableDictionary *colorsToName = [NSMutableDictionary new];
+    [colorsToShare enumerateKeysAndObjectsUsingBlock:^(UIColor *color, NSNumber *colorShare, BOOL *stop) {
+        //! Build  color->name  mapping
+        NSString *name = [color naturalName];
+        colorsToName[color] = name;
+        //! Sum shares for color named the same into  name->share  mapping
+        CGFloat nameShare = [namesToShare[name] doubleValue];
+        namesToShare[name] = @(nameShare + [colorShare doubleValue]);
+    }];
+    //! Exclude color names with too little share
+    NSSet *significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
+        return [nameShare doubleValue] > 0.01;
+    }];
+    NSMutableDictionary *significantColorsToShare = [NSMutableDictionary new];
+    for (NSString *name in significantNames) {
+        //! For every significant color name, find the color with the largest share
+        NSArray *namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
+                                ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {
+                                    return [colorsToShare[colorA] compare:colorsToShare[colorB]];
+                                }];
+        UIColor *significantColor = namedColors.lastObject;
+        //! Build final  color->share  mapping, where colors are coalesced by their names
+        significantColorsToShare[significantColor] = namesToShare[name];
+    }
+    return significantColorsToShare;
+}
+
+
 
 
 
