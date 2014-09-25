@@ -120,6 +120,51 @@
 }
 
 
+- (CGFloat)scale {
+    CGSize scales = self.scales;
+    return (scales.width + scales.height) / 2;
+}
+
+
+- (void)setScale:(CGFloat)scale {
+    self.scales = CGSizeMake(scale, scale);
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingScale {
+    return [NSSet setWithObject:@"scales"];
+}
+
+
++ (NSString *)ess_scaleXKeyPath {
+    return @"layer.transform.scale.x";
+}
+
+
++ (NSString *)ess_scaleYKeyPath {
+    return @"layer.transform.scale.y";
+}
+
+
+- (CGSize)scales {
+    CGSize scales = CGSizeZero;
+    scales.width = [[self valueForKeyPath:[UIView ess_scaleXKeyPath]] doubleValue];
+    scales.height = [[self valueForKeyPath:[UIView ess_scaleYKeyPath]] doubleValue];
+    return scales;
+}
+
+
+- (void)setScales:(CGSize)scales {
+    [self setValue:@(scales.width) forKeyPath:[UIView ess_scaleXKeyPath]];
+    [self setValue:@(scales.height) forKeyPath:[UIView ess_scaleYKeyPath]];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingScales {
+    return [NSSet setWithObjects:[UIView ess_scaleXKeyPath], [UIView ess_scaleYKeyPath], nil];
+}
+
+
 
 
 

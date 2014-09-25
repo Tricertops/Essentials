@@ -49,6 +49,12 @@
 /// Rotation around Z axis in degrees!
 @property (nonatomic) CGFloat rotation;
 
+/// X and Y scale, when they differ, average is returned.
+@property (nonatomic) CGFloat scale;
+
+/// X and Y scales.
+@property (nonatomic) CGSize scales;
+
 
 
 #pragma mark - Shadow
