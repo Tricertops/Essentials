@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
+//TODO: Separate CLI convenience, barriers and regular methods
+//TODO: Accessors and constructors for QoS values
+//TODO: Swizzle smart description?
+//TODO: -perform: with smart detection and avoid enqueueing
+//TODO: Something for parralel execution
 
 
 
