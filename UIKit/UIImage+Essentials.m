@@ -180,7 +180,7 @@
     NSMutableData *bitmap = [NSMutableData dataWithLength:width * height * 4];
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaLast);
+    CGContextRef context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colorSpace);
     
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), [self CGImage]);
