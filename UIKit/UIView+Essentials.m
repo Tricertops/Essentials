@@ -165,6 +165,28 @@
 }
 
 
+- (CGPoint)translation {
+    CGPoint tran = CGPointZero;
+    tran.x = self.transform.tx;
+    tran.y = self.transform.ty;
+    return tran;
+}
+
+
+- (void)setTranslation:(CGPoint)translation {
+    [self adjustTransform:^CGAffineTransform(CGAffineTransform transform) {
+        transform.tx = translation.x;
+        transform.ty = translation.y;
+        return transform;
+    }];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingTranslation {
+    return [NSSet setWithObject:@"transform"];
+}
+
+
 
 
 

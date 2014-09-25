@@ -55,6 +55,9 @@
 /// X and Y scales.
 @property (nonatomic) CGSize scales;
 
+/// Translation from .transform
+@property (nonatomic) CGPoint translation;
+
 
 
 #pragma mark - Shadow
