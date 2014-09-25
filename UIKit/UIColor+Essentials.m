@@ -246,7 +246,7 @@
     NSString * colors[5][5][5] = {
         {
             {black, brown, brown, red, red},
-            {green, green, brown, orange, red},
+            {green, green, brown, red/**/, red}, //NOTE: Marked color is sometimes perceived as red (Portugal), other times as orange (Niger) :(
             {green, green, green, brown, orange},
             {green, green, green, yellow, yellow},
             {green, green, green, green, yellow},
