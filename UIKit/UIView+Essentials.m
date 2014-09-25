@@ -122,7 +122,7 @@
 
 - (CGFloat)scale {
     CGSize scales = self.scales;
-    return (scales.width + scales.height) / 2;
+    return sqrt(scales.width * scales.height);
 }
 
 

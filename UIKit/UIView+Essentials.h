@@ -49,10 +49,10 @@
 /// Rotation around Z axis in degrees!
 @property (nonatomic) CGFloat rotation;
 
-/// X and Y scale, when they differ, average is returned.
+/// X and Y scale, when they differ, geometric average is returned (√XY).
 @property (nonatomic) CGFloat scale;
 
-/// X and Y scales.
+/// X and Y scales separately.
 @property (nonatomic) CGSize scales;
 
 /// Translation from .transform
