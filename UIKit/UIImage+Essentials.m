@@ -290,6 +290,11 @@
 
 
 - (NSDictionary *)createColorHistogramGroupedByNaturalNames {
+    return [self createColorHistogramGroupedByNaturalNamesWithThreshold:0.01];
+}
+
+
+- (NSDictionary *)createColorHistogramGroupedByNaturalNamesWithThreshold:(CGFloat)minimum {
     NSDictionary *colorsToShare = [self createColorHistogramWithThreshold:0]; // all
     NSMutableDictionary *namesToShare = [NSMutableDictionary new];
     NSMutableDictionary *colorsToName = [NSMutableDictionary new];
@@ -303,7 +308,7 @@
     }];
     //! Exclude color names with too little share
     NSSet *significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
-        return [nameShare doubleValue] > 0.01;
+        return [nameShare doubleValue] > minimum;
     }];
     NSMutableDictionary *significantColorsToShare = [NSMutableDictionary new];
     for (NSString *name in significantNames) {
