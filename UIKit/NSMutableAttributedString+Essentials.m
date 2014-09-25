@@ -69,19 +69,24 @@
 #pragma mark Superscript
 
 
-- (void)applySuperscriptInRange:(NSRange)range {
-    // Values taken empirically from Pages 5.1
-    
+- (void)applySuperscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
     UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
     
+    UIFont *superscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
+    
     [self addAttribute:NSFontAttributeName
-                 value:[existingFont fontWithSize:existingFont.pointSize / 1.5]
+                 value:superscriptFont
                  range:range];
     
     [self addAttribute:NSBaselineOffsetAttributeName
-                 value:@(existingFont.pointSize * 0.26)
+                 value:@(existingFont.capHeight - superscriptFont.capHeight)
                  range:range];
+}
+
+
+- (void)applySuperscriptInRange:(NSRange)range {
+    [self applySuperscriptWithScale:0.6 inRange:range];
 }
 
 

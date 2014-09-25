@@ -29,7 +29,10 @@
 
 #pragma mark Superscript
 
-/// Modifies attributes of the receiver in given range to make superscript effect just like in Pages.app
+/// Modifies attributes of the receiver in given range to make superscript effect with given scale that aligns ascenders.
+- (void)applySuperscriptWithScale:(CGFloat)scale inRange:(NSRange)range;
+
+/// Modifies attributes of the receiver in given range to make superscript effect with scale of 0.6
 - (void)applySuperscriptInRange:(NSRange)range;
 
 /// Uses superscript in all REGISTERED SIGN characters (®).
