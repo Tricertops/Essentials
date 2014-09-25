@@ -102,6 +102,33 @@
 
 
 
+#pragma mark Subscript
+
+
+- (void)applySubscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
+    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
+    
+    UIFont *subscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
+    
+    [self addAttribute:NSFontAttributeName
+                 value:subscriptFont
+                 range:range];
+    
+    [self addAttribute:NSBaselineOffsetAttributeName
+                 value:@(existingFont.descender - subscriptFont.descender)
+                 range:range];
+}
+
+
+- (void)applySubscriptInRange:(NSRange)range {
+    [self applySubscriptWithScale:0.6 inRange:range];
+}
+
+
+
+
+
 @end
 
 

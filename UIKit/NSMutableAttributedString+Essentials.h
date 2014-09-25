@@ -39,6 +39,15 @@
 - (void)applySuperscriptForRegisteredSigns;
 
 
+#pragma mark Subscript
+
+/// Modifies attributes of the receiver in given range to make subscript effect with given scale that aligns descenders.
+- (void)applySubscriptWithScale:(CGFloat)scale inRange:(NSRange)range;
+
+/// Modifies attributes of the receiver in given range to make subscript effect with scale of 0.6
+- (void)applySubscriptInRange:(NSRange)range;
+
+
 
 
 @end
