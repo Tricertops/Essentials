@@ -44,6 +44,13 @@
 
 
 
+#pragma mark - Geometry
+
+/// Rotation around Z axis in degrees!
+@property (nonatomic) CGFloat rotation;
+
+
+
 #pragma mark - Shadow
 
 /// Wraps all shadow attributes in single object. Color is premultiplied by alpha, since NSShadow doesn't have opacity property.
@@ -64,11 +71,15 @@
 /// Forwards to the underlaying layer, transforms CGPathRef to UIBezierPath and vice versa.
 @property (nonatomic, readwrite) UIBezierPath *shadowPath;
 
+
+
 #pragma mark - Border
 
 @property (nonatomic, readwrite) CGFloat borderWidth;
 
 @property (nonatomic, readwrite) UIColor *borderColor;
+
+
 
 #pragma mark - Structs Adjustments
 

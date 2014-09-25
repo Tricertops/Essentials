@@ -8,6 +8,7 @@
 
 #import "UIView+Essentials.h"
 #import "UIColor+Essentials.h"
+#import "UIKit+Essentials.h"
 
 
 
@@ -89,6 +90,33 @@
     if (shouldRasterize) {
         self.layer.rasterizationScale = UIScreen.mainScreen.scale;
     }
+}
+
+
+
+
+
+#pragma mark - Geometry
+
+
++ (NSString *)ess_rotationKeyPath {
+    return @"layer.transform.rotation.z";
+}
+
+
+- (CGFloat)rotation {
+    CGFloat radians = [[self valueForKeyPath:[UIView ess_rotationKeyPath]] doubleValue];
+    return CGDegrees(radians);
+}
+
+
+- (void)setRotation:(CGFloat)rotation {
+    [self setValue:@(CGRadians(rotation)) forKeyPath:[UIView ess_rotationKeyPath]];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingRotation {
+    return [NSSet setWithObject:[UIView ess_rotationKeyPath]];
 }
 
 
