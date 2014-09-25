@@ -64,6 +64,9 @@
 
 #pragma mark - Bitmap Processing
 
+/// Returns number of pixels in the receiver.
+- (NSUInteger)numberOfPixels;
+
 /// Extracts bitmap from the receiver, passes it to the block and then returns new image from that bitmap.
 - (UIImage *)imageByProcessingBitmap:(void(^)(NSMutableData *bitmap))block;
 
