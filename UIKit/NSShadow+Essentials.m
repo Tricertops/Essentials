@@ -16,6 +16,16 @@
 
 
 
+
+
++ (instancetype)invisibleShadow {
+    NSShadow *shadow = [NSShadow new];
+    shadow.shadowOffset = CGSizeZero;
+    shadow.shadowColor = nil;
+    return shadow;
+}
+
+
 + (instancetype)shadowWithOffset:(UIOffset)offset color:(UIColor *)color alpha:(CGFloat)alpha radius:(CGFloat)radius {
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset = CGSizeMake(offset.horizontal, offset.vertical);
