@@ -103,6 +103,18 @@ extern CGFloat const CGFloatInfinity;
 
 
 
+#pragma mark Angles
+
+/// Converts radiands to degrees.
+extern CGFloat CGDegrees(CGFloat radians);
+
+/// Converts degrees to radiands.
+extern CGFloat CGRadians(CGFloat degrees);
+
+
+
+
+
 #pragma mark Edge Insets
 
 

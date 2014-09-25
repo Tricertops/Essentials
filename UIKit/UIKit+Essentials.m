@@ -145,6 +145,22 @@ CGFloat const CGFloatInfinity = HUGE_VAL;
 
 
 
+#pragma mark Angles
+
+
+CGFloat CGDegrees(CGFloat radians) {
+    return radians / M_PI * 180;
+}
+
+
+CGFloat CGRadians(CGFloat degrees) {
+    return degrees / 180 * M_PI;
+}
+
+
+
+
+
 #pragma mark Edge Insets
 
 
