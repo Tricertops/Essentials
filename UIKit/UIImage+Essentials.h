@@ -76,6 +76,12 @@
 /// Returns image with inverted red, green and blue and preserved alpha.
 - (UIImage *)invertedImage;
 
+/// Returns colors that are contained in the image mapped to their share. Only colors with share more than 2.5%
+- (NSDictionary *)createColorHistogram;
+
+/// Returns colors that are contained in the image mapped to their share. Only colors with more than the minimum threshold.
+- (NSDictionary *)createColorHistogramWithThreshold:(CGFloat)minimum;
+
 
 
 #pragma mark - Decoding

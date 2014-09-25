@@ -8,6 +8,7 @@
 
 #import "UIImage+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "UIColor+Essentials.h"
 
 
 
@@ -226,6 +227,62 @@
                               1 - color.b,
                               color.a);
     }];
+}
+
+
+- (NSDictionary *)createColorHistogram {
+    return [self createColorHistogramWithThreshold:0.025];
+}
+
+
+- (NSDictionary *)createColorHistogramWithThreshold:(CGFloat)minimum {
+    NSUInteger numberOfPixels = self.numberOfPixels;
+    if (numberOfPixels > UINT32_MAX) return nil;
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    
+    [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
+        uint16_t colors = UINT16_MAX; // 65536 distinct colors
+        uint32_t *histogram = calloc(colors, sizeof(uint32_t)); // 4 bytes to store count
+        
+        uint64_t count = bitmap.length;
+        const uint8_t *bytes = bitmap.bytes;
+        for (uint64_t index = 0; index < count; index += 4) {
+            //  RRRRRRRRGGGGGGGGBBBBBBBBAAAAAAAA
+            uint8_t r = bytes[index +0];
+            uint8_t g = bytes[index +1];
+            uint8_t b = bytes[index +2];
+            uint8_t a = bytes[index +3];
+            //TODO: Handle premultiplied values :(
+            uint16_t color = 0;
+            color |= (r >> 4) << 0;
+            color |= (g >> 4) << 4;
+            color |= (b >> 4) << 8;
+            color |= (a >> 4) << 12;
+            //  RRRRGGGGBBBBAAAA
+            histogram[color] ++;
+        }
+        
+        for (uint32_t index = 0; index < colors; index++) {
+            uint16_t color = index;
+            CGFloat share = histogram[color] * 1.0 / numberOfPixels;
+            if (share <= minimum) continue;
+            
+            //  RRRRGGGGBBBBAAAA
+            uint8_t r = (color & 0x000F) << 4;
+            uint8_t g = (color & 0x00F0) << 0; // align to byte
+            uint8_t b = (color & 0x0F00) >> 4;
+            uint8_t a = (color & 0xF000) >> 8;
+            //  RRRR0000
+            //  GGGG0000
+            //  BBBB0000
+            //  AAAA0000
+            
+            UIColor *ui = UIColorByteRGBA(r, g, b, a * 1.0 / UINT8_MAX);
+            [dictionary setObject:@(share) forKey:ui];
+        }
+        free(histogram);
+    }];
+    return dictionary;
 }
 
 
