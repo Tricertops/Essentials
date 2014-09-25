@@ -241,7 +241,7 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary new];
     
     [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
-        uint16_t colors = UINT16_MAX; // 65536 distinct colors
+        uint32_t colors = 1 << 16; // 65536 distinct colors
         uint32_t *histogram = calloc(colors, sizeof(uint32_t)); // 4 bytes to store count
         
         uint64_t count = bitmap.length;
@@ -268,16 +268,19 @@
             if (share <= minimum) continue;
             
             //  RRRRGGGGBBBBAAAA
-            uint8_t r = (color & 0x000F) << 4;
-            uint8_t g = (color & 0x00F0) << 0; // align to byte
-            uint8_t b = (color & 0x0F00) >> 4;
-            uint8_t a = (color & 0xF000) >> 8;
-            //  RRRR0000
-            //  GGGG0000
-            //  BBBB0000
-            //  AAAA0000
+            uint8_t r = (color & 0x000F) >> 0;
+            uint8_t g = (color & 0x00F0) >> 4;
+            uint8_t b = (color & 0x0F00) >> 8;
+            uint8_t a = (color & 0xF000) >> 12;
+            //  0000RRRR
+            //  0000GGGG
+            //  0000BBBB
+            //  0000AAAA
             
-            UIColor *ui = UIColorByteRGBA(r, g, b, a * 1.0 / UINT8_MAX);
+            UIColor *ui = [UIColor colorWithRed:(r * 1.0 / 0xF)
+                                          green:(g * 1.0 / 0xF)
+                                           blue:(b * 1.0 / 0xF)
+                                          alpha:(a * 1.0 / 0xF)];
             [dictionary setObject:@(share) forKey:ui];
         }
         free(histogram);
