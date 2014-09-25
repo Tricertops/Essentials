@@ -75,6 +75,13 @@
 
 
 
+#pragma mark - Description
+
+/// Returns natural name of the color, like purple, blue, orange, and so on
+@property (readonly) NSString *naturalName;
+
+
+
 @end
 
 

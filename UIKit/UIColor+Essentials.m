@@ -224,6 +224,71 @@
 
 
 
+#pragma mark - Description
+
+
+- (NSString *)naturalName {
+    NSUByte redComponent = roundf(self.redComponent * 4);
+    NSUByte greenComponent = roundf(self.greenComponent * 4);
+    NSUByte blueComponent = roundf(self.blueComponent * 4);
+    
+    static NSString * const black = @"black";
+    static NSString * const red = @"red";
+    static NSString * const green = @"green";
+    static NSString * const blue = @"blue";
+    static NSString * const yellow = @"yellow";
+    static NSString * const white = @"white";
+    static NSString * const brown = @"brown";
+    static NSString * const purple = @"purple";
+    static NSString * const gray = @"gray";
+    static NSString * const orange = @"orange";
+    
+    NSString * colors[5][5][5] = {
+        {
+            {black, brown, brown, red, red},
+            {green, green, brown, orange, red},
+            {green, green, green, brown, orange},
+            {green, green, green, yellow, yellow},
+            {green, green, green, green, yellow},
+        },
+        {
+            {blue, purple, purple, red, red},
+            {green, gray, purple, orange, red},
+            {green, green, green, brown, orange},
+            {green, green, green, yellow, yellow},
+            {green, green, green, green, yellow},
+        },
+        {
+            {blue, blue, purple, purple, purple},
+            {blue, blue, purple, purple, purple},
+            {green, green, gray, purple, purple},
+            {green, green, green, green, yellow},
+            {green, green, green, green, yellow},
+        },
+        {
+            {blue, purple, purple, purple, purple},
+            {blue, blue, purple, purple, purple},
+            {blue, blue, blue, purple, purple},
+            {blue, blue, blue, gray, purple},
+            {blue, blue, blue, blue, yellow},
+        },
+        {
+            {blue, purple, purple, purple, purple},
+            {blue, blue, purple, purple, purple},
+            {blue, blue, blue, purple, purple},
+            {blue, blue, blue, blue, purple},
+            {blue, blue, blue, blue, white},
+        },
+    };
+    
+    NSString *colorName = colors[blueComponent][greenComponent][redComponent];
+    return colorName;
+}
+
+
+
+
+
 @end
 
 
