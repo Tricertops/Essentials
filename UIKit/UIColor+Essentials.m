@@ -7,6 +7,7 @@
 //
 
 #import "UIColor+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -22,10 +23,9 @@
 
 
 + (UIColor *)randomColor {
-    // https://gist.github.com/kylefox/1689973
-    CGFloat hue = ( arc4random_uniform(256) / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    CGFloat hue = NSUIntegerRandom(256) / 256.0; // 0 to 1
+    CGFloat saturation = (64 + NSUIntegerRandom(192)) / 256.0; // 0.25 to 1, away from white
+    CGFloat brightness = (64 + NSUIntegerRandom(192)) / 256.0; // 0.25 to 1, away from black
     return [self colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 
@@ -36,41 +36,27 @@
 
 
 - (UIColor *)randomizeWithSteps:(NSUInteger)steps whiteInset:(CGFloat)whiteInset blackInset:(CGFloat)blackInset {
-    // get RGB
-    CGFloat red = -1;
-    CGFloat green = -1;
-    CGFloat blue = -1;
-    CGFloat alpha = -1;
-    [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    CGFloat red = self.redComponent;
+    CGFloat green = self.greenComponent;
+    CGFloat blue = self.blueComponent;
+    CGFloat alpha = self.alphaComponent;
     
-    if (red < 0 && green < 0 && blue < 0) {
-        // in case of grayscale color
-        CGFloat white = -1;
-        [self getWhite:&white alpha:&alpha];
-        red = blue = green = (white);
-    }
-    
-    NSUInteger randomStep = arc4random() % steps;
+    NSUInteger randomStep = NSUIntegerRandom(steps);
     CGFloat stepSize = (1 - whiteInset - blackInset) / steps;
     CGFloat random = blackInset + stepSize * randomStep;
     
-    UIColor *randomizedColor = nil;
     if (random <= 0.5) {
-        randomizedColor = [UIColor colorWithRed:(red*random*2)
-                                          green:(green*random*2)
-                                           blue:(blue*random*2)
-                                          alpha:alpha];
+        red   *= random * 2;
+        green *= random * 2;
+        blue  *= random * 2;
     }
     else {
-        CGFloat redInverted = 1-red;
-        CGFloat greenInverted = 1-green;
-        CGFloat blueInverted = 1-blue;
-        randomizedColor = [UIColor colorWithRed:red+(redInverted*(random-0.5)*2)
-                                          green:green+(greenInverted*(random-0.5)*2)
-                                           blue:blue+(blueInverted*(random-0.5)*2)
-                                          alpha:alpha];
+        red   += (1 - red)   * (random - 0.5) * 2;
+        green += (1 - green) * (random - 0.5) * 2;
+        blue  += (1 - blue)  * (random - 0.5) * 2;
     }
-    return randomizedColor;
+    
+    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 
