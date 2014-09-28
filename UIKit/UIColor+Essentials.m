@@ -228,60 +228,120 @@
 
 
 - (NSString *)naturalName {
-    NSUByte redComponent = roundf(self.redComponent * 4);
-    NSUByte greenComponent = roundf(self.greenComponent * 4);
-    NSUByte blueComponent = roundf(self.blueComponent * 4);
+    NSUByte redComponent = roundf(self.redComponent * 6);
+    NSUByte greenComponent = roundf(self.greenComponent * 6);
+    NSUByte blueComponent = roundf(self.blueComponent * 6);
     
-    static NSString * const black = @"black";
-    static NSString * const red = @"red";
-    static NSString * const green = @"green";
-    static NSString * const blue = @"blue";
-    static NSString * const yellow = @"yellow";
-    static NSString * const white = @"white";
-    static NSString * const brown = @"brown";
-    static NSString * const purple = @"purple";
-    static NSString * const gray = @"gray";
-    static NSString * const orange = @"orange";
+#define light   @"light "
+#define dark    @"dark "
     
-    NSString * colors[5][5][5] = {
+#define black   @"black"
+#define gray    @"gray"
+#define white   @"white"
+    
+#define red     @"red"
+#define green   @"green"
+#define blue    @"blue"
+    
+#define cyan    @"cyan"
+#define magenta @"magenta"
+#define yellow  @"yellow"
+    
+#define teal    @"teal"
+#define rose    @"rose"
+#define violet  @"violet"
+#define olive   @"olive"
+#define purple  @"purple"
+#define brown   @"brown"
+#define pink    @"pink"
+#define orange  @"orange"
+    
+    
+    static NSString *names[7][7][7] = {
         {
-            {black, brown, brown, red, red},
-            {green, green, brown, red/**/, red}, //NOTE: Marked color is sometimes perceived as red (Portugal), other times as orange (Niger) :(
-            {green, green, green, brown, orange},
-            {green, green, green, yellow, yellow},
-            {green, green, green, green, yellow},
-        },
-        {
-            {blue, purple, purple, red, red},
-            {green, gray, purple, orange, red},
-            {green, green, green, brown, orange},
-            {green, green, green, yellow, yellow},
-            {green, green, green, green, yellow},
-        },
-        {
-            {blue, blue, purple, purple, purple},
-            {blue, blue, purple, purple, purple},
-            {green, green, gray, purple, purple},
-            {green, green, green, green, yellow},
-            {green, green, green, green, yellow},
-        },
-        {
-            {blue, purple, purple, purple, purple},
-            {blue, blue, purple, purple, purple},
-            {blue, blue, blue, purple, purple},
-            {blue, blue, blue, gray, purple},
-            {blue, blue, blue, blue, yellow},
-        },
-        {
-            {blue, purple, purple, purple, purple},
-            {blue, blue, purple, purple, purple},
-            {blue, blue, blue, purple, purple},
-            {blue, blue, blue, blue, purple},
-            {blue, blue, blue, blue, white},
-        },
+            { black, dark blue, dark blue, dark blue, dark blue, blue, blue },
+            { dark green, dark teal, dark blue, dark blue, blue, blue, blue },
+            { dark green, dark green, dark teal, blue, blue, blue, blue },
+            { dark green, dark green, dark green, teal, light blue, light blue, light blue },
+            { green, green, green, green, teal, light blue, light blue },
+            { green, green, green, light green, light green, cyan, light blue },
+            { green, green, light green, light green, light green, light green, cyan },
+        },{
+            { dark red, dark purple, dark violet, dark blue, dark blue, blue, blue },
+            { dark olive, dark gray, dark violet, dark blue, blue, blue, blue },
+            { dark green, dark green, dark teal, blue, blue, blue, blue },
+            { dark green, dark green, dark green, teal, light blue, light blue, light blue },
+            { green, green, green, green, teal, light blue, light blue },
+            { green, green, green, light green, light green, cyan, light blue },
+            { green, green, light green, light green, light green, light green, cyan },
+        },{
+            { dark red, dark rose, dark purple, violet, violet, blue, blue },
+            { brown, dark pink, dark purple, violet, violet, blue, blue },
+            { dark olive, dark olive, dark gray, light violet, light violet, light blue, light blue },
+            { green, green, green, teal, light blue, light blue, light blue },
+            { green, green, green, light green, cyan, light blue, light blue },
+            { green, green, light green, light green, light green, cyan, light blue },
+            { green, green, light green, light green, light green, light green, cyan },
+        },{
+            { dark red, dark rose, dark rose, dark purple, dark purple, violet, violet },
+            { brown, dark pink, dark rose, dark purple, dark purple, violet, violet },
+            { brown, brown, dark pink, purple, purple, violet, violet },
+            { olive, olive, olive, gray, light violet, light violet, light violet },
+            { green, green, light green, light green, light cyan, light blue, light blue },
+            { green, green, light green, light green, light green, light cyan, light blue },
+            { green, green, light green, light green, light green, light green, light cyan },
+        },{
+            { red, red, rose, purple, purple, violet, violet },
+            { orange, light red, rose, rose, purple, purple, violet },
+            { orange, orange, light red, rose, pink, purple, violet },
+            { dark yellow, dark yellow, light orange, light red, pink, light violet, light violet },
+            { olive, olive, light olive, light olive, gray, light blue, light blue },
+            { green, green, light green, light green, light green, light cyan, light blue },
+            { green, green, light green, light green, light green, light green, light cyan },
+        },{
+            { red, red, rose, rose, magenta, magenta, magenta },
+            { red, red, rose, rose, magenta, magenta, magenta },
+            { orange, orange, light red, rose, pink, magenta, magenta },
+            { orange, orange, light orange, light red, pink, pink, pink },
+            { yellow, yellow, light orange, light orange, light red, pink, pink },
+            { yellow, yellow, yellow, light yellow, light yellow, light gray, pink },
+            { yellow, yellow, yellow, light yellow, light yellow, light yellow, light cyan },
+        },{
+            { red, red, rose, rose, magenta, magenta, magenta },
+            { red, red, rose, rose, magenta, magenta, magenta },
+            { orange, orange, light red, rose, pink, magenta, magenta },
+            { orange, orange, light orange, light red, pink, pink, pink },
+            { yellow, yellow, light orange, light orange, light pink, pink, pink },
+            { yellow, yellow, yellow, light yellow, light yellow, light pink, pink },
+            { yellow, yellow, yellow, light yellow, light yellow, light yellow, white },
+        }
     };
     
-    NSString *colorName = colors[blueComponent][greenComponent][redComponent];
+#undef light  
+#undef dark   
+    
+#undef black  
+#undef gray   
+#undef white  
+    
+#undef red    
+#undef green  
+#undef blue   
+    
+#undef cyan   
+#undef magenta
+#undef yellow 
+    
+#undef teal   
+#undef rose   
+#undef violet 
+#undef olive  
+#undef purple 
+#undef brown  
+#undef pink   
+#undef orange
+
+    NSString *colorName = names[redComponent][greenComponent][blueComponent];
     return colorName;
 }
 
