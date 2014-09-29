@@ -72,6 +72,9 @@
 		5BFBAC0E1844BB8900179483 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
 		5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
 		5BFBAC181844BD7F00179483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFBAC171844BD7F00179483 /* Foundation.framework */; };
+		5BFDDE3C19D95F0900AF28D7 /* NSTimer+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFDDE3A19D95F0900AF28D7 /* NSTimer+Essentials.h */; };
+		5BFDDE3D19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
+		5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
 		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +177,8 @@
 		5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Essentials.m"; sourceTree = "<group>"; };
 		5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentialsOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFBAC171844BD7F00179483 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5BFDDE3A19D95F0900AF28D7 /* NSTimer+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Essentials.h"; sourceTree = "<group>"; };
+		5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Essentials.m"; sourceTree = "<group>"; };
 		5F906B4417709E8700097175 /* Foundation+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Essentials.h"; sourceTree = "<group>"; };
 		5F906B4517709E9400097175 /* UIKit+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+Essentials.h"; sourceTree = "<group>"; };
 		5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Essentials.m"; sourceTree = "<group>"; };
@@ -307,6 +312,8 @@
 				5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */,
 				5BBFA5D517621F7A0061E8B5 /* NSOperationQueue+Essentials.h */,
 				5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */,
+				5BFDDE3A19D95F0900AF28D7 /* NSTimer+Essentials.h */,
+				5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */,
 				5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */,
 				5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */,
 				5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */,
@@ -376,6 +383,7 @@
 				5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */,
 				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
 				5B74A63819D45F5B00B04E07 /* ESSThreadSafeProxy.h in Headers */,
+				5BFDDE3C19D95F0900AF28D7 /* NSTimer+Essentials.h in Headers */,
 				5BE79C01189BFE69004A02B1 /* NSUUID+Essentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +534,7 @@
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
 				5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */,
 				5B74A63919D45F5B00B04E07 /* ESSThreadSafeProxy.m in Sources */,
+				5BFDDE3D19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
 				5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */,
 				5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */,
 			);
@@ -560,6 +569,7 @@
 				5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */,
 				5BFBAC091844BB8900179483 /* NSMutableArray+Essentials.m in Sources */,
 				5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */,
+				5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
