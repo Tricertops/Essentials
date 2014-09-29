@@ -37,26 +37,26 @@
 #pragma mark - Corner Radius
 
 /// Forwards to the underlaying layer.
-@property (nonatomic, readwrite) CGFloat cornerRadius;
+@property (nonatomic, readwrite) IBInspectable CGFloat cornerRadius;
 
 /// Forwards to undelaying layer and sets rasterization scale to screen scale.
-@property (nonatomic, readwrite, assign) BOOL shouldRasterize;
+@property (nonatomic, readwrite, assign) IBInspectable BOOL shouldRasterize;
 
 
 
 #pragma mark - Geometry
 
 /// Rotation around Z axis in degrees!
-@property (nonatomic) CGFloat rotation;
+@property (nonatomic) IBInspectable CGFloat rotation;
 
 /// X and Y scale, when they differ, geometric average is returned (√XY).
-@property (nonatomic) CGFloat scale;
+@property (nonatomic) IBInspectable CGFloat scale;
 
 /// X and Y scales separately.
-@property (nonatomic) CGSize scales;
+@property (nonatomic) IBInspectable CGSize scales;
 
 /// Translation from .transform
-@property (nonatomic) CGPoint translation;
+@property (nonatomic) IBInspectable CGPoint translation;
 
 
 
@@ -66,16 +66,16 @@
 @property (nonatomic, readwrite) NSShadow *shadow;
 
 /// Forwards to the underlaying layer, transforms CGSize to UIOffset.
-@property (nonatomic, readwrite) UIOffset shadowOffset;
+@property (nonatomic, readwrite) IBInspectable UIOffset shadowOffset;
 
 /// Forwards to the underlaying layer, transforms color classes.
-@property (nonatomic, readwrite) UIColor *shadowColor;
+@property (nonatomic, readwrite) IBInspectable UIColor *shadowColor;
 
 /// Forwards to the underlaying layer.
-@property (nonatomic, readwrite) CGFloat shadowBlurRadius;
+@property (nonatomic, readwrite) IBInspectable CGFloat shadowBlurRadius;
 
 /// Forwards to the underlaying layer.
-@property (nonatomic, readwrite) CGFloat shadowAlpha;
+@property (nonatomic, readwrite) IBInspectable CGFloat shadowAlpha;
 
 /// Forwards to the underlaying layer, transforms CGPathRef to UIBezierPath and vice versa.
 @property (nonatomic, readwrite) UIBezierPath *shadowPath;
@@ -84,9 +84,9 @@
 
 #pragma mark - Border
 
-@property (nonatomic, readwrite) CGFloat borderWidth;
+@property (nonatomic, readwrite) IBInspectable CGFloat borderWidth;
 
-@property (nonatomic, readwrite) UIColor *borderColor;
+@property (nonatomic, readwrite) IBInspectable UIColor *borderColor;
 
 
 
