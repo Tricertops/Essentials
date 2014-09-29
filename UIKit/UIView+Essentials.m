@@ -187,6 +187,12 @@
 }
 
 
+- (void)translateTo:(CGPoint)position {
+    self.translation = CGPointMake(position.x - self.center.x,
+                                   position.y - self.center.y);
+}
+
+
 
 
 
