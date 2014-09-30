@@ -214,9 +214,6 @@
 
 
 - (NSString *)naturalName {
-    NSUByte redComponent = roundf(self.redComponent * 6);
-    NSUByte greenComponent = roundf(self.greenComponent * 6);
-    NSUByte blueComponent = roundf(self.blueComponent * 6);
     
 #define light   @"light "
 #define dark    @"dark "
@@ -326,8 +323,12 @@
 #undef brown  
 #undef pink   
 #undef orange
-
-    NSString *colorName = names[redComponent][greenComponent][blueComponent];
+    
+    NSUByte redIndex = roundf(self.redComponent * 6);
+    NSUByte greenIndex = roundf(self.greenComponent * 6);
+    NSUByte blueIndex = roundf(self.blueComponent * 6);
+    
+    NSString *colorName = names[redIndex][greenIndex][blueIndex];
     return colorName;
 }
 
