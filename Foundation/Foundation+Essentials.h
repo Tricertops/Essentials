@@ -16,6 +16,7 @@
 #import "NSNumber+Essentials.h"
 #import "NSInvocation+Essentials.h"
 #import "NSOperationQueue+Essentials.h"
+#import "NSTimer+Essentials.h"
 #import "NSDate+Essentials.h"
 #import "NSData+Essentials.h"
 #import "NSUUID+Essentials.h"
