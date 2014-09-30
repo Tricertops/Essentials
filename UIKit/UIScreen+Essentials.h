@@ -54,3 +54,11 @@
 
 
 @end
+
+
+
+
+/// Returns fraction of main screen’s width. Bigger screens get bigger values.
+extern CGFloat UIScreenFraction(CGFloat);
+
+

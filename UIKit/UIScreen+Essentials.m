@@ -7,6 +7,7 @@
 //
 
 #import "UIScreen+Essentials.h"
+#import "UIKit+Essentials.h"
 
 
 
@@ -116,3 +117,13 @@
 
 
 @end
+
+
+
+
+
+CGFloat UIScreenFraction(CGFloat fraction) {
+    return CGFloatRoundToScreenScale(UIScreen.fixedBounds.size.width * fraction);
+}
+
+
