@@ -16,6 +16,18 @@
 
 
 
+
+
+#pragma mark Building
+
+/// Returns newly initialized array populated by N copies of given object. Preserves mutability.
++ (instancetype)arrayWithCount:(NSUInteger)count object:(id<NSCopying>)copiedObject;
+
+/// Returns newly initialized array populated by N objects returned from builder block.
++ (instancetype)arrayWithCount:(NSUInteger)count builder:(id(^)(NSUInteger index))block;
+
+
+
 #pragma mark Iterating
 
 /// Enumerates contents of the receiver.

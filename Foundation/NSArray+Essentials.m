@@ -19,6 +19,35 @@
 
 
 
+#pragma mark Building
+
+
++ (instancetype)arrayWithCount:(NSUInteger)count object:(NSObject<NSCopying> *)copiedObject {
+    BOOL isMutablyCopiable = [copiedObject conformsToProtocol:@protocol(NSMutableCopying)];
+    
+    return [self arrayWithCount:count builder:^id(NSUInteger index) {
+        if (isMutablyCopiable) {
+            return [copiedObject mutableCopy];
+        }
+        else {
+            return [copiedObject copy];
+        }
+    }];
+}
+
+
++ (instancetype)arrayWithCount:(NSUInteger)count builder:(id(^)(NSUInteger index))block {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger index = 0; index < count; index++) {
+        [array addObject:block(index)];
+    }
+    return array;
+}
+
+
+
+
+
 #pragma mark Iterating
 
 
