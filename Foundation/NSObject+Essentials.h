@@ -15,7 +15,7 @@
 typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 
 
-//TODO: -threadSafe
+
 
 
 @interface NSObject (Essentials)
