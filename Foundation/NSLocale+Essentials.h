@@ -17,6 +17,15 @@
 
 
 
+#pragma mark - Identifier Accessors
+
+//! Alias for .localeIdentifier
+@property (readonly) NSString *identifier;
+
+//! Returns all component defined in the receiver.
+@property (readonly) NSDictionary *components;
+
+
 
 #pragma mark - Language Accessors
 

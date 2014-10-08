@@ -18,6 +18,22 @@
 
 
 
+#pragma mark - Identifier Accessors
+
+
+- (NSString *)identifier {
+    return self.localeIdentifier;
+}
+
+
+- (NSDictionary *)components {
+    return [NSLocale componentsFromLocaleIdentifier:self.identifier];
+}
+
+
+
+
+
 #pragma mark - Language Accessors
 
 
