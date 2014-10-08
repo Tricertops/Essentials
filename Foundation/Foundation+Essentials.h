@@ -22,6 +22,8 @@
 #import "NSUUID+Essentials.h"
 #import "NSSortDescriptor+Essentials.h"
 #import "NSIndexPath+Essentials.h"
+#import "NSLocale+Essentials.h"
+#import "ESSThreadSafeProxy.h"
 
 
 

@@ -22,6 +22,9 @@
 		5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
 		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */; };
+		5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61075719E52E930071B547 /* NSLocale+Essentials.h */; };
+		5B61075A19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
+		5B61075B19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
 		5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */; };
 		5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
 		5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
@@ -124,6 +127,8 @@
 		5B13C0B81786DED0001666F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5B2A32C11923AA05008E5B36 /* UIFont+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Essentials.h"; sourceTree = "<group>"; };
 		5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Essentials.m"; sourceTree = "<group>"; };
+		5B61075719E52E930071B547 /* NSLocale+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+Essentials.h"; sourceTree = "<group>"; };
+		5B61075819E52E930071B547 /* NSLocale+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+Essentials.m"; sourceTree = "<group>"; };
 		5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Essentials.h"; sourceTree = "<group>"; };
 		5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Essentials.m"; sourceTree = "<group>"; };
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
@@ -324,6 +329,8 @@
 				5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */,
 				5BE8AABC19702FC300F0B09A /* NSIndexPath+Essentials.h */,
 				5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */,
+				5B61075719E52E930071B547 /* NSLocale+Essentials.h */,
+				5B61075819E52E930071B547 /* NSLocale+Essentials.m */,
 				5B74A63619D45F5B00B04E07 /* ESSThreadSafeProxy.h */,
 				5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */,
 			);
@@ -379,6 +386,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */,
 				5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */,
 				5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */,
 				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
@@ -527,6 +535,7 @@
 				5BE32D6A19BB4D77002605B3 /* CIFilter+Essentials.m in Sources */,
 				5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */,
 				5B1341101762401C008F8F1E /* UIImage+Essentials.m in Sources */,
+				5B61075A19E52E930071B547 /* NSLocale+Essentials.m in Sources */,
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
 				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
 				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
@@ -553,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFBAC0C1844BB8900179483 /* NSNumber+Essentials.m in Sources */,
+				5B61075B19E52E930071B547 /* NSLocale+Essentials.m in Sources */,
 				5BE4752B18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
 				5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */,
 				5BFBAC081844BB8900179483 /* NSArray+Essentials.m in Sources */,
