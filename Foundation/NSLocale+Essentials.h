@@ -92,6 +92,19 @@
 
 
 
+#pragma mark - Creating
+
+//! Returns new locale with given components.
++ (instancetype)localeWithComponents:(NSDictionary *)components;
+
+//! Returns new locale that has components from the receiver only for given keys.
+- (NSLocale *)localeWithComponentKeys:(NSArray *)keys;
+
+//! Returns new locale with overridden components.
+- (NSLocale *)localeWithComponents:(NSDictionary *)components;
+
+
+
 
 
 @end

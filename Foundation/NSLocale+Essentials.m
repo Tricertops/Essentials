@@ -7,6 +7,8 @@
 //
 
 #import "NSLocale+Essentials.h"
+#import "NSArray+Essentials.h"
+#import "NSDictionary+Essentials.h"
 
 
 
@@ -160,6 +162,32 @@
 
 - (NSString *)alternateQuotationEndDelimiter {
     return [self objectForKey:NSLocaleAlternateQuotationEndDelimiterKey];
+}
+
+
+
+
+
+#pragma mark - Creating
+
+
++ (instancetype)localeWithComponents:(NSDictionary *)components {
+    NSString *identifier = [NSLocale localeIdentifierFromComponents:components];
+    return [NSLocale localeWithLocaleIdentifier:identifier];
+}
+
+
+- (NSLocale *)localeWithComponentKeys:(NSArray *)keys {
+    NSDictionary *components = [keys dictionaryByMappingToValues:^id(NSString *key) {
+        return [self objectForKey:key];
+    }];
+    return [NSLocale localeWithComponents:components];
+}
+
+
+- (NSLocale *)localeWithComponents:(NSDictionary *)components {
+    NSDictionary *combinedComponents = [self.components dictionaryByAddingValuesFromDictionary:components];
+    return [NSLocale localeWithComponents:combinedComponents];
 }
 
 
