@@ -109,6 +109,31 @@
 }
 
 
+- (NSMutableDictionary *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+    for (id value in self) {
+        id<NSCopying> key = block(value);
+        if (key) {
+            [dictionary setObject:value forKey:key];
+        }
+    }
+    return dictionary;
+}
+
+
+- (NSMutableDictionary *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+    for (id<NSCopying> key in self) {
+        id value = block(key);
+        if (value) {
+            [dictionary setObject:value forKey:key];
+        }
+    }
+    return dictionary;
+}
+
+
+
 
 
 

@@ -49,6 +49,12 @@
 /// Returns new dictionary, whose values are objects from the receiver and keys are obejcts returned for given key-path.
 - (NSDictionary *)dictionaryByKeyPath:(NSString *)keyPath;
 
+/// Returns new dictionary, whose values are objects from the receiver and keys are corresponding value returned by block.
+- (NSMutableDictionary *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block;
+
+/// Returns new dictionary, whose keys are objects from the receiver and values are corresponding value returned by block.
+- (NSMutableDictionary *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block;
+
 
 
 #pragma mark Nested Arrays
