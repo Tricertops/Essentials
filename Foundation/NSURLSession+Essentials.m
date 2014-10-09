@@ -13,6 +13,16 @@
 
 
 
+// This object is used to indirectly transfer URL request into URL response block. The problem was, that the block is created before the request.
+@interface ESSURLResponseRequestTransfer : NSObject
+@property NSURLRequest *request;
+@end
+@implementation ESSURLResponseRequestTransfer
+@end
+
+
+
+
 
 @implementation NSURLSession (Essentials)
 
@@ -48,7 +58,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 #pragma  mark - Requests
 
 
-- (void(^)(NSData *, NSURLResponse *, NSError *))ess_dataCompletionBlockWithHandler:(ESSURLResponseBlock)block {
+- (void(^)(NSData *, NSURLResponse *, NSError *))ess_dataCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
     return ^(NSData *data, NSURLResponse *response, NSError *error) {
         ESSURLResponse *r = [[ESSURLResponse alloc] initWithHTTPResponse:[NSHTTPURLResponse cast:response]
                                                              contentData:data
@@ -59,7 +69,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 }
 
 
-- (void(^)(NSURL *, NSURLResponse *, NSError *))ess_locationCompletionBlockWithHandler:(ESSURLResponseBlock)block {
+- (void(^)(NSURL *, NSURLResponse *, NSError *))ess_locationCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
     return ^(NSURL *location, NSURLResponse *response, NSError *error) {
         ESSURLResponse *r = [[ESSURLResponse alloc] initWithHTTPResponse:[NSHTTPURLResponse cast:response]
                                                              contentData:nil
@@ -70,23 +80,30 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 }
 
 
-- (NSURLSessionTask *)performRequest:(NSURLRequest *)request toFile:(BOOL)downloadToFile completionHandler:(ESSURLResponseBlock)handler {
-    NSURLSessionTask *task = nil;
-    if (downloadToFile) {
-        // With or without body. Body is preserved.
-        task = [self downloadTaskWithRequest:request completionHandler:[self ess_locationCompletionBlockWithHandler:handler]];
-    }
-    else {
-        NSData *bodyData = request.HTTPBody;
-        if (bodyData) {
-            task = [self uploadTaskWithRequest:request fromData:bodyData completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-        }
-        else {
-            task = [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-        }
-    }
+- (NSURLSessionTask *)ess_configureTask:(NSURLSessionTask *(^)(ESSURLResponseRequestTransfer *transfer))block {
+    ESSURLResponseRequestTransfer *transfer = [ESSURLResponseRequestTransfer new];
+    NSURLSessionTask *task = block(transfer);
+    transfer.request = task.originalRequest;
     [task resume];
     return task;
+}
+
+
+- (NSURLSessionTask *)performRequest:(NSURLRequest *)request toFile:(BOOL)downloadToFile completionHandler:(ESSURLResponseBlock)handler {
+    return [self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        if (downloadToFile) {
+            return [self downloadTaskWithRequest:request completionHandler:[self ess_locationCompletionBlockForRequest:transfer handler:handler]];
+        }
+        else {
+            NSData *bodyData = request.HTTPBody;
+            if (bodyData) {
+                return [self uploadTaskWithRequest:request fromData:bodyData completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+            }
+            else {
+                return [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+            }
+        }
+    }];
 }
 
 
@@ -97,17 +114,17 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionDataTask *)performMethod:(NSString *)method URL:(NSURL *)URL completion:(ESSURLResponseBlock)handler {
-    NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
-    NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-    [task resume];
-    return task;
+    return [NSURLSessionDataTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
+        return [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+    }]];
 }
 
 
 - (NSURLSessionDataTask *)GET:(NSURL *)URL completion:(ESSURLResponseBlock)handler {
-    NSURLSessionDataTask *task = [self dataTaskWithURL:URL completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-    [task resume];
-    return task;
+    return [NSURLSessionDataTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        return [self dataTaskWithURL:URL completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+    }]];
 }
 
 
@@ -125,16 +142,16 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionDownloadTask *)downloadFrom:(NSURL *)URL completion:(ESSURLResponseBlock)handler {
-    NSURLSessionDownloadTask *task = [self downloadTaskWithURL:URL completionHandler:[self ess_locationCompletionBlockWithHandler:handler]];
-    [task resume];
-    return task;
+    return [NSURLSessionDownloadTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        return [self downloadTaskWithURL:URL completionHandler:[self ess_locationCompletionBlockForRequest:transfer handler:handler]];
+    }]];
 }
 
 
 - (NSURLSessionDownloadTask *)resumeDownload:(NSData *)resumeData completion:(ESSURLResponseBlock)handler {
-    NSURLSessionDownloadTask *task = [self downloadTaskWithResumeData:resumeData completionHandler:[self ess_locationCompletionBlockWithHandler:handler]];
-    [task resume];
-    return task;
+    return [NSURLSessionDownloadTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        return [self downloadTaskWithResumeData:resumeData completionHandler:[self ess_locationCompletionBlockForRequest:transfer handler:handler]];
+    }]];
 }
 
 
@@ -145,17 +162,16 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionUploadTask *)performMethod:(NSString *)method URL:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
-    NSURLSessionUploadTask *task = nil;
-    NSURL *payloadURL = [payload essURLRequestBodyFileURL];
-    if (payloadURL) {
-        task = [self uploadTaskWithRequest:request fromFile:payloadURL completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-    }
-    else {
-        task = [self uploadTaskWithRequest:request fromData:[payload essURLRequestBodyData] completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
-    }
-    [task resume];
-    return task;
+    return [NSURLSessionUploadTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
+        NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
+        NSURL *payloadURL = [payload essURLRequestBodyFileURL];
+        if (payloadURL) {
+            return [self uploadTaskWithRequest:request fromFile:payloadURL completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+        }
+        else {
+            return [self uploadTaskWithRequest:request fromData:[payload essURLRequestBodyData] completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
+        }
+    }]];
 }
 
 
