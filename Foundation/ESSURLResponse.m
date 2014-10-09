@@ -136,8 +136,9 @@
 
 
 ESSLazyMake(NSString *, string) {
-    if ( ! self.data.length) return nil;
-    NSString *string = [[NSString alloc] initWithData:self.data encoding:self.encoding];
+    NSData *data = self.data;
+    if ( ! data.length) return nil;
+    NSString *string = [[NSString alloc] initWithData:data encoding:self.encoding];
     if ( ! string) {
         self.decodingError = [NSError errorWithDomain:NSCocoaErrorDomain
                                                  code:NSFileReadUnknownStringEncodingError
@@ -148,27 +149,30 @@ ESSLazyMake(NSString *, string) {
 
 
 ESSLazyMake(id, JSON) {
-    if ( ! self.data.length) return nil;
+    NSData *data = self.data;
+    if ( ! data.length) return nil;
     NSError *error = nil;
-    id JSON = [NSJSONSerialization JSONObjectWithData:self.data options:kNilOptions error:&error];
+    id JSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     self.decodingError = error;
     return JSON;
 }
 
 
 ESSLazyMake(NSString *, prettyJSONString) {
-    if ( ! self.JSON) return nil;
+    id JSON = self.JSON;
+    if ( ! JSON) return nil;
     NSError *error = nil;
-    id prettyString = [NSJSONSerialization dataWithJSONObject:self.JSON options:NSJSONWritingPrettyPrinted error:&error];
+    id prettyString = [NSJSONSerialization dataWithJSONObject:JSON options:NSJSONWritingPrettyPrinted error:&error];
     self.decodingError = error;
     return prettyString;
 }
 
 
 ESSLazyMake(id, propertyList) {
-    if ( ! self.data.length) return nil;
+    NSData *data = self.data;
+    if ( ! data.length) return nil;
     NSError *error = nil;
-    id plist = [NSPropertyListSerialization propertyListWithData:self.data options:kNilOptions format:NULL error:&error];
+    id plist = [NSPropertyListSerialization propertyListWithData:data options:kNilOptions format:NULL error:&error];
     self.decodingError = error;
     return plist;
 }
@@ -217,6 +221,41 @@ ESSLazyMake(id, propertyList) {
     return self.loadingError ?: self.statusCodeError ?: self.fileError ?: self.decodingError;
 }
 
+
+
+
+
+#pragma mark - Cleanup
+
+
+- (void)invalidate {
+    self->_request = nil;
+    self->_session = nil;
+    
+    self->_statusCode = 0;
+    self->_localizedStatusCodeString = nil;
+    
+    self->_headers = nil;
+    self->_length = 0;
+    self->_MIMEType = nil;
+    self->_encoding = 0;
+    
+    self.data = nil;
+    self->_string = nil;
+    self->_JSON = nil;
+    self->_prettyJSONString = nil;
+    self->_propertyList = nil;
+    
+    self.location = nil;
+    
+    self->_loadingError = nil;
+    self->_statusCodeError = nil;
+    self.fileError = nil;
+    self.decodingError = nil;
+    
+    self->_shouldRetry = NO;
+    self->_retryCount = NSUIntegerMax; // Acts like repeated infite times.
+}
 
 
 

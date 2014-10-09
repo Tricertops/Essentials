@@ -69,7 +69,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
                                                               error:error
                                                             handler:block];
         block(r);
-        //TODO: Clear response
+        [r invalidate];
     };
 }
 
@@ -85,7 +85,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
                                                               error:error
                                                             handler:block];
         block(r);
-        //TODO: Clear response
+        [r invalidate];
     };
 }
 
