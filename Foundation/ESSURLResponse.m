@@ -75,6 +75,8 @@
             else {
                 self->_length = self.data.length;
             }
+            
+            self->_shouldRetry = [self.class isErrorWorthRetrying:self.loadingError ?: self.statusCodeError];
         }
     }
     return self;
@@ -126,6 +128,22 @@
     
     CFStringEncoding encoding = CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef)encodingName);
     return CFStringConvertEncodingToNSStringEncoding(encoding);
+}
+
+
++ (BOOL)isErrorWorthRetrying:(NSError *)error {
+    if ( ! error) return NO;
+    if ( ! NSEqual(error.domain, NSURLErrorDomain)) return NO;
+    
+    switch (error.code) {
+        case NSURLErrorTimedOut:
+        case NSURLErrorNetworkConnectionLost:
+        case NSURLErrorNotConnectedToInternet:
+        case NSURLErrorCallIsActive:
+            return YES;
+            
+        default: return NO;
+    }
 }
 
 
@@ -241,6 +259,34 @@ ESSLazyLoad(NSArray *, propertyListArray) {
 
 - (NSError *)error {
     return self.loadingError ?: self.statusCodeError ?: self.fileError ?: self.decodingError;
+}
+
+
+
+
+
+#pragma  mark - Retrying
+
+
+- (BOOL)retryAfter:(NSTimeInterval)delay {
+    NSURLSession *session = self.session;
+    NSURLRequest *request = self.request;
+    ESSURLResponseBlock handler = self.handler;
+    BOOL isFileDownload = (self.location != nil);
+    BOOL canRetry = (session != nil && request != nil && handler != nil);
+    NSUInteger retryCount = self.retryCount;
+    
+    if (canRetry) {
+        [session.delegateQueue delay:delay asynchronous:^{
+            [session performRequest:request toFile:isFileDownload completionHandler:^(ESSURLResponse *response) {
+                // Reuse the same handler and invoke it.
+                response.retryCount = retryCount + 1;
+                response.handler = handler;
+                handler(response);
+            }];
+        }];
+    }
+    return canRetry;
 }
 
 
