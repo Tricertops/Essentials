@@ -23,6 +23,14 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
 
 
+#pragma mark - Origin
+
+//! The original request to which the receiver is a response.
+@property (readonly) NSURLRequest *request;
+//! The session in which the request did complete and the receiver was the result.
+@property (readonly) NSURLSession *session;
+
+
 #pragma mark - Status Code
 
 //! The HTTP status code. Zero, if invalid.
@@ -75,6 +83,10 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
 //! Indicated whether the error that occured could be recovered by retrying the same request. Only loadingError is considered.
 @property (readonly) BOOL shouldRetry;
+//! Schedules the original request on the original session using the same handler.
+- (BOOL)retry;
+//! Number of times the request was retried.
+@property (readonly) NSUInteger retryCount;
 
 
 #pragma mark - Errors
@@ -94,8 +106,8 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
 #pragma mark - Private
 
-- (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)httpResponse contentData:(NSData *)data temporaryLocation:(NSURL *)location loadingError:(NSError *)error;
 //! Don’t initialize this class. Used by NSURLSession+Essentials in completion handlers.
+- (instancetype)initWithSession:(NSURLSession *)session request:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data location:(NSURL *)location error:(NSError *)error handler:(ESSURLResponseBlock)handler;
 
 
 

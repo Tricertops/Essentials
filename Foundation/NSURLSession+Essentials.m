@@ -59,23 +59,33 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (void(^)(NSData *, NSURLResponse *, NSError *))ess_dataCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
+    __weak NSURLSession *weakSession = self;
     return ^(NSData *data, NSURLResponse *response, NSError *error) {
-        ESSURLResponse *r = [[ESSURLResponse alloc] initWithHTTPResponse:[NSHTTPURLResponse cast:response]
-                                                             contentData:data
-                                                       temporaryLocation:nil
-                                                            loadingError:error];
+        ESSURLResponse *r = [[ESSURLResponse alloc] initWithSession:weakSession
+                                                            request:transfer.request
+                                                           response:[NSHTTPURLResponse cast:response]
+                                                               data:data
+                                                           location:nil
+                                                              error:error
+                                                            handler:block];
         block(r);
+        //TODO: Clear response
     };
 }
 
 
 - (void(^)(NSURL *, NSURLResponse *, NSError *))ess_locationCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
+    __weak NSURLSession *weakSession = self;
     return ^(NSURL *location, NSURLResponse *response, NSError *error) {
-        ESSURLResponse *r = [[ESSURLResponse alloc] initWithHTTPResponse:[NSHTTPURLResponse cast:response]
-                                                             contentData:nil
-                                                       temporaryLocation:location
-                                                            loadingError:error];
+        ESSURLResponse *r = [[ESSURLResponse alloc] initWithSession:weakSession
+                                                            request:transfer.request
+                                                           response:[NSHTTPURLResponse cast:response]
+                                                               data:nil
+                                                           location:location
+                                                              error:error
+                                                            handler:block];
         block(r);
+        //TODO: Clear response
     };
 }
 
