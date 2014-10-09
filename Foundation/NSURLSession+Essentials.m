@@ -71,10 +71,22 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionTask *)performRequest:(NSURLRequest *)request toFile:(BOOL)downloadToFile completionHandler:(ESSURLResponseBlock)handler {
-    //TODO: If body is missing and downloads to a file, use Download Task
-    //TODO: If body is missing, use Data Task
-    //TODO: If body is present, use Upload Task
-    //TODO: If body stream is present, use Data Task
+    NSURLSessionTask *task = nil;
+    if (downloadToFile) {
+        // With or without body. Body is preserved.
+        task = [self downloadTaskWithRequest:request completionHandler:[self ess_locationCompletionBlockWithHandler:handler]];
+    }
+    else {
+        NSData *bodyData = request.HTTPBody;
+        if (bodyData) {
+            task = [self uploadTaskWithRequest:request fromData:bodyData completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
+        }
+        else {
+            task = [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
+        }
+    }
+    [task resume];
+    return task;
 }
 
 
@@ -133,23 +145,32 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionUploadTask *)performMethod:(NSString *)method URL:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    //TODO: Build request
-    //TODO: Start Upload Task
+    NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
+    NSURLSessionUploadTask *task = nil;
+    NSURL *payloadURL = [payload essURLRequestBodyFileURL];
+    if (payloadURL) {
+        task = [self uploadTaskWithRequest:request fromFile:payloadURL completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
+    }
+    else {
+        task = [self uploadTaskWithRequest:request fromData:[payload essURLRequestBodyData] completionHandler:[self ess_dataCompletionBlockWithHandler:handler]];
+    }
+    [task resume];
+    return task;
 }
 
 
 - (NSURLSessionUploadTask *)POST:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    //TODO: Call -performMethod:URL:payload:completion:
+    return [self performMethod:@"POST" URL:URL payload:payload completion:handler];
 }
 
 
 - (NSURLSessionUploadTask *)PUT:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    //TODO: Call -performMethod:URL:payload:completion:
+    return [self performMethod:@"PUT" URL:URL payload:payload completion:handler];
 }
 
 
 - (NSURLSessionUploadTask *)PATCH:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    //TODO: Call -performMethod:URL:payload:completion:
+    return [self performMethod:@"PATCH" URL:URL payload:payload completion:handler];
 }
 
 
@@ -157,7 +178,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (NSURLSessionUploadTask *)uploadTo:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
-    //TODO: Call -performMethod:URL:payload:completion:
+    return [self POST:URL payload:payload completion:handler];
 }
 
 
