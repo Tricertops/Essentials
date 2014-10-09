@@ -24,6 +24,8 @@
 #import "NSIndexPath+Essentials.h"
 #import "NSLocale+Essentials.h"
 #import "NSURLRequest+Essentials.h"
+#import "NSURLSession+Essentials.h"
+#import "ESSURLResponse.h"
 #import "ESSThreadSafeProxy.h"
 
 

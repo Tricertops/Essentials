@@ -122,7 +122,7 @@
 
 
 + (NSStringEncoding)stringEncodingFromEncodingName:(NSString *)encodingName {
-    if (encodingName.length) return NSUTF8StringEncoding;
+    if ( ! encodingName.length) return NSUTF8StringEncoding;
     
     CFStringEncoding encoding = CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef)encodingName);
     return CFStringConvertEncodingToNSStringEncoding(encoding);
@@ -175,7 +175,7 @@ ESSLazyMake(NSString *, prettyJSONString) {
     NSError *error = nil;
     id prettyString = [NSJSONSerialization dataWithJSONObject:JSON options:NSJSONWritingPrettyPrinted error:&error];
     self.decodingError = error;
-    return prettyString;
+    return [[NSString alloc] initWithData:prettyString encoding:NSUTF8StringEncoding];
 }
 
 
