@@ -11,8 +11,15 @@
 
 
 
+//! Block that receives ESSURLResponse object.
+@class ESSURLResponse;
+typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
-@interface ESSURLResponse : NSHTTPURLResponse
+
+
+
+
+@interface ESSURLResponse : NSObject
 
 
 
@@ -26,9 +33,14 @@
 
 #pragma mark - Headers
 
+//! All header fields with their values.
+@property (readonly) NSDictionary *headers;
 //! Length of bytes of the received data or size of the file.
 @property (readonly) NSUInteger length;
-@property (readonly, copy) NSDictionary *allHeaderFields;
+//! The MIME type of the data.
+@property (readonly) NSString *MIMEType;
+//! The text encoding provided by the response.
+@property (readonly) NSStringEncoding encoding;
 //TODO: Last-Modified with DateFormatter
 
 
@@ -36,7 +48,7 @@
 
 //! Data received as response body.
 @property (readonly) NSData *data;
-//! Lazily decoded UTF-8 string from .data property. Property .decodingError is updated.
+//! Lazily decoded string from .data property using .encoding from headers or UTF-8. Property .decodingError is updated.
 @property (readonly) NSString *string;
 //! Lazily parsed JSON object from .data property. Property .decodingError is updated.
 @property (readonly) id JSON;
@@ -59,13 +71,16 @@
 - (BOOL)moveToCaches;
 
 
-#pragma mark - Errors
+#pragma mark - Retrying
 
-//! Returns first non-nil error in this order: loadingError, statusCodeError, fileError, decodingError
-@property (readonly) NSError *error; // loading error or statusCodeError
 //! Indicated whether the error that occured could be recovered by retrying the same request. Only loadingError is considered.
 @property (readonly) BOOL shouldRetry;
 
+
+#pragma mark - Errors
+
+//! Returns first non-nil error in this order: loadingError, statusCodeError, fileError, decodingError
+@property (readonly) NSError *error;
 //! Error that occured while receiveng the response, typically of NSURLErrorDomain.
 @property (readonly) NSError *loadingError;
 //! Error created from 4xx or 5xx status code, typically of NSURLErrorDomain.
@@ -77,19 +92,13 @@
 
 
 
-#pragma mark - Creating
+#pragma mark - Private
 
-//! Initializes new instance. No need to call, used by NSURLSession+Essentials.
 - (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)httpResponse contentData:(NSData *)data temporaryLocation:(NSURL *)location loadingError:(NSError *)error;
-- (instancetype)initWithURL:(NSURL *)url statusCode:(NSInteger)statusCode HTTPVersion:(NSString *)HTTPVersion headerFields:(NSDictionary *)headerFields __unavailable;
-- (instancetype)initWithURL:(NSURL *)URL MIMEType:(NSString *)MIMEType expectedContentLength:(NSInteger)length textEncodingName:(NSString *)name __unavailable;
+//! Don’t initialize this class. Used by NSURLSession+Essentials in completion handlers.
 
 
 
 @end
-
-
-
-typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
 
