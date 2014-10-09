@@ -100,10 +100,12 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 
 //! Indicated whether the error that occured could be recovered by retrying the same request. Only loadingError is considered.
 @property (readonly) BOOL shouldRetry;
-//! Schedules the original request on the original session using the same handler.
+//! Schedules the original request on the original session using the same handler after a delay.
 - (BOOL)retryAfter:(NSTimeInterval)delay;
 //! Number of times the request was retried.
 @property (readonly) NSUInteger retryCount;
+//! Schedules the original request on the original session using the same handler after a delay until the receiver reaches given retry count.
+- (BOOL)retryIfNeededAfter:(NSTimeInterval)delay count:(NSUInteger)count;
 
 
 

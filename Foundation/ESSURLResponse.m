@@ -290,6 +290,14 @@ ESSLazyLoad(NSArray *, propertyListArray) {
 }
 
 
+- (BOOL)retryIfNeededAfter:(NSTimeInterval)delay count:(NSUInteger)count {
+    if (self.shouldRetry && self.retryCount < count) {
+        return [self retryAfter:delay];
+    }
+    return NO;
+}
+
+
 
 
 
