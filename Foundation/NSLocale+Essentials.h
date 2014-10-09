@@ -94,6 +94,9 @@
 
 #pragma mark - Creating
 
+//! Returns locale with identifier “en_US_POSIX”.
++ (instancetype)standardizedLocale;
+
 //! Returns new locale with given components.
 + (instancetype)localeWithComponents:(NSDictionary *)components;
 

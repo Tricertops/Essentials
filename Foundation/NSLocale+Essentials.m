@@ -171,6 +171,11 @@
 #pragma mark - Creating
 
 
++ (instancetype)standardizedLocale {
+    return [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+}
+
+
 + (instancetype)localeWithComponents:(NSDictionary *)components {
     NSString *identifier = [NSLocale localeIdentifierFromComponents:components];
     return [NSLocale localeWithLocaleIdentifier:identifier];
