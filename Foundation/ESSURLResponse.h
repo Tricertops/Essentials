@@ -49,7 +49,10 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 @property (readonly) NSString *MIMEType;
 //! The text encoding provided by the response.
 @property (readonly) NSStringEncoding encoding;
-//TODO: Last-Modified with DateFormatter
+//! Date the resource was last modified on server.
+@property (readonly) NSDate *lastModified;
+//! Formatter that can be used to parse header values.
++ (NSDateFormatter *)HTTPDateFormatter;
 
 
 #pragma mark - Data

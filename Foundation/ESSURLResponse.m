@@ -59,8 +59,13 @@
             self->_statusCodeError = [self.class errorForStatusCode:self.statusCode];
         }{
             self->_headers = response.allHeaderFields;
+            
             self->_MIMEType = response.MIMEType;
             self->_encoding = [self.class stringEncodingFromEncodingName:response.textEncodingName];
+            
+            NSDateFormatter *formatter = [self.class HTTPDateFormatter];
+            NSString *lastModified = [self.headers objectForKey:@"Last-Modified"];
+            self->_lastModified = [formatter dateFromString:lastModified];
         }{
             self.data = data;
             self.location = location;
@@ -144,6 +149,15 @@
             
         default: return NO;
     }
+}
+
+
+ESSSharedMake(NSDateFormatter *, HTTPDateFormatter) {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.locale = [NSLocale standardizedLocale];
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    formatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+    return formatter;
 }
 
 
