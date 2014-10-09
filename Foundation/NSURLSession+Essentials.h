@@ -18,7 +18,6 @@
 
 
 
-
 #pragma mark - Creating & Shared
 
 //! Returns shared session with default configuration that uses Main Queue for calbacks.
@@ -64,8 +63,6 @@
 
 //! Starts a POST request to given URL with given payload object.
 - (NSURLSessionUploadTask *)uploadTo:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
-
-
 
 
 
