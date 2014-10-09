@@ -28,7 +28,7 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 //! The original request to which the receiver is a response.
 @property (readonly) NSURLRequest *request;
 //! The session in which the request did complete and the receiver was the result.
-@property (readonly) NSURLSession *session;
+@property (readonly, weak) NSURLSession *session;
 
 
 #pragma mark - Status Code
@@ -39,7 +39,7 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 @property (readonly) NSString *localizedStatusCodeString;
 
 
-#pragma mark - Headers
+#pragma mark - Metadata
 
 //! All header fields with their values.
 @property (readonly) NSDictionary *headers;
