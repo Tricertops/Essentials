@@ -177,6 +177,39 @@ ESSLazyMake(id, propertyList) {
 
 
 
+#pragma mark - File
+
+
+- (BOOL)loadLocationURLToData {
+    NSError *error = nil;
+    NSData *data = [NSData dataWithContentsOfURL:self.location options:NSDataReadingMappedIfSafe error:&error];
+    self.data = data;
+    self.fileError = error;
+    return (data != nil);
+}
+
+
+- (BOOL)moveTo:(NSURL *)URL {
+    NSError *error = nil;
+    BOOL success = [[NSFileManager defaultManager] moveItemAtURL:self.location toURL:URL error:&error];
+    if (success) self.location = URL;
+    self.fileError = error;
+    return success;
+}
+
+
+- (BOOL)moveToCaches {
+    NSArray *cachesDirs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSURL *cacheURL = [cachesDirs firstObject];
+    cacheURL = [cacheURL URLByAppendingPathComponent:NSStringFromClass(self.class) isDirectory:YES];
+    cacheURL = [cacheURL URLByAppendingPathComponent:self.location.lastPathComponent];
+    return [self moveTo:cacheURL];
+}
+
+
+
+
+
 #pragma mark - Errors
 
 
