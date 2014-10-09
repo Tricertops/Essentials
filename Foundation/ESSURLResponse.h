@@ -59,11 +59,15 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 //! Lazily decoded string from .data property using .encoding from headers or UTF-8. Property .decodingError is updated.
 @property (readonly) NSString *string;
 //! Lazily parsed JSON object from .data property. Property .decodingError is updated.
-@property (readonly) id JSON;
+@property (readonly) NSDictionary *JSON;
+//! Lazily parsed JSON array from .data property. Property .decodingError is updated.
+@property (readonly) NSArray *JSONArray;
 //! Lazily serialized pretty JSON string from .JSON property. Property .decodingError is updated.
 @property (readonly) NSString *prettyJSONString;
-//! Lazily parsed Proeprty List object from .data property. Property .decodingError is updated.
-@property (readonly) id propertyList;
+//! Lazily parsed Property List dictionary from .data property. Property .decodingError is updated.
+@property (readonly) NSDictionary *propertyList;
+//! Lazily parsed Property List array from .data property. Property .decodingError is updated.
+@property (readonly) NSArray *propertyListArray;
 
 
 #pragma mark - File

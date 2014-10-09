@@ -148,18 +148,29 @@ ESSLazyMake(NSString *, string) {
 }
 
 
-ESSLazyMake(id, JSON) {
+ESSLazyLoad(NSDictionary *, JSON) {
+    [self loadJSON];
+}
+
+
+ESSLazyLoad(NSArray *, JSONArray) {
+    [self loadJSON];
+}
+
+
+- (void)loadJSON {
     NSData *data = self.data;
-    if ( ! data.length) return nil;
+    if ( ! data.length) return;
     NSError *error = nil;
     id JSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    self->_JSON = [NSDictionary cast:JSON];
+    self->_JSONArray = [NSArray cast:JSON];
     self.decodingError = error;
-    return JSON;
 }
 
 
 ESSLazyMake(NSString *, prettyJSONString) {
-    id JSON = self.JSON;
+    id JSON = self.JSON ?: self.JSONArray;
     if ( ! JSON) return nil;
     NSError *error = nil;
     id prettyString = [NSJSONSerialization dataWithJSONObject:JSON options:NSJSONWritingPrettyPrinted error:&error];
@@ -168,13 +179,24 @@ ESSLazyMake(NSString *, prettyJSONString) {
 }
 
 
-ESSLazyMake(id, propertyList) {
+ESSLazyLoad(NSDictionary *, propertyList) {
+    [self loadPropertyList];
+}
+
+
+ESSLazyLoad(NSArray *, propertyListArray) {
+    [self loadPropertyList];
+}
+
+
+- (void)loadPropertyList {
     NSData *data = self.data;
-    if ( ! data.length) return nil;
+    if ( ! data.length) return;
     NSError *error = nil;
     id plist = [NSPropertyListSerialization propertyListWithData:data options:kNilOptions format:NULL error:&error];
+    self->_propertyList = [NSDictionary cast:plist];
+    self->_propertyListArray = [NSArray cast:plist];
     self.decodingError = error;
-    return plist;
 }
 
 
