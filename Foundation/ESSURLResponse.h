@@ -78,6 +78,20 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 - (BOOL)moveToCaches;
 
 
+#pragma mark - Errors
+
+//! Returns first non-nil error in this order: loadingError, statusCodeError, fileError, decodingError
+@property (readonly) NSError *error;
+//! Error that occured while receiveng the response, typically of NSURLErrorDomain.
+@property (readonly) NSError *loadingError;
+//! Error created from 4xx or 5xx status code, typically of NSURLErrorDomain.
+@property (readonly) NSError *statusCodeError;
+//! Error that occured with last manipulation with the a file at .location, typically of NSCocoaErrorDomain.
+@property (readonly) NSError *fileError;
+//! Error that occured with last processing of .data property, typically of NSCocoaErrorDomain.
+@property (readonly) NSError *decodingError;
+
+
 #pragma mark - Retrying
 
 //! Indicated whether the error that occured could be recovered by retrying the same request. Only loadingError is considered.
@@ -88,26 +102,14 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 @property (readonly) NSUInteger retryCount;
 
 
-#pragma mark - Errors
-
-//! Returns first non-nil error in this order: loadingError, statusCodeError, fileError, decodingError
-@property (readonly) NSError *error;
-//! Error that occured while receiveng the response, typically of NSURLErrorDomain.
-@property (readonly) NSError *loadingError;
-//! Error created from 4xx or 5xx status code, typically of NSURLErrorDomain.
-@property (readonly) NSError *statusCodeError;
-//! Error that occured while manipulating with the fila at .location, typically of NSCocoaErrorDomain.
-@property (readonly) NSError *fileError;
-//! Error that occured while processing .data property, typically of NSCocoaErrorDomain.
-@property (readonly) NSError *decodingError;
-
-
 
 #pragma mark - Private
 
 //! Don’t initialize this class. Used by NSURLSession+Essentials in completion handlers.
 - (instancetype)initWithSession:(NSURLSession *)session request:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data location:(NSURL *)location error:(NSError *)error handler:(ESSURLResponseBlock)handler;
 
+//! Don’t call. Nullifies all properties to release ownerships and so on.
+- (void)invalidate;
 
 
 @end

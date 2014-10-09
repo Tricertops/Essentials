@@ -177,6 +177,17 @@ ESSLazyMake(id, propertyList) {
 
 
 
+#pragma mark - Errors
+
+
+- (NSError *)error {
+    return self.loadingError ?: self.statusCodeError ?: self.fileError ?: self.decodingError;
+}
+
+
+
+
+
 
 @end
 
