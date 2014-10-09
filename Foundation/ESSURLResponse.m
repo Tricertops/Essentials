@@ -7,6 +7,7 @@
 //
 
 #import "ESSURLResponse.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -125,6 +126,51 @@
     
     CFStringEncoding encoding = CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef)encodingName);
     return CFStringConvertEncodingToNSStringEncoding(encoding);
+}
+
+
+
+
+
+#pragma mark - Data
+
+
+ESSLazyMake(NSString *, string) {
+    if ( ! self.data.length) return nil;
+    NSString *string = [[NSString alloc] initWithData:self.data encoding:self.encoding];
+    if ( ! string) {
+        self.decodingError = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                 code:NSFileReadUnknownStringEncodingError
+                                             userInfo:nil];
+    }
+    return string;
+}
+
+
+ESSLazyMake(id, JSON) {
+    if ( ! self.data.length) return nil;
+    NSError *error = nil;
+    id JSON = [NSJSONSerialization JSONObjectWithData:self.data options:kNilOptions error:&error];
+    self.decodingError = error;
+    return JSON;
+}
+
+
+ESSLazyMake(NSString *, prettyJSONString) {
+    if ( ! self.JSON) return nil;
+    NSError *error = nil;
+    id prettyString = [NSJSONSerialization dataWithJSONObject:self.JSON options:NSJSONWritingPrettyPrinted error:&error];
+    self.decodingError = error;
+    return prettyString;
+}
+
+
+ESSLazyMake(id, propertyList) {
+    if ( ! self.data.length) return nil;
+    NSError *error = nil;
+    id plist = [NSPropertyListSerialization propertyListWithData:self.data options:kNilOptions format:NULL error:&error];
+    self.decodingError = error;
+    return plist;
 }
 
 

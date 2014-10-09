@@ -64,7 +64,6 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 @property (readonly) NSString *prettyJSONString;
 //! Lazily parsed Proeprty List object from .data property. Property .decodingError is updated.
 @property (readonly) id propertyList;
-//TODO: Platform dependent image object.
 
 
 #pragma mark - File
