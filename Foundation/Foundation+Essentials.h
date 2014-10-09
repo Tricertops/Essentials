@@ -23,6 +23,7 @@
 #import "NSSortDescriptor+Essentials.h"
 #import "NSIndexPath+Essentials.h"
 #import "NSLocale+Essentials.h"
+#import "NSURLRequest+Essentials.h"
 #import "ESSThreadSafeProxy.h"
 
 
