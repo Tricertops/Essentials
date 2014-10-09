@@ -36,6 +36,10 @@
 - (void)scheduleInRunLoop:(NSRunLoop *)runLoop mode:(NSString *)mode;
 
 
+/// Invokes block after delay.
++ (void)after:(NSTimeInterval)delay block:(void(^)(void))block;
+
+
 
 @end
 

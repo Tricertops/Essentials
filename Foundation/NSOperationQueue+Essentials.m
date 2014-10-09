@@ -8,7 +8,6 @@
 
 #import "NSOperationQueue+Essentials.h"
 #import "Foundation+Essentials.h"
-#import "NSObject+Essentials.h"
 
 
 
@@ -20,103 +19,39 @@
 
 
 
-#pragma mark - Creation
+#pragma mark - Creation & Shared
 
 
-+ (instancetype)queueWithNameSuffix:(NSString *)nameSuffix {
-    return [[self alloc] initWithNameSuffix:nameSuffix];
+ESSSharedMake(NSOperationQueue *, interactiveQueue) {
+    return [self queueWithName:@"UserInteractive" concurrent:YES qualityOfService:NSQualityOfServiceUserInteractive];
 }
 
 
-+ (instancetype)serialQueueWithNameSuffix:(NSString *)nameSuffix {
-    return [[self alloc] initWithNameSuffix:nameSuffix numberOfConcurrentOperations:1];
+ESSSharedMake(NSOperationQueue *, userQueue) {
+    return [self queueWithName:@"UserInitiated" concurrent:YES qualityOfService:NSQualityOfServiceUserInitiated];
 }
 
 
-+ (instancetype)parallelQueueWithNameSuffix:(NSString *)nameSuffix {
-    return [[self alloc] initWithNameSuffix:nameSuffix numberOfConcurrentOperations:NSOperationQueueDefaultMaxConcurrentOperationCount];
+ESSSharedMake(NSOperationQueue *, utilityQueue) {
+    return [self queueWithName:@"Utility" concurrent:YES qualityOfService:NSQualityOfServiceUtility];
 }
-
-
-- (instancetype)initWithNameSuffix:(NSString *)nameSuffix {
-    return [self initWithNameSuffix:nameSuffix numberOfConcurrentOperations:1];
-}
-
-
-- (instancetype)initWithNameSuffix:(NSString *)nameSuffix numberOfConcurrentOperations:(NSUInteger)concurrent {
-    self = [self init];
-    if (self) {
-        NSString *appIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
-        self.name = [appIdentifier stringByAppendingFormat:@".%@", nameSuffix ?: [[NSUUID UUID] UUIDString]];
-        self.maxConcurrentOperationCount = concurrent;
-    }
-    return self;
-}
-
-
-
-
-
-#pragma mark - Shared
 
 
 ESSSharedMake(NSOperationQueue *, backgroundQueue) {
-    return [NSOperationQueue parallelQueueWithNameSuffix:@"sharedBackgroundQueue"];
+    return [self queueWithName:@"Background" concurrent:YES qualityOfService:NSQualityOfServiceBackground];
 }
 
 
-+ (void)runMainQueue {
-    ESSAssertException([NSThread isMainThread], @"Must be called on Main Thread.");
-    // To the infinity ...
-    dispatch_main();
-    // ... and beyond.
++ (instancetype)queueWithName:(NSString *)nameSuffix concurrent:(BOOL)isConcurrent qualityOfService:(NSQualityOfService)qos {
+    NSOperationQueue *queue = [NSOperationQueue new];
+    NSString *appID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+    queue.name = [appID stringByAppendingFormat:@".%@", nameSuffix ?: [[NSUUID UUID] UUIDString]];
+    queue.maxConcurrentOperationCount = (isConcurrent? NSOperationQueueDefaultMaxConcurrentOperationCount : 1);
+    queue.qualityOfService = qos;
+    return queue;
 }
 
 
-static NSOperation * NSOperationQueueExitOperation = nil;
-
-- (void)runMainQueueUntilAllQueuesAreEmptyWithFinalBlock:(void(^)(void))finalBlock {
-    NSOperationQueueExitOperation = [[NSBlockOperation subclass:@"ESSExitOperation"] blockOperationWithBlock:^{
-        if (finalBlock) finalBlock();
-        exit(EXIT_SUCCESS);
-    }];
-    
-    for (NSOperation *operation in self.operations) {
-        [NSOperationQueue addExitDependencyOperation:operation];
-    }
-    
-    [self addOperation:NSOperationQueueExitOperation];
-    [NSOperationQueue runMainQueue];
-}
-
-
-+ (void)addExitDependencyOperation:(NSOperation *)operation {
-    if ( ! NSOperationQueueExitOperation) return;
-    if (operation == NSOperationQueueExitOperation) return;
-    if ([NSOperationQueueExitOperation.dependencies containsObject:operation]) return;
-    
-    [NSOperationQueueExitOperation addDependency:operation];
-}
-
-
-+ (void)after:(NSTimeInterval)delay block:(void(^)(void))block {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
-    dispatch_source_set_timer(timer, time, 0, 0);
-    dispatch_source_set_event_handler(timer, ^{
-        dispatch_source_cancel(timer);
-        
-        block();
-    });
-    dispatch_resume(timer);
-}
-
-
-
-
-
-#pragma mark - Current
 
 
 - (BOOL)isCurrent {
@@ -130,77 +65,74 @@ static NSOperation * NSOperationQueueExitOperation = nil;
 #pragma mark - Operations
 
 
-//TODO: NSOperation+Essentials
-- (void)addDependencies:(id<NSFastEnumeration>)dependencies toOperation:(NSOperation *)operation {
-    if (operation == NSOperationQueueExitOperation) return;
-    
-    for (NSOperation *dependency in dependencies) {
-        if (dependency == NSOperationQueueExitOperation) continue;
-        if (operation == dependency) continue;
-        
-        BOOL alreadyThere = [operation.dependencies containsObject:dependency];
-        if ( ! alreadyThere) {
-            [operation addDependency:dependency];
-        }
+- (NSOperation *)perform:(void(^)(void))block {
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    if (self == [NSOperationQueue currentQueue]) {
+        [operation start];
     }
+    else {
+        [self addOperation:operation];
+    }
+    return operation;
 }
 
 
 - (NSOperation *)asynchronous:(void(^)(void))block {
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [self addAsynchronousOperation:operation];
+    [self addOperation:operation];
     return operation;
 }
 
 
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
-    [NSOperationQueue after:delay block:^{
-        [self addAsynchronousOperation:operation];
+    [NSTimer after:delay block:^{
+        [self addOperation:operation];
     }];
     return operation;
 }
 
 
-- (void)addAsynchronousOperation:(NSOperation *)operation {
-    [self addDependencies:[self barriers] toOperation:operation];
-    [self addOperation:operation];
-    [NSOperationQueue addExitDependencyOperation:operation];
+
+
+
++ (void)parallel:(NSUInteger)count block:(void (^)(NSUInteger))block {
+    dispatch_apply(count, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
+        block(index);
+    });
 }
 
 
 
 
 
-#pragma mark - Barriers
+#pragma mark - Deprecated
 
 
-ESSSynthesizeStrongMake(NSHashTable *, barriers, setBarriers) {
-    return [NSHashTable weakObjectsHashTable];
++ (instancetype)queueWithNameSuffix:(NSString *)nameSuffix {
+    return [self queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
 }
 
 
-- (NSOperation *)asynchronousBarrier:(void (^)(void))block {
-    NSOperation *barrier = [NSBlockOperation blockOperationWithBlock:block];
-    [self addAsynchronousBarrier:barrier];
-    return barrier;
++ (instancetype)serialQueueWithNameSuffix:(NSString *)nameSuffix {
+    return [self queueWithName:nameSuffix concurrent:NO qualityOfService:NSQualityOfServiceBackground];
 }
 
 
-- (NSOperation *)delay:(NSTimeInterval)delay asynchronousBarrier:(void (^)(void))block {
-    NSOperation *barrier = [NSBlockOperation blockOperationWithBlock:block];
-    [NSOperationQueue after:delay block:^{
-        [self addAsynchronousBarrier:barrier];
-    }];
-    return barrier;
++ (instancetype)parallelQueueWithNameSuffix:(NSString *)nameSuffix {
+    return [self queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
 }
 
 
-- (void)addAsynchronousBarrier:(NSOperation *)barrier {
-    [self addDependencies:self.operations toOperation:barrier];
-    [[self barriers] addObject:barrier];
-    [self addOperation:barrier];
-    [NSOperationQueue addExitDependencyOperation:barrier];
+- (instancetype)initWithNameSuffix:(NSString *)nameSuffix {
+    return [self.class queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
+}
+
+
+- (instancetype)initWithNameSuffix:(NSString *)nameSuffix numberOfConcurrentOperations:(NSUInteger)concurrent {
+    NSOperationQueue *queue = [self.class queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
+    queue.maxConcurrentOperationCount = concurrent;
+    return queue;
 }
 
 
