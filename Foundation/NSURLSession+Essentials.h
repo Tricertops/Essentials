@@ -35,6 +35,13 @@
 
 #pragma mark - Requests Without Body
 
+//! Starts a GET request to given URL.
+- (NSURLSessionDataTask *)download:(NSURL *)URL completion:(ESSURLResponseBlock)handler;
+//! Starts a GET request to given URL saving the response data to a file.
+- (NSURLSessionDownloadTask *)downloadFile:(NSURL *)URL completion:(ESSURLResponseBlock)handler;
+//! Resumes cancelled GET request that was downloading to a file.
+- (NSURLSessionDownloadTask *)resumeFileDownload:(NSData *)resumeData completion:(ESSURLResponseBlock)handler;
+
 //! Starts a request with given HTTP method to given URL.
 - (NSURLSessionDataTask *)performMethod:(NSString *)method URL:(NSURL *)URL completion:(ESSURLResponseBlock)handler;
 //! Starts a GET request to given URL.
@@ -44,13 +51,11 @@
 //! Starts a DELETE request to given URL.
 - (NSURLSessionDataTask *)DELETE:(NSURL *)URL completion:(ESSURLResponseBlock)handler;
 
-//! Starts a GET request to given URL saving the response data to a file.
-- (NSURLSessionDownloadTask *)downloadFrom:(NSURL *)URL completion:(ESSURLResponseBlock)handler;
-//! Resumes cancelled GET request that was downloading to a file.
-- (NSURLSessionDownloadTask *)resumeDownload:(NSData *)resumeData completion:(ESSURLResponseBlock)handler;
-
 
 #pragma mark - Requests With Body
+
+//! Starts a POST request to given URL with given payload object.
+- (NSURLSessionUploadTask *)uploadTo:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
 
 //! Starts a request with given HTTP method to given URL with given payload object.
 - (NSURLSessionUploadTask *)performMethod:(NSString *)method URL:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
@@ -60,9 +65,6 @@
 - (NSURLSessionUploadTask *)PUT:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
 //! Starts a PATCH request to given URL with given payload object.
 - (NSURLSessionUploadTask *)PATCH:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
-
-//! Starts a POST request to given URL with given payload object.
-- (NSURLSessionUploadTask *)uploadTo:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler;
 
 
 
