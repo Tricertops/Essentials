@@ -47,6 +47,10 @@
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block;
 
 
+/// First block is invoked on the receiver queue and the returned result is then passed to the second block on current queue.
+- (NSOperation *)asynchronous:(id (^)(void))block then:(void(^)(id x))block;
+
+
 /// Performs given block multiple times and then returns.
 + (void)parallel:(NSUInteger)count block:(void(^)(NSUInteger index))block;
 

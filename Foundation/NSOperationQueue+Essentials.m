@@ -98,6 +98,21 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 
+- (NSOperation *)asynchronous:(id (^)(void))backgroundBlock then:(void(^)(id x))foregroundBlock {
+    NSOperationQueue *originalQueue = [NSOperationQueue currentQueue];
+    return [self asynchronous:^{
+        id x = backgroundBlock();
+        
+        [originalQueue asynchronous:^{
+            foregroundBlock(x);
+        }];
+    }];
+}
+
+
+
+
+
 + (void)parallel:(NSUInteger)count block:(void (^)(NSUInteger))block {
     dispatch_apply(count, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
         block(index);
