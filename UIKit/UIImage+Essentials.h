@@ -70,6 +70,9 @@
 /// Extracts bitmap from the receiver, passes it to the block and then returns new image from that bitmap.
 - (UIImage *)imageByProcessingBitmap:(void(^)(NSMutableData *bitmap))block;
 
+/// Extracts samples from the receiver, passes it to the block and then returns new image from that bitmap. Block gets number of samples, the sample values (4× the count, RGBA) and a temporary buffer that can be used for calculations.
+- (UIImage *)imageByProcessingSamples:(void(^)(NSUInteger count, float *samples, float *quarter))block;
+
 /// Returns new image created by processing receiver's samples using given block.
 - (UIImage *)imageByEnumeratingPixels:(GLKVector4(^)(GLKVector4 color))block;
 

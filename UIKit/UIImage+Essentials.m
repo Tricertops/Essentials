@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
+@import Accelerate;
 #import "UIImage+Essentials.h"
 #import "Foundation+Essentials.h"
 #import "UIColor+Essentials.h"
@@ -195,6 +196,24 @@
     CGContextRelease(context);
     
     return [processedImage imageWithRenderingMode:self.renderingMode];
+}
+
+
+- (UIImage *)imageByProcessingSamples:(void(^)(NSUInteger count, float *samples, float *quarter))block {
+    return [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
+        NSUInteger valueCount = bitmap.length;
+        NSUInteger sampleCount = valueCount/4;
+        
+        float *samples = malloc(sizeof(float) * valueCount);
+        vDSP_vfltu8((unsigned char *)bitmap.bytes, 1, samples, 1, valueCount);
+        float *quarter = malloc(sizeof(float) * sampleCount);
+        
+        block(sampleCount, samples, quarter);
+        
+        free(quarter);
+        vDSP_vfixu8(samples, 1, (unsigned char *)bitmap.mutableBytes, 1, valueCount);
+        free(samples);
+    }];
 }
 
 
