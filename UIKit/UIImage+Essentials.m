@@ -204,14 +204,22 @@
         NSUInteger valueCount = bitmap.length;
         NSUInteger sampleCount = valueCount/4;
         
+        static const float zero = 0;
+        static const float one = 1;
+        static const float byte = UINT8_MAX;
+        
         float *samples = malloc(sizeof(float) * valueCount);
-        vDSP_vfltu8((unsigned char *)bitmap.bytes, 1, samples, 1, valueCount);
         float *quarter = malloc(sizeof(float) * sampleCount);
+        
+        vDSP_vfltu8((unsigned char *)bitmap.bytes, 1, samples, 1, valueCount); // Convert to float
+        vDSP_vsdiv(samples, 1, &byte, samples, 1, valueCount); // Map to [0 1]
         
         block(sampleCount, samples, quarter);
         
+        vDSP_vclip(samples, 1, &zero, &one, samples, 1, valueCount); // Clip to [0 1]
+        vDSP_vsmul(samples, 1, &byte, samples, 1, valueCount); // Map to [0 255]
+        vDSP_vfixu8(samples, 1, (unsigned char *)bitmap.mutableBytes, 1, valueCount); // Convert to uint8_t
         free(quarter);
-        vDSP_vfixu8(samples, 1, (unsigned char *)bitmap.mutableBytes, 1, valueCount);
         free(samples);
     }];
 }
