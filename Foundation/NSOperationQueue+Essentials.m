@@ -47,7 +47,9 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
     NSString *appID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     queue.name = [appID stringByAppendingFormat:@".%@", nameSuffix ?: [[NSUUID UUID] UUIDString]];
     queue.maxConcurrentOperationCount = (isConcurrent? NSOperationQueueDefaultMaxConcurrentOperationCount : 1);
-    queue.qualityOfService = qos;
+    if ([queue respondsToSelector:@selector(setQualityOfService:)]) {
+        queue.qualityOfService = qos;
+    }
     return queue;
 }
 
