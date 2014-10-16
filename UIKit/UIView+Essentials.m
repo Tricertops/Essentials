@@ -132,7 +132,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingScale {
-    return [NSSet setWithObject:@"scales"];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, scales)];
 }
 
 
@@ -183,7 +183,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingTranslation {
-    return [NSSet setWithObject:@"transform"];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, transform)];
 }
 
 
@@ -219,7 +219,12 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadow {
-    return [NSSet setWithObjects:@"layer.shadowOffset", @"shadowColor", @"shadowAlpha", @"shadowBlurRadius", nil];
+    return [NSSet setWithObjects:
+            ESSKeypathClass(UIView, layer.shadowOffset),
+            ESSKeypathClass(UIView, shadowColor),
+            ESSKeypathClass(UIView, shadowAlpha),
+            ESSKeypathClass(UIView, shadowBlurRadius),
+            nil];
 }
 
 
@@ -234,7 +239,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowOffset {
-    return [NSSet setWithObjects:@"layer.shadowOffset", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOffset)];
 }
 
 
@@ -249,7 +254,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowColor {
-    return [NSSet setWithObjects:@"layer.shadowColor", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowColor)];
 }
 
 
@@ -264,7 +269,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowBlurRadius {
-    return [NSSet setWithObjects:@"layer.shadowRadius", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowRadius)];
 }
 
 
@@ -279,7 +284,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowAlpha {
-    return [NSSet setWithObjects:@"layer.shadowOpacity", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOpacity)];
 }
 
 
@@ -294,7 +299,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowPath {
-    return [NSSet setWithObjects:@"layer.shadowPath", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowPath)];
 }
 
 
