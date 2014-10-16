@@ -99,6 +99,58 @@
 #pragma mark - Geometry
 
 
+- (CGPoint)position {
+    return self.center;
+}
+
+
+- (void)setPosition:(CGPoint)position {
+    self.center = position;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingPosition {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, center)];
+}
+
+
+- (CGPoint)relativeAnchorPoint {
+    return self.layer.anchorPoint;
+}
+
+
+- (void)setRelativeAnchorPoint:(CGPoint)relativeAnchorPoint {
+    self.layer.anchorPoint = relativeAnchorPoint;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingRelativeAnchorPoint {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.anchorPoint)];
+}
+
+
+- (CGPoint)anchorPoint {
+    return CGScalePoint(self.relativeAnchorPoint, self.bounds.size);
+}
+
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint {
+    self.relativeAnchorPoint = CGScalePoint(anchorPoint, CGScaleInvert(self.bounds.size));
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingAnchorPoint {
+    return [NSSet setWithObjects:ESSKeypathClass(UIView, bounds), ESSKeypathClass(UIView, relativeAnchorPoint), nil];
+}
+
+
+- (void)moveAnchorPointTo:(CGPoint)anchorPoint {
+    CGPoint delta = CGPointSubtract(anchorPoint, self.anchorPoint);
+    self.anchorPoint = anchorPoint;
+    self.position = CGPointAdd(self.position, delta);
+}
+
+
 + (NSString *)ess_rotationKeyPath {
     return @"layer.transform.rotation.z";
 }
@@ -121,8 +173,7 @@
 
 
 - (CGFloat)scale {
-    CGSize scales = self.scales;
-    return sqrt(scales.width * scales.height);
+    return CGScaleMean(self.scales);
 }
 
 

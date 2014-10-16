@@ -46,6 +46,18 @@
 
 #pragma mark - Geometry
 
+/// Alias for .center
+@property (nonatomic) IBInspectable CGPoint position;
+
+/// Proxy for .layer.anchorPoint
+@property (nonatomic) IBInspectable CGPoint relativeAnchorPoint;
+
+/// Multiplies .relativeAnchorPoint with .bounds.size, setting this moves the receiver.
+@property (nonatomic) IBInspectable CGPoint anchorPoint;
+
+/// Changes .anchorPoint and .position so that the view doesn’t move.
+- (void)moveAnchorPointTo:(CGPoint)anchorPoint;
+
 /// Rotation around Z axis in degrees!
 @property (nonatomic) IBInspectable CGFloat rotation;
 
