@@ -85,12 +85,6 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 /// Returns value between edge-points in given share.
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
 
-/// Calculates distance between points.
-extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
-
-/// Calculates distance from this point to zero.
-extern CGFloat CGPointDistance(CGPoint);
-
 
 /// Minimal touch size for UIKit components: 44 points.
 extern CGFloat const UITouchMin;
@@ -98,6 +92,44 @@ extern CGFloat const UITouchMin;
 
 /// Should be infinity, uses HUGE_VAL.
 extern CGFloat const CGFloatInfinity;
+
+
+
+
+
+#pragma mark Points
+
+
+/// Returns new point as a sum of the arguments.
+extern CGPoint CGPointAdd(CGPoint, CGPoint);
+
+/// Returns new point as a difference of the arguments.
+extern CGPoint CGPointSubtract(CGPoint, CGPoint);
+
+/// Returns new point as a fraction of the argument.
+extern CGPoint CGPointMultiply(CGPoint, CGFloat);
+
+/// Calculates distance between points.
+extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
+
+/// Calculates distance from this point to zero.
+extern CGFloat CGPointDistance(CGPoint);
+
+
+
+
+
+#pragma mark Sizes & Scales
+
+
+/// Returns new point multiplied by the size.
+extern CGPoint CGScalePoint(CGPoint, CGSize);
+
+/// Returns new inverted scale.
+extern CGSize CGScaleInvert(CGSize);
+
+/// Returns scalar as a geometric average of both scales.
+extern CGFloat CGScaleMean(CGSize);
 
 
 
