@@ -53,6 +53,11 @@ CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFlo
 }
 
 
+CGAffineTransform CGAffineTransformCombine(CGPoint translation, CGSize scale, CGFloat degrees) {
+    return CGAffineTransformRotate(CGAffineTransformScale(CGAffineTransformMakeTranslation(translation.x, translation.y), scale.width, scale.height), CGRadians(degrees));
+}
+
+
 
 
 
@@ -167,6 +172,12 @@ CGFloat CGPointDistance(CGPoint p) {
 
 
 #pragma mark Sizes & Scales
+
+
+CGSize const CGScaleIdentity = (CGSize){.width =  1, .height =  1};
+CGSize const CGScaleFlipX    = (CGSize){.width = -1, .height =  1};
+CGSize const CGScaleFlipY    = (CGSize){.width =  1, .height = -1};
+CGSize const CGScaleFlipBoth = (CGSize){.width = -1, .height = -1};
 
 
 CGPoint CGScalePoint(CGPoint p, CGSize s) {

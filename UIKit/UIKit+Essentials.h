@@ -53,7 +53,8 @@ extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);
 #pragma mark Affine Transform
 
 
-extern CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation);
+extern CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation) __deprecated;
+extern CGAffineTransform CGAffineTransformCombine(CGPoint translation, CGSize scale, CGFloat degrees);
 
 
 
@@ -121,6 +122,15 @@ extern CGFloat CGPointDistance(CGPoint);
 
 #pragma mark Sizes & Scales
 
+
+/// Scale of {1, 1}
+extern CGSize const CGScaleIdentity;
+/// Scale of {-1, 1}
+extern CGSize const CGScaleFlipX;
+/// Scale of {1, -1}
+extern CGSize const CGScaleFlipY;
+/// Scale of {-1, -1}
+extern CGSize const CGScaleFlipBoth;
 
 /// Returns new point multiplied by the size.
 extern CGPoint CGScalePoint(CGPoint, CGSize);
