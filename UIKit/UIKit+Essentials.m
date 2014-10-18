@@ -53,6 +53,11 @@ CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFlo
 }
 
 
+CGAffineTransform CGAffineTransformCombine(CGPoint translation, CGSize scale, CGFloat degrees) {
+    return CGAffineTransformRotate(CGAffineTransformScale(CGAffineTransformMakeTranslation(translation.x, translation.y), scale.width, scale.height), CGRadians(degrees));
+}
+
+
 
 
 
@@ -126,8 +131,35 @@ CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum) {
 }
 
 
+CGFloat const UITouchMin = 44;
+
+
+CGFloat const CGFloatInfinity = HUGE_VAL;
+
+
+
+
+
+#pragma mark Points
+
+
+CGPoint CGPointAdd(CGPoint a, CGPoint b) {
+    return CGPointMake(a.x + b.x, a.y + b.y);
+}
+
+
+CGPoint CGPointSubtract(CGPoint a, CGPoint b) {
+    return CGPointAdd(a, CGPointMultiply(b, -1));
+}
+
+
+CGPoint CGPointMultiply(CGPoint p, CGFloat f) {
+    return CGScalePoint(p, CGSizeMake(f, f));
+}
+
+
 CGFloat CGPointDistanceToPoint(CGPoint a, CGPoint b) {
-    return CGPointDistance(CGPointMake(a.x - b.x, a.y - b.y));
+    return CGPointDistance(CGPointSubtract(a, b));
 }
 
 
@@ -136,10 +168,36 @@ CGFloat CGPointDistance(CGPoint p) {
 }
 
 
-CGFloat const UITouchMin = 44;
 
 
-CGFloat const CGFloatInfinity = HUGE_VAL;
+
+#pragma mark Sizes & Scales
+
+
+CGSize const CGScaleIdentity = (CGSize){.width =  1, .height =  1};
+CGSize const CGScaleFlipX    = (CGSize){.width = -1, .height =  1};
+CGSize const CGScaleFlipY    = (CGSize){.width =  1, .height = -1};
+CGSize const CGScaleFlipBoth = (CGSize){.width = -1, .height = -1};
+
+
+CGPoint CGScalePoint(CGPoint p, CGSize s) {
+    return CGPointMake(p.x * s.width, p.y * s.height);
+}
+
+
+CGSize CGScaleSize(CGSize a, CGSize b) {
+    return CGSizeMake(a.width * b.width, a.height * a.height);
+}
+
+
+CGSize CGScaleInvert(CGSize s) {
+    return CGSizeMake(1/s.width, 1/s.height);
+}
+
+
+CGFloat CGScaleMean(CGSize s) {
+    return sqrtf(s.width * s.height);
+}
 
 
 

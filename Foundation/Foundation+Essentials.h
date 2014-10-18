@@ -347,3 +347,12 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 
 
+
+#pragma mark - Branch Prediction
+
+#define ESSUnlikely(x)   __builtin_expect((x), NO)
+#define ESSLikely(x)     __builtin_expect((x), YES)
+
+
+
+

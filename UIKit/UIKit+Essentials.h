@@ -53,7 +53,8 @@ extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);
 #pragma mark Affine Transform
 
 
-extern CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation);
+extern CGAffineTransform CGAffineTransformMakeScaleRotateTranslate(CGFloat scale, CGFloat rotation, UIOffset translation) __deprecated;
+extern CGAffineTransform CGAffineTransformCombine(CGPoint translation, CGSize scale, CGFloat degrees);
 
 
 
@@ -85,12 +86,6 @@ extern CGRect CGRectRoundToScreenScale(CGRect);
 /// Returns value between edge-points in given share.
 extern CGFloat CGFloatShareBetween(CGFloat minimum, CGFloat share, CGFloat maximum);
 
-/// Calculates distance between points.
-extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
-
-/// Calculates distance from this point to zero.
-extern CGFloat CGPointDistance(CGPoint);
-
 
 /// Minimal touch size for UIKit components: 44 points.
 extern CGFloat const UITouchMin;
@@ -98,6 +93,53 @@ extern CGFloat const UITouchMin;
 
 /// Should be infinity, uses HUGE_VAL.
 extern CGFloat const CGFloatInfinity;
+
+
+
+
+
+#pragma mark Points
+
+
+/// Returns new point as a sum of the arguments.
+extern CGPoint CGPointAdd(CGPoint, CGPoint);
+
+/// Returns new point as a difference of the arguments.
+extern CGPoint CGPointSubtract(CGPoint, CGPoint);
+
+/// Returns new point as a fraction of the argument.
+extern CGPoint CGPointMultiply(CGPoint, CGFloat);
+
+/// Calculates distance between points.
+extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
+
+/// Calculates distance from this point to zero.
+extern CGFloat CGPointDistance(CGPoint);
+
+
+
+
+
+#pragma mark Sizes & Scales
+
+
+/// Scale of {1, 1}
+extern CGSize const CGScaleIdentity;
+/// Scale of {-1, 1}
+extern CGSize const CGScaleFlipX;
+/// Scale of {1, -1}
+extern CGSize const CGScaleFlipY;
+/// Scale of {-1, -1}
+extern CGSize const CGScaleFlipBoth;
+
+/// Returns new point multiplied by the size.
+extern CGPoint CGScalePoint(CGPoint, CGSize);
+
+/// Returns new inverted scale.
+extern CGSize CGScaleInvert(CGSize);
+
+/// Returns scalar as a geometric average of both scales.
+extern CGFloat CGScaleMean(CGSize);
 
 
 

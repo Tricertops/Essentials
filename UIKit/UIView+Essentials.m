@@ -99,6 +99,58 @@
 #pragma mark - Geometry
 
 
+- (CGPoint)position {
+    return self.center;
+}
+
+
+- (void)setPosition:(CGPoint)position {
+    self.center = position;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingPosition {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, center)];
+}
+
+
+- (CGPoint)relativeAnchorPoint {
+    return self.layer.anchorPoint;
+}
+
+
+- (void)setRelativeAnchorPoint:(CGPoint)relativeAnchorPoint {
+    self.layer.anchorPoint = relativeAnchorPoint;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingRelativeAnchorPoint {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.anchorPoint)];
+}
+
+
+- (CGPoint)anchorPoint {
+    return CGScalePoint(self.relativeAnchorPoint, self.bounds.size);
+}
+
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint {
+    self.relativeAnchorPoint = CGScalePoint(anchorPoint, CGScaleInvert(self.bounds.size));
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingAnchorPoint {
+    return [NSSet setWithObjects:ESSKeypathClass(UIView, bounds), ESSKeypathClass(UIView, relativeAnchorPoint), nil];
+}
+
+
+- (void)moveAnchorPointTo:(CGPoint)anchorPoint {
+    CGPoint delta = CGPointSubtract(anchorPoint, self.anchorPoint);
+    self.anchorPoint = anchorPoint;
+    self.position = CGPointAdd(self.position, delta);
+}
+
+
 + (NSString *)ess_rotationKeyPath {
     return @"layer.transform.rotation.z";
 }
@@ -121,8 +173,7 @@
 
 
 - (CGFloat)scale {
-    CGSize scales = self.scales;
-    return sqrt(scales.width * scales.height);
+    return CGScaleMean(self.scales);
 }
 
 
@@ -132,7 +183,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingScale {
-    return [NSSet setWithObject:@"scales"];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, scales)];
 }
 
 
@@ -183,7 +234,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingTranslation {
-    return [NSSet setWithObject:@"transform"];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, transform)];
 }
 
 
@@ -219,7 +270,12 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadow {
-    return [NSSet setWithObjects:@"layer.shadowOffset", @"shadowColor", @"shadowAlpha", @"shadowBlurRadius", nil];
+    return [NSSet setWithObjects:
+            ESSKeypathClass(UIView, layer.shadowOffset),
+            ESSKeypathClass(UIView, shadowColor),
+            ESSKeypathClass(UIView, shadowAlpha),
+            ESSKeypathClass(UIView, shadowBlurRadius),
+            nil];
 }
 
 
@@ -234,7 +290,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowOffset {
-    return [NSSet setWithObjects:@"layer.shadowOffset", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOffset)];
 }
 
 
@@ -249,7 +305,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowColor {
-    return [NSSet setWithObjects:@"layer.shadowColor", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowColor)];
 }
 
 
@@ -264,7 +320,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowBlurRadius {
-    return [NSSet setWithObjects:@"layer.shadowRadius", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowRadius)];
 }
 
 
@@ -279,7 +335,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowAlpha {
-    return [NSSet setWithObjects:@"layer.shadowOpacity", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOpacity)];
 }
 
 
@@ -294,7 +350,7 @@
 
 
 + (NSSet *)keyPathsForValuesAffectingShadowPath {
-    return [NSSet setWithObjects:@"layer.shadowPath", nil];
+    return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowPath)];
 }
 
 
