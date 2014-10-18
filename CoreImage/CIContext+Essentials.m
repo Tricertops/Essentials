@@ -20,12 +20,29 @@
 
 
 
+#pragma mark - Creating
+
+
++ (instancetype)context {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CIContext *context = [CIContext contextWithOptions:
+                          @{
+                            kCIContextWorkingColorSpace: (__bridge id)colorSpace,
+                            kCIContextOutputColorSpace: (__bridge id)colorSpace,
+                            }];
+    CGColorSpaceRelease(colorSpace);
+    return context;
+}
+
+
+
+
+
 #pragma mark - Processing Images
 
 
 + (UIImage *)imageFromImage:(UIImage *)inputUI filters:(NSArray *)filters {
-    CIContext *context = [CIContext contextWithOptions:nil];
-    return [context imageFromImage:inputUI filters:filters];
+    return [[CIContext context] imageFromImage:inputUI filters:filters];
 }
 
 

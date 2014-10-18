@@ -17,6 +17,13 @@
 
 
 
+#pragma mark - Creating
+
+/// Creates a CPU-based Core Image context that uses DeviceRGB color space.
++ (instancetype)context;
+
+
+
 #pragma mark - Processing Images
 
 /// Returns image processed by an array of filters in temporary context.
