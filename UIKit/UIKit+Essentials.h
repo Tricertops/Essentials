@@ -135,11 +135,17 @@ extern CGSize const CGScaleFlipBoth;
 /// Returns new point multiplied by the size.
 extern CGPoint CGScalePoint(CGPoint, CGSize);
 
+/// Multiplies two sizes.
+extern CGSize CGScaleSize(CGSize, CGSize);
+
 /// Returns new inverted scale.
 extern CGSize CGScaleInvert(CGSize);
 
 /// Returns scalar as a geometric average of both scales.
 extern CGFloat CGScaleMean(CGSize);
+
+/// Multiplies the size by given number.
+extern CGSize CGSizeMultiply(CGSize, CGFloat);
 
 
 

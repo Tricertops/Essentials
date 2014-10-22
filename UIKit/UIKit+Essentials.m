@@ -200,6 +200,11 @@ CGFloat CGScaleMean(CGSize s) {
 }
 
 
+CGSize CGSizeMultiply(CGSize s, CGFloat f) {
+    return CGScaleSize(s, CGSizeMake(f, f));
+}
+
+
 
 
 
