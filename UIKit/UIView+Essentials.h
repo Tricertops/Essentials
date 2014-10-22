@@ -70,7 +70,7 @@
 /// Translation from .transform
 @property (nonatomic) IBInspectable CGPoint translation;
 
-/// Sets .translation relative to .center so that final position is specified point (in superview coordinates).
+/// Sets .translation relative to .position so that final position is specified point (in superview coordinates).
 - (void)translateTo:(CGPoint)position;
 
 

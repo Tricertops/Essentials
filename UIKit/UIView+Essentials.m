@@ -145,9 +145,9 @@
 
 
 - (void)moveAnchorPointTo:(CGPoint)anchorPoint {
-    CGPoint delta = CGPointSubtract(anchorPoint, self.anchorPoint);
+    CGPoint innerDelta = CGPointSubtract(anchorPoint, self.anchorPoint);
     self.anchorPoint = anchorPoint;
-    self.position = CGPointAdd(self.position, delta);
+    self.position = CGPointAdd(self.position, innerDelta);
 }
 
 
