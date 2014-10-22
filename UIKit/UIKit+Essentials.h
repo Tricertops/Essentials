@@ -147,6 +147,12 @@ extern CGFloat CGScaleMean(CGSize);
 /// Multiplies the size by given number.
 extern CGSize CGSizeMultiply(CGSize, CGFloat);
 
+/// Calculates enclosing size of rotated size.
+extern CGSize CGSizeRotate(CGSize, CGFloat);
+
+/// Calculates original size that was rotated. Inverse of CGSizeRotate().
+extern CGSize CGSizeUnrotate(CGSize, CGFloat);
+
 
 
 

@@ -205,6 +205,24 @@ CGSize CGSizeMultiply(CGSize s, CGFloat f) {
 }
 
 
+CGSize CGSizeRotate(CGSize s, CGFloat r) {
+    CGFloat sine = sin(r);
+    CGFloat cosine = cos(r);
+    return CGSizeMake(s.width  * cosine - s.height * sine,
+                      s.height * cosine - s.width  * sine);
+}
+
+
+CGSize CGSizeUnrotate(CGSize rotated, CGFloat angle) {
+    CGFloat sine = sin(angle);
+    CGFloat cosine = cos(angle);
+    CGFloat k = (cosine * cosine - sine * sine);
+    CGSize unrotated = CGSizeMake(rotated.height * cosine + rotated.width  * sine,
+                                  rotated.width  * cosine + rotated.height * sine);
+    return CGSizeMultiply(unrotated, 1/k);
+}
+
+
 
 
 
