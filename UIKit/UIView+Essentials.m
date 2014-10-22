@@ -151,24 +151,19 @@
 }
 
 
-+ (NSString *)ess_rotationKeyPath {
-    return @"layer.transform.rotation.z";
-}
-
-
 - (CGFloat)rotation {
-    CGFloat radians = [[self valueForKeyPath:[UIView ess_rotationKeyPath]] doubleValue];
+    CGFloat radians = [[self.layer valueForKeyPath:@"transform.rotation.z"] doubleValue];
     return CGDegrees(radians);
 }
 
 
 - (void)setRotation:(CGFloat)rotation {
-    [self setValue:@(CGRadians(rotation)) forKeyPath:[UIView ess_rotationKeyPath]];
+    [self.layer setValue:@(CGRadians(rotation)) forKeyPath:@"transform.rotation.z"];
 }
 
 
 + (NSSet *)keyPathsForValuesAffectingRotation {
-    return [NSSet setWithObject:[UIView ess_rotationKeyPath]];
+    return [NSSet setWithObject:@"layer.transform"];
 }
 
 
@@ -187,32 +182,22 @@
 }
 
 
-+ (NSString *)ess_scaleXKeyPath {
-    return @"layer.transform.scale.x";
-}
-
-
-+ (NSString *)ess_scaleYKeyPath {
-    return @"layer.transform.scale.y";
-}
-
-
 - (CGSize)scales {
     CGSize scales = CGSizeZero;
-    scales.width = [[self valueForKeyPath:[UIView ess_scaleXKeyPath]] doubleValue];
-    scales.height = [[self valueForKeyPath:[UIView ess_scaleYKeyPath]] doubleValue];
+    scales.width = [[self.layer valueForKeyPath:@"transform.scale.x"] doubleValue];
+    scales.height = [[self.layer valueForKeyPath:@"transform.scale.y"] doubleValue];
     return scales;
 }
 
 
 - (void)setScales:(CGSize)scales {
-    [self setValue:@(scales.width) forKeyPath:[UIView ess_scaleXKeyPath]];
-    [self setValue:@(scales.height) forKeyPath:[UIView ess_scaleYKeyPath]];
+    [self.layer setValue:@(scales.width) forKeyPath:@"transform.scale.x"];
+    [self.layer setValue:@(scales.height) forKeyPath:@"transform.scale.y"];
 }
 
 
 + (NSSet *)keyPathsForValuesAffectingScales {
-    return [NSSet setWithObjects:[UIView ess_scaleXKeyPath], [UIView ess_scaleYKeyPath], nil];
+    return [NSSet setWithObject:@"layer.transform"];
 }
 
 
