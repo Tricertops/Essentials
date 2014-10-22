@@ -168,6 +168,11 @@ CGFloat CGPointDistance(CGPoint p) {
 }
 
 
+CGPoint CGPointNormal(CGPoint p) {
+    return CGPointMultiply(p, 1/CGPointDistance(p));
+}
+
+
 
 
 
@@ -186,7 +191,7 @@ CGPoint CGScalePoint(CGPoint p, CGSize s) {
 
 
 CGSize CGScaleSize(CGSize a, CGSize b) {
-    return CGSizeMake(a.width * b.width, a.height * a.height);
+    return CGSizeMake(a.width * b.width, a.height * b.height);
 }
 
 
@@ -236,6 +241,11 @@ CGFloat CGDegrees(CGFloat radians) {
 
 CGFloat CGRadians(CGFloat degrees) {
     return degrees / 180 * M_PI;
+}
+
+
+CGFloat CGPointAngle(CGPoint p) {
+    return atan2(p.x, p.y);
 }
 
 

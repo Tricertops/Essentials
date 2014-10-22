@@ -116,6 +116,9 @@ extern CGFloat CGPointDistanceToPoint(CGPoint, CGPoint);
 /// Calculates distance from this point to zero.
 extern CGFloat CGPointDistance(CGPoint);
 
+/// Returns new point with distance 1.
+extern CGPoint CGPointNormal(CGPoint);
+
 
 
 
@@ -164,6 +167,9 @@ extern CGFloat CGDegrees(CGFloat radians);
 
 /// Converts degrees to radiands.
 extern CGFloat CGRadians(CGFloat degrees);
+
+/// Returns angle in radians which this point represents.
+extern CGFloat CGPointAngle(CGPoint);
 
 
 
