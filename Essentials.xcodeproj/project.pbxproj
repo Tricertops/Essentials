@@ -14,11 +14,8 @@
 		5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
 		5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410C17623C53008F8F1E /* NSDictionary+Essentials.m */; };
 		5B1341101762401C008F8F1E /* UIImage+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410F1762401C008F8F1E /* UIImage+Essentials.m */; };
-		5B13411217624043008F8F1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13411117624043008F8F1E /* QuartzCore.framework */; };
 		5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13411417624235008F8F1E /* UIScreen+Essentials.m */; };
 		5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B134117176243C2008F8F1E /* UIView+Essentials.m */; };
-		5B13C0B71786DEB9001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
-		5B13C0B91786DED0001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
 		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */; };
@@ -51,11 +48,7 @@
 		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
 		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
-		5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */; };
-		5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
-		5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA588176205DF0061E8B5 /* libEssentials.a */; };
 		5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
-		5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */; };
 		5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
 		5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
 		5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
@@ -92,16 +85,6 @@
 		5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
 		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5BBFA59F176205DF0061E8B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BBFA580176205DF0061E8B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BBFA587176205DF0061E8B5;
-			remoteInfo = Essentials;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5BBFA586176205DF0061E8B5 /* CopyFiles */ = {
@@ -168,13 +151,9 @@
 		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA58B176205DF0061E8B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
-		5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5BBFA5A4176205DF0061E8B5 /* EssentialsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EssentialsTests-Info.plist"; sourceTree = "<group>"; };
 		5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Essentials.m"; sourceTree = "<group>"; };
-		5BBFA5B717620B7F0061E8B5 /* NSStringEssentialsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringEssentialsTest.h; sourceTree = "<group>"; };
-		5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringEssentialsTest.m; sourceTree = "<group>"; };
 		5BBFA5BC176213B50061E8B5 /* NSArray+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA5BF176214D00061E8B5 /* NSMutableArray+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Essentials.h"; sourceTree = "<group>"; };
@@ -218,19 +197,6 @@
 				5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */,
 				5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */,
 				5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BBFA595176205DF0061E8B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B13C0B91786DED0001666F4 /* CoreGraphics.framework in Frameworks */,
-				5B13C0B71786DEB9001666F4 /* UIKit.framework in Frameworks */,
-				5B13411217624043008F8F1E /* QuartzCore.framework in Frameworks */,
-				5BBFA59B176205DF0061E8B5 /* SenTestingKit.framework in Frameworks */,
-				5BBFA59E176205DF0061E8B5 /* Foundation.framework in Frameworks */,
-				5BBFA5A1176205DF0061E8B5 /* libEssentials.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +253,6 @@
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
-				5BBFA5A2176205DF0061E8B5 /* Tests */,
 				5BBFA58A176205DF0061E8B5 /* Frameworks */,
 				5BBFA589176205DF0061E8B5 /* Products */,
 			);
@@ -297,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				5BBFA588176205DF0061E8B5 /* libEssentials.a */,
-				5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */,
 				5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */,
 			);
 			name = Products;
@@ -363,16 +327,6 @@
 				5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		5BBFA5A2176205DF0061E8B5 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				5BBFA5A4176205DF0061E8B5 /* EssentialsTests-Info.plist */,
-				5BBFA5B717620B7F0061E8B5 /* NSStringEssentialsTest.h */,
-				5BBFA5B817620B7F0061E8B5 /* NSStringEssentialsTest.m */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		5BE32D6119BB4D77002605B3 /* CoreImage */ = {
@@ -448,25 +402,6 @@
 			productReference = 5BBFA588176205DF0061E8B5 /* libEssentials.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		5BBFA598176205DF0061E8B5 /* EssentialsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BBFA5B0176205DF0061E8B5 /* Build configuration list for PBXNativeTarget "EssentialsTests" */;
-			buildPhases = (
-				5BBFA594176205DF0061E8B5 /* Sources */,
-				5BBFA595176205DF0061E8B5 /* Frameworks */,
-				5BBFA596176205DF0061E8B5 /* Resources */,
-				5BBFA597176205DF0061E8B5 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5BBFA5A0176205DF0061E8B5 /* PBXTargetDependency */,
-			);
-			name = EssentialsTests;
-			productName = EssentialsTests;
-			productReference = 5BBFA599176205DF0061E8B5 /* EssentialsTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
 		5BFBABDE1844BAC300179483 /* Essentials OS X */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BFBAC031844BAC300179483 /* Build configuration list for PBXNativeTarget "Essentials OS X" */;
@@ -490,6 +425,7 @@
 		5BBFA580176205DF0061E8B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = iAdverti;
 			};
@@ -507,36 +443,9 @@
 			targets = (
 				5BBFA587176205DF0061E8B5 /* Essentials */,
 				5BFBABDE1844BAC300179483 /* Essentials OS X */,
-				5BBFA598176205DF0061E8B5 /* EssentialsTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		5BBFA596176205DF0061E8B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5BBFA597176205DF0061E8B5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BBFA584176205DF0061E8B5 /* Sources */ = {
@@ -585,14 +494,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BBFA594176205DF0061E8B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BBFA5B917620B7F0061E8B5 /* NSStringEssentialsTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BFBABDB1844BAC300179483 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -624,14 +525,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5BBFA5A0176205DF0061E8B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BBFA587176205DF0061E8B5 /* Essentials */;
-			targetProxy = 5BBFA59F176205DF0061E8B5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5BBFA5AB176205DF0061E8B5 /* Debug */ = {
@@ -719,36 +612,6 @@
 			};
 			name = Release;
 		};
-		5BBFA5B1176205DF0061E8B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INFOPLIST_FILE = "Tests/EssentialsTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		5BBFA5B2176205DF0061E8B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INFOPLIST_FILE = "Tests/EssentialsTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		5BFBABFF1844BAC300179483 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -816,15 +679,6 @@
 			buildConfigurations = (
 				5BBFA5AE176205DF0061E8B5 /* Debug */,
 				5BBFA5AF176205DF0061E8B5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BBFA5B0176205DF0061E8B5 /* Build configuration list for PBXNativeTarget "EssentialsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BBFA5B1176205DF0061E8B5 /* Debug */,
-				5BBFA5B2176205DF0061E8B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
