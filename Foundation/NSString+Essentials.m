@@ -182,9 +182,7 @@
 
 
 - (NSString *)stringByStrippingDiacritics {
-    CFMutableStringRef stringRef = (__bridge CFMutableStringRef)[NSMutableString stringWithString:self]; // -mutableCopy didn't work with the transformation
-    Boolean success = CFStringTransform(stringRef, NULL, kCFStringTransformStripDiacritics, false);
-    return success ? (__bridge NSString *)stringRef : nil;
+    return [self stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale:[NSLocale currentLocale]];
 }
 
 
@@ -216,8 +214,9 @@
     if (self.length < 1) return [self copy];
     if (self.length == 1) return [self uppercaseString];
     
-    NSString *firstCharacter = [self substringToIndex:1];
-    NSString *theRest = [self substringFromIndex:1];
+    NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
+    NSString *firstCharacter = [self substringToIndex:range.length];
+    NSString *theRest = [self substringFromIndex:range.length];
     return [firstCharacter.uppercaseString : theRest];
 }
 
@@ -307,11 +306,17 @@
 
 - (NSArray *)letters {
     NSMutableArray *builder = [[NSMutableArray alloc] initWithCapacity:self.length];
-    for (NSUInteger index = 0; index < self.length; index++) {
-        NSString *letter = [self substringWithRange:NSMakeRange(index, 1)];
-        [builder addObject:letter];
-    }
+    [self enumerateSubstringsInRange:self.fullRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        [builder addObject:substring];
+    }];
     return builder;
+}
+
+
+- (NSString *)firstLetter {
+    if (self.length == 1) return nil;
+    NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
+    return [self substringWithRange:range];
 }
 
 

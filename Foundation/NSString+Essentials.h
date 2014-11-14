@@ -109,6 +109,9 @@
 /// Returns an array of strings, each with length of 1.
 - (NSArray *)letters;
 
+/// The first letter.
+@property (readonly) NSString *firstLetter;
+
 
 
 #pragma mark Joining
