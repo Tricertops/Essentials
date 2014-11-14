@@ -19,6 +19,7 @@
 #import "NSMutableAttributedString+Essentials.h"
 #import "UITableView+Essentials.h"
 #import "UIFont+Essentials.h"
+#import "UIBarButtonItem+Essentials.h"
 
 
 
