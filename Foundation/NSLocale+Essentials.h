@@ -106,6 +106,12 @@
 //! Returns new locale with overridden components.
 - (NSLocale *)localeWithComponents:(NSDictionary *)components;
 
+//! Returns new locale with all components from the receiver except language.
+- (NSLocale *)localeWithLanguage:(NSString *)language;
+
+//! Returns new locale with all components from the receiver except country.
+- (NSLocale *)localeWithCountry:(NSString *)country;
+
 
 
 

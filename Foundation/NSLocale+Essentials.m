@@ -196,6 +196,16 @@
 }
 
 
+- (NSLocale *)localeWithLanguage:(NSString *)language {
+    return [self localeWithComponents:@{ NSLocaleLanguageCode: language }];
+}
+
+
+- (NSLocale *)localeWithCountry:(NSString *)country {
+    return [self localeWithComponents:@{ NSLocaleCountryCode: country }];
+}
+
+
 
 
 
