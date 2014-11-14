@@ -10,19 +10,36 @@
 
 
 
+typedef enum : BOOL {
+    ESSSortDescending = NO,
+    ESSSortAscending = YES,
+} ESSSort;
+
 
 
 @interface NSSortDescriptor (Essentials)
 
 
++ (instancetype)sortAscending:(BOOL)ascending;
++ (instancetype)sortAscending:(BOOL)ascending selector:(SEL)selector;
 
-+ (NSSortDescriptor *)randomSortDescriptor;
++ (instancetype)randomSortDescriptor;
 
-+ (NSSortDescriptor *)sortDescriptorForViewOriginX;
-+ (NSSortDescriptor *)sortDescriptorForViewOriginY;
-
++ (instancetype)sortDescriptorForViewOriginX;
++ (instancetype)sortDescriptorForViewOriginY;
 
 
 @end
 
+
+
+#define ESSSort(Class, keyPath, ascend, compareSelector) \
+(NSSortDescriptor *)({ \
+    if (NO) { \
+        Class *object = nil; \
+        __unused NSComparisonResult r = [object.keyPath compareSelector object.keyPath]; \
+    } \
+    SEL selector = NSSelectorFromString(@#compareSelector); \
+    [NSSortDescriptor sortDescriptorWithKey:@#keyPath ascending:ESSSort##ascend selector:selector]; \
+})
 

@@ -19,6 +19,16 @@
 
 
 
++ (NSSortDescriptor *)sortAscending:(BOOL)ascending {
+    return [self sortDescriptorWithKey:@"self" ascending:ascending];
+}
+
+
++ (NSSortDescriptor *)sortAscending:(BOOL)ascending selector:(SEL)selector {
+    return [self sortDescriptorWithKey:@"self" ascending:ascending selector:selector];
+}
+
+
 + (NSSortDescriptor *)randomSortDescriptor {
     return [NSSortDescriptor sortDescriptorWithKey:ESSKeypathClass(NSObject, self) ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
         return (NSUIntegerRandom(2) ? NSOrderedAscending : NSOrderedDescending);
