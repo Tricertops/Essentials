@@ -99,6 +99,9 @@
 /// Replaces {key} placeholders with the values of substitutions[key]
 - (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions;
 
+/// Returns new string that is normalized for search without case and diacritics sensitivity.
+- (NSString *)normalizedString;
+
 
 
 #pragma mark Splitting

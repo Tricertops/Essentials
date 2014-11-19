@@ -292,6 +292,12 @@
 }
 
 
+- (NSString *)normalizedString {
+    return [self stringByFoldingWithOptions:(NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch)
+                                     locale:[NSLocale currentLocale]];
+}
+
+
 
 
 
