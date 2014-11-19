@@ -9,6 +9,7 @@
 #import "NSDictionary+Essentials.h"
 #import "NSArray+Essentials.h"
 #import "NSMutableDictionary+Essentials.h"
+#import "NSObject+Essentials.h"
 
 
 
@@ -18,6 +19,9 @@
 
 
 
+
+
+#pragma mark Accessing Objects
 
 
 - (id)objectForAnyKeyInArray:(NSArray *)keys {
@@ -34,7 +38,85 @@
 }
 
 
+- (NSArray *)arrayForKey:(id<NSCopying>)key {
+    return [NSArray cast:self[key]];
+}
 
+
+- (BOOL)boolForKey:(id<NSCopying>)key {
+    id object = self[key];
+    return ([object respondsToSelector:@selector(boolValue)]
+            && [object boolValue]);
+}
+
+
+- (NSData *)dataForKey:(id<NSCopying>)key {
+    id object = self[key];
+    NSData *data = [NSData cast:object];
+    if (data) return data;
+    
+    NSString *base64 = [NSString cast:object];
+    if ( ! base64) return nil;
+    
+    return [[NSData alloc] initWithBase64EncodedString:base64 options:kNilOptions];
+}
+
+
+- (double)doubleForKey:(id<NSCopying>)key {
+    id object = self[key];
+    return ([object respondsToSelector:@selector(doubleValue)]
+            ? [object doubleValue]
+            : NAN);
+}
+
+
+- (NSInteger)integerForKey:(id<NSCopying>)key {
+    id object = self[key];
+    return ([object respondsToSelector:@selector(integerValue)]
+            ? [object integerValue]
+            : 0);
+}
+
+
+- (NSString *)stringForKey:(id<NSCopying>)key {
+    return [NSString cast:self[key]];
+}
+
+
+- (NSURL *)URLForKey:(id<NSCopying>)key {
+    NSURL *URL = [NSURL cast:self[key]];
+    if (URL) return (URL.scheme? URL : nil);
+    
+    NSString *string = [NSString cast:self[key]];
+    if ( ! string) return nil;
+    
+    URL = [NSURL URLWithString:string];
+    return (URL.scheme? URL : nil);
+}
+
+
+- (NSDate *)dateForKey:(id<NSCopying>)key {
+    return [self dateForKey:key UNIX:YES];
+}
+
+
+- (NSDate *)dateForKey:(id<NSCopying>)key UNIX:(BOOL)usesUNIXEpoch {
+    NSDate *date = [NSDate cast:self[key]];
+    if (date) return date;
+    
+    double seconds = [self doubleForKey:key];
+    if (isnan(seconds)) return nil;
+    
+    return (usesUNIXEpoch
+            ? [NSDate dateWithTimeIntervalSince1970:seconds]
+            : [NSDate dateWithTimeIntervalSinceReferenceDate:seconds]);
+}
+
+
+
+
+
+#pragma mark Joining
 
 
 - (NSArray *)pairsJoinedByString:(NSString *)joiningString {
@@ -52,6 +134,12 @@
 }
 
 
+
+
+
+#pragma mark Merging
+
+
 - (NSDictionary *)dictionaryByAddingValuesFromDictionary:(NSDictionary *)otherDictionary {
     return [[self mutableCopy] addValuesFromDictionary:otherDictionary];
 }
@@ -60,6 +148,12 @@
 - (NSDictionary *)merged:(NSDictionary *)other {
     return [self dictionaryByAddingValuesFromDictionary:other];
 }
+
+
+
+
+
+#pragma mark Inverting
 
 
 - (instancetype)invertedDictionary {
