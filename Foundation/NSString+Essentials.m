@@ -310,12 +310,21 @@
 }
 
 
-- (NSArray *)letters {
-    NSMutableArray *builder = [[NSMutableArray alloc] initWithCapacity:self.length];
-    [self enumerateSubstringsInRange:self.fullRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-        [builder addObject:substring];
-    }];
+
+- (NSArray *)collect:(NSStringEnumerationOptions)option localized:(BOOL)localized {
+    NSMutableArray *builder = [NSMutableArray new];
+    NSStringEnumerationOptions localizedOption = (localized? NSStringEnumerationLocalized : kNilOptions);
+    [self enumerateSubstringsInRange:self.fullRange
+                             options:(option | localizedOption)
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                              [builder addObject:substring];
+                          }];
     return builder;
+}
+
+
+- (NSArray *)letters {
+    return [self collect:NSStringEnumerationByComposedCharacterSequences localized:NO];
 }
 
 
@@ -324,6 +333,36 @@
     NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
     return [self substringWithRange:range];
 }
+
+
+- (NSArray *)lines {
+    return [self collect:NSStringEnumerationByLines localized:NO];
+}
+
+
+- (NSArray *)paragraphs {
+    return [self collect:NSStringEnumerationByParagraphs localized:NO];
+}
+
+
+- (NSArray *)sentences {
+    return [self collect:NSStringEnumerationBySentences localized:YES];
+}
+
+
+- (NSArray *)words {
+    return [self collect:NSStringEnumerationByWords localized:YES];
+}
+
+
+- (NSArray *)normalizedWords {
+    return [[self words] map:^NSString *(NSString *word) {
+        return [word normalizedString];
+    }];
+}
+
+
+
 
 
 

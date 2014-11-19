@@ -115,6 +115,21 @@
 /// The first letter.
 @property (readonly) NSString *firstLetter;
 
+/// Returns an array of lines.
+- (NSArray *)lines;
+
+/// Returns an array of paragraphs.
+- (NSArray *)paragraphs;
+
+/// Returns an array of sentences.
+- (NSArray *)sentences;
+
+/// Returns an array of words without surrounding punctuation.
+- (NSArray *)words;
+
+/// Returns an array of words normalized for search.
+- (NSArray *)normalizedWords;
+
 
 
 #pragma mark Joining
