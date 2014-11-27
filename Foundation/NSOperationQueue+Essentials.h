@@ -37,6 +37,9 @@
 
 #pragma mark - Operations
 
+/// A number of concurrent operations used for Shared Queues.
++ (NSUInteger)defaultMaxConcurrentOperationCount;
+
 /// Performs given block on the receiver. Async or sync, depends on circumstances.
 - (NSOperation *)perform:(void(^)(void))block;
 
