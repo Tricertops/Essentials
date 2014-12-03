@@ -15,6 +15,7 @@
 @interface ESSProxy : NSProxy
 
 + (id)null;
++ (id)multicaster:(id<NSFastEnumeration>)collection;
 
 @end
 

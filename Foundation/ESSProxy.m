@@ -61,6 +61,23 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 }
 
 
++ (id)multicaster:(id<NSFastEnumeration>)collection {
+    return [[[ESSProxy subclass:@"ESSMulticasterProxy"] alloc] initWithDescription:^id{
+        return collection;
+    } signature:^NSMethodSignature *(SEL selector) {
+        for (id object in collection) {
+            NSMethodSignature *signature = [object methodSignatureForSelector:selector];
+            if (signature) return signature;
+        }
+        return [self giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
+    } forward:^(NSInvocation *invocation) {
+        for (id object in collection) {
+            [invocation invokeWithTarget:object];
+        }
+    }];
+}
+
+
 
 - (id)initWithDescription:(ESSProxyDescriptionBlock)descriptionBlock
                 signature:(ESSProxyMethodSignatureBlock)signatureBlock
@@ -232,7 +249,7 @@ ESSSharedCache(ess_signatureCache)
 
 
 - (instancetype)multicasterTo:(NSArray *)objects {
-    return [[[ESSProxy subclass:@"ESSMulticasterProxy"] alloc] initWithDescription:^id{
+    return [[[ESSProxy subclass:@"ESSMulticasterProxyWithReturn"] alloc] initWithDescription:^id{
         return [NSString stringWithFormat:@"%@ to %@", self, objects];
     } signature:^NSMethodSignature *(SEL selector) {
         return [self methodSignatureForSelector:selector];
