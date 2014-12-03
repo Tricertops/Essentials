@@ -39,9 +39,9 @@
 		5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
-		5B74A63819D45F5B00B04E07 /* ESSThreadSafeProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B74A63619D45F5B00B04E07 /* ESSThreadSafeProxy.h */; };
-		5B74A63919D45F5B00B04E07 /* ESSThreadSafeProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */; };
-		5B74A63A19D45F5B00B04E07 /* ESSThreadSafeProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */; };
+		5B74A63819D45F5B00B04E07 /* ESSProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B74A63619D45F5B00B04E07 /* ESSProxy.h */; };
+		5B74A63919D45F5B00B04E07 /* ESSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSProxy.m */; };
+		5B74A63A19D45F5B00B04E07 /* ESSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSProxy.m */; };
 		5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
 		5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */; };
 		5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
@@ -138,8 +138,8 @@
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
-		5B74A63619D45F5B00B04E07 /* ESSThreadSafeProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSThreadSafeProxy.h; sourceTree = "<group>"; };
-		5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSThreadSafeProxy.m; sourceTree = "<group>"; };
+		5B74A63619D45F5B00B04E07 /* ESSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSProxy.h; sourceTree = "<group>"; };
+		5B74A63719D45F5B00B04E07 /* ESSProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSProxy.m; sourceTree = "<group>"; };
 		5B7A38BF17C39E5500C2F24C /* NSAttributedString+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Essentials.h"; sourceTree = "<group>"; };
 		5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Essentials.m"; sourceTree = "<group>"; };
 		5B7A38C217C3A43300C2F24C /* NSMutableAttributedString+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Essentials.h"; sourceTree = "<group>"; };
@@ -328,8 +328,8 @@
 				5B61079C19E6A7FB0071B547 /* NSURLRequest+Essentials.m */,
 				5B61079619E6A5A00071B547 /* ESSURLResponse.h */,
 				5B61079719E6A5A00071B547 /* ESSURLResponse.m */,
-				5B74A63619D45F5B00B04E07 /* ESSThreadSafeProxy.h */,
-				5B74A63719D45F5B00B04E07 /* ESSThreadSafeProxy.m */,
+				5B74A63619D45F5B00B04E07 /* ESSProxy.h */,
+				5B74A63719D45F5B00B04E07 /* ESSProxy.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 				5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */,
 				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
 				5B61079819E6A5A00071B547 /* ESSURLResponse.h in Headers */,
-				5B74A63819D45F5B00B04E07 /* ESSThreadSafeProxy.h in Headers */,
+				5B74A63819D45F5B00B04E07 /* ESSProxy.h in Headers */,
 				5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */,
 				5B61079319E67A6B0071B547 /* NSURLSession+Essentials.h in Headers */,
 				5BFDDE3C19D95F0900AF28D7 /* NSTimer+Essentials.h in Headers */,
@@ -493,7 +493,7 @@
 				5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */,
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
 				5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */,
-				5B74A63919D45F5B00B04E07 /* ESSThreadSafeProxy.m in Sources */,
+				5B74A63919D45F5B00B04E07 /* ESSProxy.m in Sources */,
 				5BFDDE3D19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
 				5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */,
 				5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */,
@@ -520,7 +520,7 @@
 				5B61079A19E6A5A00071B547 /* ESSURLResponse.m in Sources */,
 				5BFBAC0D1844BB8900179483 /* NSInvocation+Essentials.m in Sources */,
 				5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */,
-				5B74A63A19D45F5B00B04E07 /* ESSThreadSafeProxy.m in Sources */,
+				5B74A63A19D45F5B00B04E07 /* ESSProxy.m in Sources */,
 				5B61079519E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
 				5BFBAC0B1844BB8900179483 /* NSError+Essentials.m in Sources */,
 				5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */,

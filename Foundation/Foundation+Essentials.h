@@ -26,7 +26,7 @@
 #import "NSURLRequest+Essentials.h"
 #import "NSURLSession+Essentials.h"
 #import "ESSURLResponse.h"
-#import "ESSThreadSafeProxy.h"
+#import "ESSProxy.h"
 #import "ESSLog.h"
 
 
@@ -115,6 +115,9 @@
     return NAME;\
 }\
 + (TYPE)make_##NAME\
+
+/// Use to create global cache accessible via a class method.
+#define ESSSharedCache(NAME)    ESSSharedMake(NSCache *, NAME) { return [NSCache new]; }
 
 
 
