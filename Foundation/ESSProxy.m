@@ -8,6 +8,7 @@
 
 #import "ESSProxy.h"
 #import "NSObject+Essentials.h"
+#import "NSOperationQueue+Essentials.h"
 
 
 
@@ -68,6 +69,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
         invocation.target = nil;
         self.forwardBlock(invocation);
     }
+    // Not invoking the invocation returns zeroes.
 }
 
 
@@ -101,6 +103,26 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
     }];
 }
 
+
+
+- (instancetype)async {
+    return [self asyncOnQueue:[NSOperationQueue utilityQueue]];
+}
+
+
+- (instancetype)asyncOnQueue:(NSOperationQueue *)queue {
+    return [[[ESSProxy subclass:@"ESSAsyncProxy"] alloc] initWithDescription:^id{
+        return [NSString stringWithFormat:@"%@ on %@", self, queue];
+    } signature:^NSMethodSignature *(SEL selector) {
+        return [self methodSignatureForSelector:selector];
+    } forward:^(NSInvocation *invocation) {
+        [invocation retainArguments];
+        [queue asynchronous:^{
+            [invocation invokeWithTarget:self];
+        }];
+        // Not invoking the invocation returns zeroes.
+    }];
+}
 
 
 - (instancetype)catcher:(void(^)(NSInvocation *invocation))block {
