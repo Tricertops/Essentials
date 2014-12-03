@@ -116,6 +116,9 @@
 }\
 + (TYPE)make_##NAME\
 
+/// Use to create global cache accessible via a class method.
+#define ESSSharedCache(NAME)    ESSSharedMake(NSCache *, NAME) { return [NSCache new]; }
+
 
 
 
