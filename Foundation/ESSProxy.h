@@ -43,7 +43,20 @@
 /// Returns a proxy that passes all messages to a given block. No message is invoked on the receiver.
 - (instancetype)catcher:(void(^)(NSInvocation *invocation))block;
 
+/// Returns a proxy that in addition to invoking messages on the receiver also invokes the messages on the given objects. Returned values of the other objects are ignored.
+- (instancetype)multicasterTo:(NSArray *)objects;
 
+
+@end
+
+
+
+
+
+@interface NSInvocation (ESSProxy)
+
+/// Returns a copy of the receiver.
+- (instancetype)copy;
 
 @end
 
