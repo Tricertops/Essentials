@@ -161,19 +161,7 @@
 
 
 + (Class)subclass:(NSString *)name {
-    ESSAssertException(name.length > 0, @"Can not create class with no name!");
-    
-    Class subclass = NSClassFromString(name);
-    
-    if ( ! subclass) {
-        subclass = objc_allocateClassPair(self, name.UTF8String, 0);
-        objc_registerClassPair(subclass);
-    }
-    else {
-        ESSAssert([subclass isSubclassOfClass:self], @"Found existing class '%@' but it's not subclassed from '%@'!", subclass, self) return self;
-    }
-    
-    return subclass ?: self;
+    return ESSSubclass(self, name);
 }
 
 
@@ -216,3 +204,26 @@
 
 
 @end
+
+
+
+
+
+Class ESSSubclass(Class superclass, NSString *name) {
+    ESSAssert(superclass != Nil, @"Cannot subclass Nil!") return Nil;
+    ESSAssert(name.length > 0, @"Cannot create class with no name!") return superclass;
+    
+    Class subclass = NSClassFromString(name);
+    
+    if ( ! subclass) {
+        subclass = objc_allocateClassPair(superclass, name.UTF8String, 0);
+        objc_registerClassPair(subclass);
+    }
+    else {
+        ESSAssert([subclass isSubclassOfClass:superclass], @"Found existing class '%@' but it's not a subclass of requested '%@'!", subclass, superclass) return superclass;
+    }
+    
+    return subclass ?: superclass;
+}
+
+

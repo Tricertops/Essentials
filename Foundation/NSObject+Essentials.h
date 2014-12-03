@@ -94,3 +94,12 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 
 
 @end
+
+
+
+
+
+extern Class ESSSubclass(Class superclass, NSString *name);
+
+
+
