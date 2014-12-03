@@ -28,6 +28,12 @@
 /// Returns a proxy that locks all forwarded messages using NSLock.
 - (instancetype)threadSafe;
 
+/// Returns a proxy that holds the receiver weakly.
+- (instancetype)weakProxy;
+
+/// Returns a proxy that check all messages using -respondsToSelector: method.
+- (instancetype)selectorChecker;
+
 /// Returns a proxy that invokes all messages asynchronously on a default Utility queue. Don’t expect the return value !!!!!!!!!!!!!!!!!!!!
 - (instancetype)async;
 

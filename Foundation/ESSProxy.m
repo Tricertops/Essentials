@@ -168,6 +168,37 @@ ESSSharedCache(ess_signatureCache)
 
 
 
+- (instancetype)weakProxy {
+    Class class = self.class;
+    __weak typeof(self) weak = self;
+    return [[[ESSProxy subclass:@"ESSWeakProxy"] alloc] initWithDescription:^id{
+        return weak ?: [NSString stringWithFormat:@"deallocated instance of %@", class];
+    } signature:^NSMethodSignature *(SEL selector) {
+        typeof(self) local = weak;
+        NSMethodSignature *signature = (local
+                                        ? [local methodSignatureForSelector:selector]
+                                        : [class instanceMethodSignatureForSelector:selector]);
+        return signature ?: [ESSProxy giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
+    } forward:^(NSInvocation *invocation) {
+        [invocation invokeWithTarget:weak];
+    }];
+}
+
+
+- (instancetype)selectorChecker {
+    return [[[ESSProxy subclass:@"ESSSelectorCheckerProxy"] alloc] initWithDescription:^id{
+        return self;
+    } signature:^NSMethodSignature *(SEL selector) {
+        return [self methodSignatureForSelector:selector] ?: [ESSProxy giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
+    } forward:^(NSInvocation *invocation) {
+        if ([self respondsToSelector:invocation.selector]) {
+            [invocation invokeWithTarget:self];
+        }
+        // Not invoking the invocation returns zeroes.
+    }];
+}
+
+
 - (instancetype)async {
     return [self asyncOnQueue:[NSOperationQueue utilityQueue]];
 }
