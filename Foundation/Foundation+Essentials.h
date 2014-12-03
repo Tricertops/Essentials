@@ -26,7 +26,7 @@
 #import "NSURLRequest+Essentials.h"
 #import "NSURLSession+Essentials.h"
 #import "ESSURLResponse.h"
-#import "ESSThreadSafeProxy.h"
+#import "ESSProxy.h"
 #import "ESSLog.h"
 
 

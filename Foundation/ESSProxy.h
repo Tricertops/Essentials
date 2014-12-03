@@ -1,5 +1,5 @@
 //
-//  ESSThreadSafeProxy.h
+//  ESSProxy.h
 //  Essentials
 //
 //  Created by Martin Kiss on 25.9.14.
@@ -12,7 +12,15 @@
 
 
 
-@interface NSObject (ESSThreadSafeProxy)
+@interface ESSProxy : NSProxy
+
+@end
+
+
+
+
+
+@interface NSObject (ESSProxy)
 
 
 /// Returns a proxy object that forwards all methods to the receiver and encapsulates all calls in lock/unlock.
