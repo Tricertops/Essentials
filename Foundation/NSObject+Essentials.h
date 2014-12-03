@@ -62,6 +62,15 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 /// Returns name of the receiver using NSStringFromClass().
 + (NSString *)name;
 
+/// Returns an array of superclasses. First is -superclass and the last is the root class.
++ (NSArray *)superclasses;
+
+/// Returns an array of classes. First is -class, second is -superclass and the last is the root class.
+- (NSArray *)classes;
+
+/// Return the root superclass.
+- (Class)rootClass;
+
 /// When the argument is of receiver's kind, returns the argument, otherwise nil.
 + (instancetype)cast:(id)something;
 

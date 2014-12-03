@@ -137,6 +137,37 @@
 }
 
 
++ (NSArray *)superclasses {
+    Class class = [self superclass];
+    NSMutableArray *superclasses = [NSMutableArray array];
+    while (class) {
+        [superclasses addObject:class];
+        class = [class superclass];
+    }
+    return superclasses;
+}
+
+
+- (NSArray *)classes {
+    Class class = [self class];
+    NSMutableArray *classes = [NSMutableArray array];
+    while (class) {
+        [classes addObject:class];
+        class = [class superclass];
+    }
+    return classes;
+}
+
+
++ (Class)rootSuperclass {
+    Class class = [self class];
+    while (class) {
+        class = [class superclass];
+    }
+    return class; // The one with nil superclass.
+}
+
+
 + (instancetype)cast:(id)something {
     return [something isKindOfClass:self] ? something : nil;
 }
