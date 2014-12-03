@@ -89,7 +89,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 - (instancetype)threadSafe {
-    __block NSLock *lock = [NSLock new];
+    NSLock *lock = [NSLock new];
     return [[[ESSProxy subclass:@"ESSThreadSafeProxy"] alloc] initWithDescription:^id{
         return self;
     } signature:^NSMethodSignature *(SEL selector) {
@@ -101,6 +101,18 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
     }];
 }
 
+
+
+- (instancetype)catcher:(void(^)(NSInvocation *invocation))block {
+    return [[[ESSProxy subclass:@"ESSCatcherProxy"] alloc] initWithDescription:^id{
+        return self;
+    } signature:^NSMethodSignature *(SEL selector) {
+        return [self methodSignatureForSelector:selector];
+    } forward:^(NSInvocation *invocation) {
+        block(invocation);
+        // Not invoking the invocation returns zeroes.
+    }];
+}
 
 
 @end

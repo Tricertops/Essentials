@@ -23,8 +23,11 @@
 @interface NSObject (ESSProxy)
 
 
-/// Returns a proxy object that forwards all methods to the receiver and encapsulates all calls in lock/unlock.
+/// Returns a proxy that locks all forwarded messages using NSLock.
 - (instancetype)threadSafe;
+
+/// Returns a proxy that passes all messages to a given block. No message is invoked on the receiver.
+- (instancetype)catcher:(void(^)(NSInvocation *invocation))block;
 
 
 
