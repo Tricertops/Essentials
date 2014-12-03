@@ -8,6 +8,7 @@
 
 #import "ESSProxy.h"
 #import "NSObject+Essentials.h"
+#import "Foundation+Essentials.h"
 #import "NSOperationQueue+Essentials.h"
 
 
@@ -31,6 +32,8 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
                 signature:(ESSProxyMethodSignatureBlock)block
                   forward:(ESSProxyForwardInvocationBlock)block;
 
++ (NSMethodSignature *)giveMeAnyMethodSignatureForSelector:(SEL)selector IProceedAtMyOwnRisk:(BOOL)agreed;
+
 
 @end
 
@@ -44,6 +47,17 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 + (Class)subclass:(NSString *)name {
     return ESSSubclass(self, name);
+}
+
+
++ (id)null {
+    return [[[ESSProxy subclass:@"ESSNullProxy"] alloc] initWithDescription:^id{
+        return NSNull.null;
+    } signature:^NSMethodSignature *(SEL selector) {
+        return [self giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
+    } forward:^(NSInvocation *invocation) {
+        // Not invoking the invocation returns zeroes.
+    }];
 }
 
 
@@ -77,6 +91,55 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
     id object = (self.descriptionBlock? self.descriptionBlock() : @"Undefined");
     return [NSString stringWithFormat:@"<%@ %p: %@>", self.class, self, object];
 }
+
+
+
++ (NSMethodSignature *)giveMeAnyMethodSignatureForSelector:(SEL)selector IProceedAtMyOwnRisk:(BOOL)agreed {
+    ESSAssert(agreed, @"You have no idea what you have just done!");
+    
+    // I didn’t made this up by myself, it was Nick Lockwood https://github.com/nicklockwood/NullSafe/blob/master/NullSafe/NullSafe.m. Kindly stolen and refactored.
+    
+    NSString *key = NSStringFromSelector(selector);
+    NSCache *cache = [self ess_signatureCache];
+    NSMethodSignature *signature = [cache objectForKey:key];
+    if ( ! signature) {
+        for (Class class in [self ess_signatureClassList]) {
+            signature = [class instanceMethodSignatureForSelector:selector];
+            if (signature) break;
+        }
+        ESSAssert(signature, @"There is no method signature for %@ in this program.", key) return nil;
+        [cache setObject:signature forKey:key];
+    }
+    return signature;
+}
+
+
+ESSSharedMake(NSSet *,ess_signatureClassList) {
+    NSMutableSet *builder = [[NSMutableSet alloc] init];
+    NSMutableSet *excluded = [NSMutableSet set];
+    
+    int count = objc_getClassList(NULL, 0);
+    Class *classes = (Class *)malloc(sizeof(Class) * count);
+    count = objc_getClassList(classes, count);
+    
+    for (int index = 0; index < count; index++) {
+        Class class = classes[index];
+        NSArray *superclasses = [class superclasses];
+        [excluded addObjectsFromArray:superclasses];
+        
+        if (superclasses.lastObject == [NSObject class]) {
+            [builder addObject:class];
+        }
+    }
+    free(classes);
+    
+    [builder minusSet:excluded];
+    return builder;
+}
+
+
+ESSSharedCache(ess_signatureCache)
+
 
 
 

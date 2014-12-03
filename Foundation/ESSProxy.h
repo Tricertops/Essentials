@@ -14,6 +14,8 @@
 
 @interface ESSProxy : NSProxy
 
++ (id)null;
+
 @end
 
 
