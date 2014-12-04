@@ -159,7 +159,7 @@
 }
 
 
-+ (Class)rootSuperclass {
+- (Class)rootClass {
     Class class = [self class];
     while (class) {
         class = [class superclass];
