@@ -83,7 +83,7 @@
 /// Use to create class method that uses dispatch_once with simple value.
 #define ESSShared(TYPE, NAME, VALUE)\
 + (TYPE)NAME {\
-    static TYPE NAME = nil;\
+    static TYPE NAME = (TYPE)0;\
     static dispatch_once_t onceToken;\
     dispatch_once(&onceToken, ^{\
         NAME = VALUE;\
@@ -107,7 +107,7 @@
 /// Use to create class method that uses dispatch_once with additional code. Append method body just after the macro and return object to be shared.
 #define ESSSharedMake(TYPE, NAME)\
 + (TYPE)NAME {\
-    static TYPE NAME = nil;\
+    static TYPE NAME = (TYPE)0;\
     static dispatch_once_t onceToken;\
     dispatch_once(&onceToken, ^{\
         NAME = [self make_##NAME];\
