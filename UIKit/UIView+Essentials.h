@@ -44,6 +44,11 @@
 
 
 
+/// Opacity of background color.
+@property (nonatomic, readwrite, assign) CGFloat backgroundAlpha;
+
+
+
 #pragma mark - Geometry
 
 /// Alias for .center

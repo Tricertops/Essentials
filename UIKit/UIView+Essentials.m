@@ -96,6 +96,24 @@
 
 
 
+- (CGFloat)backgroundAlpha {
+    return self.backgroundColor.alphaComponent;
+}
+
+
+- (void)setBackgroundAlpha:(CGFloat)backgroundAlpha {
+    self.backgroundColor = [self.backgroundColor colorWithAlphaComponent:backgroundAlpha];
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingBackgroundAlpha {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, backgroundColor)];
+}
+
+
+
+
+
 #pragma mark - Geometry
 
 
