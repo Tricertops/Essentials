@@ -144,6 +144,7 @@
 
 + (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION;
 
+- (NSArray *)stringsByAppendingStrings:(NSArray *)suffixes usingString:(NSString *)joiningString;
 
 
 @end

@@ -383,6 +383,15 @@
 }
 
 
+- (NSArray *)stringsByAppendingStrings:(NSArray *)suffixes usingString:(NSString *)joiningString {
+    return [suffixes map:^NSString *(NSString *suffix) {
+        return (suffix.length
+                ? [self stringByAppendingFormat:@"%@%@", joiningString ?: @"", suffix]
+                : [self copy]);
+    }];
+}
+
+
 
 
 
