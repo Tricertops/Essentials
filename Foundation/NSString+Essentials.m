@@ -329,7 +329,7 @@
 
 
 - (NSString *)firstLetter {
-    if (self.length == 1) return nil;
+    if (self.length == 1) return self;
     NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
     return [self substringWithRange:range];
 }
