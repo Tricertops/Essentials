@@ -157,6 +157,9 @@ extern CGSize CGSizeRotate(CGSize, CGFloat);
 /// Calculates original size that was rotated. Inverse of CGSizeRotate().
 extern CGSize CGSizeUnrotate(CGSize, CGFloat);
 
+/// Calculates ratio of width / height.
+extern CGFloat CGSizeAspectRatio(CGSize);
+
 
 
 
