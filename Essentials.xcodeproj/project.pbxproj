@@ -22,6 +22,7 @@
 		5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3379AC19F299D600CBE28C /* ESSLog.h */; };
 		5B3379AF19F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
 		5B3379B019F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
+		5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */; };
 		5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61075719E52E930071B547 /* NSLocale+Essentials.h */; };
 		5B61075A19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
 		5B61075B19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
@@ -125,6 +126,8 @@
 		5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Essentials.m"; sourceTree = "<group>"; };
 		5B3379AC19F299D600CBE28C /* ESSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSLog.h; sourceTree = "<group>"; };
 		5B3379AD19F299D600CBE28C /* ESSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSLog.m; sourceTree = "<group>"; };
+		5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Essentials.h"; sourceTree = "<group>"; };
+		5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Essentials.m"; sourceTree = "<group>"; };
 		5B61075719E52E930071B547 /* NSLocale+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+Essentials.h"; sourceTree = "<group>"; };
 		5B61075819E52E930071B547 /* NSLocale+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+Essentials.m"; sourceTree = "<group>"; };
 		5B61079119E67A6B0071B547 /* NSURLSession+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Essentials.h"; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */,
 				5BB485D31A161C3900AB82BE /* UIBarButtonItem+Essentials.h */,
 				5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */,
+				5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */,
+				5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
 				5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */,
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
+				5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */,
 				5B13410417622955008F8F1E /* UIActionSheet+Essentials.m in Sources */,
 				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
 				5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */,

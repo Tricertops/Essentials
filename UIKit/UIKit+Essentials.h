@@ -20,6 +20,7 @@
 #import "UITableView+Essentials.h"
 #import "UIFont+Essentials.h"
 #import "UIBarButtonItem+Essentials.h"
+#import "UIBezierPath+Essentials.h"
 
 
 
