@@ -67,6 +67,18 @@
 
 
 
+#pragma mark - Action
+
+
+- (void)setTarget:(id)target action:(SEL)selector {
+    self.target = target;
+    self.action = selector;
+}
+
+
+
+
+
 @end
 
 

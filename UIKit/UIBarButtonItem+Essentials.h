@@ -30,6 +30,11 @@
 + (instancetype)spaceWithWidth:(CGFloat)width;
 
 
+#pragma mark - Action
+
+- (void)setTarget:(id)target action:(SEL)selector;
+
+
 @end
 
 
