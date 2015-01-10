@@ -228,6 +228,10 @@ CGSize CGSizeUnrotate(CGSize rotated, CGFloat angle) {
 }
 
 
+CGFloat CGSizeAspectRatio(CGSize s) {
+    return s.width / s.height;
+}
+
 
 
 
