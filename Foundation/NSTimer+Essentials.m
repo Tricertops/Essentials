@@ -54,6 +54,16 @@
 }
 
 
+- (void)postponeBy:(NSTimeInterval)delay {
+    self.fireDate = [self.fireDate dateByAddingTimeInterval:delay];
+}
+
+
+- (void)hold {
+    self.fireDate = [NSDate distantFuture];
+}
+
+
 
 
 

@@ -35,6 +35,12 @@
 /// Schedules the receiver on the specified run loop in given mode.
 - (void)scheduleInRunLoop:(NSRunLoop *)runLoop mode:(NSString *)mode;
 
+/// Increases fireDate by the delay.
+- (void)postponeBy:(NSTimeInterval)delay;
+
+/// Sets the timer to distant future, so it never actualy fires, but is not invalidated.
+- (void)hold;
+
 
 /// Invokes block after delay.
 + (void)after:(NSTimeInterval)delay block:(void(^)(void))block;
