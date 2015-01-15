@@ -74,6 +74,8 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 /// When the argument is of receiver's kind, returns the argument, otherwise nil.
 + (instancetype)cast:(id)something;
 
++ (instancetype)assert:(id)something;
+
 /// Returns the receiver if is kind of given class, otherwise returns replacement.
 - (instancetype)ofClass:(Class)class or:(id)replacement;
 

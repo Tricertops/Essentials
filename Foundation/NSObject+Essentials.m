@@ -173,6 +173,13 @@
 }
 
 
++ (instancetype)assert:(id)something {
+    BOOL isKindOfClass = [something isKindOfClass:self];
+    NSAssert(isKindOfClass, @"Object %@ is not of class %@", something, self);
+    return isKindOfClass ? something : nil;
+}
+
+
 - (instancetype)ofClass:(Class)class or:(id)replacement {
     return [self isKindOfClass:class] ? self : replacement;
 }
