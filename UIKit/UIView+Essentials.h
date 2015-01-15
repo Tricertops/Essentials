@@ -83,7 +83,7 @@
 #pragma mark - Shadow
 
 /// Wraps all shadow attributes in single object. Color is premultiplied by alpha, since NSShadow doesn't have opacity property.
-@property (nonatomic, readwrite) NSShadow *shadow;
+@property (nonatomic, readwrite) IBOutlet NSShadow *shadow;
 
 /// Forwards to the underlaying layer, transforms CGSize to UIOffset.
 @property (nonatomic, readwrite) IBInspectable UIOffset shadowOffset;
