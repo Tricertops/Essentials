@@ -30,16 +30,16 @@
 #pragma mark Accessors
 
 /// Converted accessor for .shadowOffset (CGSize)
-@property UIOffset offset;
+@property IBInspectable UIOffset offset;
 
 /// Typed accessor for .shadowColor (id)
-@property UIColor *color;
+@property IBInspectable UIColor *color;
 
 /// Accessor for alpha channel of the color.
-@property CGFloat alpha;
+@property IBInspectable CGFloat alpha;
 
 /// Alias for .shadowBlurRadius
-@property CGFloat radius;
+@property IBInspectable CGFloat radius;
 
 
 
