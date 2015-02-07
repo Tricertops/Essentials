@@ -138,24 +138,14 @@
 
 
 + (NSArray *)superclasses {
-    Class class = [self superclass];
-    NSMutableArray *superclasses = [NSMutableArray array];
-    while (class) {
-        [superclasses addObject:class];
-        class = [class superclass];
-    }
-    return superclasses;
+    return ESSSuperclasses(self);
 }
 
 
 - (NSArray *)classes {
-    Class class = [self class];
-    NSMutableArray *classes = [NSMutableArray array];
-    while (class) {
-        [classes addObject:class];
-        class = [class superclass];
-    }
-    return classes;
+    NSMutableArray *superclasses = ESSSuperclasses(self.class);
+    [superclasses insertObject:self.class atIndex:0];
+    return superclasses;
 }
 
 
@@ -263,5 +253,17 @@ Class ESSSubclass(Class superclass, NSString *name) {
     
     return subclass ?: superclass;
 }
+
+
+NSMutableArray * ESSSuperclasses(Class class) {
+    Class superclass = class_getSuperclass(class);
+    NSMutableArray *superclasses = [NSMutableArray array];
+    while (superclass) {
+        [superclasses addObject:superclass];
+        superclass = class_getSuperclass(superclass);
+    }
+    return superclasses;
+}
+
 
 
