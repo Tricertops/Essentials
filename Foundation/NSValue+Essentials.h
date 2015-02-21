@@ -7,6 +7,27 @@
 //
 
 #import "Foundation+Essentials.h"
+#import "NSObject+Essentials.h"
+
+
+
+
+
+//! Returns NSValue or NSNumber that contains the argument.
+#define ESSWrap(ANYTHING) \
+(NSValue *)({ \
+    typeof(ANYTHING) value = (ANYTHING); \
+    [NSValue valueOfObjCType:@encode(value) atAddress:&value]; \
+})
+
+
+//! Attempts to unwrap value of given type from NSValue object. Returns it or the default value.
+#define ESSUnwrap(NSVALUE, TYPE, DEFAULT) \
+(typeof(TYPE))({ \
+    typeof(TYPE) value; \
+    BOOL ok = [[NSValue cast:(NSVALUE)] getValueOfObjCType:@encode(value) toAddress:&value]; \
+    (ok ? value : (DEFAULT)); \
+})
 
 
 
