@@ -347,7 +347,7 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 #define ESST(TYPE)   @(@encode(TYPE))
 #define ESSTypes(...)   ( [@[ __VA_ARGS__ ] componentsJoinedByString:@""] )
-
+typedef const char * ESSObjCType;
 
 
 
@@ -356,6 +356,15 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 #define ESSUnlikely(x)   __builtin_expect(!!(x), NO)
 #define ESSLikely(x)     __builtin_expect(!!(x), YES)
+
+
+
+
+
+#pragma mark - Attributes
+
+
+#define ESSOverloaded __attribute__((overloadable))
 
 
 

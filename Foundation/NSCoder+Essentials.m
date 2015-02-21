@@ -7,6 +7,9 @@
 //
 
 #import "NSCoder+Essentials.h"
+#import "NSValue+Essentials.h"
+
+
 
 
 
@@ -16,88 +19,38 @@
 
 
 
-- (void)encodeValue:(const void *)valueAddress ofObjCType:(const char *)objcType forKey:(NSString *)key {
-#define expand_value(TYPE)  (*((TYPE*)valueAddress))
-#define expand_object       (*((id __unsafe_unretained *)valueAddress))
-#define expand_branch(TYPE) else if (strcmp(objcType, @encode(TYPE)) == 0)
-#define expand_wrap(TYPE)   expand_branch(TYPE) [self encodeObject:@(expand_value(TYPE)) forKey:key];
+- (void)encodeValue:(const void *)address ofObjCType:(ESSObjCType)type forKey:(NSString *)key {
+    ESSAssert(address, @"No address.") return;
+    ESSAssert(type, @"No type.") return;
     
-    
-	if (objcType == nil) return;
-    expand_branch(void) return;
-    expand_branch(void(*)(void)) return; // Function pointer.
-    
-    expand_wrap(char)
-    expand_wrap(short)
-    expand_wrap(int)
-    expand_wrap(long)
-    expand_wrap(long long)
-    
-    expand_wrap(unsigned char)
-    expand_wrap(unsigned short)
-    expand_wrap(unsigned int)
-    expand_wrap(unsigned long)
-    expand_wrap(unsigned long long)
-    
-    expand_wrap(float)
-    expand_wrap(double)
-    expand_wrap(_Bool)
-    expand_wrap(char*) // NSString
-    
-    expand_branch(id) [self encodeObject:expand_object forKey:key];
-    expand_branch(Class) [self encodeObject:expand_object forKey:key];
-    expand_branch(SEL) [self encodeObject:NSStringFromSelector(expand_value(SEL)) forKey:key];
-    
-    else {
-        // structures, C arrays, unions
-        NSValue *objectValue = [NSValue value:valueAddress withObjCType:objcType];
-        [self encodeObject:objectValue forKey:key];
-    }
-    
-#undef expand_value
-#undef expand_object
-#undef expand_branch
-#undef expand_wrap
+    NSObject *object = [NSObject objectOfObjCType:type atAddress:address];
+    if (object) [self encodeObject:object forKey:key];
 }
 
 
-- (BOOL)decodeValue:(void *)valueAddress ofObjCType:(const char *)objcType forKey:(NSString *)key {
-#define expand_value(TYPE)  (*((TYPE*)valueAddress))
-#define expand_object       (*((id __autoreleasing *)valueAddress))
-#define expand_compare(OBJCTYPE)    (strcmp(objcType, OBJCTYPE) == 0)
-#define expand_branch(TYPE) else if (expand_compare(@encode(TYPE)))
+- (BOOL)decodeValue:(void *)address ofObjCType:(ESSObjCType)type forKey:(NSString *)key {
+    ESSAssert(address, @"No address.") return NO;
+    ESSAssert(type, @"No type.") return NO;
     
-    
-    if (objcType == nil) return NO;
-    expand_branch(void) return NO;
-    expand_branch(void(*)(void)) return NO; // Function pointer.
-    
-    expand_branch(id) { expand_object = [self decodeObjectForKey:key]; return YES; }
-    expand_branch(Class) { expand_object = [self decodeObjectForKey:key]; return YES; }
-    expand_branch(SEL) {
+    if (ESSObjCTypeIsObject(type)) {
+        ESSObjCTypeCast(id __autoreleasing, address) = [self decodeObjectForKey:key];
+        return YES;
+    }
+    if (ESSObjCTypeIsString(type)) {
         NSString *string = [self decodeObjectOfClass:[NSString class] forKey:key];
-        if (string == nil) {
-            expand_value(SEL) = NSSelectorFromString(string);
+        ESSObjCTypeCast(const char*, address) = string.UTF8String;
+        return YES;
+    }
+    if (ESSObjCTypeIsValue(type)) {
+        NSValue *value = [self decodeObjectOfClass:[NSValue class] forKey:key];
+        if (ESSObjCTypeEquals(type, value.objCType)) {
+            [value getValue:address];
             return YES;
         }
     }
     
-    else {
-        // primitive types, structures, C arrays, unions
-        NSValue *objectValue = [self decodeObjectOfClass:[NSValue class] forKey:key];
-        if (expand_compare(objectValue.objCType)) {
-            [objectValue getValue:valueAddress];
-            return YES;
-        }
-    }
     return NO;
-    
-#undef expand_value
-#undef expand_object
-#undef expand_branch
 }
-
-
 
 
 

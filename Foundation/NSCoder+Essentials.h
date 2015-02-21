@@ -10,6 +10,8 @@
 
 
 
+
+
 @interface NSCoder (Essentials)
 
 
@@ -21,23 +23,28 @@
 
 
 
-#define ESSEncode(ivar) \
+
+
+#define ESSEncode(IVAR) ESSEncodeCustom(self->IVAR, encoder, @#IVAR)
+#define ESSEncodeCustom(VALUE, ENCODER, KEY) \
 (void)({ \
-    typeof(self->ivar) value = self->ivar; \
-    [encoder encodeValue:&value ofObjCType:@encode(typeof(value)) forKey:@#ivar]; \
+    typeof(VALUE) value = (VALUE); \
+    [(ENCODER) encodeValue:&value ofObjCType:@encode(typeof(value)) forKey:(KEY)]; \
 })
 
-#define ESSEncodeConditional(ivar) \
+#define ESSEncodeConditional(IVAR) ESSEncodeConditionalCustom(self->IVAR, encoder, @#IVAR)
+#define ESSEncodeConditionalCustom(OBJECT, ENCODER, KEY) \
 (void)({ \
-    [encoder encodeConditionalObject:self->ivar forKey:@#ivar]; \
+    [(ENCODER) encodeConditionalObject:(VALUE) forKey:(KEY)]; \
 })
 
 
-#define ESSDecode(ivar) \
+#define ESSDecode(IVAR) ESSDecodeCustom(self->IVAR, decoder, IVAR, @#IVAR)
+#define ESSDecodeCustom(STORAGE, DECODER, TYPE, KEY) \
 (void)({ \
-    typeof(self->ivar) value; \
-    BOOL ok = [decoder decodeValue:&value ofObjCType:@encode(typeof(value)) forKey:@#ivar]; \
-    if (ok) self->ivar = value; \
+    typeof(TYPE) value; \
+    BOOL ok = [(DECODER) decodeValue:&value ofObjCType:@encode(typeof(value)) forKey:(KEY)]; \
+    if (ok) (STORAGE) = value; \
 })
 
 
