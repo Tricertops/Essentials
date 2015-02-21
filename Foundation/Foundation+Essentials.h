@@ -28,6 +28,7 @@
 #import "ESSURLResponse.h"
 #import "ESSProxy.h"
 #import "ESSLog.h"
+#import "NSCoder+Essentials.h"
 
 
 
