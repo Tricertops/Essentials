@@ -35,16 +35,19 @@
 #define ESSEncodeConditional(IVAR) ESSEncodeConditionalCustom(self->IVAR, encoder, @#IVAR)
 #define ESSEncodeConditionalCustom(OBJECT, ENCODER, KEY) \
 (void)({ \
-    [(ENCODER) encodeConditionalObject:(VALUE) forKey:(KEY)]; \
+    [(ENCODER) encodeConditionalObject:(OBJECT) forKey:(KEY)]; \
 })
 
 
 #define ESSDecode(IVAR) ESSDecodeCustom(self->IVAR, decoder, IVAR, @#IVAR)
 #define ESSDecodeCustom(STORAGE, DECODER, TYPE, KEY) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-repeated-use-of-weak\"") \
 (void)({ \
     typeof(TYPE) value; \
-    BOOL ok = [(DECODER) decodeValue:&value ofObjCType:@encode(typeof(value)) forKey:(KEY)]; \
+    BOOL ok = [(DECODER) decodeValue:&value ofObjCType:@encode(typeof(TYPE)) forKey:(KEY)]; \
     if (ok) (STORAGE) = value; \
-})
+}) \
+_Pragma("clang diagnostic pop") \
 
 
