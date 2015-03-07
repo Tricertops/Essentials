@@ -171,7 +171,7 @@ BOOL ESSObjCTypeIsObject(ESSObjCType type) {
 
 
 BOOL ESSObjCTypeIsNumber(ESSObjCType type) {
-    return [NSNumber numberOfObjCType:type atAddress:NULL];
+    return [NSNumber numberOfObjCType:type atAddress:NULL] != nil;
 }
 
 
