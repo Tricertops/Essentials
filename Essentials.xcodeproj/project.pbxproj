@@ -62,6 +62,7 @@
 		5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
 		5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
 		5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
+		5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */; };
 		5BE32D6719BB4D77002605B3 /* CIContext+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6319BB4D77002605B3 /* CIContext+Essentials.m */; };
 		5BE32D6A19BB4D77002605B3 /* CIFilter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6519BB4D77002605B3 /* CIFilter+Essentials.m */; };
 		5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */; };
@@ -180,6 +181,8 @@
 		5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Essentials.m"; sourceTree = "<group>"; };
 		5BBFA5D517621F7A0061E8B5 /* NSOperationQueue+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+Essentials.h"; sourceTree = "<group>"; };
 		5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+Essentials.m"; sourceTree = "<group>"; };
+		5BD8A6381AACB42400B0C398 /* UIViewController+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Essentials.h"; sourceTree = "<group>"; };
+		5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Essentials.m"; sourceTree = "<group>"; };
 		5BE32D6219BB4D77002605B3 /* CIContext+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIContext+Essentials.h"; sourceTree = "<group>"; };
 		5BE32D6319BB4D77002605B3 /* CIContext+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIContext+Essentials.m"; sourceTree = "<group>"; };
 		5BE32D6419BB4D77002605B3 /* CIFilter+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+Essentials.h"; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */,
 				5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */,
 				5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */,
+				5BD8A6381AACB42400B0C398 /* UIViewController+Essentials.h */,
+				5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
 				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
 				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
+				5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */,
 				5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */,
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
 				5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */,
