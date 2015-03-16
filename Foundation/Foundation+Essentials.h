@@ -324,6 +324,10 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 extern NSTimeInterval const NSTimeIntervalInfinity;
 
 
+/// Signed index allows referencing from the tail. -1 means last index, -2 the one before.
+extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger count);
+
+
 
 
 
