@@ -7,6 +7,9 @@
 //
 
 #import "NSTimer+Essentials.h"
+#if TARGET_OS_IPHONE
+    #import <UIKit/UIApplication.h>
+#endif
 
 
 
@@ -27,7 +30,12 @@
 
 
 + (instancetype)scheduledWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats handler:(void(^)(NSTimer *timer))handler {
-    return [self scheduledTimerWithTimeInterval:interval target:self selector:@selector(ess_invokeUserInfoBlockHandler:) userInfo:handler repeats:repeats];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(ess_invokeUserInfoBlockHandler:) userInfo:handler repeats:repeats];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+#if TARGET_OS_IPHONE
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:UITrackingRunLoopMode];
+#endif
+    return timer;
 }
 
 
