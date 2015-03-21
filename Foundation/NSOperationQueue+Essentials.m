@@ -73,6 +73,8 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 - (NSOperation *)perform:(void(^)(void))block {
+    if (block == nil) return nil;
+    
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
     if (self == [NSOperationQueue currentQueue]) {
         [operation start];
@@ -85,6 +87,8 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 - (NSOperation *)asynchronous:(void(^)(void))block {
+    if (block == nil) return nil;
+    
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
     [self addOperation:operation];
     return operation;
@@ -92,6 +96,8 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
+    if (block == nil) return nil;
+    
     NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
     [NSTimer after:delay block:^{
         [self addOperation:operation];
