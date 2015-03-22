@@ -96,8 +96,11 @@
 /// Enumerates all substitution tokens of format "{...}". It is safe to mutate the receiver while enumerating, pass new continue location from which to perform next search (to avoid recursion).
 - (void)enumerateSubstitutionsWithBlock:(void(^)(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation))block;
 
-/// Replaces {key} placeholders with the return value of the block
+/// Replaces {key} placeholders with the return value of the block.
 - (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block;
+
+/// Replaces {key:value|key:value} placeholders with the return value of the block.
+- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary *dictionary))block;
 
 /// Replaces {key} placeholders with the values of substitutions[key]
 - (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions;

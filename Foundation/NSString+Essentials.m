@@ -276,6 +276,20 @@
 }
 
 
+- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary *dictionary))block {
+    return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
+        NSMutableDictionary *dictionary = [NSMutableDictionary new];
+        for (NSString *pair in [placeholder split:@"|"]) {
+            NSArray *components = [pair split:@":"];
+            NSString *key = (components.count > 1? components[0] : @"");
+            NSString *value = (components.count > 1? components[1] : components[0]);
+            dictionary[key] = value;
+        }
+        return block(placeholder, dictionary);
+    }];
+}
+
+
 - (NSRange)rangeOfOpening:(NSString *)opening closing:(NSString *)closing after:(NSUInteger)location {
     NSRange notFound = NSMakeRange(NSNotFound, 0);
     
