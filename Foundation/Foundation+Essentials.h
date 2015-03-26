@@ -29,6 +29,7 @@
 #import "ESSProxy.h"
 #import "ESSLog.h"
 #import "NSCoder+Essentials.h"
+#import "ESSCatch.h"
 
 
 
