@@ -92,7 +92,7 @@
 - (id)randomObject;
 
 /// Returns a set containing all values from the receiver.
-- (NSSet *)set;
+- (NSSet *)distinctObjects;
 
 
 
