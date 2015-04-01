@@ -323,6 +323,10 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 extern NSTimeInterval const NSTimeIntervalInfinity;
 
 
+/// Generates random time between min and max with given step.
+extern NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granularity, NSTimeInterval maximum);
+
+
 
 
 
