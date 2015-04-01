@@ -28,6 +28,8 @@
 #import "ESSURLResponse.h"
 #import "ESSProxy.h"
 #import "ESSLog.h"
+#import "NSCoder+Essentials.h"
+#import "ESSCatch.h"
 
 
 
@@ -327,6 +329,10 @@ extern NSTimeInterval const NSTimeIntervalInfinity;
 extern NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granularity, NSTimeInterval maximum);
 
 
+/// Signed index allows referencing from the tail. -1 means last index, -2 the one before.
+extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger count);
+
+
 
 
 
@@ -350,7 +356,7 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 #define ESST(TYPE)   @(@encode(TYPE))
 #define ESSTypes(...)   ( [@[ __VA_ARGS__ ] componentsJoinedByString:@""] )
-
+typedef const char * ESSObjCType;
 
 
 
@@ -359,6 +365,15 @@ extern BOOL NSStringEqual(NSString *, NSString *);
 
 #define ESSUnlikely(x)   __builtin_expect(!!(x), NO)
 #define ESSLikely(x)     __builtin_expect(!!(x), YES)
+
+
+
+
+
+#pragma mark - Attributes
+
+
+#define ESSOverloaded __attribute__((overloadable))
 
 
 

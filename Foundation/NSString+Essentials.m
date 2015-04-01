@@ -249,39 +249,65 @@
 }
 
 
+- (void)enumerateSubstitutionsWithBlock:(void(^)(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation))block {
+    NSRange matchedRange = NSMakeRange(0, 0);
+    while ((matchedRange = [self rangeOfOpening:@"{" closing:@"}" after:NSMaxRange(matchedRange)]).location != NSNotFound) {
+        NSRange placeholderRange = NSMakeRange(matchedRange.location + 1, matchedRange.length - 2);
+        NSString *placeholder = [self substringWithRange:placeholderRange];
+        
+        NSUInteger continueLocation = NSMaxRange(matchedRange);
+        block(matchedRange, placeholder, &continueLocation);
+        matchedRange.location = continueLocation;
+        matchedRange.length = 0; // Used in the next iteration.
+    }
+}
+
+
 - (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block {
     NSMutableString *mutable = [self mutableCopy];
     
-    NSRange matchedRange = NSMakeRange(NSNotFound, 0);
-    while ((matchedRange = [mutable rangeOfOpening:@"{" closing:@"}"]).location != NSNotFound) {
-        NSRange placeholderRange = NSMakeRange(matchedRange.location + 1, matchedRange.length - 2);
-        NSString *placeholder = [mutable substringWithRange:placeholderRange];
-        
-        NSString *replacement = block(placeholder);
-        [mutable replaceCharactersInRange:matchedRange withString:replacement ?: @""];
-        
+    [mutable enumerateSubstitutionsWithBlock:^(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation) {
+        NSString *replacement = block(content);
+        [mutable replaceCharactersInRange:enclosingRange withString:replacement ?: @""];
+        *continueLocation = enclosingRange.location + replacement.length;
         //TODO: Detect enclosing spaces and remove one of them.
-    }
+    }];
     return mutable;
 }
 
 
-- (NSRange)rangeOfOpening:(NSString *)opening closing:(NSString *)closing {
+- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary *dictionary))block {
+    return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
+        NSMutableDictionary *dictionary = [NSMutableDictionary new];
+        for (NSString *pair in [placeholder split:@"|"]) {
+            NSArray *components = [pair split:@":"];
+            NSString *key = (components.count > 1? components[0] : @"");
+            NSString *value = (components.count > 1? components[1] : components[0]);
+            dictionary[key] = value;
+        }
+        return block(placeholder, dictionary);
+    }];
+}
+
+
+- (NSRange)rangeOfOpening:(NSString *)opening closing:(NSString *)closing after:(NSUInteger)location {
     NSRange notFound = NSMakeRange(NSNotFound, 0);
     
     if ( ! opening.length) return notFound;
     if ( ! closing.length) return notFound;
+    if (location >= self.length) return notFound;
     
-    NSRange or = [self rangeOfString:opening];
-    if (or.location == NSNotFound) return notFound;
+    NSRange openingSearchRange = NSMakeRange(location, self.length - location);
+    NSRange openingRange = [self rangeOfString:opening options:kNilOptions range:openingSearchRange];
+    if (openingRange.location == NSNotFound) return notFound;
     
-    NSUInteger orEnd = or.location + or.length;
-    NSRange r = NSMakeRange(orEnd, self.length - orEnd);
-    NSRange cr = [self rangeOfString:closing options:kNilOptions range:r];
-    if (cr.location == NSNotFound) return notFound;
+    NSUInteger openingRangeEnd = openingRange.location + openingRange.length;
+    NSRange closingSearchRange = NSMakeRange(openingRangeEnd, self.length - openingRangeEnd);
+    NSRange closingRange = [self rangeOfString:closing options:kNilOptions range:closingSearchRange];
+    if (closingRange.location == NSNotFound) return notFound;
     
-    NSUInteger crEnd = cr.location + cr.length;
-    return NSMakeRange(or.location, crEnd - or.location);
+    NSUInteger closingRangeEnd = closingRange.location + closingRange.length;
+    return NSMakeRange(openingRange.location, closingRangeEnd - openingRange.location);
 }
 
 

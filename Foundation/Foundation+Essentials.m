@@ -16,6 +16,19 @@ NSUInteger NSUIntegerRandom(NSUInteger count) {
 }
 
 
+NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger unsignedCount) {
+    if (signedIndex == NSIntegerMax) return NSNotFound;
+    if (signedIndex == NSIntegerMin) return NSNotFound;
+    if (signedIndex >= 0) return (NSUInteger)signedIndex;
+    // Index is negative.
+    if (unsignedCount >= (NSUInteger)NSIntegerMax) return NSNotFound; // Prevent signed overflow.
+    NSInteger signedCount = (NSUInteger)unsignedCount;
+    NSInteger subtractedIndex = signedCount - signedIndex;
+    if (subtractedIndex < 0) return NSNotFound;
+    return (NSUInteger)subtractedIndex;
+}
+
+
 NSTimeInterval const NSTimeIntervalInfinity = HUGE_VAL;
 
 

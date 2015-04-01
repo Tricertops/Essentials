@@ -21,6 +21,7 @@
 #import "UIFont+Essentials.h"
 #import "UIBarButtonItem+Essentials.h"
 #import "UIBezierPath+Essentials.h"
+#import "UIViewController+Essentials.h"
 
 
 
