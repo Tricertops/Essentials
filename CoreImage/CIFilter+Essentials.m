@@ -209,6 +209,11 @@
 }
 
 
++ (instancetype)grayscaleColors {
+    return [CIFilter adjustSaturation: 0];
+}
+
+
 + (instancetype)monochromeColor:(CIColor *)color intensity:(CIScalar)intensity {
     return [CIFilter filterWithName:@"CIColorMonochrome"
                       keysAndValues:

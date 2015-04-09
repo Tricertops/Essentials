@@ -99,6 +99,9 @@ typedef CGFloat CIAngle;
 /// Inverts the colors in an image. (CIColorInvert)
 + (instancetype)invertColors;
 
+/// Desaturates colors in the image (CIColorControls with “saturation” 0.0)
++ (instancetype)grayscaleColors;
+
 /// Remaps colors so they fall within shades of a single color. (CIColorMonochrome)
 + (instancetype)monochromeColor:(CIColor *)color intensity:(CIScalar)intensity;
 
