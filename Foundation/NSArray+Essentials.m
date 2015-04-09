@@ -204,7 +204,7 @@
 }
 
 
-- (NSSet *)set {
+- (NSSet *)distinctObjects {
     return [NSSet setWithArray:self];
 }
 

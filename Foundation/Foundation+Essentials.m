@@ -40,3 +40,9 @@ BOOL NSEqual(NSObject * A, NSObject * B) {
 BOOL NSStringEqual(NSString * A, NSString * B) {
     return (A == B || (A && [B isEqualToString:A]));
 }
+
+
+NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granularity, NSTimeInterval maximum) {
+    NSUInteger steps = ABS(maximum - minimum) / granularity;
+    return minimum + NSUIntegerRandom(steps) * granularity;
+}

@@ -325,6 +325,10 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 extern NSTimeInterval const NSTimeIntervalInfinity;
 
 
+/// Generates random time between min and max with given step.
+extern NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granularity, NSTimeInterval maximum);
+
+
 /// Signed index allows referencing from the tail. -1 means last index, -2 the one before.
 extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger count);
 
