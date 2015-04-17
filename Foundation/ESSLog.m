@@ -21,7 +21,12 @@ static ESSLogLevel ESSLogLevelLimit = ESSLogLevelDebug;
 
 static void _ESSLogPrivate(ESSLogLevel level, NSString *message) {
     if (level < ESSLogLevelLimit) return;
-    NSLog(@"%@", message);
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        asl_add_output_file(nil, fileno(stdout), "$(Time): $(Message)", ASL_TIME_FMT_LCL, ASL_FILTER_MASK_UPTO(ASL_LEVEL_DEBUG), ASL_ENCODE_SAFE);
+    });
+    asl_log(nil, nil, ASL_LEVEL_DEBUG - level, "%s", message.UTF8String);
 }
 
 
