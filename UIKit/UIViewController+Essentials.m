@@ -29,6 +29,14 @@
 
 
 
+- (UIViewController *)deepestPresentedViewController {
+    return self.presentedViewController.deepestPresentedViewController ?: self;
+}
+
+
+
+
+
 @end
 
 
