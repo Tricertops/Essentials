@@ -30,7 +30,7 @@
 
 
 + (NSUUID *)UUIDWithHexString:(NSString *)hexString {
-    NSData *data = [NSData dataWithHexString:hexString];
+    NSData *data = [NSData dataWithHexadecimalString:hexString];
     return [self UUIDWithData:data];
 }
 
@@ -52,7 +52,7 @@
 
 
 - (NSString *)UUIDHexString {
-    return [[self UUIDData] hexString];
+    return [[self UUIDData] hexadecimalString];
 }
 
 

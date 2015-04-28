@@ -25,7 +25,7 @@
 
 
 
-+ (NSData *)dataWithHexString:(NSString *)hexString {
++ (NSData *)dataWithHexadecimalString:(NSString *)hexString {
     NSArray *ignoringSymbols = @[@"-", @"\n", @" "];
     for (NSString *symbol in ignoringSymbols) {
         hexString = [hexString stringByReplacingOccurrencesOfString:symbol withString:@""];
@@ -48,7 +48,7 @@
 }
 
 
-- (NSString *)hexString {
+- (NSString *)hexadecimalString {
     const unsigned char *data = [self bytes];
     NSUInteger length  = self.length;
     NSMutableString *hex  = [NSMutableString stringWithCapacity:(length * 2)];

@@ -20,9 +20,9 @@
 
 
 
-+ (NSData *)dataWithHexString:(NSString *)hexString;
++ (NSData *)dataWithHexadecimalString:(NSString *)hexString;
 
-- (NSString *)hexString;
+- (NSString *)hexadecimalString; // -hexString is already used by Foundation
 
 
 
