@@ -25,6 +25,7 @@
 
 
 + (NSUUID *)UUIDWithData:(NSData *)data {
+    if (data.length != sizeof(uuid_t)) return nil;
     return [[NSUUID alloc] initWithUUIDBytes:data.bytes];
 }
 
