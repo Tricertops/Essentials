@@ -336,6 +336,81 @@
 
 
 
+#pragma mark - Color Spaces
+
+
+ESSSharedMake(CGColorSpaceRef, deviceGrayColorSpace) {
+    return CGColorSpaceCreateDeviceGray();
+}
+
+
+ESSSharedMake(CGColorSpaceRef, deviceRGBColorSpace) {
+    return CGColorSpaceCreateDeviceRGB();
+}
+
+
+ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) {
+    return CGColorSpaceCreateDeviceCMYK();
+}
+
+
+
+
+
+#pragma mark - Gradients
+
+
++ (CGGradientRef)gradientFromColor:(UIColor *)start toColor:(UIColor *)end {
+    return [self gradientWithColors:@[ start, end ] locations:nil];
+}
+
+
+- (CGGradientRef)gradientFromAlpha:(CGFloat)alpha {
+    return [UIColor gradientFromColor:[self colorWithAlphaComponent:alpha] toColor:self];
+}
+
+
+- (CGGradientRef)gradientToAlpha:(CGFloat)alpha {
+    return [UIColor gradientFromColor:self toColor:[self colorWithAlphaComponent:alpha]];
+}
+
+
+- (CGGradientRef)gradientWithAlphaStops:(NSArray *)alphaStops locations:(NSArray *)locations {
+    NSMutableArray *colors = [NSMutableArray new];
+    for (NSNumber *alpha in alphaStops) {
+        [colors addObject:[self colorWithAlphaComponent:alpha.doubleValue]];
+    }
+    return [UIColor gradientWithColors:colors locations:locations];
+}
+
+
++ (CGGradientRef)gradientWithColors:(NSArray *)colors locations:(NSArray *)locations {
+    if ( ! colors.count) return NULL;
+    if (locations && locations.count != colors.count) return NULL;
+    
+    NSMutableArray *cgColors = [NSMutableArray new];
+    for (UIColor *color in colors) {
+        [cgColors addObject:(__bridge id)color.CGColor];
+    }
+    
+    CGFloat cLocations[locations.count]; // If zero, undefined.
+    NSUInteger index = 0;
+    for (NSNumber *location in locations) {
+        cLocations[index] = location.doubleValue;
+        index ++;
+    }
+    
+    CGGradientRef gradient = CGGradientCreateWithColors([UIColor deviceRGBColorSpace],
+                                                        (__bridge CFArrayRef)cgColors,
+                                                        (locations? cLocations : NULL));
+    CFAutorelease(gradient);
+    return gradient;
+}
+
+
+
+
+
 @end
 
 

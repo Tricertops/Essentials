@@ -82,6 +82,40 @@
 
 
 
+#pragma mark - Color Spaces
+
+/// Device Gray color space.
++ (CGColorSpaceRef)deviceGrayColorSpace;
+
+/// Device RGB color space.
++ (CGColorSpaceRef)deviceRGBColorSpace;
+
+/// Device CMYK color space.
++ (CGColorSpaceRef)deviceCMYKColorSpace;
+
+
+
+#pragma mark - Gradients
+
+//! Creates gradient with two colors.
++ (CGGradientRef)gradientFromColor:(UIColor *)color toColor:(UIColor *)color;
+
+//! Creates gradient with two colors. First is derived from the receiver at given alpha, second is the receiver.
+- (CGGradientRef)gradientFromAlpha:(CGFloat)alpha;
+
+//! Creates gradient with two colors. First is the receiver, second is derived from the receiver at given alpha.
+- (CGGradientRef)gradientToAlpha:(CGFloat)alpha;
+
+//! Creates gradient from a single color with multiple levels of alpha.
+- (CGGradientRef)gradientWithAlphaStops:(NSArray *)alphaStops locations:(NSArray *)locations;
+
+//! Creates gradient from a multiple colors.
++ (CGGradientRef)gradientWithColors:(NSArray *)colors locations:(NSArray *)locations;
+
+
+
+
+
 @end
 
 
