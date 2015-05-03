@@ -15,7 +15,11 @@
 @interface UIViewController (Essentials)
 
 
+//! Returns UINavigationController containing the receiver as the root. Inherits some properties.
 - (UINavigationController *)wrappedInNavigationController;
+
+//! Traverses presented View Controllers and returns the deepest one.
+- (UIViewController *)deepestPresentedViewController;
 
 
 @end

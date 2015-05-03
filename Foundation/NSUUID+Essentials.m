@@ -25,12 +25,13 @@
 
 
 + (NSUUID *)UUIDWithData:(NSData *)data {
+    if (data.length != sizeof(uuid_t)) return nil;
     return [[NSUUID alloc] initWithUUIDBytes:data.bytes];
 }
 
 
 + (NSUUID *)UUIDWithHexString:(NSString *)hexString {
-    NSData *data = [NSData dataWithHexString:hexString];
+    NSData *data = [NSData dataWithHexadecimalString:hexString];
     return [self UUIDWithData:data];
 }
 
@@ -52,7 +53,7 @@
 
 
 - (NSString *)UUIDHexString {
-    return [[self UUIDData] hexString];
+    return [[self UUIDData] hexadecimalString];
 }
 
 
