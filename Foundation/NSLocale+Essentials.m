@@ -9,6 +9,7 @@
 #import "NSLocale+Essentials.h"
 #import "NSArray+Essentials.h"
 #import "NSDictionary+Essentials.h"
+#import "Foundation+Essentials.h"
 
 
 
@@ -171,7 +172,7 @@
 #pragma mark - Creating
 
 
-+ (instancetype)standardizedLocale {
+ESSSharedMake(NSLocale *, standardizedLocale) {
     return [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
 }
 
