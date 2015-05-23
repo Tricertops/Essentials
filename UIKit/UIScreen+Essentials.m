@@ -105,6 +105,10 @@
     return self.mainScreen.rotatedBounds;
 }
 
++ (CGFloat)scale {
+    return self.mainScreen.scale;
+}
+
 + (CGFloat)pixel {
     return self.mainScreen.pixel;
 }

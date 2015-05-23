@@ -49,6 +49,7 @@
 + (CGRect)landscapeBounds __deprecated_msg("Obsolete with iOS 8, use -rotatedBounds");
 + (CGRect)fixedBounds;
 + (CGRect)rotatedBounds;
++ (CGFloat)scale;
 + (CGFloat)pixel;
 + (UIInterfaceOrientation)interfaceOrientation;
 
