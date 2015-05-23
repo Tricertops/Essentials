@@ -22,6 +22,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self];
     navigationController.modalTransitionStyle = self.modalTransitionStyle;
     navigationController.modalPresentationStyle = self.modalPresentationStyle;
+    navigationController.toolbarHidden = (self.toolbarItems.count == 0);
     return navigationController;
 }
 
