@@ -31,10 +31,7 @@
 
 + (instancetype)scheduledWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats handler:(void(^)(NSTimer *timer))handler {
     NSTimer *timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(ess_invokeUserInfoBlockHandler:) userInfo:handler repeats:repeats];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-#if TARGET_OS_IPHONE
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:UITrackingRunLoopMode];
-#endif
+    [timer scheduleWithUI: YES];
     return timer;
 }
 
@@ -52,7 +49,17 @@
 
 
 - (void)schedule {
+    [self scheduleWithUI: NO];
+}
+
+
+- (void)scheduleWithUI:(BOOL)withUI {
     [self scheduleInRunLoop:nil mode:nil];
+    if (withUI) {
+#if TARGET_OS_IPHONE
+        [self scheduleInRunLoop:nil mode:UITrackingRunLoopMode];
+#endif
+    }
 }
 
 

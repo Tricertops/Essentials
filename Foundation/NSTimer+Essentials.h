@@ -32,6 +32,9 @@
 /// Schedules the receiver on the current run loop in the default mode.
 - (void)schedule;
 
+/// Schedules the receiver on the current run loop in default and UI-tracking mode.
+- (void)scheduleWithUI: (BOOL)withUI;
+
 /// Schedules the receiver on the specified run loop in given mode.
 - (void)scheduleInRunLoop:(NSRunLoop *)runLoop mode:(NSString *)mode;
 
