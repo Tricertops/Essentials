@@ -8,6 +8,7 @@
 
 #import "UIAlertView+Essentials.h"
 #import "UIActionSheet+Essentials.h"
+#import "UIAlertController+Essentials.h"
 #import "UIColor+Essentials.h"
 #import "UIDevice+Essentials.h"
 #import "UIImage+Essentials.h"
