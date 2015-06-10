@@ -74,6 +74,8 @@
     ESSAssert(NO, MESSAGE, ##__VA_ARGS__)
 
 
+//! Use to avoid “empty if/while body”
+#define ESSNothing  ({ while (NO) ; });
 
 
 

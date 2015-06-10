@@ -112,7 +112,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 + (NSMethodSignature *)giveMeAnyMethodSignatureForSelector:(SEL)selector IProceedAtMyOwnRisk:(BOOL)agreed {
-    ESSAssert(agreed, @"You have no idea what you have just done!");
+    ESSAssert(agreed, @"You have no idea what you have just done!") ESSNothing;
     
     // I didn’t made this up by myself, it was Nick Lockwood https://github.com/nicklockwood/NullSafe/blob/master/NullSafe/NullSafe.m. Kindly stolen and refactored.
     

@@ -66,7 +66,7 @@ ESSShared(NSMutableDictionary *, _handlers, [NSMutableDictionary new])
 - (NSArray *)_handlers {
     NSMutableArray *handlers = [NSMutableArray new];
     [handlers addObjectsFromArray: [[self.class _handlers] objectForKey:self.file] ?: @[]];
-    [handlers addObjectsFromArray: [[self.class _handlers] objectForKey:nil] ?: @[]];
+    [handlers addObjectsFromArray: [[self.class _handlers] objectForKey:@""] ?: @[]];
     return handlers;
 }
 

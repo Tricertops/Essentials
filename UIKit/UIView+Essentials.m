@@ -488,7 +488,7 @@
 
 - (void)ess_mainThreadGuard {
     //TODO: This may throw false positives in UIWebView.
-    ESSAssert(NSThread.isMainThread, @"UIKit call off the Main Thread.");
+    ESSAssert(NSThread.isMainThread, @"UIKit call off the Main Thread.") ESSNothing;
 }
 
 
