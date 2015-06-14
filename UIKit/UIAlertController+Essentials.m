@@ -8,6 +8,7 @@
 
 #import "UIAlertController+Essentials.h"
 #import "UIApplication+Essentials.h"
+#import "UIViewController+Essentials.h"
 
 
 
@@ -125,21 +126,30 @@
 }
 
 
-- (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)barButton {
-    self.popoverPresentationController.barButtonItem = barButton;
-    [self present];
+- (void)presentFrom:(UIViewController *)viewController {
+    [viewController.deepestPresentedViewController presentViewController:self animated:YES completion:nil];
 }
 
 
-- (void)presentPopoverFromView:(UIView *)view {
-    [self presentPopoverFromView:view rect:view.bounds];
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromBarButtonItem:(UIBarButtonItem *)barButton {
+    if (popover && self.isSheet) {
+        self.popoverPresentationController.barButtonItem = barButton;
+    }
+    [self presentFrom:viewController];
 }
 
 
-- (void)presentPopoverFromView:(UIView *)view rect:(CGRect)rect {
-    self.popoverPresentationController.sourceView = view;
-    self.popoverPresentationController.sourceRect = rect;
-    [self present];
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromView:(UIView *)view {
+    [self presentFrom:viewController asPopover:popover fromView:view rect:view.bounds];
+}
+
+
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromView:(UIView *)view rect:(CGRect)rect {
+    if (popover && self.isSheet && view) {
+        self.popoverPresentationController.sourceView = view;
+        self.popoverPresentationController.sourceRect = rect;
+    }
+    [self presentFrom:viewController];
 }
 
 

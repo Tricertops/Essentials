@@ -49,12 +49,15 @@
 
 //! Presents the receiver on topmost view controller.
 - (void)present;
-//! Presents Sheet in popover from bar button item.
-- (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)barButton;
-//! Presents Sheet in popover from view.
-- (void)presentPopoverFromView:(UIView *)view;
-//! Presents Sheet in popover from rect in a view.
-- (void)presentPopoverFromView:(UIView *)view rect:(CGRect)rect;
+//! Presents the receiver on given view controller.
+- (void)presentFrom:(UIViewController *)viewController;
+
+//! Presents the receiver on given view controller. Optionally in a popover (only sheets) from given bar button item.
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromBarButtonItem:(UIBarButtonItem *)item;
+//! Presents the receiver on given view controller. Optionally in a popover (only sheets) from given view.
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromView:(UIView *)view;
+//! Presents the receiver on given view controller. Optionally in a popover (only sheets) from given rect of a view.
+- (void)presentFrom:(UIViewController *)viewController asPopover:(BOOL)popover fromView:(UIView *)view rect:(CGRect)rect;
 
 //! Dismisses the receiver.
 - (void)dismiss;
