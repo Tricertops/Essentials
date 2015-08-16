@@ -88,6 +88,9 @@
 /// Whether the receiver shared the same day component as current date.
 - (BOOL)isToday;
 
+/// Whether the receiver happened in previous number of units.
+- (BOOL)isInLast:(NSTimeInterval)interval unit:(NSCalendarUnit)unit;
+
 
 
 #pragma mark - Debug

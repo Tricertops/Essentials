@@ -156,6 +156,15 @@
 }
 
 
+- (BOOL)isInLast:(NSTimeInterval)interval unit:(NSCalendarUnit)unit {
+    NSDate *limit = [[NSCalendar currentCalendar] dateByAddingUnit:unit
+                                                             value:-interval
+                                                            toDate:[NSDate now]
+                                                           options:kNilOptions];
+    return [self isAfter:limit];
+}
+
+
 
 
 
