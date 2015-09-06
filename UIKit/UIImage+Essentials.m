@@ -257,15 +257,15 @@
 }
 
 
-- (NSDictionary *)createColorHistogram {
+- (NSDictionary<UIColor *, NSNumber *> *)createColorHistogram {
     return [self createColorHistogramWithThreshold:0.025];
 }
 
 
-- (NSDictionary *)createColorHistogramWithThreshold:(CGFloat)minimum {
+- (NSDictionary<UIColor *, NSNumber *> *)createColorHistogramWithThreshold:(CGFloat)minimum {
     NSUInteger numberOfPixels = self.numberOfPixels;
     if (numberOfPixels > UINT32_MAX) return nil;
-    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    NSMutableDictionary<UIColor *, NSNumber *> *dictionary = [NSMutableDictionary new];
     
     [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
         uint32_t colors = 1 << 16; // 65536 distinct colors
@@ -316,15 +316,15 @@
 }
 
 
-- (NSDictionary *)createColorHistogramGroupedByNaturalNames {
+- (NSDictionary<UIColor *, NSNumber *> *)createColorHistogramGroupedByNaturalNames {
     return [self createColorHistogramGroupedByNaturalNamesWithThreshold:0.01];
 }
 
 
-- (NSDictionary *)createColorHistogramGroupedByNaturalNamesWithThreshold:(CGFloat)minimum {
-    NSDictionary *colorsToShare = [self createColorHistogramWithThreshold:0]; // all
-    NSMutableDictionary *namesToShare = [NSMutableDictionary new];
-    NSMutableDictionary *colorsToName = [NSMutableDictionary new];
+- (NSDictionary<UIColor *, NSNumber *> *)createColorHistogramGroupedByNaturalNamesWithThreshold:(CGFloat)minimum {
+    NSDictionary<UIColor *, NSNumber *> *colorsToShare = [self createColorHistogramWithThreshold:0]; // all
+    NSMutableDictionary<NSString *, NSNumber *> *namesToShare = [NSMutableDictionary new];
+    NSMutableDictionary<UIColor *, NSString *> *colorsToName = [NSMutableDictionary new];
     [colorsToShare enumerateKeysAndObjectsUsingBlock:^(UIColor *color, NSNumber *colorShare, BOOL *stop) {
         //! Build  color->name  mapping
         NSString *name = [color naturalName];
@@ -334,16 +334,16 @@
         namesToShare[name] = @(nameShare + [colorShare doubleValue]);
     }];
     //! Exclude color names with too little share
-    NSSet *significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
+    NSSet<NSString *> *significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
         return [nameShare doubleValue] > minimum;
     }];
-    NSMutableDictionary *significantColorsToShare = [NSMutableDictionary new];
+    NSMutableDictionary<UIColor *, NSNumber *> *significantColorsToShare = [NSMutableDictionary new];
     for (NSString *name in significantNames) {
         //! For every significant color name, find the color with the largest share
-        NSArray *namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
-                                ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {
-                                    return [colorsToShare[colorA] compare:colorsToShare[colorB]];
-                                }];
+        NSArray<UIColor *> *namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
+                                           ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {
+                                               return [colorsToShare[colorA] compare:colorsToShare[colorB]];
+                                           }];
         UIColor *significantColor = namedColors.lastObject;
         //! Build final  color->share  mapping, where colors are coalesced by their names
         significantColorsToShare[significantColor] = namesToShare[name];

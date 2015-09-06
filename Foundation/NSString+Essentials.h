@@ -100,10 +100,10 @@
 - (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block;
 
 /// Replaces {key:value|key:value} placeholders with the return value of the block.
-- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary *dictionary))block;
+- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary<NSString *, NSString *> *dictionary))block;
 
 /// Replaces {key} placeholders with the values of substitutions[key]
-- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions;
+- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary<NSString *, NSString *> *)substitutions;
 
 /// Returns new string that is normalized for search without case and diacritics sensitivity.
 - (NSString *)normalizedString;
@@ -113,28 +113,28 @@
 #pragma mark Splitting
 
 /// Shorthand for -componentsSeparatedByString:
-- (NSArray *)split:(NSString *)separator;
+- (NSArray<NSString *> *)split:(NSString *)separator;
 
 /// Returns an array of strings, each with length of 1.
-- (NSArray *)letters;
+- (NSArray<NSString *> *)letters;
 
 /// The first letter.
 @property (readonly) NSString *firstLetter;
 
 /// Returns an array of lines.
-- (NSArray *)lines;
+- (NSArray<NSString *> *)lines;
 
 /// Returns an array of paragraphs.
-- (NSArray *)paragraphs;
+- (NSArray<NSString *> *)paragraphs;
 
 /// Returns an array of sentences.
-- (NSArray *)sentences;
+- (NSArray<NSString *> *)sentences;
 
 /// Returns an array of words without surrounding punctuation.
-- (NSArray *)words;
+- (NSArray<NSString *> *)words;
 
 /// Returns an array of words normalized for search.
-- (NSArray *)normalizedWords;
+- (NSArray<NSString *> *)normalizedWords;
 
 
 
@@ -150,7 +150,7 @@
 
 + (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION;
 
-- (NSArray *)stringsByAppendingStrings:(NSArray *)suffixes usingString:(NSString *)joiningString;
+- (NSArray<NSString *> *)stringsByAppendingStrings:(NSArray<NSString *> *)suffixes usingString:(NSString *)joiningString;
 
 
 @end

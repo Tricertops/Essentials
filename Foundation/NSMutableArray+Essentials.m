@@ -35,7 +35,7 @@
 #pragma mark Mapping
 
 
-- (NSMutableArray *)replace:(id(^)(id object))block {
+- (NSMutableArray<id> *)replace:(id(^)(id object))block {
     NSParameterAssert(block);
     
     for (NSUInteger index = 0; index < self.count; ) {
@@ -54,7 +54,7 @@
 }
 
 
-- (NSMutableArray *)replaceIndex:(id(^)(NSUInteger index, id object))block {
+- (NSMutableArray<id> *)replaceIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
     for (NSUInteger index = 0; index < self.count; ) {
@@ -79,9 +79,9 @@
 #pragma mark Nester Arrays
 
 
-- (NSMutableArray *)flatten {
-    NSMutableArray *builder = [[NSMutableArray alloc] init];
-    for (NSArray *subarray in self) {
+- (NSMutableArray<id> *)flatten {
+    NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
+    for (NSArray<id> *subarray in self) {
         [builder addObjectsFromArray:subarray];
     }
     [self setArray:builder];
@@ -94,7 +94,7 @@
 #pragma mark Filtering
 
 
-- (NSMutableArray *)filter:(BOOL(^)(id object))block {
+- (NSMutableArray<id> *)filter:(BOOL(^)(id object))block {
     NSParameterAssert(block);
     
     for (NSInteger index = 0; index < self.count; ) {
@@ -107,7 +107,7 @@
 }
 
 
-- (NSMutableArray *)filterIndex:(BOOL(^)(NSUInteger index, id object))block {
+- (NSMutableArray<id> *)filterIndex:(BOOL(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
     for (NSInteger index = 0; index < self.count; ) {
@@ -121,13 +121,10 @@
 
 #pragma mark Randomize
 
-- (NSMutableArray *)randomizeOrder {
-    
-    for (NSInteger i = self.count-1; i > 0; i--)
-    {
-        [self exchangeObjectAtIndex:i withObjectAtIndex:NSUIntegerRandom(i+1)];
+- (NSMutableArray<id> *)randomizeOrder {
+    for (NSInteger index = self.count - 1; index > 0; index--) {
+        [self exchangeObjectAtIndex:index withObjectAtIndex:NSUIntegerRandom(index+1)];
     }
-    
     return self;
 }
 

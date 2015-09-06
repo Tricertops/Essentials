@@ -61,7 +61,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingMaximumContentOffset {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingMaximumContentOffset {
     return [NSSet setWithObjects:@"contentSize", @"bounds", nil];
 }
 
@@ -93,7 +93,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingContentProgressOffset {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingContentProgressOffset {
     return [NSSet setWithObjects:@"contentOffset", @"contentInset", nil];
 }
 
@@ -125,7 +125,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingContentProgress {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingContentProgress {
     return [NSSet setWithObjects:@"contentProgressOffset", @"maximumContentOffset", nil];
 }
 
@@ -150,7 +150,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingBouncingInsets {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingBouncingInsets {
     return [NSSet setWithObjects:@"contentProgressOffset", @"maximumContentOffset", nil];
 }
 
@@ -174,7 +174,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingPage {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingPage {
     return [NSSet setWithObjects:@"contentOffset", @"bounds", nil];
 }
 

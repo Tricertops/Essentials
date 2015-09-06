@@ -31,7 +31,7 @@ typedef CGFloat CIAngle;
 #pragma mark - Combining
 
 /// Connects input images with output images. Returns last filter of the input array.
-+ (CIFilter *)chainFilters:(NSArray *)filters;
++ (CIFilter *)chainFilters:(NSArray<CIFilter *> *)filters;
 
 
 

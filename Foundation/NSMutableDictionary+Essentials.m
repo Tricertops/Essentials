@@ -16,7 +16,7 @@
 
 
 
-- (NSMutableDictionary *)addValuesFromDictionary:(NSDictionary *)otherDictionary {
+- (NSMutableDictionary<id, id> *)addValuesFromDictionary:(NSDictionary<id, id> *)otherDictionary {
     if ([self isEqualToDictionary:otherDictionary]) return self;
     
     [self addEntriesFromDictionary:otherDictionary];
@@ -24,8 +24,8 @@
 }
 
 
-- (void)setObjects:(NSArray *)objects forKeys:(NSArray *)keys {
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+- (void)setObjects:(NSArray<id> *)objects forKeys:(NSArray<id> *)keys {
+    NSDictionary<id, id> *dictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     [self addEntriesFromDictionary:dictionary];
 }
 

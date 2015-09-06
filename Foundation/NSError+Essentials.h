@@ -23,7 +23,7 @@
 - (BOOL)isRecoverable;
 
 
-- (instancetype)errorByAddingUserInfo:(NSDictionary *)userInfo;
+- (instancetype)errorByAddingUserInfo:(NSDictionary<NSString *, id> *)userInfo;
 
 
 

@@ -52,7 +52,7 @@
 #pragma mark - Combining
 
 /// Returns average color from those provided.
-+ (UIColor *)averageColor:(NSArray *)colors;
++ (UIColor *)averageColor:(NSArray<UIColor *> *)colors;
 
 /// Returns new color that is a result from blending receiver onto argument.
 - (UIColor *)blendedColorOn:(UIColor *)other;
@@ -107,10 +107,10 @@
 - (CGGradientRef)gradientToAlpha:(CGFloat)alpha;
 
 //! Creates gradient from a single color with multiple levels of alpha.
-- (CGGradientRef)gradientWithAlphaStops:(NSArray *)alphaStops locations:(NSArray *)locations;
+- (CGGradientRef)gradientWithAlphaStops:(NSArray<NSNumber *> *)alphaStops locations:(NSArray<NSNumber *> *)locations;
 
 //! Creates gradient from a multiple colors.
-+ (CGGradientRef)gradientWithColors:(NSArray *)colors locations:(NSArray *)locations;
++ (CGGradientRef)gradientWithColors:(NSArray<UIColor *> *)colors locations:(NSArray<NSNumber *> *)locations;
 
 
 

@@ -154,13 +154,13 @@
         [string deleteCharactersInRange:range];
     
     // Replace escaped sequences.
-    NSDictionary *escapes = @{
-                              @"&quot;": @"\"",
-                              @"&apos;": @"'",
-                              @"&lt;"  : @"<",
-                              @"&gt;"  : @">",
-                              @"&amp;" : @"&", // Should be last.
-                              };
+    NSDictionary<NSString *, NSString *> *escapes = @{
+                                                      @"&quot;": @"\"",
+                                                      @"&apos;": @"'",
+                                                      @"&lt;"  : @"<",
+                                                      @"&gt;"  : @">",
+                                                      @"&amp;" : @"&", // Should be last.
+                                                      };
     for (NSString *toFind in escapes) {
         NSString *toReplace = [escapes objectForKey:toFind];
         [string replaceOccurrencesOfString:toFind withString:toReplace options:0 range:NSMakeRange(0, string.length)];
@@ -276,11 +276,11 @@
 }
 
 
-- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary *dictionary))block {
+- (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary<NSString *, NSString *> *dictionary))block {
     return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
-        NSMutableDictionary *dictionary = [NSMutableDictionary new];
+        NSMutableDictionary<NSString *, NSString *> *dictionary = [NSMutableDictionary new];
         for (NSString *pair in [placeholder split:@"|"]) {
-            NSArray *components = [pair split:@":"];
+            NSArray<NSString *> *components = [pair split:@":"];
             NSString *key = (components.count > 1? components[0] : @"");
             NSString *value = (components.count > 1? components[1] : components[0]);
             dictionary[key] = value;
@@ -311,7 +311,7 @@
 }
 
 
-- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary *)substitutions {
+- (NSString *)stringBySubstitutingWithDictionary:(NSDictionary<NSString *, NSString *> *)substitutions {
     return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholderKey) {
         return [[substitutions objectForKey:placeholderKey] description];
     }];
@@ -331,14 +331,14 @@
 #pragma mark Splitting
 
 
-- (NSArray *)split:(NSString *)separator {
+- (NSArray<NSString *> *)split:(NSString *)separator {
     return [self componentsSeparatedByString:separator];
 }
 
 
 
-- (NSArray *)collect:(NSStringEnumerationOptions)option localized:(BOOL)localized {
-    NSMutableArray *builder = [NSMutableArray new];
+- (NSArray<NSString *> *)collect:(NSStringEnumerationOptions)option localized:(BOOL)localized {
+    NSMutableArray<NSString *> *builder = [NSMutableArray new];
     NSStringEnumerationOptions localizedOption = (localized? NSStringEnumerationLocalized : kNilOptions);
     [self enumerateSubstringsInRange:self.fullRange
                              options:(option | localizedOption)
@@ -349,7 +349,7 @@
 }
 
 
-- (NSArray *)letters {
+- (NSArray<NSString *> *)letters {
     return [self collect:NSStringEnumerationByComposedCharacterSequences localized:NO];
 }
 
@@ -361,27 +361,27 @@
 }
 
 
-- (NSArray *)lines {
+- (NSArray<NSString *> *)lines {
     return [self collect:NSStringEnumerationByLines localized:NO];
 }
 
 
-- (NSArray *)paragraphs {
+- (NSArray<NSString *> *)paragraphs {
     return [self collect:NSStringEnumerationByParagraphs localized:NO];
 }
 
 
-- (NSArray *)sentences {
+- (NSArray<NSString *> *)sentences {
     return [self collect:NSStringEnumerationBySentences localized:YES];
 }
 
 
-- (NSArray *)words {
+- (NSArray<NSString *> *)words {
     return [self collect:NSStringEnumerationByWords localized:YES];
 }
 
 
-- (NSArray *)normalizedWords {
+- (NSArray<NSString *> *)normalizedWords {
     return [[self words] map:^NSString *(NSString *word) {
         return [word normalizedString];
     }];
@@ -409,7 +409,7 @@
 }
 
 
-- (NSArray *)stringsByAppendingStrings:(NSArray *)suffixes usingString:(NSString *)joiningString {
+- (NSArray<NSString *> *)stringsByAppendingStrings:(NSArray<NSString *> *)suffixes usingString:(NSString *)joiningString {
     return [suffixes map:^NSString *(NSString *suffix) {
         return (suffix.length
                 ? [self stringByAppendingFormat:@"%@%@", joiningString ?: @"", suffix]

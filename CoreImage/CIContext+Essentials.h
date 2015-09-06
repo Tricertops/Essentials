@@ -27,10 +27,10 @@
 #pragma mark - Processing Images
 
 /// Returns image processed by an array of filters in temporary context.
-+ (UIImage *)imageFromImage:(UIImage *)input filters:(NSArray *)filters;
++ (UIImage *)imageFromImage:(UIImage *)input filters:(NSArray<CIFilter *> *)filters;
 
 /// Returns image processed by an array of filters.
-- (UIImage *)imageFromImage:(UIImage *)input filters:(NSArray *)filters;
+- (UIImage *)imageFromImage:(UIImage *)input filters:(NSArray<CIFilter *> *)filters;
 
 
 

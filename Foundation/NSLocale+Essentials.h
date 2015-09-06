@@ -23,7 +23,7 @@
 @property (readonly) NSString *identifier;
 
 //! Returns all component defined in the receiver.
-@property (readonly) NSDictionary *components;
+@property (readonly) NSDictionary<NSString *, id> *components;
 
 
 
@@ -98,13 +98,13 @@
 + (instancetype)standardizedLocale;
 
 //! Returns new locale with given components.
-+ (instancetype)localeWithComponents:(NSDictionary *)components;
++ (instancetype)localeWithComponents:(NSDictionary<NSString *, id> *)components;
 
 //! Returns new locale that has components from the receiver only for given keys.
-- (NSLocale *)localeWithComponentKeys:(NSArray *)keys;
+- (NSLocale *)localeWithComponentKeys:(NSArray<NSString *> *)keys;
 
 //! Returns new locale with overridden components.
-- (NSLocale *)localeWithComponents:(NSDictionary *)components;
+- (NSLocale *)localeWithComponents:(NSDictionary<NSString *, id> *)components;
 
 //! Returns new locale with all components from the receiver except language.
 - (NSLocale *)localeWithLanguage:(NSString *)language;

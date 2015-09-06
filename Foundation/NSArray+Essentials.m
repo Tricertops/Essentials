@@ -37,7 +37,7 @@
 
 
 + (instancetype)arrayWithCount:(NSUInteger)count builder:(id(^)(NSUInteger index))block {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    NSMutableArray<id> *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger index = 0; index < count; index++) {
         [array addObject:block(index)];
     }
@@ -77,10 +77,10 @@
 #pragma mark Mapping
 
 
-- (NSArray *)map:(id(^)(id object))block {
+- (NSArray<id> *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray *mutable = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
     for (id object in self) {
         id mapped = block(object);
         if (mapped) [mutable addObject:mapped];
@@ -89,10 +89,10 @@
 }
 
 
-- (NSArray *)mapIndex:(id(^)(NSUInteger index, id object))block {
+- (NSArray<id> *)mapIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray *mutable = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
     NSUInteger index = 0;
     for (id object in self) {
         id mapped = block(index, object);
@@ -103,14 +103,14 @@
 }
 
 
-- (NSDictionary *)dictionaryByKeyPath:(NSString *)keyPath {
-    NSArray *keys = [self valueForKeyPath:keyPath];
+- (NSDictionary<id, id> *)dictionaryByKeyPath:(NSString *)keyPath {
+    NSArray<id> *keys = [self valueForKeyPath:keyPath];
     return [NSDictionary dictionaryWithObjects:self forKeys:keys];
 }
 
 
-- (NSMutableDictionary *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+- (NSMutableDictionary<id, id> *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block {
+    NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
     for (id value in self) {
         id<NSCopying> key = block(value);
         if (key) {
@@ -121,8 +121,8 @@
 }
 
 
-- (NSMutableDictionary *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+- (NSMutableDictionary<id, id> *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
+    NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
     for (id<NSCopying> key in self) {
         id value = block(key);
         if (value) {
@@ -140,9 +140,9 @@
 #pragma mark Nested Arrays
 
 
-- (NSArray *)flattenedArray {
-    NSMutableArray *builder = [[NSMutableArray alloc] init];
-    for (NSArray *subarray in self) {
+- (NSArray<id> *)flattenedArray {
+    NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
+    for (NSArray<id> *subarray in self) {
         [builder addObjectsFromArray:subarray];
     }
     return builder;
@@ -157,7 +157,7 @@
 
 - (NSString *)componentsJoinedByString:(NSString *)separator lastString:(NSString *)lastSeparator {
     if (self.count > 1) {
-        NSArray *selfWithoutLast = [self subarrayWithRange:NSMakeRange(0, self.count-1)];
+        NSArray<id> *selfWithoutLast = [self subarrayWithRange:NSMakeRange(0, self.count-1)];
         NSString *string = [NSString stringWithFormat:@"%@%@%@", [selfWithoutLast componentsJoinedByString:separator], lastSeparator, self.lastObject];
         return string;
     }
@@ -177,12 +177,12 @@
 }
 
 
-- (NSArray *)subarrayToIndex:(NSUInteger)index {
+- (NSArray<id> *)subarrayToIndex:(NSUInteger)index {
     return [self subarrayWithRange:NSMakeRange(0, index)];
 }
 
 
-- (NSArray *)subarrayFromIndex:(NSUInteger)index {
+- (NSArray<id> *)subarrayFromIndex:(NSUInteger)index {
     return [self subarrayWithRange:NSMakeRange(index, self.count - index)];
 }
 
@@ -193,7 +193,7 @@
 #pragma mark Randomizing
 
 
-- (NSArray *)arrayByRandomizingOrder {
+- (NSArray<id> *)arrayByRandomizingOrder {
    return [self.mutableCopy randomizeOrder];
 }
 
@@ -204,7 +204,7 @@
 }
 
 
-- (NSSet *)distinctObjects {
+- (NSSet<id> *)distinctObjects {
     return [NSSet setWithArray:self];
 }
 

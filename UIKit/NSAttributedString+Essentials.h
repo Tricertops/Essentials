@@ -38,7 +38,7 @@
 
 
 /// Returns new attributed string created from the receiver and given attributes.
-- (NSAttributedString *)attributed:(NSDictionary *)attributes;
+- (NSAttributedString *)attributed:(NSDictionary<NSString *, id> *)attributes;
 
 
 @end

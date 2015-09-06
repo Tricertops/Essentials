@@ -132,7 +132,7 @@
 #pragma mark - Combining
 
 
-+ (UIColor *)averageColor:(NSArray *)colors {
++ (UIColor *)averageColor:(NSArray<UIColor *> *)colors {
     if ( ! colors.count) return nil;
     if (colors.count == 1) return colors.firstObject;
     
@@ -375,8 +375,8 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) {
 }
 
 
-- (CGGradientRef)gradientWithAlphaStops:(NSArray *)alphaStops locations:(NSArray *)locations {
-    NSMutableArray *colors = [NSMutableArray new];
+- (CGGradientRef)gradientWithAlphaStops:(NSArray<NSNumber *> *)alphaStops locations:(NSArray<NSNumber *> *)locations {
+    NSMutableArray<UIColor *> *colors = [NSMutableArray new];
     for (NSNumber *alpha in alphaStops) {
         [colors addObject:[self colorWithAlphaComponent:alpha.doubleValue]];
     }
@@ -384,11 +384,11 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) {
 }
 
 
-+ (CGGradientRef)gradientWithColors:(NSArray *)colors locations:(NSArray *)locations {
++ (CGGradientRef)gradientWithColors:(NSArray<UIColor *> *)colors locations:(NSArray<NSNumber *> *)locations {
     if ( ! colors.count) return NULL;
     if (locations && locations.count != colors.count) return NULL;
     
-    NSMutableArray *cgColors = [NSMutableArray new];
+    NSMutableArray<id> *cgColors = [NSMutableArray new];
     for (UIColor *color in colors) {
         [cgColors addObject:(__bridge id)color.CGColor];
     }

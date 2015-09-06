@@ -106,7 +106,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingBackgroundAlpha {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingBackgroundAlpha {
     return [NSSet setWithObject:ESSKeypathClass(UIView, backgroundColor)];
 }
 
@@ -127,7 +127,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingPosition {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingPosition {
     return [NSSet setWithObject:ESSKeypathClass(UIView, center)];
 }
 
@@ -142,7 +142,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingRelativeAnchorPoint {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingRelativeAnchorPoint {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.anchorPoint)];
 }
 
@@ -157,7 +157,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingAnchorPoint {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingAnchorPoint {
     return [NSSet setWithObjects:ESSKeypathClass(UIView, bounds), ESSKeypathClass(UIView, relativeAnchorPoint), nil];
 }
 
@@ -180,7 +180,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingRotation {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingRotation {
     return [NSSet setWithObject:@"layer.transform"];
 }
 
@@ -195,7 +195,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingScale {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingScale {
     return [NSSet setWithObject:ESSKeypathClass(UIView, scales)];
 }
 
@@ -214,7 +214,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingScales {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingScales {
     return [NSSet setWithObject:@"layer.transform"];
 }
 
@@ -236,7 +236,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingTranslation {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingTranslation {
     return [NSSet setWithObject:ESSKeypathClass(UIView, transform)];
 }
 
@@ -272,7 +272,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadow {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadow {
     return [NSSet setWithObjects:
             ESSKeypathClass(UIView, layer.shadowOffset),
             ESSKeypathClass(UIView, shadowColor),
@@ -292,7 +292,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadowOffset {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadowOffset {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOffset)];
 }
 
@@ -307,7 +307,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadowColor {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadowColor {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowColor)];
 }
 
@@ -322,7 +322,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadowBlurRadius {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadowBlurRadius {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowRadius)];
 }
 
@@ -337,7 +337,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadowAlpha {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadowAlpha {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowOpacity)];
 }
 
@@ -352,7 +352,7 @@
 }
 
 
-+ (NSSet *)keyPathsForValuesAffectingShadowPath {
++ (NSSet<NSString *> *)keyPathsForValuesAffectingShadowPath {
     return [NSSet setWithObject:ESSKeypathClass(UIView, layer.shadowPath)];
 }
 
@@ -411,7 +411,7 @@
 
 
 - (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block {
-    NSMutableArray *stack = [[NSMutableArray alloc] initWithArray:self.subviews];
+    NSMutableArray<UIView *> *stack = [[NSMutableArray alloc] initWithArray:self.subviews];
     BOOL stop = NO;
     while (stack.count) {
         UIView *subview = [stack firstObject];

@@ -42,7 +42,7 @@
 //! Thread on which ESSCatch executed.
 @property (readonly) NSThread *thread;
 //! Call stack at the moment of ESSCatch execution.
-@property (readonly) NSArray *callStack;
+@property (readonly) NSArray<NSString *> *callStack;
 //! Operation Queue on which ESSCatch executed.
 @property (readonly) NSOperationQueue *operationQueue;
 //! Run Loop on which ESSCatch executed.
@@ -74,7 +74,7 @@ typedef void (*ESSCatchHandler)(ESSCatchIssue *issue);
 + (instancetype)_c:(NSString *)condition m:(NSString *)message f:(NSString *)file l:(NSUInteger)line f:(NSString *)function;
 
 + (void)_addHandler:(ESSCatchHandler)h forFile:(NSString *)f;
-- (NSArray *)_handlers;
+- (NSArray<NSValue *> *)_handlers;
 
 
 @end

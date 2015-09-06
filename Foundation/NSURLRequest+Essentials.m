@@ -15,7 +15,7 @@
 @implementation NSURLRequest (Essentials)
 
 
-+ (instancetype)requestWithMethod:(NSString *)HTTPMethod URL:(NSURL *)URL headers:(NSDictionary *)headers body:(id<ESSURLRequestBody>)body {
++ (instancetype)requestWithMethod:(NSString *)HTTPMethod URL:(NSURL *)URL headers:(NSDictionary<NSString *, NSString *> *)headers body:(id<ESSURLRequestBody>)body {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = HTTPMethod;
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {

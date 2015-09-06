@@ -73,7 +73,7 @@
             
             if (self.location.isFileURL) {
                 NSError *error = nil;
-                NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.location.path error:&error];
+                NSDictionary<NSString *, id> *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.location.path error:&error];
                 self.fileError = error;
                 self->_length = [[attributes objectForKey:NSFileSize] unsignedIntegerValue];
             }
@@ -185,7 +185,7 @@ ESSLazyLoad(NSDictionary *, JSON) {
 }
 
 
-ESSLazyLoad(NSArray *, JSONArray) {
+ESSLazyLoad(NSArray<id> *, JSONArray) {
     [self loadJSON];
 }
 
@@ -216,7 +216,7 @@ ESSLazyLoad(NSDictionary *, propertyList) {
 }
 
 
-ESSLazyLoad(NSArray *, propertyListArray) {
+ESSLazyLoad(NSArray<id> *, propertyListArray) {
     [self loadPropertyList];
 }
 
@@ -257,7 +257,7 @@ ESSLazyLoad(NSArray *, propertyListArray) {
 
 
 - (BOOL)moveToCaches {
-    NSArray *cachesDirs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSArray<NSURL *> *cachesDirs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL *cacheURL = [cachesDirs firstObject];
     cacheURL = [cacheURL URLByAppendingPathComponent:NSStringFromClass(self.class) isDirectory:YES];
     cacheURL = [cacheURL URLByAppendingPathComponent:self.location.lastPathComponent];

@@ -48,7 +48,7 @@
 @implementation NSString (NSAttributedString_Essentials)
 
 
-- (NSAttributedString *)attributed:(NSDictionary *)attributes {
+- (NSAttributedString *)attributed:(NSDictionary<NSString *, id> *)attributes {
     return [[NSAttributedString alloc] initWithString:self attributes:attributes];
 }
 

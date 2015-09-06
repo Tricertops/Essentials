@@ -42,7 +42,7 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 #pragma mark - Metadata
 
 //! All header fields with their values.
-@property (readonly) NSDictionary *headers;
+@property (readonly) NSDictionary<NSString *, NSString *> *headers;
 //! Length of bytes of the received data or size of the file.
 @property (readonly) NSUInteger length;
 //! The MIME type of the data.
@@ -62,15 +62,15 @@ typedef void(^ESSURLResponseBlock)(ESSURLResponse *response);
 //! Lazily decoded string from .data property using .encoding from headers or UTF-8. Property .decodingError is updated.
 @property (readonly) NSString *string;
 //! Lazily parsed JSON object from .data property. Property .decodingError is updated.
-@property (readonly) NSDictionary *JSON;
+@property (readonly) NSDictionary<NSString *, id> *JSON;
 //! Lazily parsed JSON array from .data property. Property .decodingError is updated.
-@property (readonly) NSArray *JSONArray;
+@property (readonly) NSArray<id> *JSONArray;
 //! Lazily serialized pretty JSON string from .JSON property. Property .decodingError is updated.
 @property (readonly) NSString *prettyJSONString;
 //! Lazily parsed Property List dictionary from .data property. Property .decodingError is updated.
-@property (readonly) NSDictionary *propertyList;
+@property (readonly) NSDictionary<NSString *, id> *propertyList;
 //! Lazily parsed Property List array from .data property. Property .decodingError is updated.
-@property (readonly) NSArray *propertyListArray;
+@property (readonly) NSArray<id> *propertyListArray;
 
 
 #pragma mark - File

@@ -63,10 +63,10 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 + (NSString *)name;
 
 /// Returns an array of superclasses. First is -superclass and the last is the root class.
-+ (NSArray *)superclasses;
++ (NSArray<Class> *)superclasses;
 
 /// Returns an array of classes. First is -class, second is -superclass and the last is the root class.
-- (NSArray *)classes;
+- (NSArray<Class> *)classes;
 
 /// Return the root superclass.
 - (Class)rootClass;
@@ -112,6 +112,6 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 
 extern Class ESSSubclass(Class superclass, NSString *name);
 
-extern NSMutableArray * ESSSuperclasses(Class class);
+extern NSMutableArray<Class> * ESSSuperclasses(Class class);
 
 

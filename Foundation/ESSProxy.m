@@ -132,9 +132,9 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 }
 
 
-ESSSharedMake(NSSet *,ess_signatureClassList) {
-    NSMutableSet *builder = [[NSMutableSet alloc] init];
-    NSMutableSet *excluded = [NSMutableSet set];
+ESSSharedMake(NSSet<NSString *> *,ess_signatureClassList) {
+    NSMutableSet<NSString *> *builder = [[NSMutableSet alloc] init];
+    NSMutableSet<NSString *> *excluded = [NSMutableSet set];
     
     int count = objc_getClassList(NULL, 0);
     Class *classes = (Class *)malloc(sizeof(Class) * count);
@@ -143,7 +143,7 @@ ESSSharedMake(NSSet *,ess_signatureClassList) {
     for (int index = 0; index < count; index++) {
         Class class = classes[index];
         
-        NSArray *superclasses = ESSSuperclasses(class);
+        NSArray<Class> *superclasses = ESSSuperclasses(class);
         
         for (Class superclass in superclasses) {
             [excluded addObject:NSStringFromClass(superclass)];
@@ -252,7 +252,7 @@ ESSSharedCache(ess_signatureCache)
 }
 
 
-- (instancetype)multicasterTo:(NSArray *)objects {
+- (instancetype)multicasterTo:(NSArray<id> *)objects {
     return [[[ESSProxy subclass:@"ESSMulticasterProxyWithReturn"] alloc] initWithDescription:^id{
         return [NSString stringWithFormat:@"%@ to %@", self, objects];
     } signature:^NSMethodSignature *(SEL selector) {

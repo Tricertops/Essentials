@@ -37,8 +37,8 @@
 
 
 - (instancetype)fontWithFeature:(UInt16)type selector:(UInt16)selector {
-    NSArray *features = [self.fontDescriptor.fontAttributes objectForKey:UIFontDescriptorFeatureSettingsAttribute];
-    NSMutableArray *mutableFeatures = [[NSMutableArray alloc] initWithArray:features];
+    NSArray<NSDictionary<NSString *, NSNumber *> *> *features = [self.fontDescriptor.fontAttributes objectForKey:UIFontDescriptorFeatureSettingsAttribute];
+    NSMutableArray<NSDictionary<NSString *, NSNumber *> *> *mutableFeatures = [[NSMutableArray alloc] initWithArray:features];
     
     [mutableFeatures addObject:@{
                                  UIFontFeatureTypeIdentifierKey: @(type),

@@ -41,12 +41,12 @@
 #pragma mark - Processing Images
 
 
-+ (UIImage *)imageFromImage:(UIImage *)inputUI filters:(NSArray *)filters {
++ (UIImage *)imageFromImage:(UIImage *)inputUI filters:(NSArray<CIFilter *> *)filters {
     return [[CIContext context] imageFromImage:inputUI filters:filters];
 }
 
 
-- (UIImage *)imageFromImage:(UIImage *)inputUI filters:(NSArray *)filters {
+- (UIImage *)imageFromImage:(UIImage *)inputUI filters:(NSArray<CIFilter *> *)filters {
     if ( ! inputUI) return nil;
     if ( ! filters.count) return inputUI;
     

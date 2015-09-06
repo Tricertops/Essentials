@@ -24,7 +24,7 @@
 #pragma mark Accessing Objects
 
 
-- (id)objectForAnyKeyInArray:(NSArray *)keys {
+- (id)objectForAnyKeyInArray:(NSArray<id> *)keys {
     for (NSString *key in keys) {
         id value = [self objectForKey:key];
         if (value) return value;
@@ -38,7 +38,7 @@
 }
 
 
-- (NSArray *)arrayForKey:(id<NSCopying>)key {
+- (NSArray<id> *)arrayForKey:(id<NSCopying>)key {
     return [NSArray cast:self[key]];
 }
 
@@ -119,17 +119,17 @@
 #pragma mark Joining
 
 
-- (NSArray *)pairsJoinedByString:(NSString *)joiningString {
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:self.count];
+- (NSArray<NSString *> *)pairsJoinedByString:(NSString *)joiningString {
+    NSMutableArray<NSString *> *array = [[NSMutableArray alloc] initWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSArray *pair = @[ [key description], [obj description] ];
+        NSArray<NSString *> *pair = @[ [key description], [obj description] ];
         [array addObject:[pair join:joiningString]];
     }];
     return [array copy];
 }
 
 
-- (NSArray *)join:(NSString *)string {
+- (NSArray<NSString *> *)join:(NSString *)string {
     return [self pairsJoinedByString:string];
 }
 
@@ -140,12 +140,12 @@
 #pragma mark Merging
 
 
-- (NSDictionary *)dictionaryByAddingValuesFromDictionary:(NSDictionary *)otherDictionary {
+- (NSDictionary<id, id> *)dictionaryByAddingValuesFromDictionary:(NSDictionary<id, id> *)otherDictionary {
     return [[self mutableCopy] addValuesFromDictionary:otherDictionary];
 }
 
 
-- (NSDictionary *)merged:(NSDictionary *)other {
+- (NSDictionary<id, id> *)merged:(NSDictionary<id, id> *)other {
     return [self dictionaryByAddingValuesFromDictionary:other];
 }
 
@@ -156,9 +156,9 @@
 #pragma mark Inverting
 
 
-- (instancetype)invertedDictionary {
-    NSArray *keys = self.allKeys;
-    NSArray *values = [self objectsForKeys:keys notFoundMarker:NSNull.null];
+- (NSDictionary<id, id> *)invertedDictionary {
+    NSArray<id> *keys = self.allKeys;
+    NSArray<id> *values = [self objectsForKeys:keys notFoundMarker:NSNull.null];
     return [self.class dictionaryWithObjects:keys forKeys:values];
 }
 

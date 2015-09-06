@@ -41,7 +41,7 @@
 + (instancetype)alertWithError:(NSError *)error title:(NSString *)title button:(NSString*)button {
     title = title ?: error.localizedFailureReason ?: @"Error";
     
-	NSMutableArray *messageComponents = @[
+	NSMutableArray<NSString *> *messageComponents = @[
 	    error.localizedDescription ?: @"",
 	    error.localizedFailureReason ?: @"",
 	    error.localizedRecoverySuggestion ?: @"",

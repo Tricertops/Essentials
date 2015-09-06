@@ -29,7 +29,7 @@
 }
 
 
-- (NSDictionary *)components {
+- (NSDictionary<NSString *, id> *)components {
     return [NSLocale componentsFromLocaleIdentifier:self.identifier];
 }
 
@@ -177,22 +177,22 @@ ESSSharedMake(NSLocale *, standardizedLocale) {
 }
 
 
-+ (instancetype)localeWithComponents:(NSDictionary *)components {
++ (instancetype)localeWithComponents:(NSDictionary<NSString *, id> *)components {
     NSString *identifier = [NSLocale localeIdentifierFromComponents:components];
     return [NSLocale localeWithLocaleIdentifier:identifier];
 }
 
 
-- (NSLocale *)localeWithComponentKeys:(NSArray *)keys {
-    NSDictionary *components = [keys dictionaryByMappingToValues:^id(NSString *key) {
+- (NSLocale *)localeWithComponentKeys:(NSArray<NSString *> *)keys {
+    NSDictionary<NSString *, id> *components = [keys dictionaryByMappingToValues:^id(NSString *key) {
         return [self objectForKey:key];
     }];
     return [NSLocale localeWithComponents:components];
 }
 
 
-- (NSLocale *)localeWithComponents:(NSDictionary *)components {
-    NSDictionary *combinedComponents = [self.components dictionaryByAddingValuesFromDictionary:components];
+- (NSLocale *)localeWithComponents:(NSDictionary<NSString *, id> *)components {
+    NSDictionary<NSString *, id> *combinedComponents = [self.components dictionaryByAddingValuesFromDictionary:components];
     return [NSLocale localeWithComponents:combinedComponents];
 }
 

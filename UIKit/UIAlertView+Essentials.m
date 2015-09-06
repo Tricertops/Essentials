@@ -125,12 +125,12 @@
     UIAlertView *alert = [[UIAlertView alloc] init];
     alert.title = title ?: @"Error";
     
-    NSMutableArray *messageComponents = [NSMutableArray arrayWithObjects:
-                                         error.localizedDescription ?: @"",
-                                         error.localizedFailureReason ?: @"",
-                                         error.localizedRecoverySuggestion ?: @"",
-                                         error.helpAnchor ?: @"",
-                                         nil];
+    NSMutableArray<NSString *> *messageComponents = [NSMutableArray arrayWithObjects:
+                                                     error.localizedDescription ?: @"",
+                                                     error.localizedFailureReason ?: @"",
+                                                     error.localizedRecoverySuggestion ?: @"",
+                                                     error.helpAnchor ?: @"",
+                                                     nil];
     [messageComponents removeObject:@""];
     
     alert.message = [messageComponents componentsJoinedByString:@"\n\n"];

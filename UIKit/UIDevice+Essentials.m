@@ -46,10 +46,10 @@
 }
 
 - (NSString *)idiomName {
-    NSDictionary *mapping = @{
-                              @(UIUserInterfaceIdiomPhone): @"iphone",
-                              @(UIUserInterfaceIdiomPad): @"ipad",
-                              };
+    NSDictionary<NSNumber *, NSString *> *mapping = @{
+                                                      @(UIUserInterfaceIdiomPhone): @"iphone",
+                                                      @(UIUserInterfaceIdiomPad): @"ipad",
+                                                      };
     return [mapping objectForKey:@(self.userInterfaceIdiom)];
 }
 

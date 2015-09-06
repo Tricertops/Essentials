@@ -52,9 +52,9 @@ ESSShared(NSMutableDictionary *, _handlers, [NSMutableDictionary new])
 
 
 + (void)_addHandler:(ESSCatchHandler)handler forFile:(NSString *)file {
-    NSMutableDictionary *handlers = [self _handlers];
+    NSMutableDictionary<NSString *, NSMutableArray<NSValue *> *> *handlers = [self _handlers];
     id key = (file.lastPathComponent ?: @"");
-    NSMutableArray *handlersForKey = handlers[key];
+    NSMutableArray<NSValue *> *handlersForKey = handlers[key];
     if ( ! handlersForKey) {
         handlersForKey = [NSMutableArray new];
         handlers[key] = handlersForKey;
@@ -63,8 +63,8 @@ ESSShared(NSMutableDictionary *, _handlers, [NSMutableDictionary new])
 }
 
 
-- (NSArray *)_handlers {
-    NSMutableArray *handlers = [NSMutableArray new];
+- (NSArray<NSValue *> *)_handlers {
+    NSMutableArray<NSValue *> *handlers = [NSMutableArray new];
     [handlers addObjectsFromArray: [[self.class _handlers] objectForKey:self.file] ?: @[]];
     [handlers addObjectsFromArray: [[self.class _handlers] objectForKey:@""] ?: @[]];
     return handlers;

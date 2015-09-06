@@ -12,15 +12,15 @@
 
 
 
-@interface NSMutableDictionary (Essentials)
+@interface NSMutableDictionary<K, V> (Essentials)
 
 
 
 /// Adds the values contained in another given dictionary to the receiving dictionary. Returns the receiver.
-- (NSMutableDictionary *)addValuesFromDictionary:(NSDictionary *)otherDictionary;
+- (instancetype)addValuesFromDictionary:(NSDictionary<K, V> *)otherDictionary;
 
 /// Adds a given key-value pairs to the dictionary.
-- (void)setObjects:(NSArray *)objects forKeys:(NSArray *)keys;
+- (void)setObjects:(NSArray<V> *)objects forKeys:(NSArray<K> *)keys;
 
 
 

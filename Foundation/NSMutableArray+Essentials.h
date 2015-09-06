@@ -12,7 +12,7 @@
 
 
 
-@interface NSMutableArray (Essentials)
+@interface NSMutableArray<T> (Essentials)
 
 
 
@@ -21,7 +21,7 @@
 #pragma mark - Mutating
 
 /// Inserts a given object at the end of the array. If the object is nil, does nothing.
-- (void)addObjectIfAny:(id)object;
+- (void)addObjectIfAny:(T)object;
 
 
 
@@ -30,32 +30,32 @@
 #pragma mark Mapping
 
 ///
-- (NSMutableArray *)replace:(id(^)(id object))block;
+- (instancetype)replace:(id(^)(T object))block;
 
 ///
-- (NSMutableArray *)replaceIndex:(id(^)(NSUInteger index, id object))block;
+- (instancetype)replaceIndex:(id(^)(NSUInteger index, T object))block;
 
 
 
 #pragma mark Nester Arrays
 
-- (NSMutableArray *)flatten;
+- (NSMutableArray<id> *)flatten;
 
 
 
 #pragma mark Filtering
 
 /// Removes all objects from the receiver for which the block returns NO. Method returns receiver.
-- (NSMutableArray *)filter:(BOOL(^)(id object))block;
+- (instancetype)filter:(BOOL(^)(T object))block;
 
 /// Removes all objects from the receiver for which the block returns NO. Method returns receiver.
-- (NSMutableArray *)filterIndex:(BOOL(^)(NSUInteger index, id object))block;
+- (instancetype)filterIndex:(BOOL(^)(NSUInteger index, T object))block;
     
 
 #pragma mark Randomize
 
 /// Changes positions of all objects in array, in random order. Method returns reordered array.
-- (NSMutableArray *)randomizeOrder;
+- (instancetype)randomizeOrder;
 
 
 

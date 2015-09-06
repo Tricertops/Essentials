@@ -45,7 +45,7 @@
 - (instancetype)catcher:(void(^)(NSInvocation *invocation))block;
 
 /// Returns a proxy that in addition to invoking messages on the receiver also invokes the messages on the given objects. Returned values of the other objects are ignored.
-- (instancetype)multicasterTo:(NSArray *)objects;
+- (instancetype)multicasterTo:(NSArray<id> *)objects;
 
 
 @end

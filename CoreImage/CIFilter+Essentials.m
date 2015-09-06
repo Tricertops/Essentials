@@ -37,7 +37,7 @@
 #pragma mark - Combining
 
 
-+ (CIFilter *)chainFilters:(NSArray *)filters {
++ (CIFilter *)chainFilters:(NSArray<CIFilter *> *)filters {
     CIFilter *latestFilter = nil;
     for (CIFilter *filter in filters) {
         if (latestFilter) {

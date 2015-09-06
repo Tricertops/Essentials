@@ -26,7 +26,7 @@
 
 
 + (NSData *)dataWithHexadecimalString:(NSString *)hexString {
-    NSArray *ignoringSymbols = @[@"-", @"\n", @" "];
+    NSArray<NSString *> *ignoringSymbols = @[@"-", @"\n", @" "];
     for (NSString *symbol in ignoringSymbols) {
         hexString = [hexString stringByReplacingOccurrencesOfString:symbol withString:@""];
     }

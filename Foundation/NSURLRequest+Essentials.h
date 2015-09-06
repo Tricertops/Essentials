@@ -36,7 +36,7 @@
 
 
 //! Returns new URL request.
-+ (instancetype)requestWithMethod:(NSString *)HTTPMethod URL:(NSURL *)URL headers:(NSDictionary *)headers body:(id<ESSURLRequestBody>)body;
++ (instancetype)requestWithMethod:(NSString *)HTTPMethod URL:(NSURL *)URL headers:(NSDictionary<NSString *, NSString *> *)headers body:(id<ESSURLRequestBody>)body;
 
 
 

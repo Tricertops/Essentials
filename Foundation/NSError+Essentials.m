@@ -37,8 +37,8 @@
 }
 
 
-- (instancetype)errorByAddingUserInfo:(NSDictionary *)userInfo; {
-    NSMutableDictionary *mutableUserInfo = [NSMutableDictionary dictionaryWithDictionary:self.userInfo];
+- (instancetype)errorByAddingUserInfo:(NSDictionary<NSString *, id> *)userInfo; {
+    NSMutableDictionary<NSString *, id> *mutableUserInfo = [NSMutableDictionary dictionaryWithDictionary:self.userInfo];
     [mutableUserInfo addEntriesFromDictionary:userInfo];
     return [self.class errorWithDomain:self.domain code:self.code userInfo:mutableUserInfo];
 }
