@@ -194,7 +194,7 @@
 
 - (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet {
     NSMutableString *mutable = [self mutableCopy];
-    NSRange range = NSMakeRange(NSNotFound, 0);
+    NSRange range;
     while (INFINITY) {
         range = [mutable rangeOfCharacterFromSet:characterSet];
         if (range.location == NSNotFound) break;

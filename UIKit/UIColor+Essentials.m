@@ -339,17 +339,17 @@
 #pragma mark - Color Spaces
 
 
-ESSSharedMake(CGColorSpaceRef, deviceGrayColorSpace) {
+ESSSharedMake(CGColorSpaceRef, deviceGrayColorSpace) CF_RETURNS_RETAINED {
     return CGColorSpaceCreateDeviceGray();
 }
 
 
-ESSSharedMake(CGColorSpaceRef, deviceRGBColorSpace) {
+ESSSharedMake(CGColorSpaceRef, deviceRGBColorSpace) CF_RETURNS_RETAINED {
     return CGColorSpaceCreateDeviceRGB();
 }
 
 
-ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) {
+ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
     return CGColorSpaceCreateDeviceCMYK();
 }
 
@@ -386,6 +386,7 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) {
 
 + (CGGradientRef)gradientWithColors:(NSArray<UIColor *> *)colors locations:(NSArray<NSNumber *> *)locations {
     if ( ! colors.count) return NULL;
+    if ( ! locations.count) return NULL;
     if (locations && locations.count != colors.count) return NULL;
     
     NSMutableArray<id> *cgColors = [NSMutableArray new];
