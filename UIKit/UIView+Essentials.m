@@ -282,13 +282,13 @@
 }
 
 
-- (UIOffset)shadowOffset {
-    return UIOffsetMake(self.layer.shadowOffset.width, self.layer.shadowOffset.height);
+- (CGPoint)shadowOffset {
+    return CGPointMake(self.layer.shadowOffset.width, self.layer.shadowOffset.height);
 }
 
 
-- (void)setShadowOffset:(UIOffset)shadowOffset {
-    self.layer.shadowOffset = CGSizeMake(shadowOffset.horizontal, shadowOffset.vertical);
+- (void)setShadowOffset:(CGPoint)shadowOffset {
+    self.layer.shadowOffset = CGSizeMake(shadowOffset.x, shadowOffset.y);
 }
 
 
