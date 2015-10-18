@@ -30,6 +30,7 @@
 #import "ESSLog.h"
 #import "NSCoder+Essentials.h"
 #import "ESSCatch.h"
+#import "NSBundle+Essentials.h"
 
 
 
