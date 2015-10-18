@@ -31,8 +31,18 @@
 
 //! String for key NSLocaleLanguageCode.
 @property (readonly) NSString *languageCode;
+//! Language name for standardized locale.
+@property (readonly) NSString *languageName;
+//! Name of language in given locale. Pass nil for standardized locale.
+- (NSString *)languageNameInLocale:(NSLocale *)localeOrNil;
+
 //! String for key NSLocaleCountryCode.
 @property (readonly) NSString *countryCode;
+//! Country name for standardized locale.
+@property (readonly) NSString *countryName;
+//! Name of country in given locale. Pass nil for standardized locale.
+- (NSString *)countryNameInLocale:(NSLocale *)localeOrNil;
+
 //! String for key NSLocaleVariantCode.
 @property (readonly) NSString *variantCode;
 
@@ -53,13 +63,17 @@
 
 //! Calendar for key NSLocaleCalendar.
 @property (readonly) NSCalendar *calendar;
+//! Calendar name for standardized locale.
+@property (readonly) NSString *calendarName;
+//! Name of calendar in given locale. Pass nil for standardized locale.
+- (NSString *)calendarNameInLocale:(NSLocale *)localeOrNil;
 
 
 #pragma mark - Measurement Acessors
 
 //! Boolean for key NSLocaleUsesMetricSystem.
 @property (readonly) BOOL usesMetricSystem;
-//! String for key NSLocaleMeasurementSystem, “Metric” or “U.S.”
+//! String for key NSLocaleMeasurementSystem, “Metric”, “U.S.” or “U.K.”
 @property (readonly) NSString *measurementSystem;
 
 
@@ -77,6 +91,10 @@
 @property (readonly) NSString *currencySymbol;
 //! String for key NSLocaleCurrencyCode.
 @property (readonly) NSString *currencyCode;
+//! Currency name for standardized locale.
+@property (readonly) NSString *currencyName;
+//! Name of currency in given locale. Pass nil for standardized locale.
+- (NSString *)currencyNameInLocale:(NSLocale *)localeOrNil;
 
 
 #pragma mark - Quotation Accessors

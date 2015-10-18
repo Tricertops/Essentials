@@ -45,8 +45,30 @@
 }
 
 
+- (NSString *)languageName {
+    return [self languageNameInLocale:nil];
+}
+
+
+- (NSString *)languageNameInLocale:(NSLocale *)localeOrNil {
+    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    return [locale displayNameForKey:NSLocaleLanguageCode value:self.languageCode];
+}
+
+
 - (NSString *)countryCode {
     return [self objectForKey:NSLocaleCountryCode];
+}
+
+
+- (NSString *)countryName {
+    return [self countryNameInLocale:nil];
+}
+
+
+- (NSString *)countryNameInLocale:(NSLocale *)localeOrNil {
+    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    return [locale displayNameForKey:NSLocaleCountryCode value:self.countryCode];
 }
 
 
@@ -89,6 +111,17 @@
 
 - (NSCalendar *)calendar {
     return [self objectForKey:NSLocaleCalendar];
+}
+
+
+- (NSString *)calendarName {
+    return [self calendarNameInLocale:nil];
+}
+
+
+- (NSString *)calendarNameInLocale:(NSLocale *)localeOrNil {
+    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    return [locale displayNameForKey:NSLocaleCalendar value:self.calendar];
 }
 
 
@@ -137,6 +170,17 @@
 
 - (NSString *)currencyCode {
     return [self objectForKey:NSLocaleCurrencyCode];
+}
+
+
+- (NSString *)currencyName {
+    return [self currencyNameInLocale:nil];
+}
+
+
+- (NSString *)currencyNameInLocale:(NSLocale *)localeOrNil {
+    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    return [locale displayNameForKey:NSLocaleCurrencyCode value:self.currencyCode];
 }
 
 
