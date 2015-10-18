@@ -386,7 +386,6 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
 
 + (CGGradientRef)gradientWithColors:(NSArray<UIColor *> *)colors locations:(NSArray<NSNumber *> *)locations {
     if ( ! colors.count) return NULL;
-    if ( ! locations.count) return NULL;
     if (locations && locations.count != colors.count) return NULL;
     
     NSMutableArray<id> *cgColors = [NSMutableArray new];
@@ -394,7 +393,7 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
         [cgColors addObject:(__bridge id)color.CGColor];
     }
     
-    CGFloat cLocations[locations.count]; // If zero, undefined.
+    CGFloat cLocations[locations.count ?: 1]; // If zero, undefined.
     NSUInteger index = 0;
     for (NSNumber *location in locations) {
         cLocations[index] = location.doubleValue;
