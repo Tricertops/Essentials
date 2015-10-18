@@ -63,10 +63,6 @@
 
 //! Calendar for key NSLocaleCalendar.
 @property (readonly) NSCalendar *calendar;
-//! Calendar name for standardized locale.
-@property (readonly) NSString *calendarName;
-//! Name of calendar in given locale. Pass nil for standardized locale.
-- (NSString *)calendarNameInLocale:(NSLocale *)localeOrNil;
 
 
 #pragma mark - Measurement Acessors

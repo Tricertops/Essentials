@@ -114,17 +114,6 @@
 }
 
 
-- (NSString *)calendarName {
-    return [self calendarNameInLocale:nil];
-}
-
-
-- (NSString *)calendarNameInLocale:(NSLocale *)localeOrNil {
-    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
-    return [locale displayNameForKey:NSLocaleCalendar value:self.calendar];
-}
-
-
 
 
 
