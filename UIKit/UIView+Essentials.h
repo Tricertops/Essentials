@@ -86,7 +86,7 @@
 @property (nonatomic, readwrite) IBOutlet NSShadow *shadow;
 
 /// Forwards to the underlaying layer, transforms CGSize to UIOffset.
-@property (nonatomic, readwrite) IBInspectable UIOffset shadowOffset;
+@property (nonatomic, readwrite) IBInspectable CGPoint shadowOffset;
 
 /// Forwards to the underlaying layer, transforms color classes.
 @property (nonatomic, readwrite) IBInspectable UIColor *shadowColor;

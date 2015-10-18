@@ -23,7 +23,7 @@
 + (instancetype)oval:(CGRect)rect;
 + (instancetype)circleAround:(CGPoint)center radius:(CGFloat)radius;
 
-+ (instancetype)combinedPathFromPaths:(NSArray*)paths;
++ (instancetype)combinedPathFromPaths:(NSArray<UIBezierPath *> *)paths;
 
 
 #pragma mark - Moves
