@@ -86,8 +86,19 @@
 #pragma mark - Shared Class Values
 
 
+/// Use to create local static variable. Includes type inferrence
+#define ESSStatic(NAME_ASSIGN, VALUE...)\
+static typeof(VALUE) NAME_ASSIGN (typeof(VALUE))0;\
+{\
+    static dispatch_once_t onceToken;\
+    dispatch_once(&onceToken, ^{\
+        NAME_ASSIGN (VALUE);\
+    });\
+}
+
+
 /// Use to create class method that uses dispatch_once with simple value.
-#define ESSShared(TYPE, NAME, VALUE)\
+#define ESSShared(TYPE, NAME, VALUE...)\
 + (TYPE)NAME {\
     static TYPE NAME = (TYPE)0;\
     static dispatch_once_t onceToken;\
