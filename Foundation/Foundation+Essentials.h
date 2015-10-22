@@ -31,6 +31,7 @@
 #import "NSCoder+Essentials.h"
 #import "ESSCatch.h"
 #import "NSBundle+Essentials.h"
+#import "NSMutableSet+Essentials.h"
 
 
 
