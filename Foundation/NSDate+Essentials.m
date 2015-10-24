@@ -76,7 +76,7 @@
 }
 
 
-+ (instancetype)now:(NSTimeInterval)interval {
++ (instancetype)after:(NSTimeInterval)interval {
     return [self dateWithTimeIntervalSinceNow:interval];
 }
 
