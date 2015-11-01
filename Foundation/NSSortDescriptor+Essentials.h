@@ -32,8 +32,13 @@ typedef enum : BOOL {
 @end
 
 
+#define ESSSort(Class, keyPath, ascend) \
+(NSSortDescriptor *)({ \
+    [NSSortDescriptor sortDescriptorWithKey:@#keyPath ascending:ESSSort##ascend]; \
+})
 
-#define ESSSort(Class, keyPath, ascend, compareSelector) \
+
+#define ESSSortUsing(Class, keyPath, ascend, compareSelector) \
 (NSSortDescriptor *)({ \
     if (NO) { \
         Class *object = nil; \
