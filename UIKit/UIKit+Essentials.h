@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#import "UIAlertView+Essentials.h"
-#import "UIActionSheet+Essentials.h"
 #import "UIAlertController+Essentials.h"
 #import "UIColor+Essentials.h"
 #import "UIDevice+Essentials.h"

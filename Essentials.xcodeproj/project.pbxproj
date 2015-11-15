@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B1340FC17622309008F8F1E /* UIAlertView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */; };
 		5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
-		5B13410417622955008F8F1E /* UIActionSheet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410317622955008F8F1E /* UIActionSheet+Essentials.m */; };
 		5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410617622CA1008F8F1E /* UIColor+Essentials.m */; };
 		5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
 		5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410C17623C53008F8F1E /* NSDictionary+Essentials.m */; };
@@ -120,12 +118,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B1340FA17622309008F8F1E /* UIAlertView+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Essentials.h"; sourceTree = "<group>"; };
-		5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Essentials.m"; sourceTree = "<group>"; };
 		5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Essentials.h"; sourceTree = "<group>"; };
 		5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Essentials.m"; sourceTree = "<group>"; };
-		5B13410217622955008F8F1E /* UIActionSheet+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Essentials.h"; sourceTree = "<group>"; };
-		5B13410317622955008F8F1E /* UIActionSheet+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Essentials.m"; sourceTree = "<group>"; };
 		5B13410517622CA1008F8F1E /* UIColor+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Essentials.h"; sourceTree = "<group>"; };
 		5B13410617622CA1008F8F1E /* UIColor+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Essentials.m"; sourceTree = "<group>"; };
 		5B13410817622E0F008F8F1E /* UIDevice+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Essentials.h"; sourceTree = "<group>"; };
@@ -259,10 +253,6 @@
 			children = (
 				5F906B4517709E9400097175 /* UIKit+Essentials.h */,
 				5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */,
-				5B1340FA17622309008F8F1E /* UIAlertView+Essentials.h */,
-				5B1340FB17622309008F8F1E /* UIAlertView+Essentials.m */,
-				5B13410217622955008F8F1E /* UIActionSheet+Essentials.h */,
-				5B13410317622955008F8F1E /* UIActionSheet+Essentials.m */,
 				5BCA600A1B2197D100EFB683 /* UIAlertController+Essentials.h */,
 				5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */,
 				5B13410517622CA1008F8F1E /* UIColor+Essentials.h */,
@@ -540,12 +530,10 @@
 				5BE32D6719BB4D77002605B3 /* CIContext+Essentials.m in Sources */,
 				5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */,
 				5B79EA531A98E2670031ED59 /* NSCoder+Essentials.m in Sources */,
-				5B1340FC17622309008F8F1E /* UIAlertView+Essentials.m in Sources */,
 				5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
 				5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */,
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
 				5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */,
-				5B13410417622955008F8F1E /* UIActionSheet+Essentials.m in Sources */,
 				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
 				5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */,
 				5BCA600C1B2197D100EFB683 /* UIAlertController+Essentials.m in Sources */,
