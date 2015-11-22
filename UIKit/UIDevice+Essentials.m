@@ -19,10 +19,63 @@
 
 
 
-- (NSString *)modelVersion {
+- (NSString *)hardwareIdentifier {
     struct utsname systemInfo;
     uname(&systemInfo);
     return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+}
+
+
+- (NSString *)hardwareName {
+    NSString *identifier = self.hardwareIdentifier;
+    return [UIDevice nameOfHardwareIdentifier: identifier] ?: identifier;
+}
+
+
+- (NSString *)hardwareLine {
+    NSString *name = self.hardwareName;
+    
+    if ([name hasSuffix:@"Simulator"])
+        return @"Simulator";
+    
+    if ([name hasPrefix:@"iPhone"]) {
+        if ([name hasSuffix:@"Plus"])
+            return @"iPhone Plus";
+        return @"iPhone";
+    }
+    if ([name hasPrefix:@"iPad"]) {
+        if ([name hasPrefix:@"iPad Air"])
+            return @"iPad Air";
+        if ([name hasPrefix:@"iPad Mini"])
+            return @"iPad Mini";
+        if ([name hasPrefix:@"iPad Pro"])
+            return @"iPad Pro";
+        return @"iPad";
+    }
+    if ([name hasPrefix:@"iPod Touch"] || [name hasPrefix:@"iPod"])
+        return @"iPod Touch";
+    if ([name hasPrefix:@"Apple TV"] || [name hasPrefix:@"AppleTV"])
+        return @"Apple TV";
+    
+    return [NSString stringWithFormat:@"Unknown (%@)", name];
+}
+
+
+- (NSString *)hardwareFamily {
+    NSString *name = self.hardwareName;
+    
+    if ([name hasSuffix:@"Simulator"])
+        return @"Simulator";
+    if ([name hasPrefix:@"iPhone"])
+        return @"iPhone";
+    if ([name hasPrefix:@"iPad"])
+        return @"iPad";
+    if ([name hasPrefix:@"iPod Touch"] || [name hasPrefix:@"iPod"])
+        return @"iPod Touch";
+    if ([name hasPrefix:@"Apple TV"] || [name hasPrefix:@"AppleTV"])
+        return @"Apple TV";
+    
+    return [NSString stringWithFormat:@"Unknown (%@)", name];
 }
 
 
@@ -69,11 +122,6 @@
 #pragma mark Class Shorthands
 
 
-+ (NSString *)modelVersion {
-    return self.currentDevice.modelVersion;
-}
-
-
 + (BOOL)iPhone {
     return self.currentDevice.iPhone;
 }
@@ -106,6 +154,100 @@
 
 + (BOOL)is64Bit {
     return self.currentDevice.is64Bit;
+}
+
+
+
+
+
+
++ (NSString *)nameOfHardwareIdentifier:(NSString *)identifier {
+    static NSDictionary* names = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        names = @{
+                  //! Simulator
+                  @"x86_64": @"Simulator",
+                      
+                  //! iPhone
+                  @"iPhone1,1": @"iPhone 1", //! 2007
+                  
+                  @"iPhone1,2": @"iPhone 3G", //! 2008
+                  @"iPhone2,1": @"iPhone 3GS", //! 2009
+                  
+                  @"iPhone3,1": @"iPhone 4", //! GSM, 2010
+                  @"iPhone3,2": @"iPhone 4", //! GSM, 2012
+                  @"iPhone3,3": @"iPhone 4", //! CDMA, 2011
+                  
+                  @"iPhone4,1": @"iPhone 4S", //! 2011
+                  
+                  @"iPhone5,1": @"iPhone 5", //! GSM, 2012
+                  @"iPhone5,2": @"iPhone 5", //! Global, 2012
+                  @"iPhone5,3": @"iPhone 5C", //! GSM, 2013
+                  @"iPhone5,4": @"iPhone 5C", //! Global, 2013
+                  
+                  @"iPhone6,1": @"iPhone 5S", //! GSM, 2013
+                  @"iPhone6,2": @"iPhone 5S", //! Global, 2013
+                  
+                  @"iPhone7,1": @"iPhone 6 Plus", //! 2014
+                  @"iPhone7,2": @"iPhone 6", //! 2014
+                  
+                  @"iPhone8,1": @"iPhone 6S", //! 2015
+                  @"iPhone8,2": @"iPhone 6S Plus", //! 2015
+                  
+                  //! iPod Touch
+                  @"iPod1,1": @"iPod Touch 1", //! 2007
+                  @"iPod2,1": @"iPod Touch 2", //! 2008
+                  @"iPod3,1": @"iPod Touch 3", //! 2009
+                  @"iPod4,1": @"iPod Touch 4", //! 2010
+                  @"iPod5,1": @"iPod Touch 5", //! 2012
+                  @"iPod7,1": @"iPod Touch 6", //! 2015
+                  
+                  //! iPad
+                  @"iPad1,1": @"iPad 1", //! 2010
+                  @"iPad1,2": @"iPad 1", //! Cellular, 2010
+                  
+                  @"iPad2,1": @"iPad 2", //! Wi-Fi, 2011
+                  @"iPad2,2": @"iPad 2", //! GSM, 2011
+                  @"iPad2,3": @"iPad 2", //! CDMA, 2011
+                  @"iPad2,4": @"iPad 2", //! 2012
+                  @"iPad2,5": @"iPad Mini 1", //! Wi-Fi, 2012
+                  @"iPad2,6": @"iPad Mini 1", //! GSM, 2012
+                  @"iPad2,7": @"iPad Mini 1", //! Global, 2012
+                  
+                  @"iPad3,1": @"iPad 3", //! Wi-Fi, 2012
+                  @"iPad3,2": @"iPad 3", //! CDMA, 2012
+                  @"iPad3,3": @"iPad 3", //! GSM, 2012
+                  @"iPad3,4": @"iPad 4", //! Wi-Fi, 2012
+                  @"iPad3,5": @"iPad 4", //! GSM, 2012
+                  @"iPad3,6": @"iPad 4", //! Global, 2012
+                  
+                  @"iPad4,1": @"iPad Air 1", //! Wi-Fi, 2013
+                  @"iPad4,2": @"iPad Air 1", //! Cellular, 2013
+                  @"iPad4,3": @"iPad Air 1", //! China, 2013
+                  @"iPad4,4": @"iPad Mini 2", //! Wi-Fi, 2013
+                  @"iPad4,5": @"iPad Mini 2", //! Cellular, 2013
+                  @"iPad4,6": @"iPad Mini 2", //! China, 2013
+                  @"iPad4,7": @"iPad Mini 3", //! Wi-Fi, 2014
+                  @"iPad4,8": @"iPad Mini 3", //! Cellular, 2014
+                  
+                  @"iPad5,1": @"iPad Mini 4", //! Wi-Fi, 2015
+                  @"iPad5,2": @"iPad Mini 4", //! Cellular, 2015
+                  @"iPad5,3": @"iPad Air 2", //! Wi-Fi, 2014
+                  @"iPad5,4": @"iPad Air 2", //! Cellular, 2014
+                  
+                  @"iPad6,1": @"iPad Pro 1", //! Wi-Fi, 2015
+                  @"iPad6,2": @"iPad Pro 1", //! Cellular, 2015
+                  
+                  //! Apple TV
+                  @"AppleTV2,1": @"Apple TV 2", //! 2010
+                  @"AppleTV3,1": @"Apple TV 3", //! 2012
+                  @"AppleTV3,2": @"Apple TV 3", //! 2013
+                  @"AppleTV5,3": @"Apple TV 4", //! 2015
+
+                  };
+    });
+    return names[identifier];
 }
 
 

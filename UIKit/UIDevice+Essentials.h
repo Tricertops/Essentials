@@ -19,8 +19,17 @@
 
 #pragma mark Hardware
 
-/// Returns hardware model identifier. Example: iPhone5,2
-- (NSString *)modelVersion;
+/// Returns hardware identifier. Example: iPad5,2
+- (NSString *)hardwareIdentifier;
+
+/// Returns human-readable hardware name. Example: iPad Mini 4
+- (NSString *)hardwareName;
+
+/// Returns hardware line of products. Example: iPad Mini
+- (NSString *)hardwareLine;
+
+/// Returns hardware family of products. Example: iPad
+- (NSString *)hardwareFamily;
 
 /// Returns the number of CPU cores of the device.
 - (NSUInteger)numberOfCores;
@@ -53,7 +62,6 @@
 
 /// These methods call corresponding instance methods on [UIDevice currentDevice] object.
 
-+ (NSString *)modelVersion;
 + (BOOL)iPhone;
 + (BOOL)iPad;
 + (NSString *)idiomName;
