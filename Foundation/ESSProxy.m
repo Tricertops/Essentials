@@ -112,7 +112,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 + (NSMethodSignature *)giveMeAnyMethodSignatureForSelector:(SEL)selector IProceedAtMyOwnRisk:(BOOL)agreed {
-    ESSAssert(agreed, @"You have no idea what you have just done!") ESSNothing;
+    ESSAssert(agreed, @"You have no idea what you have just done!");
     
     // I didn’t made this up by myself, it was Nick Lockwood https://github.com/nicklockwood/NullSafe/blob/master/NullSafe/NullSafe.m. Kindly stolen and refactored.
     
@@ -125,7 +125,8 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
             signature = [class instanceMethodSignatureForSelector:selector];
             if (signature) break;
         }
-        ESSAssert(signature, @"There is no method signature for %@ in this program.", key) return nil;
+        ESSAssert(signature, @"There is no method signature for %@ in this program.", key)
+        else return nil;
         [cache setObject:signature forKey:key];
     }
     return signature;

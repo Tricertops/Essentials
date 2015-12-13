@@ -20,8 +20,8 @@
 
 
 - (void)encodeValue:(const void *)address ofObjCType:(ESSObjCType)type forKey:(NSString *)key {
-    ESSAssert(address, @"No address.") return;
-    ESSAssert(type, @"No type.") return;
+    ESSAssert(address, @"No address.") else return;
+    ESSAssert(type, @"No type.") else return;
     
     NSObject *object = [NSObject objectOfObjCType:type atAddress:address];
     if (object) [self encodeObject:object forKey:key];
@@ -29,8 +29,8 @@
 
 
 - (BOOL)decodeValue:(void *)address ofObjCType:(ESSObjCType)type forKey:(NSString *)key {
-    ESSAssert(address, @"No address.") return NO;
-    ESSAssert(type, @"No type.") return NO;
+    ESSAssert(address, @"No address.") else return NO;
+    ESSAssert(type, @"No type.") else return NO;
     
     if (ESSObjCTypeIsObject(type)) {
         ESSObjCTypeCast(id __autoreleasing, address) = [self decodeObjectForKey:key];

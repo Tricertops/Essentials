@@ -41,43 +41,62 @@
 
 #pragma mark - Assertions
 
-/// WARNING: Any code after ESSAssert macro is conditioned by the assertion condition! If you forget to put trailing semicolon, results are unpredictable.
-
-
-
-#if !defined(NS_BLOCK_ASSERTIONS)
-    /// Use like NSAssert, but you can append code to be executed on Release.
-    #define ESSAssert(CONDITION, MESSAGE, ...)\
-    if ( ! (CONDITION)\
-        && (( [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__]\
-                                                                      file:[NSString stringWithUTF8String:__FILE__]\
-                                                                lineNumber:__LINE__\
-                                                               description:@"Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE, __PRETTY_FUNCTION__, __FILE__, __LINE__, # CONDITION, ##__VA_ARGS__],\
-             YES)) )
-#else
-    /// Use like NSAssert, but you can append code to be executed on Release.
-    #define ESSAssert(CONDITION, MESSAGE, ...)\
-    if ( ! (CONDITION)\
-        && (( NSLog(@"*** Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE,\
-                    __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__),\
-             YES)) )
+#ifndef ESS_I_have_read_and_agree_to_the_ESSAssert_changes
+    #error ESSAssert has changed sematics.
+    //! ESSAssert macros have changed semantics, so their fallback code should start with `else` keyword.
+    //! Example usage: ESSAssert(condition) else return;
+    //! Message is now optional.
+    //! ESSAssertFail() has been renamed to ESSFail().
+    //! ESSAssertException() is has been removed.
 #endif
 
 
-/// Use like NSAssert, but this one will throw exception even on Release.
-#define ESSAssertException(CONDITION, MESSAGE, ...)\
-    ESSAssert(CONDITION, MESSAGE, ##__VA_ARGS__)\
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException\
-                                       reason:[NSString stringWithFormat:@"*** Assertion failure in %s, %s:%d. Condition not satisfied: \"%s\", reason: " MESSAGE, __PRETTY_FUNCTION__, __FILE__, __LINE__, #CONDITION, ##__VA_ARGS__] userInfo:nil]
+//! Enable assert when Foundation assert are enabled.
+#if NS_BLOCK_ASSERTIONS
+    #define ESS_DEBUG_ASSERT_ENABLED   0
+#else
+    #define ESS_DEBUG_ASSERT_ENABLED   1
+#endif
 
 
-/// Use like NSAssert(NO, ...), append code to be executed on Release.
-#define ESSAssertFail(MESSAGE, ...)\
-    ESSAssert(NO, MESSAGE, ##__VA_ARGS__)
+#define ESSAssert(requirement, format...) \
+    if (({ \
+            BOOL __ok = !!(requirement); \
+            if ( ! __ok) _ESSHandleAssertion(requirement, format); \
+            __ok; \
+        })) ESSNothing(); \
+    // else ...
+
+#if ESS_DEBUG_ASSERT_ENABLED
+    //! Logs the assertion failure and stops execution.
+    #define ESSDebugAssert(requirement, format...)   ESSAssert(requirement, format)
+#else
+    //! Do nothing.
+    #define ESSDebugAssert(requirement, format...)   ESSAssert(YES)
+#endif
 
 
-//! Use to avoid “empty if/while body”
-#define ESSNothing  ({ while (NO) ; });
+#define ESSFail(format...)   _ESSHandleAssertion(NO, @"Failed: " format)
+
+#define _ESSHandleAssertion(requirement, format...) \
+    ((void)({ \
+        NSString *__function = @(__PRETTY_FUNCTION__); \
+        NSString *__assertion = @#requirement; \
+        NSString *__message = [NSString stringWithFormat: @"" format]; \
+        if (__message.length == 0 && __assertion.length > 0) \
+            __message = [NSString stringWithFormat: @"Assertion failure: %@", __assertion]; \
+        ESSError(@"%@: %@", __function, __message); \
+        [NSAssertionHandler.currentHandler \
+            handleFailureInFunction: __function \
+            file: @(__FILE__) \
+            lineNumber: __LINE__ \
+            description: @"%@", __message]; \
+    }))
+
+
+
+//! Use to avoid “empty if/while body”.
+inline static void ESSNothing(void) {}
 
 
 

@@ -33,7 +33,8 @@
     __unsafe_unretained id argument = nil;
     const char *argumentType = [self.methodSignature getArgumentTypeAtIndex:index];
     ESSAssert(strcmp(argumentType, @encode(id)) == 0,
-              @"Incorrect argument type '%s' of method '-%@'", argumentType, NSStringFromSelector(self.selector)) return nil;
+              @"Incorrect argument type '%s' of method '-%@'", argumentType, NSStringFromSelector(self.selector))
+    else return nil;
     [self getArgument:&argument atIndex:index];
     id arcArgument = argument;
     return arcArgument;
@@ -45,7 +46,8 @@
     __unsafe_unretained id object = arcObject;
     const char *argumentType = [self.methodSignature getArgumentTypeAtIndex:index];
     ESSAssert(strcmp(argumentType, @encode(id)) == 0,
-              @"Incorrect argument type '%s' of method '-%@'", argumentType, NSStringFromSelector(self.selector)) return;
+              @"Incorrect argument type '%s' of method '-%@'", argumentType, NSStringFromSelector(self.selector))
+    else return;
     [self setArgument:&object atIndex:index];
 }
 
@@ -55,7 +57,8 @@
     NSInteger integer;
     const char *argumentType = [self.methodSignature getArgumentTypeAtIndex:index];
     ESSAssert(strcmp(argumentType, @encode(NSInteger)) == 0,
-              @"Incorrect argument type '%s' in method '-%@'", argumentType, NSStringFromSelector(self.selector)) return NSNotFound;
+              @"Incorrect argument type '%s' in method '-%@'", argumentType, NSStringFromSelector(self.selector))
+    else return NSNotFound;
     [self getArgument:&integer atIndex:index];
     return integer;
 }
@@ -65,7 +68,8 @@
     index += 2; // move beyond `self` and `_cmd`
     const char *argumentType = [self.methodSignature getArgumentTypeAtIndex:index];
     ESSAssert(strcmp(argumentType, @encode(NSInteger)) == 0,
-              @"Incorrect argument type '%s' in method '-%@'", argumentType, NSStringFromSelector(self.selector)) return;
+              @"Incorrect argument type '%s' in method '-%@'", argumentType, NSStringFromSelector(self.selector))
+    else return;
     [self setArgument:&integer atIndex:index];
 }
 
@@ -74,7 +78,8 @@
     __unsafe_unretained id returnValue = nil;
     const char *returnType = [self.methodSignature methodReturnType];
     ESSAssert(strcmp(returnType, @encode(id)) == 0,
-              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector)) return nil;
+              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector))
+    else return nil;
     [self getReturnValue:&returnValue];
     id arcReturnValue = returnValue;
     return arcReturnValue;
@@ -85,7 +90,8 @@
     __unsafe_unretained id object = arcObject;
     const char *returnType = [self.methodSignature methodReturnType];
     ESSAssert(strcmp(returnType, @encode(id)) == 0,
-              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector)) return;
+              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector))
+    else return;
     [self setReturnValue:&object];
 }
 
@@ -94,7 +100,8 @@
     NSInteger returnValue;
     const char *returnType = [self.methodSignature methodReturnType];
     ESSAssert(strcmp(returnType, @encode(NSInteger)) == 0,
-              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector)) return NSNotFound;
+              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector))
+    else return NSNotFound;
     [self getReturnValue:&returnValue];
     return returnValue;
 }
@@ -103,7 +110,8 @@
 - (void)setIntegerReturnValue:(NSInteger)integer {
     const char *returnType = [self.methodSignature methodReturnType];
     ESSAssert(strcmp(returnType, @encode(NSInteger)) == 0,
-              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector)) return;
+              @"Incorrect return type '%s' of method '-%@'", returnType, NSStringFromSelector(self.selector))
+    else return;
     [self setReturnValue:&integer];
 }
 

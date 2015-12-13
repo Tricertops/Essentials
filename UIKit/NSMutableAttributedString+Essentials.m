@@ -71,7 +71,7 @@
 
 - (void)applySuperscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
     UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
-    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
+    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
     UIFont *superscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
     
@@ -107,7 +107,7 @@
 
 - (void)applySubscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
     UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
-    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") return;
+    ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
     UIFont *subscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
     
