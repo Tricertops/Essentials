@@ -86,11 +86,13 @@
         if (__message.length == 0 && __assertion.length > 0) \
             __message = [NSString stringWithFormat: @"Assertion failure: %@", __assertion]; \
         ESSError(@"%@: %@", __function, __message); \
-        [NSAssertionHandler.currentHandler \
-            handleFailureInFunction: __function \
-            file: @(__FILE__) \
-            lineNumber: __LINE__ \
-            description: @"%@", __message]; \
+        if (ESS_DEBUG_ASSERT_ENABLED) {\
+            [NSAssertionHandler.currentHandler \
+                handleFailureInFunction: __function \
+                file: @(__FILE__) \
+                lineNumber: __LINE__ \
+                description: @"%@", __message]; \
+        } \
     }))
 
 
