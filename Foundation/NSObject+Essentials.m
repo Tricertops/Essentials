@@ -219,9 +219,10 @@
 }
 
 
-+ (instancetype)measure:(id(^)(void))block log:(NSString *)log {
++ (instancetype)measure:(id(^)(void))block log:(NSString *)format, ... {
     CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
     id instance = block();
+    NSString *log = NSStringFromFormat(format);
     CFAbsoluteTime duration = CFAbsoluteTimeGetCurrent() - start;
     if (log.length) NSLog(@"%@: %.3f seconds", log, duration);
     return [self cast:instance];

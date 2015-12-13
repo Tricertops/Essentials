@@ -100,7 +100,7 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 #pragma mark - Benchmarking
 
 /// Invokes the block while measuring its execution time. Returns the object returned by the block and logs the time to the console.
-+ (instancetype)measure:(id(^)(void))block log:(NSString *)log;
++ (instancetype)measure:(id(^)(void))block log:(NSString *)log, ... NS_FORMAT_FUNCTION(2, 3);
 
 
 
