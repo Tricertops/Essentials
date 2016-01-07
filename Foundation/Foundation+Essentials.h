@@ -32,6 +32,7 @@
 #import "ESSCatch.h"
 #import "NSBundle+Essentials.h"
 #import "NSMutableSet+Essentials.h"
+#import "NSMapTable+Essentials.h"
 
 
 
