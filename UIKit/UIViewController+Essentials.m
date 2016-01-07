@@ -38,6 +38,20 @@
 
 
 
+- (void)dismiss {
+    BOOL canPop = (self.navigationController && self.navigationController.viewControllers.firstObject != self);
+    if (canPop) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+
+
+
+
 @end
 
 

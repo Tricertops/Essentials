@@ -21,6 +21,9 @@
 //! Traverses presented View Controllers and returns the deepest one.
 - (UIViewController *)deepestPresentedViewController;
 
+//! Dismisses the receiver by unqinding its presentation.
+- (void)dismiss;
+
 
 @end
 
