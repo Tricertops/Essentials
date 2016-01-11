@@ -84,6 +84,9 @@
 /// Converts first character to uppercase.
 - (NSString *)stringByCapitalizingFirstCharacter;
 
+/// Converts first character to uppercase using given NSLocale.
+- (NSString *)stringByCapitalizingFirstCharacterUsingLocale:(NSLocale*)locale;
+
 /// Returns NSURL created using receiver, unless the receiver is empty.
 - (NSURL *)URLValue;
 

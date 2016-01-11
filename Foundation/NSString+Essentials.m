@@ -211,13 +211,18 @@
 
 
 - (NSString *)stringByCapitalizingFirstCharacter {
+    return [self stringByCapitalizingFirstCharacterUsingLocale:nil];
+}
+
+
+- (NSString *)stringByCapitalizingFirstCharacterUsingLocale:(NSLocale*)locale {
     if (self.length < 1) return [self copy];
-    if (self.length == 1) return [self uppercaseString];
+    if (self.length == 1) return [self capitalizedStringWithLocale:locale];
     
     NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
     NSString *firstCharacter = [self substringToIndex:range.length];
     NSString *theRest = [self substringFromIndex:range.length];
-    return [firstCharacter.uppercaseString : theRest];
+    return [[firstCharacter capitalizedStringWithLocale:locale] : theRest];
 }
 
 
