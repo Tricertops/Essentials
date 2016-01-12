@@ -117,6 +117,10 @@
     return self.mainScreen.interfaceOrientation;
 }
 
++ (CGFloat)width {
+    return self.mainScreen.fixedBounds.size.width;
+}
+
 
 
 

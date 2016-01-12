@@ -52,6 +52,7 @@
 + (CGFloat)scale;
 + (CGFloat)pixel;
 + (UIInterfaceOrientation)interfaceOrientation;
++ (CGFloat)width;
 
 
 @end
