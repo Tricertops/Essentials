@@ -13,7 +13,127 @@
 
 
 
+@interface ESSSubrangeProxyMutableAttributedString : NSMutableAttributedString
+
+- (instancetype)initWithTarget:(NSMutableAttributedString *)target range:(NSRange)range;
+@property (readonly, weak) NSMutableAttributedString *target;
+@property (readonly) NSRange range;
+
+@end
+
+
+
+
+
 @implementation NSMutableAttributedString (Essentials)
+
+
+
+
+
+#pragma mark Attributes
+
+
+- (NSProxy<ESSAttributable> *)subrange:(NSRange)range {
+    return (id)[[ESSSubrangeProxyMutableAttributedString alloc] initWithTarget:self range:range];
+}
+
+
+- (void)setAttributes:(NSDictionary<NSString *,id> *)attributes {
+    [self setAttributes:attributes range:self.fullRange];
+}
+
+
+- (void)setObject:(NSObject *)value forKeyedSubscript:(NSString *)name {
+    if (value) {
+        [self addAttribute:name value:value range:self.fullRange];
+    }
+    else {
+        [self removeAttribute:name range:self.fullRange];
+    }
+}
+
+
+- (void)setFont:(UIFont *)font {
+    self[NSFontAttributeName] = font;
+}
+
+- (void)setColor:(UIColor *)color {
+    self[NSForegroundColorAttributeName] = color;
+}
+
+- (void)setParagraphStyle:(NSParagraphStyle *)paragraphStyle {
+    self[NSParagraphStyleAttributeName] = [paragraphStyle copy];
+}
+
+- (void)setShadow:(NSShadow *)shadow {
+    self[NSShadowAttributeName] = shadow;
+}
+
+
+- (void)setUsesLigatures:(BOOL)usesLigatures {
+    self[NSLigatureAttributeName] = @(usesLigatures? 1 : 0);
+}
+
+- (void)setKerning:(CGFloat)kerning {
+    self[NSKernAttributeName] = (kerning? @(kerning) : nil);
+}
+
+- (void)setStrikethroughStyle:(NSUnderlineStyle)strikethroughStyle {
+    self[NSStrikethroughStyleAttributeName] = @(strikethroughStyle);
+}
+
+- (void)setUnderlineStyle:(NSUnderlineStyle)underlineStyle {
+    self[NSUnderlineStyleAttributeName] = @(underlineStyle);
+}
+
+- (void)setStrokeWidth:(CGFloat)strokeWidth {
+    /// Negative stroke width preserves fill.
+    self[NSStrokeWidthAttributeName] = @(-ABS(strokeWidth));
+}
+
+- (void)setBaselineOffset:(CGFloat)baselineOffset {
+    self[NSBaselineOffsetAttributeName] = @(baselineOffset);
+}
+
+- (void)setExpansion:(CGFloat)expansion {
+    self[NSExpansionAttributeName] = @(expansion);
+}
+
+- (void)setObliqueness:(CGFloat)obliqueness {
+    self[NSObliquenessAttributeName] = @(obliqueness);
+}
+
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    self[NSBackgroundColorAttributeName] = backgroundColor;
+}
+
+- (void)setStrokeColor:(UIColor *)strokeColor {
+    self[NSStrokeColorAttributeName] = strokeColor;
+}
+
+- (void)setUnderlineColor:(UIColor *)underlineColor {
+    self[NSUnderlineColorAttributeName] = underlineColor;
+}
+
+- (void)setStrikethroughColor:(UIColor *)strikethroughColor {
+    self[NSStrikethroughColorAttributeName] = strikethroughColor;
+}
+
+
+- (void)setHasLetterpressEffect:(BOOL)hasLetterpressEffect {
+    self[NSTextEffectAttributeName] = (hasLetterpressEffect? NSTextEffectLetterpressStyle : nil);
+}
+
+- (void)setAttachment:(NSTextAttachment *)attachment {
+    self[NSAttachmentAttributeName] = attachment;
+}
+
+- (void)setLink:(NSURL *)link {
+    self[NSLinkAttributeName] = link;
+}
+
 
 
 
@@ -161,6 +281,214 @@
 - (NSMutableAttributedString *)mutableAttributed:(NSDictionary<NSString *, id> *)attributes {
     return [[NSMutableAttributedString alloc] initWithString:self attributes:attributes];
 }
+
+
+
+@end
+
+
+
+
+
+
+
+
+
+
+@implementation ESSSubrangeProxyMutableAttributedString
+
+
+
+- (instancetype)initWithTarget:(NSMutableAttributedString *)target range:(NSRange)range {
+    self = [super init]; /// Cannot instantiate super. Foundation is hacking against us.
+    if (self) {
+        self->_target = target;
+        self->_range = range;
+    }
+    return self;
+}
+
+
+- (NSAttributedString *)targetSubstring {
+    return [self.target attributedSubstringFromRange:self.range];
+}
+
+
+- (void)convertToTarget:(NSRangePointer)range {
+    if ( ! range) return;
+    
+    ESSAssert(range->location < self.length)
+    else range->location = self.length;
+    
+    ESSAssert(range->location + range->length <= self.length)
+    else range->length = self.length - range->location;
+    
+    range->location += self.range.location;
+}
+
+- (void)convertFromTarget:(NSRangePointer)range {
+    if ( ! range) return;
+    
+    range->location -= self.range.location;
+    range->length = MIN(range->length, self.length);
+}
+
+
+/// This proxy doesn’t support partial editing.
+
+
+- (NSString *)string {
+    return [self.target.string substringWithRange:self.range];
+}
+
+
+- (NSUInteger)length {
+    return self.range.length;
+}
+
+
+- (NSDictionary<NSString *,id> *)attributesAtIndex:(NSUInteger)index effectiveRange:(NSRangePointer)effectiveRange {
+    NSDictionary<NSString *,id> *attributes = [self.target attributesAtIndex:index - self.range.location
+                                                              effectiveRange:effectiveRange];
+    [self convertFromTarget:effectiveRange];
+    return attributes;
+}
+
+
+- (NSDictionary<NSString *,id> *)attributesAtIndex:(NSUInteger)index longestEffectiveRange:(NSRangePointer)effectiveRange inRange:(NSRange)rangeLimit {
+    [self convertToTarget:&rangeLimit];
+    NSDictionary<NSString *,id> *attributes = [super attributesAtIndex:index - self.range.location
+                                                 longestEffectiveRange:effectiveRange
+                                                               inRange:rangeLimit];
+    [self convertFromTarget:effectiveRange];
+    return attributes;
+}
+
+
+- (id)attribute:(NSString *)attributeName atIndex:(NSUInteger)index effectiveRange:(NSRangePointer)effectiveRange {
+    id attributes = [self.target attribute:attributeName
+                                   atIndex:index - self.range.location
+                            effectiveRange:effectiveRange];
+    [self convertFromTarget:effectiveRange];
+    return attributes;
+}
+
+
+- (id)attribute:(NSString *)attributeName atIndex:(NSUInteger)index longestEffectiveRange:(NSRangePointer)effectiveRange inRange:(NSRange)rangeLimit {
+    [self convertToTarget:&rangeLimit];
+    id attributes = [self.target attribute:attributeName
+                                   atIndex:index - self.range.location
+                     longestEffectiveRange:effectiveRange
+                                   inRange:rangeLimit];
+    [self convertFromTarget:effectiveRange];
+    return attributes;
+}
+
+
+- (NSUInteger)hash {
+    return self.targetSubstring.hash;
+}
+
+
+- (BOOL)isEqual:(id)other {
+    return [self.targetSubstring isEqual:other];
+}
+
+
+- (BOOL)isEqualToAttributedString:(NSAttributedString *)other {
+    return [self.targetSubstring isEqualToAttributedString:other];
+}
+
+
+- (NSAttributedString *)attributedSubstringFromRange:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    return self.targetSubstring;
+}
+
+
+- (void)enumerateAttribute:(NSString *)attributeName inRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(void (^)(id, NSRange, BOOL *))block {
+    [self convertToTarget:&enumerationRange];
+    [self.target enumerateAttribute:attributeName
+                            inRange:enumerationRange
+                            options:options
+                         usingBlock:^(id value, NSRange range, BOOL *stop) {
+                             [self convertFromTarget:&range];
+                             block(value, range, stop);
+                         }];
+}
+
+
+- (void)enumerateAttributesInRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(void (^)(NSDictionary<NSString *,id> *, NSRange, BOOL *))block {
+    [self convertToTarget:&enumerationRange];
+    [self.target enumerateAttributesInRange:enumerationRange
+                                    options:options
+                                 usingBlock:^(NSDictionary<NSString *,id> * attributes, NSRange range, BOOL *stop) {
+                                     [self convertFromTarget:&range];
+                                     block(attributes, range, stop);
+                                 }];
+}
+
+
+- (NSMutableString *)mutableString {
+    ESSFail();
+    return [self.string mutableCopy];
+}
+
+
+- (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)string {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target replaceCharactersInRange:self.range withString:string];
+    self->_range.length = string.length;
+}
+
+- (void)deleteCharactersInRange:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target deleteCharactersInRange:self.range];
+    self->_range.length = 0;
+}
+
+- (void)setAttributes:(NSDictionary<NSString *,id> *)attributes range:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target setAttributes:attributes range:self.range];
+}
+
+- (void)addAttribute:(NSString *)name value:(id)value range:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target addAttribute:name value:value range:self.range];
+}
+
+- (void)addAttributes:(NSDictionary<NSString *,id> *)attributes range:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target addAttributes:attributes range:self.range];
+}
+
+- (void)removeAttribute:(NSString *)name range:(NSRange)range {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target removeAttribute:name range:self.range];
+}
+
+- (void)appendAttributedString:(NSAttributedString *)attributed {
+    [self insertAttributedString:attributed atIndex:self.length];
+}
+
+- (void)insertAttributedString:(NSAttributedString *)attributed atIndex:(NSUInteger)index {
+    ESSAssert(index == self.length);
+    [self.target insertAttributedString:attributed atIndex:NSRangeFollowingIndex(self.range)];
+    self->_range.length += attributed.length;
+}
+
+- (void)replaceCharactersInRange:(NSRange)range withAttributedString:(NSAttributedString *)attributed {
+    ESSAssert(NSRangeEqual(range, self.fullRange));
+    [self.target replaceCharactersInRange:self.range withAttributedString:attributed];
+    self->_range.length = attributed.length;
+}
+
+- (void)setAttributedString:(NSAttributedString *)attributed {
+    [self.target replaceCharactersInRange:self.range withAttributedString:attributed];
+    self->_range.length = attributed.length;
+}
+
+
 
 
 

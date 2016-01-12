@@ -167,6 +167,12 @@ static typeof(VALUE) NAME_ASSIGN (typeof(VALUE))0;\
 #pragma mark Properties
 
 
+/// Create property with not accessible getter.
+#define ESSWriteOnlyProperty(type, name) \
+    @property type name; \
+    - (type)name __unavailable; \
+
+
 /// Use if you are lazy to declare read-only lazy-loaded property. Will declare selector, that forces you to use ESSLazyLoad too.
 #define ESSPropertyLazy(MEMORY, TYPE, NAME)\
 @property (nonatomic, readonly, MEMORY) TYPE NAME;\
@@ -451,6 +457,8 @@ typedef const char * ESSObjCType;
 
 
 #define ESSOverloaded __attribute__((overloadable))
+
+#define ESSPassthrough(content...)  content
 
 
 

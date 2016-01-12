@@ -7,13 +7,53 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Foundation+Essentials.h"
 #import "NSAttributedString+Essentials.h"
 
 
 
+@protocol ESSAttributable <NSObject>
+
+ESSWriteOnlyProperty(ESSPassthrough(NSDictionary<NSString *, id> *), attributes);
+
+/// Adds the attribute to the full range of string. Nil value removes the attribute.
+- (void)setObject:(NSObject *)attributeValue forKeyedSubscript:(NSString *)attributeName;
+
+ESSWriteOnlyProperty(UIFont *, font); /// Default: System 12pt
+ESSWriteOnlyProperty(UIColor *, color); /// Default: Black
+ESSWriteOnlyProperty(NSParagraphStyle *, paragraphStyle); /// Default: +defaultParagraphStyle
+ESSWriteOnlyProperty(NSShadow *, shadow);
+
+ESSWriteOnlyProperty(BOOL, usesLigatures); /// Default: YES (default ligatures)
+ESSWriteOnlyProperty(CGFloat, kerning); /// Zero uses default kerning.
+ESSWriteOnlyProperty(NSUnderlineStyle, strikethroughStyle);
+ESSWriteOnlyProperty(NSUnderlineStyle, underlineStyle);
+ESSWriteOnlyProperty(CGFloat, strokeWidth); /// Preserves fill.
+ESSWriteOnlyProperty(CGFloat, baselineOffset);
+ESSWriteOnlyProperty(CGFloat, obliqueness);
+ESSWriteOnlyProperty(CGFloat, expansion);
+
+ESSWriteOnlyProperty(UIColor *, backgroundColor);
+ESSWriteOnlyProperty(UIColor *, strokeColor); /// If different than text color.
+ESSWriteOnlyProperty(UIColor *, underlineColor); /// If different than text color.
+ESSWriteOnlyProperty(UIColor *, strikethroughColor); /// If different than text color.
+
+ESSWriteOnlyProperty(BOOL, hasLetterpressEffect);
+ESSWriteOnlyProperty(NSTextAttachment *, attachment);
+ESSWriteOnlyProperty(NSURL *, link);
+
+@end
 
 
-@interface NSMutableAttributedString (Essentials)
+
+
+
+@interface NSMutableAttributedString (Essentials) <ESSAttributable>
+
+
+
+/// Returns proxy that can receive attribute settings and forwards them to the receiver for given range.
+- (NSProxy<ESSAttributable> *)subrange:(NSRange)range;
 
 
 

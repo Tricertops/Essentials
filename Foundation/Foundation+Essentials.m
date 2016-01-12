@@ -29,7 +29,7 @@ NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger unsignedCou
 }
 
 
-NSTimeInterval const NSTimeIntervalInfinity = HUGE_VAL;
+NSTimeInterval const NSTimeIntervalInfinity = INFINITY;
 
 
 BOOL NSEqual(NSObject * A, NSObject * B) {
