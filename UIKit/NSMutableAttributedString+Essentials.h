@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSAttributedString+Essentials.h"
+
+
 
 
 
 @interface NSMutableAttributedString (Essentials)
+
+
+
+#pragma mark Appending
+
+/// Appends compatible string to the end.
+- (void)append: (NSObject<ESSAttributedString> *)string;
 
 
 
@@ -65,8 +75,8 @@
 
 
 
-/// Returns new attributed string with receiver as the content and given font applied to whole range.
-- (NSMutableAttributedString *)attributedStringWithFont:(UIFont *)font;
+/// Returns new mutable attributed string created from the receiver and given attributes.
+- (NSMutableAttributedString *)mutableAttributed:(NSDictionary<NSString *, id> *)attributes;
 
 
 

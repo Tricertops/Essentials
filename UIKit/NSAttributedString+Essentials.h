@@ -10,7 +10,15 @@
 
 
 
-@interface NSAttributedString (Essentials)
+@protocol ESSAttributedString
+- (NSAttributedString *)ess_attributedString;
+@end
+
+
+
+
+
+@interface NSAttributedString (Essentials) <ESSAttributedString>
 
 
 
@@ -34,11 +42,14 @@
 
 
 
-@interface NSString (NSAttributedString_Essentials)
+@interface NSString (NSAttributedString_Essentials) <ESSAttributedString>
 
 
 /// Returns new attributed string created from the receiver and given attributes.
-- (NSAttributedString *)attributed:(NSDictionary<NSString *, id> *)attributes;
+- (NSAttributedString *)attributed:(NSDictionary<NSString *, NSObject *> *)attributes;
+
+/// Returns new attributed string created from the receiver with given font and color.
+- (NSAttributedString *)withFont:(UIFont *)font color:(UIColor *)color;
 
 
 @end

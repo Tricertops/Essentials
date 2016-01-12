@@ -19,6 +19,20 @@
 
 
 
+#pragma mark Appending
+
+
+- (void)append: (NSObject<ESSAttributedString> *)string {
+    NSAttributedString *attributedString = string.ess_attributedString;
+    if ( ! attributedString) return;
+    
+    [self appendAttributedString:attributedString];
+}
+
+
+
+
+
 #pragma mark Resizing
 
 
@@ -144,8 +158,8 @@
 
 
 
-- (NSMutableAttributedString *)attributedStringWithFont:(UIFont *)font {
-    return [[NSMutableAttributedString alloc] initWithString:self attributes:@{ NSFontAttributeName: font }];
+- (NSMutableAttributedString *)mutableAttributed:(NSDictionary<NSString *, id> *)attributes {
+    return [[NSMutableAttributedString alloc] initWithString:self attributes:attributes];
 }
 
 

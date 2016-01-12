@@ -17,6 +17,14 @@
 
 
 
+- (NSAttributedString *)ess_attributedString {
+    return self;
+}
+
+
+
+
+
 #pragma mark - Range
 
 
@@ -48,8 +56,21 @@
 @implementation NSString (NSAttributedString_Essentials)
 
 
-- (NSAttributedString *)attributed:(NSDictionary<NSString *, id> *)attributes {
+- (NSAttributedString *)attributed:(NSDictionary<NSString *, NSObject *> *)attributes {
     return [[NSAttributedString alloc] initWithString:self attributes:attributes];
+}
+
+
+- (NSAttributedString *)withFont:(UIFont *)font color:(UIColor *)color {
+    NSMutableDictionary<NSString *, NSObject *> *attributes = [NSMutableDictionary new];
+    if (font)   [attributes setObject:font forKey:NSFontAttributeName];
+    if (color)  [attributes setObject:color forKey:NSForegroundColorAttributeName];
+    return [[NSAttributedString alloc] initWithString:self attributes:attributes];
+}
+
+
+- (NSAttributedString *)ess_attributedString {
+    return [self attributed:nil];
 }
 
 
