@@ -358,7 +358,7 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
 })
 
 
-/// Should be infinity, uses HUGE_VAL.
+/// Infinity.
 extern NSTimeInterval const NSTimeIntervalInfinity;
 
 
@@ -370,6 +370,46 @@ extern NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterva
 extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger count);
 
 
+
+
+
+#pragma mark - Range
+
+/// Location is NSNotFound and length is zero.
+extern NSRange const NSRangeNotFound;
+
+/// Make NSRange using location and length.
+extern NSRange NSRangeMake(NSUInteger, NSUInteger);
+
+/// Make NSRange using start index and end index (included).
+extern NSRange NSRangeMakeFromTo(NSUInteger, NSUInteger);
+
+/// Location is not NSNotFound.
+extern BOOL NSRangeIsFound(NSRange);
+
+/// Last included index, or NSNotFound for empty ranges.
+extern NSUInteger NSRangeLastIndex(NSRange);
+
+/// First index after this range.
+extern NSUInteger NSRangeFollowingIndex(NSRange);
+
+/// Index is included in range.
+extern BOOL NSRangeContainsIndex(NSRange, NSUInteger);
+
+/// All indexes of second and in the first range.
+extern BOOL NSRangeContainsRange(NSRange, NSRange);
+
+/// Both values must be equal.
+extern BOOL NSRangeEqual(NSRange, NSRange);
+
+/// Return range that contains both ranges.
+extern NSRange NSRangeUnion(NSRange, NSRange);
+
+/// Whether at least one index is in both.
+extern BOOL NSRangeIntersects(NSRange, NSRange);
+
+/// Return range with all indexes included in both.
+extern NSRange NSRangeIntersection(NSRange, NSRange);
 
 
 

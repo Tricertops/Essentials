@@ -46,3 +46,80 @@ NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granu
     NSUInteger steps = ABS(maximum - minimum) / granularity;
     return minimum + NSUIntegerRandom(steps) * granularity;
 }
+
+
+
+
+
+#pragma mark - Range
+
+
+NSRange const NSRangeNotFound = (NSRange){
+    .location = NSNotFound,
+    .length = 0,
+};
+
+
+NSRange NSRangeMake(NSUInteger location, NSUInteger length) {
+    ESSAssert(location <= NSNotFound);
+    ESSAssert(length < NSNotFound);
+    return NSMakeRange(location, length);
+}
+
+
+NSRange NSRangeMakeFromTo(NSUInteger first, NSUInteger last) {
+    ESSAssert(first <= last)
+    else return NSRangeMake(first, 0);
+    
+    return NSRangeMake(first, last - first + 1);
+}
+
+
+BOOL NSRangeIsFound(NSRange range) {
+    return (range.location != NSNotFound);
+}
+
+
+NSUInteger NSRangeLastIndex(NSRange range) {
+    if (range.length == 0)
+        return NSNotFound;
+    
+    return range.location + range.length - 1;
+}
+
+
+NSUInteger NSRangeFollowingIndex(NSRange range) {
+    return range.location + range.length;
+}
+
+
+BOOL NSRangeContainsIndex(NSRange range, NSUInteger index) {
+    return (range.location <= index && index < NSRangeFollowingIndex(range));
+}
+
+
+BOOL NSRangeContainsRange(NSRange A, NSRange B) {
+    return (A.location <= B.location && NSRangeFollowingIndex(B) <= NSRangeFollowingIndex(A));
+}
+
+
+BOOL NSRangeEqual(NSRange A, NSRange B) {
+    return NSEqualRanges(A, B);
+}
+
+
+NSRange NSRangeUnion(NSRange A, NSRange B) {
+    return NSUnionRange(A, B);
+}
+
+
+BOOL NSRangeIntersects(NSRange A, NSRange B) {
+    return NSRangeIntersection(A, B).length > 0;
+}
+
+
+NSRange NSRangeIntersection(NSRange A, NSRange B) {
+    return NSIntersectionRange(A, B);
+}
+
+
