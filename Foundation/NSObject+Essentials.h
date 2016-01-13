@@ -22,6 +22,10 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 
 
 
+- (id)safelyPerformSelector:(SEL)selector;
+
+
+
 #pragma mark - Runtime Associations
 
 /// Wrapper for objc_getAssociatedObject.

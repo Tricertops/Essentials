@@ -19,6 +19,16 @@
 
 
 
+- (id)safelyPerformSelector:(SEL)selector {
+    if ([self respondsToSelector:selector])
+        return [self performSelector:selector];
+    return nil;
+}
+
+
+
+
+
 #pragma mark - Runtime Associations
 
 
