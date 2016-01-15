@@ -182,6 +182,37 @@
 
 
 
+#pragma mark - Accessors
+
+
+- (CGFloat)contentInsetTop {
+    return self.contentInset.top;
+}
+
+
+- (void)setContentInsetTop:(CGFloat)top {
+    UIEdgeInsets insets = self.contentInset;
+    insets.top = top;
+    self.contentInset = insets;
+}
+
+
+- (CGFloat)scrollIndicatorInsetTop {
+    return self.scrollIndicatorInsets.top;
+}
+
+
+- (void)setScrollIndicatorInsetTop:(CGFloat)top {
+    UIEdgeInsets insets = self.scrollIndicatorInsets;
+    insets.top = top;
+    self.scrollIndicatorInsets = insets;
+}
+
+
+
+
+
+
 #pragma mark - Touch Handling
 
 

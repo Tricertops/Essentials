@@ -32,18 +32,24 @@
 #pragma mark - Content Position
 
 /// Maximum value the content offset can contain (excluding bouncing) in current content size and bounds.
-@property (nonatomic, readonly, assign) CGPoint maximumContentOffset;
+@property (readonly) CGPoint maximumContentOffset;
 
-@property (nonatomic, readonly, assign) CGPoint contentProgressOffset;
+@property (readonly) CGPoint contentProgressOffset;
 
 /// Point with values from 0 to 1 (plus bouncing) specifying relative content offset in the content size. Takes into account content insets.
-@property (nonatomic, readwrite, assign) CGPoint contentProgress;
+@property CGPoint contentProgress;
 
 /// Provides current bouncing in all directions. Values are never negative and takes into account content insets.
-@property (nonatomic, readonly, assign) UIEdgeInsets bouncingInsets;
+@property (readonly) UIEdgeInsets bouncingInsets;
 
 /// Horizontal page index. This is in fact floating point number, not just page index. Can be used for tracking progress between two pages.
-@property (nonatomic, readwrite, assign) CGFloat page;
+@property CGFloat page;
+
+/// Accessor for .contentInsets.top
+@property CGFloat contentInsetTop;
+
+/// Accessor for .scrollIndicatorinsets.top
+@property CGFloat scrollIndicatorInsetTop;
 
 
 
