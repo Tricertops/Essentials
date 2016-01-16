@@ -17,7 +17,7 @@
 #define ESSWrap(ANYTHING) \
 (NSValue *)({ \
     typeof(ANYTHING) value = (ANYTHING); \
-    [NSValue valueOfObjCType:@encode(value) atAddress:&value]; \
+    [NSValue valueOfObjCType:@encode(typeof(value)) atAddress:&value]; \
 })
 
 
@@ -25,7 +25,7 @@
 #define ESSUnwrap(NSVALUE, TYPE, DEFAULT) \
 (typeof(TYPE))({ \
     typeof(TYPE) value; \
-    BOOL ok = [[NSValue cast:(NSVALUE)] getValueOfObjCType:@encode(value) toAddress:&value]; \
+    BOOL ok = [[NSValue cast:(NSVALUE)] getValueOfObjCType:@encode(typeof(value)) toAddress:&value]; \
     (ok ? value : (DEFAULT)); \
 })
 
