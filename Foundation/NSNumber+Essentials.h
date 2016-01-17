@@ -34,8 +34,15 @@
 /// Compares to [NSDecimalNumber notANumber]
 - (BOOL)isNaN;
 
-/// Compares to NSNull and NaN, orks for nil too.
+/// Compares to NSNull and NaN, works for nil too.
 - (BOOL)isNumber;
+
+
+
+#pragma mark - Arithmetics
+
+/// Rounds the receiver to nearest multiple of step.
+- (NSNumber *)roundedTo:(double)step;
 
 
 

@@ -61,4 +61,18 @@
 
 
 
+
+#pragma mark - Arithmetics
+
+
+- (NSNumber *)roundedTo:(double)step {
+    ESSAssert(step != 0) return self;
+    ESSAssert(!isnan(step)) return self;
+    ESSAssert(!isinf(step)) return self;
+    return @(round(self.doubleValue / step) * step);
+}
+
+
+
+
 @end
