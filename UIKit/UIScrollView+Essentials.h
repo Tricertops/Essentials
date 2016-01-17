@@ -34,7 +34,7 @@
 /// Maximum value the content offset can contain (excluding bouncing) in current content size and bounds.
 @property (readonly) CGPoint maximumContentOffset;
 
-@property (readonly) CGPoint contentProgressOffset;
+@property CGPoint contentProgressOffset;
 
 /// Point with values from 0 to 1 (plus bouncing) specifying relative content offset in the content size. Takes into account content insets.
 @property CGPoint contentProgress;
@@ -57,6 +57,9 @@
 
 /// Cause all scroll views to cancel touches in UIButton subviews. This is the same behavior as with UITableViewCells.
 + (void)enableNaturalButtonHandling;
+
+/// Pauses running scroll animation.
+- (void)stopScrolling;
 
 
 

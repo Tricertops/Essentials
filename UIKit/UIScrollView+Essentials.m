@@ -85,9 +85,10 @@
 
 - (void)setContentProgressOffset:(CGPoint)contentProgressOffset {
     UIEdgeInsets contentInset = self.contentInset;
+    CGPoint max = self.maximumContentOffset;
     CGPoint offset = {
-        .x = contentProgressOffset.x - contentInset.left,
-        .y = contentProgressOffset.y - contentInset.top,
+        .x = MIN(contentProgressOffset.x, max.x) - contentInset.left,
+        .y = MIN(contentProgressOffset.y, max.y) - contentInset.top,
     };
     self.contentOffset = offset;
 }
@@ -228,6 +229,17 @@
 - (BOOL)ess_naturalButtonHandling_touchesShouldCancelInContentView:(UIView *)view {
     BOOL original = [self ess_naturalButtonHandling_touchesShouldCancelInContentView:view];
     return (original || [view isKindOfClass:[UIButton class]]);
+}
+
+
+- (void)stopScrolling {
+    //! Interrupts dragging.
+    BOOL wasEnabled = self.scrollEnabled;
+    self.scrollEnabled = NO;
+    self.scrollEnabled = wasEnabled;
+    
+    //! Stops deceleration.
+    [self setContentOffset:self.contentOffset animated:NO];
 }
 
 
