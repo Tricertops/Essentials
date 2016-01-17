@@ -21,7 +21,7 @@
 #pragma mark - Multiple
 
 
-+ (NSArray<NSIndexPath *> *)indexPathsFromRowsInIndexSet:(NSIndexSet *)indexes inSection:(NSUInteger)section {
++ (NSArray<NSIndexPath *> *)indexPathsForRowsInIndexSet:(NSIndexSet *)indexes inSection:(NSUInteger)section {
     NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray new];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger row, BOOL *stop) {
         NSUInteger indexes[2] = { section, row };
@@ -31,8 +31,8 @@
 }
 
 
-+ (NSArray<NSIndexPath *> *)indexPathsFromRowsInRange:(NSRange)range inSection:(NSUInteger)section {
-    return [self indexPathsFromRowsInIndexSet:[NSIndexSet indexSetWithIndexesInRange:range] inSection:section];
++ (NSArray<NSIndexPath *> *)indexPathsForRowsInRange:(NSRange)range inSection:(NSUInteger)section {
+    return [self indexPathsForRowsInIndexSet:[NSIndexSet indexSetWithIndexesInRange:range] inSection:section];
 }
 
 

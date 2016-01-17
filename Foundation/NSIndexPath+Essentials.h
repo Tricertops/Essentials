@@ -15,8 +15,8 @@
 
 #pragma mark - Multiple
 
-+ (NSArray<NSIndexPath *> *)indexPathsFromRowsInIndexSet:(NSIndexSet *)indexes inSection:(NSUInteger)section;
-+ (NSArray<NSIndexPath *> *)indexPathsFromRowsInRange:(NSRange)range inSection:(NSUInteger)section;
++ (NSArray<NSIndexPath *> *)indexPathsForRowsInIndexSet:(NSIndexSet *)indexes inSection:(NSUInteger)section;
++ (NSArray<NSIndexPath *> *)indexPathsForRowsInRange:(NSRange)range inSection:(NSUInteger)section;
 
 
 @end
