@@ -155,6 +155,8 @@
 
 - (NSArray<NSString *> *)stringsByAppendingStrings:(NSArray<NSString *> *)suffixes usingString:(NSString *)joiningString;
 
+- (NSString*)repeat:(NSUInteger)times;
+
 
 @end
 

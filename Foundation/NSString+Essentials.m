@@ -423,6 +423,16 @@
 }
 
 
+- (NSString*)repeat:(NSUInteger)times
+{
+    NSMutableString *string = [NSMutableString stringWithCapacity:self.length * times];
+    for (NSUInteger index = 0; index < times; index ++) {
+        [string appendString:self];
+    }
+    return string;
+}
+
+
 
 
 
