@@ -36,6 +36,11 @@
 
 
 
+- (instancetype)fontWithAdjustedSizeBy:(CGFloat)increment {
+    return [self fontWithSize:self.pointSize + increment];
+}
+
+
 - (instancetype)fontWithFeature:(UInt16)type selector:(UInt16)selector {
     NSArray<NSDictionary<NSString *, NSNumber *> *> *features = [self.fontDescriptor.fontAttributes objectForKey:UIFontDescriptorFeatureSettingsAttribute];
     NSMutableArray<NSDictionary<NSString *, NSNumber *> *> *mutableFeatures = [[NSMutableArray alloc] initWithArray:features];

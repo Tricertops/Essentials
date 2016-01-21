@@ -21,6 +21,7 @@
 + (instancetype)thinSystemFontOfSize:(CGFloat)size;
 + (instancetype)ultraLightSystemFontOfSize:(CGFloat)size;
 
+- (instancetype)fontWithAdjustedSizeBy:(CGFloat)increment;
 - (instancetype)fontWithFeature:(UInt16)type selector:(UInt16)selector;
 - (instancetype)fontWithProportionalNumbers;
 - (instancetype)fontWithAlternatePunctuation;
