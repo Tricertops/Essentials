@@ -56,7 +56,7 @@
 @implementation NSString (NSAttributedString_Essentials)
 
 
-- (NSAttributedString *)attributed:(NSDictionary<NSString *, NSObject *> *)attributes {
+- (NSAttributedString *)withAttributes:(NSDictionary<NSString *, NSObject *> *)attributes {
     return [[NSAttributedString alloc] initWithString:self attributes:attributes];
 }
 

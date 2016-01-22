@@ -54,6 +54,15 @@
 }
 
 
+- (void)updateParagraphStyleUsingBlock:(void (^)(NSMutableParagraphStyle *))block
+{
+    NSParagraphStyle *immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
+    NSMutableParagraphStyle *mutable = [immutable mutableCopy];
+    block(mutable);
+    self.paragraphStyle = mutable;
+}
+
+
 - (void)setFont:(UIFont *)font {
     self[NSFontAttributeName] = font;
 }
@@ -62,12 +71,97 @@
     self[NSForegroundColorAttributeName] = color;
 }
 
+- (void)setShadow:(NSShadow *)shadow {
+    self[NSShadowAttributeName] = shadow;
+}
+
 - (void)setParagraphStyle:(NSParagraphStyle *)paragraphStyle {
     self[NSParagraphStyleAttributeName] = [paragraphStyle copy];
 }
 
-- (void)setShadow:(NSShadow *)shadow {
-    self[NSShadowAttributeName] = shadow;
+
+- (void)setAlignment:(NSTextAlignment)alignment {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.alignment = alignment;
+    }];
+}
+
+- (void)setFirstLineHeadIndent:(CGFloat)firstLineHeadIndent {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.firstLineHeadIndent = firstLineHeadIndent;
+    }];
+}
+
+- (void)setHeadIndent:(CGFloat)headIndent {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.headIndent = headIndent;
+    }];
+}
+
+- (void)setTailIndent:(CGFloat)tailIndent {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.tailIndent = tailIndent;
+    }];
+}
+
+- (void)setLineHeightMultiple:(CGFloat)lineHeightMultiple {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.lineHeightMultiple = lineHeightMultiple;
+    }];
+}
+
+- (void)setMaximumLineHeight:(CGFloat)maximumLineHeight {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.maximumLineHeight = maximumLineHeight;
+    }];
+}
+
+- (void)setMinimumLineHeight:(CGFloat)minimumLineHeight {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.minimumLineHeight = minimumLineHeight;
+    }];
+}
+
+- (void)setLineSpacing:(CGFloat)lineSpacing {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.lineSpacing = lineSpacing;
+    }];
+}
+
+- (void)setParagraphSpacing:(CGFloat)paragraphSpacing {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.paragraphSpacing = paragraphSpacing;
+    }];
+}
+
+- (void)setParagraphSpacingBefore:(CGFloat)paragraphSpacingBefore {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.paragraphSpacingBefore = paragraphSpacingBefore;
+    }];
+}
+
+- (void)setTabStops:(NSArray<NSTextTab *> *)tabStops {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.tabStops = tabStops;
+    }];
+}
+
+- (void)setDefaultTabInterval:(CGFloat)defaultTabInterval {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.defaultTabInterval = defaultTabInterval;
+    }];
+}
+
+- (void)setLineBreakMode:(NSLineBreakMode)lineBreakMode {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.lineBreakMode = lineBreakMode;
+    }];
+}
+
+- (void)setHyphenationFactor:(CGFloat)hyphenationFactor {
+    [self updateParagraphStyleUsingBlock:^(NSMutableParagraphStyle* paragraph) {
+        paragraph.hyphenationFactor = hyphenationFactor;
+    }];
 }
 
 
@@ -278,10 +372,11 @@
 
 
 
-- (NSMutableAttributedString *)mutableAttributed:(NSDictionary<NSString *, id> *)attributes {
-    return [[NSMutableAttributedString alloc] initWithString:self attributes:attributes];
+- (NSMutableAttributedString *)attributed:(void (^)(NSMutableAttributedString *))block {
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:self];
+    if (block) block(string);
+    return string;
 }
-
 
 
 @end

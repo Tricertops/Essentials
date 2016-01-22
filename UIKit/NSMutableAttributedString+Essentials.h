@@ -19,10 +19,28 @@ ESSWriteOnlyProperty(ESSPassthrough(NSDictionary<NSString *, id> *), attributes)
 /// Adds the attribute to the full range of string. Nil value removes the attribute.
 - (void)setObject:(NSObject *)attributeValue forKeyedSubscript:(NSString *)attributeName;
 
+/// Invokes block for paragraph style of the receiver.
+- (void)updateParagraphStyleUsingBlock:(void (^)(NSMutableParagraphStyle *))block;
+
 ESSWriteOnlyProperty(UIFont *, font); /// Default: System 12pt
 ESSWriteOnlyProperty(UIColor *, color); /// Default: Black
-ESSWriteOnlyProperty(NSParagraphStyle *, paragraphStyle); /// Default: +defaultParagraphStyle
 ESSWriteOnlyProperty(NSShadow *, shadow);
+ESSWriteOnlyProperty(NSParagraphStyle *, paragraphStyle); /// Default: +defaultParagraphStyle
+
+ESSWriteOnlyProperty(NSTextAlignment, alignment); /// Default: Natural
+ESSWriteOnlyProperty(CGFloat, firstLineHeadIndent);
+ESSWriteOnlyProperty(CGFloat, headIndent);
+ESSWriteOnlyProperty(CGFloat, tailIndent);
+ESSWriteOnlyProperty(CGFloat, lineHeightMultiple);
+ESSWriteOnlyProperty(CGFloat, maximumLineHeight);
+ESSWriteOnlyProperty(CGFloat, minimumLineHeight);
+ESSWriteOnlyProperty(CGFloat, lineSpacing);
+ESSWriteOnlyProperty(CGFloat, paragraphSpacing);
+ESSWriteOnlyProperty(CGFloat, paragraphSpacingBefore);
+ESSWriteOnlyProperty(NSArray <NSTextTab *> *, tabStops);
+ESSWriteOnlyProperty(CGFloat, defaultTabInterval);
+ESSWriteOnlyProperty(NSLineBreakMode, lineBreakMode); /// Default: Word Wrapping
+ESSWriteOnlyProperty(CGFloat, hyphenationFactor);
 
 ESSWriteOnlyProperty(BOOL, usesLigatures); /// Default: YES (default ligatures)
 ESSWriteOnlyProperty(CGFloat, kerning); /// Zero uses default kerning.
@@ -115,8 +133,8 @@ ESSWriteOnlyProperty(NSURL *, link);
 
 
 
-/// Returns new mutable attributed string created from the receiver and given attributes.
-- (NSMutableAttributedString *)mutableAttributed:(NSDictionary<NSString *, id> *)attributes;
+/// Allow you to set attributes of the string using block. Pass nil for no attributes.
+- (NSMutableAttributedString *)attributed:(void (^)(NSMutableAttributedString *string))block;
 
 
 
