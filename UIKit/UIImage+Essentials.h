@@ -45,10 +45,13 @@
 
 
 
-#pragma mark - Crop
+#pragma mark - Crop & Resize
 
 /// Returns new instance that represents cropped portion of the receiver. Transforms the crop rect to match image orientation.
 - (UIImage *)imageByCroppingRect:(CGRect)cropRect;
+
+/// Returns new instance that doesn’t exceed given dimensions.
+- (UIImage *)resizedImageToSize:(CGSize)size;
 
 
 

@@ -9,6 +9,7 @@
 @import Accelerate;
 #import "UIImage+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "UIKit+Essentials.h"
 #import "UIColor+Essentials.h"
 
 
@@ -57,7 +58,7 @@
 
 
 
-#pragma mark - Crop
+#pragma mark - Crop & Resize
 
 
 
@@ -139,6 +140,14 @@
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return croppedImage;
+}
+
+
+- (UIImage *)resizedImageToSize:(CGSize)size {
+    CGRect rect = CGRectFitIntoRect(CGRectMakeSize(self.size), CGRectMakeSize(size));
+    return [UIImage drawWithSize:rect.size opaque:NO scale:self.scale block:^{
+        [self drawInRect:rect];
+    }];
 }
 
 
