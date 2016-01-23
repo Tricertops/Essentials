@@ -56,6 +56,8 @@
 
 - (void)updateParagraphStyleUsingBlock:(void (^)(NSMutableParagraphStyle *))block
 {
+    if ( ! self.length) return;
+    
     NSParagraphStyle *immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
     NSMutableParagraphStyle *mutable = [immutable mutableCopy];
     block(mutable);
