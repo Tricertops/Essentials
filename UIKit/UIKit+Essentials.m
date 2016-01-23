@@ -45,6 +45,34 @@ CGRect CGRectMakeOriginSize(CGPoint origin, CGSize size) {
 }
 
 
+CGRect CGRectResizeForRect(CGRect rect, CGRect target, CGFloat(^resolver)(CGFloat, CGFloat)) {
+    CGSize scales = CGSizeMake(target.size.width / rect.size.width,
+                               target.size.height / rect.size.height);
+    CGFloat scale = resolver(scales.width, scales.height);
+    
+    rect.size.width *= scale;
+    rect.size.height *= scale;
+    rect.origin.x = target.origin.x + (target.size.width - rect.size.width) / 2;
+    rect.origin.y = target.origin.y + (target.size.height - rect.size.height) / 2;
+    
+    return rect;
+}
+
+
+CGRect CGRectFitIntoRect(CGRect rect, CGRect target) {
+    return CGRectResizeForRect(rect, target, ^CGFloat (CGFloat x, CGFloat y) {
+        return MIN(x, y);
+    });
+}
+
+
+CGRect CGRectFillOverRect(CGRect rect, CGRect target) {
+    return CGRectResizeForRect(rect, target, ^CGFloat (CGFloat x, CGFloat y) {
+        return MAX(x, y);
+    });
+}
+
+
 
 
 

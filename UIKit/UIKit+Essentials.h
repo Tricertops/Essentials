@@ -51,6 +51,14 @@ extern CGRect CGRectMakeOrigin(CGPoint);
 extern CGRect CGRectMakeOriginSize(CGPoint, CGSize);
 
 
+/// Fits rectangle into another, centering.
+extern CGRect CGRectFitIntoRect(CGRect, CGRect);
+
+
+/// Fills rectangle over another, centering.
+extern CGRect CGRectFillOverRect(CGRect, CGRect);
+
+
 
 
 
