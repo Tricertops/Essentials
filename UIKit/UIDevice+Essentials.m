@@ -236,8 +236,8 @@
                   @"iPad5,3": @"iPad Air 2", //! Wi-Fi, 2014
                   @"iPad5,4": @"iPad Air 2", //! Cellular, 2014
                   
-                  @"iPad6,1": @"iPad Pro 1", //! Wi-Fi, 2015
-                  @"iPad6,2": @"iPad Pro 1", //! Cellular, 2015
+                  @"iPad6,7": @"iPad Pro 1", //! Wi-Fi, 2015
+                  @"iPad6,8": @"iPad Pro 1", //! Cellular, 2015
                   
                   //! Apple TV
                   @"AppleTV2,1": @"Apple TV 2", //! 2010
