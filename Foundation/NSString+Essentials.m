@@ -255,16 +255,9 @@
 
 
 - (void)enumerateSubstitutionsWithBlock:(void(^)(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation))block {
-    NSRange matchedRange = NSMakeRange(0, 0);
-    while ((matchedRange = [self rangeOfOpening:@"{" closing:@"}" after:NSMaxRange(matchedRange)]).location != NSNotFound) {
-        NSRange placeholderRange = NSMakeRange(matchedRange.location + 1, matchedRange.length - 2);
-        NSString *placeholder = [self substringWithRange:placeholderRange];
-        
-        NSUInteger continueLocation = NSMaxRange(matchedRange);
-        block(matchedRange, placeholder, &continueLocation);
-        matchedRange.location = continueLocation;
-        matchedRange.length = 0; // Used in the next iteration.
-    }
+    [self enumerateSubstringsBetween:@"{" and:@"}" usingBlock:^(NSString *content, NSRange enclosingRange, NSUInteger *continueLocation) {
+        block(enclosingRange, content, continueLocation);
+    }];
 }
 
 
@@ -313,6 +306,26 @@
     
     NSUInteger closingRangeEnd = closingRange.location + closingRange.length;
     return NSMakeRange(openingRange.location, closingRangeEnd - openingRange.location);
+}
+
+
+- (void)enumerateSubstringsBetween:(NSString *)opening and:(NSString *)closing usingBlock:(void(^)(NSString *content, NSRange rangeIncludingDelimiters, NSUInteger *continueLocation))block {
+    NSRange enclosingRange = NSMakeRange(0, 0);
+    
+    while (INFINITY) {
+        enclosingRange = [self rangeOfOpening:opening closing:closing after:NSMaxRange(enclosingRange)];
+        if (enclosingRange.location == NSNotFound)
+            break;
+        
+        NSRange contentRange = NSMakeRange(enclosingRange.location + opening.length, enclosingRange.length - opening.length - closing.length);
+        NSString *content = [self substringWithRange:contentRange];
+        
+        NSUInteger location = NSMaxRange(enclosingRange);
+        block(content, enclosingRange, &location);
+        
+        enclosingRange.location = location;
+        enclosingRange.length = 0; // Used in the next iteration.
+    }
 }
 
 
