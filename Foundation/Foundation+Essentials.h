@@ -137,7 +137,7 @@ static typeof(VALUE) NAME_ASSIGN (typeof(VALUE))0;\
     static CLASS *shared = nil;\
     static dispatch_once_t onceToken;\
     dispatch_once(&onceToken, ^{\
-        shared = [[CLASS alloc] init];\
+        shared = [[CLASS.self alloc] init];\
     });\
     return shared;\
 }\
