@@ -12,48 +12,56 @@ Highlights
 ### ESSAssert
 Assertion macro with optional message. It’ active also on Release and provides **fallback handling** using `else` clause. Works perfectly with compiler **static analysis**.
 
-    ESSAssert(condition); // Prints default message.
-    ESSDebugAssert(condition); // Active only on Debug.
-    ESSAssert(condition, @"Must be %@", requirement); // Prints custom message.
-    ESSAssert(condition) else return nil; // Fallback handler for Release.
-    
-    int* pointer = NULL;
-    *pointer = 5; // Compiler warning for NULL dereference !!!
-    ESSAssert(pointer) else return;
-    *pointer = 5; // Compiler is ok, because we returned above.
+```objc
+ESSAssert(condition); // Prints default message.
+ESSDebugAssert(condition); // Active only on Debug.
+ESSAssert(condition, @"Must be %@", requirement); // Prints custom message.
+ESSAssert(condition) else return nil; // Fallback handler for Release.
+
+int* pointer = NULL;
+*pointer = 5; // Compiler warning for NULL dereference !!!
+ESSAssert(pointer) else return;
+*pointer = 5; // Compiler is ok, because we returned above.
+```
 
 ### ESSLazyMake
 Macro for convenient **lazy getters**.
 
-    ESSLazyMake(NSData *, fileContents) {
-        // Invoked only once, returned value is stored in _fileContents ivar.
-        return [NSData stringWithContentsOfURL:self.fileURL];
-    }
+```objc
+ESSLazyMake(NSData *, fileContents) {
+    // Invoked only once, returned value is stored in _fileContents ivar.
+    return [NSData stringWithContentsOfURL:self.fileURL];
+}
+```
 
 ### NSEqual
 Function for **nil-safe** object comparison. Calling `-isEqual:` on `nil` with `nil` argument returns wrong answer.
 
-    NSEqual(nil, nil); // YES
-    NSEqual(nil, @"A"); // NO
-    NSEqual(@"A", nil); // NO
-    NSEqual(@"A", @"A"); // YES
+```objc
+NSEqual(nil, nil); // YES
+NSEqual(nil, @"A"); // NO
+NSEqual(@"A", nil); // NO
+NSEqual(@"A", @"A"); // YES
+```
 
 ### ESSDebug / ESSNotice / ESSWarning / ESSError
 Logging functions with **better format** than `NSLog()`. I don’t need to see year, process name or thread ID. Also allows **filtering** logs to arbitrary level (e.g. ignore `ESSDebug`).
 
-      2016-02-13 10:16:17.838 ProcessName[76035:16575258] Using NSLog
-      Feb 13 10:16:17: Using ESSDebug
-      Feb 13 10:16:17: ╸Using ESSNotice╺
-      Feb 13 10:16:17: ◆ Warning: Using ESSWarning ◆
-      Feb 13 10:16:17: >> Error: Using ESSError <<
-      
-      Feb 13 10:20:28: BACKGROUND ╸Using ESSNotice from non-main thread╺
+    2016-02-13 10:16:17.838 ProcessName[76035:16575258] Using NSLog
+    Feb 13 10:16:17: Using ESSDebug
+    Feb 13 10:16:17: ╸Using ESSNotice╺
+    Feb 13 10:16:17: ◆ Warning: Using ESSWarning ◆
+    Feb 13 10:16:17: >> Error: Using ESSError <<
+    
+    Feb 13 10:20:28: BACKGROUND ╸Using ESSNotice from non-main thread╺
 
 ### +cast:
 Type-checked method for **safe casting** of object pointers. Returns instance of the receiving class or `nil`.
 
-      [NSString cast:@"A"]; // @"A"
-      [NSString cast:@42]; // nil
+```objc
+[NSString cast:@"A"]; // @"A"
+[NSString cast:@42]; // nil
+```
 
 ### NSString
 - Enumerating **occurences** of string.
@@ -99,39 +107,43 @@ Custom class that encapsulates interaction with HTTP responses, returned by `NSU
 - Single **error** covering all domains (URL loading, status code errors, file error, JSON error).
 - Convenient retry mechanism using `-shouldRetry` and `-retryAfter:`.
 
-      [[NSURLSession mainQueueSession] download:URL
-                                     completion:^(ESSURLResponse *response) {
-          if (response.shouldRetry) {
-              [response retryIfNeededAfter:5 count:3]; // Limit number of retries.
-          }
-          else {
-              NSString *title = response.JSON[@"title"];
-              // ...
-          }
-      }];
+```objc
+ [[NSURLSession mainQueueSession] download:URL
+                                completion:^(ESSURLResponse *response) {
+     if (response.shouldRetry) {
+         [response retryIfNeededAfter:5 count:3]; // Limit number of retries.
+     }
+     else {
+         NSString *title = response.JSON[@"title"];
+         // ...
+     }
+ }];
+ ```
 
 ### ESSEncode / ESSDecode
 Single pair of macros to encode and decode values of **any type** using `NSCoder`. It uses KVC and requires the coder to be stored in `decoder` and `encoder` variables.
 
-    @property NSString *title;
-    @property NSUInteger count;
-    @property (weak) id owner;
-    
-    - (void)encodeWithCoder:(NSCoder *)encoder {
-        ESSEncode(title);
-        ESSEncode(count);
-        ESSEncodeConditional(owner);
+```objc
+@property NSString *title;
+@property NSUInteger count;
+@property (weak) id owner;
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    ESSEncode(title);
+    ESSEncode(count);
+    ESSEncodeConditional(owner);
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [self init];
+    if (self) {
+        ESSDecode(title);
+        ESSDecode(count);
+        ESSDecode(owner);
     }
-    
-    - (instancetype)initWithCoder:(NSCoder *)decoder {
-        self = [self init];
-        if (self) {
-            ESSDecode(title);
-            ESSDecode(count);
-            ESSDecode(owner);
-        }
-        return self;
-    }
+    return self;
+}
+```
 
 ### CGGeometry
 - **Rounding** numbers, points, sizes and rects to **screen scale**.
@@ -158,12 +170,14 @@ Single pair of macros to encode and decode values of **any type** using `NSCoder
 - Creating color **histograms**.
 - Bitmap and per-pixel **processing**.
 
-      UIImage *inverted = [image imageByEnumeratingPixels:^GLKVector4(GLKVector4 color) {
-          return GLKVector4Make(1 - color.r,
-                                1 - color.g,
-                                1 - color.b,
-                                color.a);
-      }];
+```objc
+UIImage *inverted = [image imageByEnumeratingPixels:^GLKVector4(GLKVector4 color) {
+    return GLKVector4Make(1 - color.r,
+                          1 - color.g,
+                          1 - color.b,
+                          color.a);
+}];
+```
 
 ### UIView
 - **Snapshotting**.
@@ -177,31 +191,37 @@ Single pair of macros to encode and decode values of **any type** using `NSCoder
 - **Stop** scrolling programatically.
 - Enabling **Natural Touch Handling™** so `UIButton` is not delayed, just like `UITableViewCell`. Uses swizzling.
 
-      [UIScrollView enableNaturalButtonHandling]; // Done!
+```objc
+[UIScrollView enableNaturalButtonHandling]; // Done!
+```
 
 ### Attributed String
 Category for setting **attributes as properties**.
 
-    NSMutableAttribtedString *string = [NSMutableAttribtedString new];
-    [string append:@"ABCD"];
-    string.font = [UIFont boldSystemFontOfSize: 20];
-    string.color = [UIColor redColor];
-    string.alignment = NSTextAlignmentCenter;
-    string.kerning = 10;
-    string.hasUnderline = YES;
-    
-    // Set attributes on subrange:
-    [string subrange:NSRangeMake(1, 2)].color = [UIColor blackColor];
+```objc
+NSMutableAttribtedString *string = [NSMutableAttribtedString new];
+[string append:@"ABCD"];
+string.font = [UIFont boldSystemFontOfSize: 20];
+string.color = [UIColor redColor];
+string.alignment = NSTextAlignmentCenter;
+string.kerning = 10;
+string.hasUnderline = YES;
+
+// Set attributes on subrange:
+[string subrange:NSRangeMake(1, 2)].color = [UIColor blackColor];
+```
 
 ### CoreImage
 - Convenient `UIImage` **processing**.
 - Filter **constructors** for every `CIFilter` type (e.g. blur, hue, saturation, contrast, invert, grayscale, …).
 
-      UIImage *processed = [CIContext imageFromImage:image filters:@[
-          [CIFilter blurWithRadius:7],
-          [CIFilter adjustSaturation:1.3],
-          [CIFilter invertColors],
-          [CIFilter photoEffectTonal],
-      ]];
+```objc
+UIImage *processed = [CIContext imageFromImage:image filters:@[
+    [CIFilter blurWithRadius:7],
+    [CIFilter adjustSaturation:1.3],
+    [CIFilter invertColors],
+    [CIFilter photoEffectTonal],
+]];
+```
 
 ##### And many more…
