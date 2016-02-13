@@ -44,7 +44,9 @@ ESSWriteOnlyProperty(CGFloat, hyphenationFactor);
 
 ESSWriteOnlyProperty(BOOL, usesLigatures); /// Default: YES (default ligatures)
 ESSWriteOnlyProperty(CGFloat, kerning); /// Zero uses default kerning.
+ESSWriteOnlyProperty(BOOL, hasStrikethrough);
 ESSWriteOnlyProperty(NSUnderlineStyle, strikethroughStyle);
+ESSWriteOnlyProperty(BOOL, hasUnderline);
 ESSWriteOnlyProperty(NSUnderlineStyle, underlineStyle);
 ESSWriteOnlyProperty(CGFloat, strokeWidth); /// Preserves fill.
 ESSWriteOnlyProperty(CGFloat, baselineOffset);

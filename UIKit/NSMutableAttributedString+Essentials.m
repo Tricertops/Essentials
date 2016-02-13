@@ -175,8 +175,16 @@
     self[NSKernAttributeName] = (kerning? @(kerning) : nil);
 }
 
+- (void)setHasStrikethrough:(BOOL)hasStrikethrough {
+    self.strikethroughStyle = NSUnderlineStyleSingle;
+}
+
 - (void)setStrikethroughStyle:(NSUnderlineStyle)strikethroughStyle {
     self[NSStrikethroughStyleAttributeName] = @(strikethroughStyle);
+}
+
+- (void)setHasUnderline:(BOOL)hasUnderline {
+    self.underlineStyle = NSUnderlineStyleSingle;
 }
 
 - (void)setUnderlineStyle:(NSUnderlineStyle)underlineStyle {
