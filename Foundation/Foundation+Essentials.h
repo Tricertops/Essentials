@@ -54,10 +54,10 @@
 
 
 //! Enable assert when Foundation assert are enabled.
-#if NS_BLOCK_ASSERTIONS
-    #define ESS_DEBUG_ASSERT_ENABLED   0
-#else
+#if DEBUG
     #define ESS_DEBUG_ASSERT_ENABLED   1
+#else
+    #define ESS_DEBUG_ASSERT_ENABLED   0
 #endif
 
 
