@@ -36,6 +36,9 @@
 /// Enumerates contents of the receiver providing index.
 - (void)forEachIndex:(void(^)(NSUInteger index, T object))block;
 
+/// Returns new array that contains the same objects in rever order.
+- (NSArray<T> *)reversedArray;
+
 
 
 #pragma mark Mapping

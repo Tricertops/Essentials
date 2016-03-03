@@ -71,6 +71,11 @@
 }
 
 
+- (NSArray *)reversedArray {
+    return self.reverseObjectEnumerator.allObjects;
+}
+
+
 
 
 
