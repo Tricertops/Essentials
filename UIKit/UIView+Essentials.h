@@ -130,6 +130,9 @@
 - (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block;
 
 
+- (void)crossDissolveWithDuration:(NSTimeInterval)duration animations:(void(^)(void))animations;
+
+
 
 #pragma mark - Interaction
 

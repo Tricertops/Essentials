@@ -429,6 +429,14 @@
 
 
 
+- (void)crossDissolveWithDuration:(NSTimeInterval)duration animations:(void(^)(void))animations {
+    [UIView transitionWithView:self duration:duration options:UIViewAnimationOptionTransitionCrossDissolve animations:animations completion:nil];
+}
+
+
+
+
+
 
 #pragma mark - Interaction
 
