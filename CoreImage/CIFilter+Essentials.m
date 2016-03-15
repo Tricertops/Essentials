@@ -67,6 +67,24 @@
 }
 
 
++ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)angle {
+    return [CIFilter filterWithName:@"CIMotionBlur"
+                      keysAndValues:
+            kCIInputRadiusKey, @(radius),
+            kCIInputAngleKey, @(angle),
+            nil];
+}
+
+
++ (instancetype)zoomBlurWithAmount:(CIDistance)amount center:(CIVector *)center {
+    return [CIFilter filterWithName:@"CIZoomBlur"
+                      keysAndValues:
+            @"inputAmount", @(amount),
+            kCIInputCenterKey, center ?: [CIVector vectorWithX:0 Y:0],
+            nil];
+}
+
+
 #pragma mark Category: Color Adjustments
 
 

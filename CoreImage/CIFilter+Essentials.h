@@ -43,6 +43,10 @@ typedef CGFloat CIAngle;
 
 /// Spreads source pixels by an amount specified by a Gaussian distribution. (CIGaussianBlur)
 + (instancetype)blurWithRadius:(CIDistance)radius;
+/// Blurs an image to simulate the effect of using a camera that moves a specified angle. (CIMotionBlur)
++ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)angle;
+/// Simulates the effect of zooming the camera while capturing the image. (CIZoomBlur)
++ (instancetype)zoomBlurWithAmount:(CIDistance)amount center:(CIVector *)center;
 
 
 #pragma mark Category: Color Adjustments
