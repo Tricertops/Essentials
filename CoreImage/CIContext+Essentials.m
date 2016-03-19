@@ -55,7 +55,7 @@
     [filters.firstObject setValue:inputCI forKey:kCIInputImageKey];
     CIFilter *finalFilter = [CIFilter chainFilters:filters];
     
-    CGImageRef outputCG = [self createCGImage:finalFilter.outputImage fromRect:finalFilter.outputImage.extent];
+    CGImageRef outputCG = [self createCGImage:finalFilter.outputImage fromRect:inputCI.extent];
     UIImage *outputUI = [UIImage imageWithCGImage:outputCG scale:inputUI.scale orientation:inputUI.imageOrientation];
     CGImageRelease(outputCG);
     
