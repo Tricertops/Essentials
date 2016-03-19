@@ -47,6 +47,9 @@
 /// Opacity of background color.
 @property (nonatomic, readwrite, assign) CGFloat backgroundAlpha;
 
+/// Inverse to .hidden property.
+@property BOOL isVisible;
+
 
 
 #pragma mark - Geometry

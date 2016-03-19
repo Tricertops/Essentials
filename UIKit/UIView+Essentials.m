@@ -114,6 +114,24 @@
 
 
 
+- (BOOL)isVisible {
+    return ! self.hidden;
+}
+
+
+- (void)setIsVisible:(BOOL)isVisible {
+    self.hidden = ! isVisible;
+}
+
+
++ (NSSet *)keyPathsForValuesAffectingIsVisible {
+    return [NSSet setWithObject:ESSKeypathClass(UIView, hidden)];
+}
+
+
+
+
+
 #pragma mark - Geometry
 
 
