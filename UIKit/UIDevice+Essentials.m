@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
+@import AudioToolbox;
 #import "UIDevice+Essentials.h"
 #import <sys/utsname.h>
 
@@ -119,6 +120,17 @@
 
 
 
+#pragma mark Actions
+
+
+- (void)vibrate {
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+}
+
+
+
+
+
 #pragma mark Class Shorthands
 
 
@@ -154,6 +166,11 @@
 
 + (BOOL)is64Bit {
     return self.currentDevice.is64Bit;
+}
+
+
++ (void)vibrate {
+    [UIDevice.currentDevice vibrate];
 }
 
 

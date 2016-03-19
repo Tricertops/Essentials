@@ -39,6 +39,13 @@
 
 
 
+#pragma mark Actions
+
+/// Vibrates the device for short time.
+- (void)vibrate;
+
+
+
 #pragma mark - Idiom
 
 /// Return YES on when idiom is Phone.
@@ -69,6 +76,7 @@
 + (NSString *)resource:(NSString *)string;
 + (NSUInteger)numberOfCores;
 + (BOOL)is64Bit;
++ (void)vibrate;
 
 
 
