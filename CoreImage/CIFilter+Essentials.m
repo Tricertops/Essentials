@@ -56,6 +56,52 @@
 #pragma mark - Factory
 
 
+#pragma mark Category: Geometry
+
+
++ (instancetype)crop:(CGRect)extent {
+    return [CIFilter filterWithName:@"CICrop"
+                      keysAndValues:
+            @"inputRectangle",
+            [CIVector vectorWithX:extent.origin.x
+                                Y:extent.origin.y
+                                Z:extent.size.width
+                                W:extent.size.height],
+            nil];
+}
+
+
++ (instancetype)transform:(CGAffineTransform)transform {
+    return [CIFilter filterWithName:@"CIAffineTransform"
+                      keysAndValues:
+            kCIInputTransformKey, [NSValue valueWithBytes:&transform objCType:@encode(typeof(transform))],
+            nil];
+}
+
+
++ (instancetype)scale:(CGSize)scales {
+    return [self transform:CGAffineTransformMakeScale(scales.width, scales.height)];
+}
+
+
++ (instancetype)rotate:(CIAngle)radians {
+    return [self transform:CGAffineTransformMakeRotation(radians)];
+}
+
+
++ (instancetype)move:(CGPoint)offset {
+    return [self transform:CGAffineTransformMakeTranslation(offset.x, offset.y)];
+}
+
+
++ (instancetype)straighten:(CIAngle)radians {
+    return [CIFilter filterWithName:@"CIStraightenFilter"
+                      keysAndValues:
+            kCIInputAngleKey, @(radians),
+            nil];
+}
+
+
 #pragma mark Category: Blur
 
 
@@ -67,11 +113,11 @@
 }
 
 
-+ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)angle {
++ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)radians {
     return [CIFilter filterWithName:@"CIMotionBlur"
                       keysAndValues:
             kCIInputRadiusKey, @(radius),
-            kCIInputAngleKey, @(angle),
+            kCIInputAngleKey, @(radians),
             nil];
 }
 

@@ -39,12 +39,28 @@ typedef CGFloat CIAngle;
 /// Convenience constructors for many filters listed in Core Image Filter Reference.
 
 
+#pragma mark Category: Geometry
+
+/// Applies a crop to an image. (CICrop)
++ (instancetype)crop:(CGRect)extent;
+/// Applies an affine transform to an image. (CIAffineTransform)
++ (instancetype)transform:(CGAffineTransform)transform;
+/// Applies a scale to an image. (CIAffineTransform)
++ (instancetype)scale:(CGSize)scales;
+/// Applies a rotation to an image. (CIAffineTransform)
++ (instancetype)rotate:(CIAngle)radians;
+/// Applies a translation to an image. (CIAffineTransform)
++ (instancetype)move:(CGPoint)offset;
+/// Rotates the source image. The image is scaled and cropped so it fits the extent of the input image. (CIStraightenFilter)
++ (instancetype)straighten:(CIAngle)radians;
+
+
 #pragma mark Category: Blur
 
 /// Spreads source pixels by an amount specified by a Gaussian distribution. (CIGaussianBlur)
 + (instancetype)blurWithRadius:(CIDistance)radius;
 /// Blurs an image to simulate the effect of using a camera that moves a specified angle. (CIMotionBlur)
-+ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)angle;
++ (instancetype)motionBlurWithRadius:(CIDistance)radius angle:(CIAngle)radians;
 /// Simulates the effect of zooming the camera while capturing the image. (CIZoomBlur)
 + (instancetype)zoomBlurWithAmount:(CIDistance)amount center:(CIVector *)center;
 
