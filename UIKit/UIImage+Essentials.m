@@ -58,6 +58,32 @@
 
 
 
+#pragma mark - Coordinates
+
+
+- (CGRect)pointExtent {
+    return CGRectMakeSize(self.pointSize);
+}
+
+
+- (CGRect)pixelExtent {
+    return CGRectMakeSize(self.pixelSize);
+}
+
+
+- (CGSize)pointSize {
+    return self.size;
+}
+
+
+- (CGSize)pixelSize {
+    return CGSizeMultiply(self.pointSize, self.scale);
+}
+
+
+
+
+
 #pragma mark - Crop & Resize
 
 

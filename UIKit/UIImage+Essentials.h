@@ -37,6 +37,18 @@
 
 #pragma mark - Coordinates
 
+/// A rectangle with zero origin that specifies the extent of the image in points.
+@property (readonly) CGRect pointExtent;
+
+/// A rectangle with zero origin that specifies the extent of the image in pixels.
+@property (readonly) CGRect pixelExtent;
+
+/// A size of the image in points.
+@property (readonly) CGSize pointSize;
+
+/// A size of the image in pixels.
+@property (readonly) CGSize pixelSize;
+
 /// Calculates affine transform that converts coordinates from receiver's logical to native space. Used for crop rectanges.
 - (CGAffineTransform)transform;
 
