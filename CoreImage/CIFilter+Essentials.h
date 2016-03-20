@@ -30,6 +30,9 @@ typedef CGFloat CIAngle;
 
 #pragma mark - Combining
 
+/// Sets input image of the argument to output image of the receiver.
+- (void)connectToFilter:(CIFilter *)filter;
+
 /// Connects input images with output images. Returns last filter of the input array.
 + (CIFilter *)chainFilters:(NSArray<CIFilter *> *)filters;
 

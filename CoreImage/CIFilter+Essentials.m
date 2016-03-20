@@ -37,17 +37,43 @@
 #pragma mark - Combining
 
 
-+ (CIFilter *)chainFilters:(NSArray<CIFilter *> *)filters {
-    CIFilter *latestFilter = nil;
-    for (CIFilter *filter in filters) {
-        if (latestFilter) {
-            [filter setValue:latestFilter.outputImage forKey:kCIInputImageKey];
-        }
-        latestFilter = filter;
-    }
-    return latestFilter;
+- (void)connectToFilter:(CIFilter *)filter {
+    filter.inputImage = self.outputImage;
 }
 
+
++ (CIFilter *)chainFilters:(NSArray<CIFilter *> *)filters {
+    CIFilter *previousFilter = nil;
+    CIFilter *currentFilter = nil;
+    
+    for (currentFilter in filters) {
+        if (previousFilter) {
+            [previousFilter connectToFilter:currentFilter];
+            currentFilter = [currentFilter filterByCroppingInfiniteExtent];
+        }
+        previousFilter = currentFilter;
+    }
+    
+    return previousFilter;
+}
+
+
+/// In case the filter produces image with infinite extent, crop the output to input.
+- (CIFilter *)filterByCroppingInfiniteExtent {
+    if ( ! self.inputImage) {
+         return self;
+    }
+    if (CGRectIsInfinite(self.inputImage.extent)) {
+        return self; /// Input is already infinite.
+    }
+    if ( ! CGRectIsInfinite(self.outputImage.extent)) {
+        return self;
+    }
+    /// Input is not infinite, but output is infinite.
+    CIFilter *crop = [CIFilter crop:self.inputImage.extent];
+    [self connectToFilter:crop];
+    return crop;
+}
 
 
 
