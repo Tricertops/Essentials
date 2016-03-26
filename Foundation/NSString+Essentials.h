@@ -61,6 +61,15 @@
 /// Returns indexes of all characters from given set.
 - (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset;
 
+/// Returns a character set with characters in the receiver.
+- (NSCharacterSet*)characterSet;
+
+/// Creates string with random letters in 0-9, A-Z and a-z.
++ (NSString *)randomStringWithLength:(NSUInteger)length;
+
+/// Create string with random letters from given string.
++ (NSString *)randomStringWithLength:(NSUInteger)length letters:(NSString *)letters;
+
 
 
 #pragma mark - Transformation

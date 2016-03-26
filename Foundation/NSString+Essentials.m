@@ -136,6 +136,28 @@
 }
 
 
+- (NSCharacterSet *)characterSet {
+    return [NSCharacterSet characterSetWithCharactersInString:self];
+}
+
+
++ (NSString *)randomStringWithLength:(NSUInteger)length {
+    static NSString * const letters = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    return [self randomStringWithLength:length letters:letters];
+}
+
+
++ (NSString *)randomStringWithLength:(NSUInteger)length letters:(NSString *)lettersString {
+    NSArray<NSString *> *letters = lettersString.letters;
+    NSMutableString *string = [NSMutableString new];
+    for (NSUInteger index = 0; index < length; index ++) {
+        [string appendString: [letters randomObject]];
+    }
+    return string;
+}
+
+
+
 
 
 #pragma mark - Transformation
