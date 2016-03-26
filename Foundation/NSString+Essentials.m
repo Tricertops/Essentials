@@ -8,6 +8,7 @@
 
 #import "NSString+Essentials.h"
 #import "NSArray+Essentials.h"
+#import "Foundation+Essentials.h"
 #import <CommonCrypto/CommonDigest.h>
 
 
@@ -232,30 +233,23 @@
 
 
 - (NSString *)MD5 {
-	const char *cString = [self UTF8String];
-	unsigned char hashBuffer[CC_MD5_DIGEST_LENGTH];
-    
-	CC_MD5(cString, (unsigned int)strlen(cString), hashBuffer);
-    
-	NSMutableString *hash = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
-		[hash appendFormat:@"%02x",hashBuffer[i]];
-	}
-	return hash;
+    NSMutableData *data = [NSMutableData dataWithLength:CC_MD5_DIGEST_LENGTH];
+    CC_MD5(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
+    return data.hexadecimalString;
 }
 
 
 - (NSString *)SHA1 {
-	const char *cString = [self UTF8String];
-	unsigned char hashBuffer[CC_SHA1_DIGEST_LENGTH];
-    
-	CC_SHA1(cString, (unsigned int)strlen(cString), hashBuffer);
-    
-	NSMutableString *hash = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-		[hash appendFormat:@"%02x",hashBuffer[i]];
-	}
-	return hash;
+    NSMutableData *data = [NSMutableData dataWithLength:CC_SHA1_DIGEST_LENGTH];
+    CC_SHA1(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
+    return data.hexadecimalString;
+}
+
+
+- (NSString *)SHA256 {
+    NSMutableData *data = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    CC_SHA256(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
+    return data.hexadecimalString;
 }
 
 

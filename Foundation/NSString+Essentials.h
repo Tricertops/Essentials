@@ -91,13 +91,16 @@
 - (NSString *)stringByCapitalizingFirstCharacterUsingLocale:(NSLocale*)locale;
 
 /// Returns NSURL created using receiver, unless the receiver is empty.
-- (NSURL *)URLValue;
+@property (readonly) NSURL *URLValue;
 
 /// Returns MD5 hash of the receiver.
-- (NSString *)MD5;
+@property (readonly) NSString *MD5;
 
 /// Returns SHA1 hash of the receiver.
-- (NSString *)SHA1;
+@property (readonly) NSString *SHA1;
+
+/// Returns SHA256 hash of the receiver.
+@property (readonly) NSString *SHA256;
 
 /// Returns NSData with receiver in UTF-8 encoding.
 @property (readonly) NSData *UTF8Data;
