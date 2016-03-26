@@ -34,6 +34,7 @@
 #import "NSMutableSet+Essentials.h"
 #import "NSMapTable+Essentials.h"
 #import "NSDateFormatter+Essentials.h"
+#import "NSCharacterSet+Essentials.h"
 
 
 

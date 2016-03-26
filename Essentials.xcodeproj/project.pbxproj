@@ -63,6 +63,9 @@
 		5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
 		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
 		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
+		5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */; };
+		5BAC18081CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
+		5BAC18091CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
 		5BB485D51A161C3900AB82BE /* UIBarButtonItem+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */; };
 		5BBF9A761C6F9A15007B24FC /* NSDateFormatter+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */; };
 		5BBF9A771C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
@@ -185,6 +188,8 @@
 		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
 		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
+		5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCharacterSet+Essentials.h"; sourceTree = "<group>"; };
+		5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Essentials.m"; sourceTree = "<group>"; };
 		5BB485D31A161C3900AB82BE /* UIBarButtonItem+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Essentials.h"; sourceTree = "<group>"; };
 		5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Essentials.m"; sourceTree = "<group>"; };
 		5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Essentials.h"; sourceTree = "<group>"; };
@@ -394,6 +399,8 @@
 				5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */,
 				5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */,
 				5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */,
+				5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */,
+				5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -446,6 +453,7 @@
 				5B61079819E6A5A00071B547 /* ESSURLResponse.h in Headers */,
 				5B74A63819D45F5B00B04E07 /* ESSProxy.h in Headers */,
 				5B79EA571A98F5400031ED59 /* NSValue+Essentials.h in Headers */,
+				5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */,
 				5BBF9A761C6F9A15007B24FC /* NSDateFormatter+Essentials.h in Headers */,
 				5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */,
 				5B61079319E67A6B0071B547 /* NSURLSession+Essentials.h in Headers */,
@@ -569,6 +577,7 @@
 				5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */,
 				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
 				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
+				5BAC18081CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */,
 				5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */,
 				5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */,
 				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
@@ -614,6 +623,7 @@
 				5BE0A3111BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */,
 				5BFBAC091844BB8900179483 /* NSMutableArray+Essentials.m in Sources */,
 				5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */,
+				5BAC18091CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */,
 				5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
