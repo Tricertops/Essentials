@@ -212,6 +212,8 @@
                   @"iPhone8,1": @"iPhone 6S", //! 2015
                   @"iPhone8,2": @"iPhone 6S Plus", //! 2015
                   
+                  @"iPhone8,4": @"iPhone SE 1", //! 2016
+                  
                   //! iPod Touch
                   @"iPod1,1": @"iPod Touch 1", //! 2007
                   @"iPod2,1": @"iPod Touch 2", //! 2008
@@ -253,8 +255,11 @@
                   @"iPad5,3": @"iPad Air 2", //! Wi-Fi, 2014
                   @"iPad5,4": @"iPad Air 2", //! Cellular, 2014
                   
-                  @"iPad6,7": @"iPad Pro 1", //! Wi-Fi, 2015
-                  @"iPad6,8": @"iPad Pro 1", //! Cellular, 2015
+                  @"iPad6,7": @"iPad Pro 12.9″ 1", //! Wi-Fi, 2015
+                  @"iPad6,8": @"iPad Pro 12.9″ 1", //! Cellular, 2015
+                  
+                  @"iPad6,3": @"iPad Pro 9.7″ 1", //! Wi-Fi, 2016
+                  @"iPad6,4": @"iPad Pro 9.7″ 1", //! Cellular, 2016
                   
                   //! Apple TV
                   @"AppleTV2,1": @"Apple TV 2", //! 2010
