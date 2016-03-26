@@ -18,7 +18,7 @@
 
 
 
-- (NSString *)stringUsingUTF8Encoding {
+- (NSString *)UTF8String {
     return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 }
 

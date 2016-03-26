@@ -36,6 +36,11 @@
 }
 
 
+- (NSUInteger)UTF8Length {
+    return [self lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+}
+
+
 
 
 
@@ -251,6 +256,11 @@
 		[hash appendFormat:@"%02x",hashBuffer[i]];
 	}
 	return hash;
+}
+
+
+- (NSData *)UTF8Data {
+    return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 

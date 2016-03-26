@@ -26,6 +26,9 @@
 /// Range covering all characters of the receiver.
 @property (readonly) NSRange fullRange;
 
+/// Returns the number of bytes required to store the receiver in a UTF-8.
+@property (readonly) NSUInteger UTF8Length;
+
 
 
 #pragma mark - Shortnen Description
@@ -95,6 +98,9 @@
 
 /// Returns SHA1 hash of the receiver.
 - (NSString *)SHA1;
+
+/// Returns NSData with receiver in UTF-8 encoding.
+@property (readonly) NSData *UTF8Data;
 
 /// Enumerates all substitution tokens of format "{...}". It is safe to mutate the receiver while enumerating, pass new continue location from which to perform next search (to avoid recursion).
 - (void)enumerateSubstitutionsWithBlock:(void(^)(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation))block;

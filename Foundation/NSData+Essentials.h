@@ -15,8 +15,8 @@
 @interface NSData (Essentials)
 
 
-/// Returns new NSString created from the receiver using UTF-8 encoding. Usefull in debugger.
-- (NSString *)stringUsingUTF8Encoding;
+/// Returns new NSString created from the receiver using UTF-8 encoding.
+@property (readonly) NSString *UTF8String;
 
 
 
