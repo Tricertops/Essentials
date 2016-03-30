@@ -23,6 +23,8 @@ ESSWriteOnlyProperty(ESSPassthrough(NSDictionary<NSString *, id> *), attributes)
 - (void)updateParagraphStyleUsingBlock:(void (^)(NSMutableParagraphStyle *))block;
 
 ESSWriteOnlyProperty(UIFont *, font); /// Default: System 12pt
+ESSWriteOnlyProperty(NSString *, fontName); /// Setting replaces all fonts in string, preserving size.
+ESSWriteOnlyProperty(CGFloat, fontSize); /// Setting replaces all fonts in string, preserving point size.
 ESSWriteOnlyProperty(UIColor *, color); /// Default: Black
 ESSWriteOnlyProperty(NSShadow *, shadow);
 ESSWriteOnlyProperty(NSParagraphStyle *, paragraphStyle); /// Default: +defaultParagraphStyle

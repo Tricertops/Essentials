@@ -69,6 +69,38 @@
     self[NSFontAttributeName] = font;
 }
 
+- (void)setFontName:(NSString *)fontName {
+    ESSAssert(fontName) else return;
+    
+    [self enumerateAttribute:NSFontAttributeName
+                     inRange:self.fullRange
+                     options:kNilOptions
+                  usingBlock:^(UIFont *font, NSRange range, BOOL *stop) {
+                      UIFontDescriptor *descriptor = [font.fontDescriptor fontDescriptorByAddingAttributes:
+                                                      @{
+                                                        UIFontDescriptorNameAttribute: fontName,
+                                                        }];
+                      [self addAttribute:NSFontAttributeName
+                                   value:[UIFont fontWithDescriptor:descriptor size:0]
+                                   range:range];
+                  }];
+}
+
+- (void)setFontSize:(CGFloat)fontSize {
+    ESSAssert(!isnan(fontSize)) else return;
+    ESSAssert(fontSize > 0) else return;
+    ESSAssert(!isinf(fontSize)) else return;
+    
+    [self enumerateAttribute:NSFontAttributeName
+                     inRange:self.fullRange
+                     options:kNilOptions
+                  usingBlock:^(UIFont *font, NSRange range, BOOL *stop) {
+                      [self addAttribute:NSFontAttributeName
+                                   value:[font fontWithSize:fontSize]
+                                   range:range];
+                  }];
+}
+
 - (void)setColor:(UIColor *)color {
     self[NSForegroundColorAttributeName] = color;
 }
