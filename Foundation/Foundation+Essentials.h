@@ -161,6 +161,22 @@ static typeof(VALUE) NAME_ASSIGN (typeof(VALUE))0;\
 #define ESSSharedCache(NAME)    ESSSharedMake(NSCache *, NAME) { return [NSCache new]; }
 
 
+/// Use to run code once the UIApplication did finish launching.
+#define ESSInitializeOnAppLaunch \
++ (void)load { \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        [NSNotificationCenter.defaultCenter addObserver:self \
+                                               selector:@selector(ess_applicationDidFinishLaunchingNotification:) \
+                                                   name:UIApplicationDidFinishLaunchingNotification \
+                                                 object:nil]; \
+    }); \
+} \
++ (void)ess_applicationDidFinishLaunchingNotification:(NSNotification *)notification { \
+     [self ess_application:[UIApplication cast:notification.object] didFinishLaunchingWithOptions:notification.userInfo]; \
+} \
++ (void)ess_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<NSString *, id> *)launchOptions
+
 
 
 
