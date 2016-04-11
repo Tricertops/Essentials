@@ -14,6 +14,12 @@
 
 
 
+@property (readonly) CGRect pathBounds;
+@property (readonly) CGRect controlBounds;
+@property (readonly) CGRect bounds __deprecated_msg("Usage is ambiguous, use .pathBounds or .controlBounds");
+
+
+
 #pragma mark - Constructors
 
 + (instancetype)lineFrom:(CGPoint)start to:(CGPoint)end;

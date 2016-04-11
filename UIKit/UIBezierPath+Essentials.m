@@ -15,6 +15,14 @@
 
 
 
+- (CGRect)pathBounds {
+    return CGPathGetPathBoundingBox(self.CGPath);
+}
+
+- (CGRect)controlBounds {
+    return CGPathGetBoundingBox(self.CGPath);
+}
+
 
 
 #pragma mark - Constructors
