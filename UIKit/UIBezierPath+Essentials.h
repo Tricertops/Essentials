@@ -52,6 +52,13 @@
 - (void)lineByY:(CGFloat)y;
 
 
+#pragma mark - Transform
+
+- (void)rotateBy:(CGFloat)radians clockwise:(BOOL)clockwise;
+- (void)scaleBy:(CGSize)scale;
+- (void)translateBy:(CGPoint)offset;
+
+
 #pragma mark - Stroking & Filling
 
 - (void)stroke:(UIColor *)color;

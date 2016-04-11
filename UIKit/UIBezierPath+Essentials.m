@@ -148,6 +148,29 @@
 
 
 
+#pragma mark - Transform
+
+
+- (void)rotateBy:(CGFloat)radians clockwise:(BOOL)clockwise {
+    /// In iOS, a positive value specifies counterclockwise rotation and a negative value specifies clockwise rotation.
+    if (clockwise) radians *= -1;
+    [self applyTransform:CGAffineTransformMakeRotation(radians)];
+}
+
+
+- (void)scaleBy:(CGSize)scale {
+    [self applyTransform:CGAffineTransformMakeScale(scale.width, scale.height)];
+}
+
+
+- (void)translateBy:(CGPoint)offset {
+    [self applyTransform:CGAffineTransformMakeTranslation(offset.x, offset.y)];
+}
+
+
+
+
+
 #pragma mark - Stroking & Filling
 
 
