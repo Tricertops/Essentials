@@ -15,6 +15,9 @@
 @interface NSMutableDictionary<K, V> (Essentials)
 
 
+// Original method is declared using KeyType<NSCopying> which breaks Clang’s typechecking.
+/// Adds a given key-value pair to the dictionary.
+- (void)setObject:(V)object forKeyedSubscript:(K)key;
 
 /// Adds the values contained in another given dictionary to the receiving dictionary. Returns the receiver.
 - (instancetype)addValuesFromDictionary:(NSDictionary<K, V> *)otherDictionary;

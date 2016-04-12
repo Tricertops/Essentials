@@ -19,6 +19,9 @@
 
 #pragma mark Accessing Objects
 
+// Original method is declared using KeyType<NSCopying> which breaks Clang’s typechecking.
+/// Returns the value associated with a given key.
+- (V)objectForKeyedSubscript:(K)key;
 
 /// Enumerates array of keys and returns first non-nil object.
 - (V)objectForAnyKeyInArray:(NSArray<K> *)keys;

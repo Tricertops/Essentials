@@ -15,6 +15,12 @@
 @implementation NSMutableDictionary (Essentials)
 
 
+- (void)setObject:(id)object forKeyedSubscript:(id)key {
+    if (key && object) {
+        [self setObject:object forKey:key];
+    }
+}
+
 
 - (NSMutableDictionary<id, id> *)addValuesFromDictionary:(NSDictionary<id, id> *)otherDictionary {
     if ([self isEqualToDictionary:otherDictionary]) return self;
