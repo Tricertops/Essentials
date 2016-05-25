@@ -147,8 +147,13 @@
 
 - (NSArray<id> *)flattenedArray {
     NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
-    for (NSArray<id> *subarray in self) {
-        [builder addObjectsFromArray:subarray];
+    for (id object in self) {
+        if ([object isKindOfClass: NSArray.class]) {
+            [builder addObjectsFromArray:object];
+        }
+        else {
+            [builder addObject:object];
+        }
     }
     return builder;
 }
