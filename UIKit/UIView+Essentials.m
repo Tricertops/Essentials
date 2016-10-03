@@ -506,7 +506,7 @@
 + (void)debugGuardMainThread {
 #if DEBUG
     [UIView swizzleSelector:@selector(setNeedsLayout) with:@selector(ess_mainThreadGuard_setNeedsLayout)];
-    [UIView swizzleSelector:@selector(setNeedsDisplay) with:@selector(ess_mainThreadGuard_setNeedsDisplay:)];
+    [UIView swizzleSelector:@selector(setNeedsDisplay) with:@selector(ess_mainThreadGuard_setNeedsDisplay)];
     [UIView swizzleSelector:@selector(setNeedsDisplayInRect:) with:@selector(ess_mainThreadGuard_setNeedsDisplayInRect:)];
 #endif
 }
