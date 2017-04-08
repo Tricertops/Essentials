@@ -182,9 +182,11 @@
     static NSDictionary* names = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        //! http://www.everyi.com/by-identifier/ipod-iphone-ipad-specs-by-model-identifier.html
         names = @{
                   //! Simulator
                   @"x86_64": @"Simulator",
+                  @"i386": @"Simulator",
                       
                   //! iPhone
                   @"iPhone1,1": @"iPhone 1", //! 2007
@@ -212,7 +214,13 @@
                   @"iPhone8,1": @"iPhone 6S", //! 2015
                   @"iPhone8,2": @"iPhone 6S Plus", //! 2015
                   
+                  @"iPhone8,3": @"iPhone SE 1", //! 2016
                   @"iPhone8,4": @"iPhone SE 1", //! 2016
+                  
+                  @"iPhone9,1": @"iPhone 7", //! CDMA, 2016
+                  @"iPhone9,2": @"iPhone 7 Plus", //! CDMA, 2016
+                  @"iPhone9,3": @"iPhone 7", //! Global, 2016
+                  @"iPhone9,4": @"iPhone 7 Plus", //! Global, 2016
                   
                   //! iPod Touch
                   @"iPod1,1": @"iPod Touch 1", //! 2007
@@ -260,6 +268,9 @@
                   
                   @"iPad6,3": @"iPad Pro 9.7″ 1", //! Wi-Fi, 2016
                   @"iPad6,4": @"iPad Pro 9.7″ 1", //! Cellular, 2016
+                  
+                  @"iPad6,11": @"iPad 5", //! Wi-Fi, 2017
+                  @"iPad6,12": @"iPad 5", //! Cellular, 2017
                   
                   //! Apple TV
                   @"AppleTV2,1": @"Apple TV 2", //! 2010
