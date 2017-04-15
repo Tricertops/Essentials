@@ -164,8 +164,6 @@
 
 #pragma mark Joining
 
-#if IS_SWIFT_BUG_SR_3570_FIXED
-/// Importing these methods into Swift 3 crashes compiler: https://bugs.swift.org/browse/SR-3570
 - (NSString *) :(NSString *)a;
 - (NSString *) :(NSString *)a :(NSString *)b;
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c;
@@ -173,7 +171,6 @@
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e;
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f;
 - (NSString *) :(NSString *)a :(NSString *)b :(NSString *)c :(NSString *)d :(NSString *)e :(NSString *)f :(NSString *)g;
-#endif
 
 + (NSString *)concat:(NSString *)firstString, ... NS_REQUIRES_NIL_TERMINATION;
 
