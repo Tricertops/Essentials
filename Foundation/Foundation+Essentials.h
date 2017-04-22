@@ -35,8 +35,17 @@
 #import "NSMapTable+Essentials.h"
 #import "NSDateFormatter+Essentials.h"
 #import "NSCharacterSet+Essentials.h"
+#import "ESSFastEnumeration.h"
 
 
+
+
+
+#pragma mark Type Inferrence
+
+
+#define var __auto_type
+#define let __auto_type const
 
 
 

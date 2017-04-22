@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#define var __auto_type
-#define let __auto_type const
-
 #import <Foundation/Foundation.h>
 #import "Foundation+Essentials.h"
 
