@@ -22,7 +22,7 @@
 - (UIViewController *)deepestPresentedViewController;
 
 //! Dismisses the receiver by unqinding its presentation.
-- (void)dismiss;
+- (IBAction)dismiss;
 
 
 @end
