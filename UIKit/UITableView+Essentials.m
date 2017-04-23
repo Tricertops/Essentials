@@ -49,5 +49,18 @@
 }
 
 
+- (NSArray<NSIndexPath *> *)indexPathsForSection:(NSUInteger)section {
+    CGRect rect = [self rectForSection:section];
+    return [self indexPathsForRowsInRect:rect];
+}
+
+- (NSArray<NSIndexPath *> *)allIndexPaths {
+    CGRect content = {
+        .size = self.contentSize,
+    };
+    return [self indexPathsForRowsInRect:content];
+}
+
+
 
 @end

@@ -28,4 +28,10 @@
 - (void)deselectRowsAnimated:(BOOL)animated;
 
 
+/// Returns indexPaths for all rows in given section.
+- (NSArray<NSIndexPath *> *)indexPathsForSection:(NSUInteger)section;
+/// Returns indexPaths for all rows in entire tableView.
+@property (readonly) NSArray<NSIndexPath *> *allIndexPaths;
+
+
 @end
