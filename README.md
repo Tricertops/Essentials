@@ -9,6 +9,25 @@ This is a collection of categories, functions, macros and classes that are _esse
 Highlights
 ----------
 
+### Type Inferrence Macros
+
+Macros `let` and `var` that infer types of declated variables, just like in that other language. Uses clang `__auto_type` feature.
+
+```objc
+var string = @"Hello";
+let answer = 42;
+```
+
+Macro `foreach` that improves `for-in` loop with type inferrence of emunerated collections. All is just compiler magic.
+
+```objc
+NSArray<NSString *> *titles = @[ @"Mr", @"Mrs", @"Ms", @"Mx" ];
+
+foreach (title, titles) {
+    // title is NSString
+}
+```
+
 ### ESSAssert
 Assertion macro with optional message. It’ active also on Release and provides **fallback handling** using `else` clause. Works perfectly with compiler **static analysis**.
 
