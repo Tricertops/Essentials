@@ -12,32 +12,18 @@
 
 
 
-@interface ESSDrawView : UIView
-
-
-@property (readonly) void (^drawRectBlock)(UIView *, CGRect);
-
-
-@end
-
-
-
-
-
 @implementation ESSDrawView
 
 
 
 
 
-- (instancetype)initWithDrawRectBlock:(void (^)(UIView *view, CGRect rect))drawRect {
-    self = [super initWithFrame: CGRectZero];
-    if (self) {
-        self.contentMode = UIViewContentModeRedraw;
-        self.opaque = NO;
-        self->_drawRectBlock = drawRect;
-    }
-    return self;
+- (void)setDrawRectBlock:(void (^)(UIView *, CGRect))drawRectBlock {
+    self->_drawRectBlock = drawRectBlock;
+    
+    self.contentMode = UIViewContentModeRedraw;
+    self.opaque = NO;
+    [self setNeedsDisplay];
 }
 
 
@@ -61,7 +47,9 @@
 
 
 + (UIView *)viewWithDrawRect:(void (^)(UIView *, CGRect))drawRect {
-    return [[ESSDrawView alloc] initWithDrawRectBlock: drawRect];
+    ESSDrawView *view = [ESSDrawView new];
+    view.drawRectBlock = drawRect;
+    return view;
 }
 
 

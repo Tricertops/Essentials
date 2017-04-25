@@ -10,14 +10,19 @@
 
 
 
+@interface ESSDrawView : UIView
+
+/// Set or get drawing block currently used by the receiver.
+@property (nonatomic) void (^drawRectBlock)(UIView *view, CGRect rect);
+
+@end
+
 
 
 @interface UIView (ESSDrawView)
 
-
-//! Creates new view with given block invoked from drawRect:
-+ (UIView *)viewWithDrawRect: (void (^)(UIView *view, CGRect rect))drawRect;
-
+/// Creates new view with given block invoked from drawRect:
++ (ESSDrawView *)viewWithDrawRect: (void (^)(UIView *view, CGRect rect))drawRect;
 
 @end
 
