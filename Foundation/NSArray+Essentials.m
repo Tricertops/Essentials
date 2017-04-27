@@ -252,6 +252,15 @@
 - (id)lastValue   { return [self valueAtIndex:-1]; }
 
 
+- (NSArray *)valuesInRange:(NSRange)subrange {
+    NSRange fullRange = NSRangeMake(0, self.count);
+    NSRange intersection = NSRangeIntersection(fullRange, subrange);
+    if (intersection.length == 0) return @[];
+    
+    return [self subarrayWithRange:intersection];
+}
+
+
 
 
 

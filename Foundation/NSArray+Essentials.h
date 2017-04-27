@@ -118,6 +118,9 @@
 - (T)sixthValue;
 - (T)lastValue;
 
+/// Similar to -subarrayWithRange:, but handles out-of-bounds ranges.
+- (NSArray<T> *)valuesInRange:(NSRange)range;
+
 
 
 @end
