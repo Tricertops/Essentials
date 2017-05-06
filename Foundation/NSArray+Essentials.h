@@ -135,6 +135,19 @@
 
 
 
+@interface NSArray<T> (ESSTypeInferrence)
+
+
+- (NSArray<T> *)copy;
+- (NSMutableArray<T> *)mutableCopy;
+
+
+@end
+
+
+
+
+
 /// Use inside of a method/function with variable arguments to quickly convert these arguments to NSArray.
 #define NSArrayFromVariadicArguments(FIRST)\
 (NSMutableArray<id> *)({\

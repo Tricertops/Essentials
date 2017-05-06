@@ -36,6 +36,7 @@
 #import "NSDateFormatter+Essentials.h"
 #import "NSCharacterSet+Essentials.h"
 #import "ESSFastEnumeration.h"
+#import "ESSEvent.h"
 
 
 
