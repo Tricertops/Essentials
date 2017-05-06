@@ -9,12 +9,20 @@
 #import "NSArray+Essentials.h"
 #import "NSMutableArray+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "NSSortDescriptor+Essentials.h"
 
 
 
 
 @implementation NSArray (Essentials)
 
+
+
+
+
+- (NSRange)fullRange {
+    return NSRangeMake(0, self.count);
+}
 
 
 
@@ -73,6 +81,17 @@
 
 - (NSArray *)reversedArray {
     return self.reverseObjectEnumerator.allObjects;
+}
+
+
+- (NSUInteger)insertionIndexOfObject:(id)object usingSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors equalFirst:(BOOL)insertEqualAsFirst {
+    if (object == nil) return NSNotFound;
+    if ( ! sortDescriptors.count) return (insertEqualAsFirst? 0 : self.count);
+    
+    NSBinarySearchingOptions options = NSBinarySearchingInsertionIndex;
+    options |= (insertEqualAsFirst? NSBinarySearchingFirstEqual : NSBinarySearchingLastEqual);
+    
+    return [self indexOfObject:object inSortedRange:self.fullRange options:options usingComparator:[NSSortDescriptor comparatorForSortDescriptors:sortDescriptors]];
 }
 
 
@@ -253,8 +272,7 @@
 
 
 - (NSArray *)valuesInRange:(NSRange)subrange {
-    NSRange fullRange = NSRangeMake(0, self.count);
-    NSRange intersection = NSRangeIntersection(fullRange, subrange);
+    NSRange intersection = NSRangeIntersection(self.fullRange, subrange);
     if (intersection.length == 0) return @[];
     
     return [self subarrayWithRange:intersection];

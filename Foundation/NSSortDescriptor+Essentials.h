@@ -28,6 +28,8 @@ typedef enum : BOOL {
 + (instancetype)sortDescriptorForViewOriginX;
 + (instancetype)sortDescriptorForViewOriginY;
 
++ (NSComparator)comparatorForSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors;
+
 
 @end
 

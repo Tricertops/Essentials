@@ -29,6 +29,14 @@
 }
 
 
+- (void)insertObject:(id)object usingSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors equalFirst:(BOOL)insertEqualAsFirst {
+    NSUInteger index = [self insertionIndexOfObject:object usingSortDescriptors:sortDescriptors equalFirst:insertEqualAsFirst];
+    if (index != NSNotFound) {
+        [self insertObject:object atIndex:index];
+    }
+}
+
+
 
 
 
@@ -76,7 +84,7 @@
 
 
 
-#pragma mark Nester Arrays
+#pragma mark Nested Arrays
 
 
 - (NSMutableArray<id> *)flatten {

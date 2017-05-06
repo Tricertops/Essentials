@@ -16,6 +16,9 @@
 
 
 
+/// Range containing all indexes of the receiver.
+@property (readonly) NSRange fullRange;
+
 
 
 #pragma mark Building
@@ -38,6 +41,9 @@
 
 /// Returns new array that contains the same objects in rever order.
 - (NSArray<T> *)reversedArray;
+
+/// Finds best index where given object should be inserted to keep array sorted by given descriptors.
+- (NSUInteger)insertionIndexOfObject:(T)object usingSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors equalFirst:(BOOL)insertEqualAsFirst;
 
 
 
