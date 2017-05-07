@@ -59,6 +59,12 @@
 }
 
 
+- (BOOL)isBool {
+    return (   self == (id)kCFBooleanFalse
+            || self == (id)kCFBooleanTrue);
+}
+
+
 
 
 

@@ -65,6 +65,9 @@
 		5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
 		5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */; };
 		5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
+		5B8B95041EBF5D64001E7097 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8B95021EBF5D64001E7097 /* JSON.h */; };
+		5B8B95051EBF5D64001E7097 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
+		5B8B95061EBF5D64001E7097 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
 		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
 		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */; };
@@ -192,6 +195,8 @@
 		5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Essentials.m"; sourceTree = "<group>"; };
 		5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Essentials.h"; sourceTree = "<group>"; };
 		5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Essentials.m"; sourceTree = "<group>"; };
+		5B8B95021EBF5D64001E7097 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		5B8B95031EBF5D64001E7097 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
 		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
 		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
@@ -411,6 +416,8 @@
 				5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */,
 				5B7493E91EBE496900A96210 /* ESSEvent.h */,
 				5B7493EA1EBE496900A96210 /* ESSEvent.m */,
+				5B8B95021EBF5D64001E7097 /* JSON.h */,
+				5B8B95031EBF5D64001E7097 /* JSON.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -466,6 +473,7 @@
 				5B74A63819D45F5B00B04E07 /* ESSProxy.h in Headers */,
 				5B79EA571A98F5400031ED59 /* NSValue+Essentials.h in Headers */,
 				5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */,
+				5B8B95041EBF5D64001E7097 /* JSON.h in Headers */,
 				5BBF9A761C6F9A15007B24FC /* NSDateFormatter+Essentials.h in Headers */,
 				5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */,
 				5B61079319E67A6B0071B547 /* NSURLSession+Essentials.h in Headers */,
@@ -571,6 +579,7 @@
 				5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
 				5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */,
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
+				5B8B95051EBF5D64001E7097 /* JSON.m in Sources */,
 				5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */,
 				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
 				5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */,
@@ -614,6 +623,7 @@
 				5B79EA541A98E2670031ED59 /* NSCoder+Essentials.m in Sources */,
 				5BE4752B18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
 				5B1725C31AC4465300832083 /* ESSCatch.m in Sources */,
+				5B8B95061EBF5D64001E7097 /* JSON.m in Sources */,
 				5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */,
 				5B79EA591A98F5400031ED59 /* NSValue+Essentials.m in Sources */,
 				5BFBAC081844BB8900179483 /* NSArray+Essentials.m in Sources */,

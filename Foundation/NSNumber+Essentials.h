@@ -32,10 +32,13 @@
 - (NSComparisonResult)compareInversed:(NSNumber *)otherNumber;
 
 /// Compares to [NSDecimalNumber notANumber]
-- (BOOL)isNaN;
+@property (readonly) BOOL isNaN;
 
 /// Compares to NSNull and NaN, works for nil too.
-- (BOOL)isNumber;
+@property (readonly) BOOL isNumber;
+
+/// Checks underlaying type, returns YES if it’s bool.
+@property (readonly) BOOL isBool;
 
 
 
