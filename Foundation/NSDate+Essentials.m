@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+Essentials.h"
+#import "NSDateFormatter+Essentials.h"
 
 
 
@@ -162,6 +163,26 @@
                                                             toDate:[NSDate now]
                                                            options:kNilOptions];
     return [self isAfter:limit];
+}
+
+
+
+
+
+#pragma mark - ISO 8601
+
+
+
++ (instancetype)dateFromISOString:(NSString *)string {
+    return [NSDateFormatter dateFromISOString:string];
+}
+
+
+
+- (NSString *)ISOStringWithTime:(BOOL)includeTime {
+    NSCalendarUnit unit = (includeTime? NSCalendarUnitSecond : NSCalendarUnitDay);
+    NSDateFormatter *formatter = [NSDateFormatter ISODateFormatterWithPrecision:unit compact:NO];
+    return [formatter stringFromDate:self];
 }
 
 

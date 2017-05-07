@@ -93,6 +93,16 @@
 
 
 
+#pragma mark - ISO 8601
+
+//! Date parsed from ISO 8601 formatted string. On iOS 10, it uses NSISO8601DateFormatter, on older iOS, it uses predefined NSDateFormatters.
++ (instancetype)dateFromISOString:(NSString *)string;
+
+//! Formatted string using ISO 8601 standard: '2017-05-07' or '2017-05-07T11:35:14Z'
+- (NSString *)ISOStringWithTime:(BOOL)includeTime;
+
+
+
 #pragma mark - Debug
 
 // Deprecated, use +[NSObject measure:log:] to measure creating an instance fo given class.
