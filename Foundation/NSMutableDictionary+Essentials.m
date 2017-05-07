@@ -16,8 +16,11 @@
 
 
 - (void)setObject:(id)object forKeyedSubscript:(id)key {
-    if (key && object) {
+    if (object) {
         [self setObject:object forKey:key];
+    }
+    else {
+        [self removeObjectForKey:key];
     }
 }
 
