@@ -24,11 +24,6 @@
 #pragma mark Accessing Objects
 
 
-- (id)objectForKeyedSubscript:(id)key {
-    return [self objectForKey:key];
-}
-
-
 - (id)objectForAnyKeyInArray:(NSArray<id> *)keys {
     for (NSString *key in keys) {
         id value = [self objectForKey:key];
