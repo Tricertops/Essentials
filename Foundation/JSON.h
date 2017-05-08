@@ -43,7 +43,7 @@ typedef NSNumber JSONNumber;
 //! Type alias for JSON string value or object key.
 typedef NSString JSONString;
 //! Type alias for JSON array.
-typedef NSArray<JSON> JSONArray;
+typedef NSArray<JSON *> JSONArray;
 //! Type alias for JSON object.
 typedef NSDictionary<JSONString *, JSON *> JSONObject;
 
@@ -152,14 +152,17 @@ typedef NSDictionary<JSONString *, JSON *> JSONObject;
 //! Sub-protocol of JSON, which unifies all classes that can represent root JSON value.
 @protocol JSONRoot <JSON>
 
-//! Encodes the receiver to compact JSON data using UTF-8 encoding.
-- (NSData *)encodeJSONData;
+//! Encodes the receiver to JSON data using UTF-8 encoding.
+- (NSData *)encodeJSONDataPretty:(BOOL)pretty;
 
-//! Encodes the receiver to pretty-printed JSON string using UTF-8 encoding.
-- (NSString *)encodePrettyJSONString;
+//! Encodes the receiver to JSON string using UTF-8 encoding.
+- (NSString *)encodeJSONStringPretty:(BOOL)pretty;
+
+//! Encodes the receiver to JSON data using UTF-8 encoding and writes it to the given file. Returns success.
+- (BOOL)encodeJSONFile:(NSURL *)fileURL pretty:(BOOL)pretty;
 
 //! Encodes the receiver to JSON data using UTF-8 encoding and writes it to the given stream. Returns success.
-- (BOOL)encodeJSONToStream:(NSOutputStream *)stream;
+- (BOOL)encodeJSONToStream:(NSOutputStream *)stream pretty:(BOOL)pretty;
 
 //! Decodes JSON and returns the root, if it conforms to receiver class. When invoked on mutable receiver class, decoding uses mutable classes.
 + (instancetype)decodeJSON:(NSObject<JSONFile> *)representation;

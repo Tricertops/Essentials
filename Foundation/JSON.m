@@ -191,17 +191,24 @@
 
 @implementation NSArray (JSONCoding)
 
-- (NSData *)encodeJSONData {
-    return [NSJSONSerialization dataWithJSONObject:self options:kNilOptions error:nil];
+- (NSData *)encodeJSONDataPretty:(BOOL)pretty {
+    NSJSONWritingOptions options = (pretty? NSJSONWritingPrettyPrinted : kNilOptions);
+    return [NSJSONSerialization dataWithJSONObject:self options:options error:nil];
 }
 
-- (NSString *)encodePrettyJSONString {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+- (NSString *)encodeJSONStringPretty:(BOOL)pretty {
+    NSData *data = [self encodeJSONDataPretty:pretty];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-- (BOOL)encodeJSONToStream:(NSOutputStream *)stream {
-    NSInteger length = [NSJSONSerialization writeJSONObject:self toStream:stream options:kNilOptions error:nil];
+- (BOOL)encodeJSONFile:(NSURL *)fileURL pretty:(BOOL)pretty {
+    NSData *data = [self encodeJSONDataPretty:pretty];
+    return [data writeToURL:fileURL atomically:YES];
+}
+
+- (BOOL)encodeJSONToStream:(NSOutputStream *)stream pretty:(BOOL)pretty {
+    NSJSONWritingOptions options = (pretty? NSJSONWritingPrettyPrinted : kNilOptions);
+    NSInteger length = [NSJSONSerialization writeJSONObject:self toStream:stream options:options error:nil];
     return (length > 0);
 }
 
@@ -217,17 +224,24 @@
 
 @implementation NSDictionary (JSONCoding)
 
-- (NSData *)encodeJSONData {
-    return [NSJSONSerialization dataWithJSONObject:self options:kNilOptions error:nil];
+- (NSData *)encodeJSONDataPretty:(BOOL)pretty {
+    NSJSONWritingOptions options = (pretty? NSJSONWritingPrettyPrinted : kNilOptions);
+    return [NSJSONSerialization dataWithJSONObject:self options:options error:nil];
 }
 
-- (NSString *)encodePrettyJSONString {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+- (NSString *)encodeJSONStringPretty:(BOOL)pretty {
+    NSData *data = [self encodeJSONDataPretty:pretty];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-- (BOOL)encodeJSONToStream:(NSOutputStream *)stream {
-    NSInteger length = [NSJSONSerialization writeJSONObject:self toStream:stream options:kNilOptions error:nil];
+- (BOOL)encodeJSONFile:(NSURL *)fileURL pretty:(BOOL)pretty {
+    NSData *data = [self encodeJSONDataPretty:pretty];
+    return [data writeToURL:fileURL atomically:YES];
+}
+
+- (BOOL)encodeJSONToStream:(NSOutputStream *)stream pretty:(BOOL)pretty {
+    NSJSONWritingOptions options = (pretty? NSJSONWritingPrettyPrinted : kNilOptions);
+    NSInteger length = [NSJSONSerialization writeJSONObject:self toStream:stream options:options error:nil];
     return (length > 0);
 }
 
