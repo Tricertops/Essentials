@@ -34,13 +34,14 @@
 
 
 - (instancetype)init {
-    return [self initWithValue:nil];
+    return [self initWithOwner:nil initialValue:nil];
 }
 
 
-- (instancetype)initWithValue:(id)value {
+- (instancetype)initWithOwner:(id)owner initialValue:(id)value {
     self = [super init];
     if (self) {
+        self->_owner = owner;
         self->_lastValue = value;
         self->_handlersByObserver = [NSMapTable weakToStrongObjectsMapTable];
     }
@@ -118,21 +119,12 @@
 }
 
 
-- (void)chainEvent:(__weak ESSEvent *)event owner:(NSObject *)owner {
+- (void)chainTo:(__weak ESSEvent *)event {
     ESSAssert(event) else return;
     
-    [self addObserver:owner handler:^(NSObject *owner, id value) {
+    [self addObserver:event.owner ?: event handler:^(NSObject *owner, id value) {
          [event sendValue:value];
      }];
-}
-
-
-- (void)bindTo:(NSObject *)target property:(NSString *)keyPath {
-    ESSAssert(target) else return;
-    
-    [self addObserver:target handler:^(NSObject *target, id value) {
-        [target setValue:value forKeyPath:keyPath];
-    }];
 }
 
 
