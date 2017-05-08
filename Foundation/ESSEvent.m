@@ -121,8 +121,9 @@
 
 - (void)chainTo:(__weak ESSEvent *)event {
     ESSAssert(event) else return;
+    ESSAssert(event.owner) else return;
     
-    [self addObserver:event.owner ?: event handler:^(NSObject *owner, id value) {
+    [self addObserver:event.owner handler:^(NSObject *owner, id value) {
          [event sendValue:value];
      }];
 }
