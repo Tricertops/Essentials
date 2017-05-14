@@ -16,8 +16,14 @@
 
 #pragma mark - Object Maintaining the Event
 
-//! Create new Event with initial value, which is not sent, yet.
-- (instancetype)initWithValue:(ValueType)value;
+//! Macro for automatic implementation of Event getter with lazy initialization.
+#define ESSEventInitialize(name, optionalValue...) \
+    _ESSEventInitialize(name, optionalValue)
+
+//! Create new Event with owner and initial value, which is not sent, yet.
+- (instancetype)initWithOwner:(__weak id)owner initialValue:(ValueType)value;
+//! Object responsible for owning strong reference to this Event.
+@property (readonly, weak) id owner;
 //! Invokes all registered handlers with the last value.
 - (void)notify;
 //! Invokes all registered handlers with the given value.
@@ -43,10 +49,8 @@
 - (void)addObserver:(__weak id)observer handler:(void (^)(id observer, ValueType value))handler;
 //! Registers special handler that invokes selector on the observer. Selector may accept one argument – the sender.
 - (void)addObserver:(__weak id)observer selector:(SEL)selector;
-//! Registers special handler that forwards events to other Event mediator. Owner is used as observer object.
-- (void)chainEvent:(__weak ESSEvent<ValueType> *)event owner:(__weak id)owner;
-//! Registers special handler that uses Key-Value Coding to set property on given object. Target is used as observer object.
-- (void)bindTo:(__weak id)target property:(NSString *)keyPath;
+//! Registers special handler that forwards events to other Event object of the same ValueType.
+- (void)chainTo:(__weak ESSEvent<ValueType> *)event;
 //! Removes all handlers registered for given observer
 - (void)removeObserver:(__weak id)observer;
 
@@ -55,9 +59,9 @@
 
 
 
-#define ESSEventInitialize(name, optionalValue...) \
+#define _ESSEventInitialize(name, optionalValue...) \
     ESSLazyMake(ESSEvent *, name) { \
-        return [[ESSEvent alloc] initWithValue:@[optionalValue].firstObject]; \
+        return [[ESSEvent alloc] initWithOwner:self initialValue:@[optionalValue].firstObject]; \
     }
 
 
