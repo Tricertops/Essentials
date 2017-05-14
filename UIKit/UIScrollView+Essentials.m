@@ -228,7 +228,12 @@
 
 - (BOOL)ess_naturalButtonHandling_touchesShouldCancelInContentView:(UIView *)view {
     BOOL original = [self ess_naturalButtonHandling_touchesShouldCancelInContentView:view];
-    return (original || [view isKindOfClass:[UIButton class]]);
+    if (original) return YES;
+    
+    if ([view isKindOfClass:UIButton.class]) return YES;
+    if ([view isKindOfClass:UITextField.class]) return YES;
+    
+    return NO;
 }
 
 
