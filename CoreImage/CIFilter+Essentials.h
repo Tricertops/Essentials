@@ -134,6 +134,9 @@ typedef CGFloat CIAngle;
 /// Maps luminance to a color ramp of two colors. (CIFalseColor)
 + (instancetype)falseColor:(CIColor *)color0 toColor:(CIColor *)color1;
 
+/// Converts a grayscale image to a white image that is masked by alpha, the black values become completely transparent.
++ (instancetype)maskToAlpha;
+
 /// Maps the colors of an image to various shades of brown. (CISepiaTone)
 + (instancetype)sepiaWithIntensity:(CIScalar)intensity;
 

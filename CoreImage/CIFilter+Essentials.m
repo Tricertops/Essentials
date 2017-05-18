@@ -330,6 +330,11 @@
 }
 
 
++ (instancetype)maskToAlpha {
+    return [CIFilter filterWithName:@"CIMaskToAlpha"];
+}
+
+
 + (instancetype)sepiaWithIntensity:(CIScalar)intensity {
     return [CIFilter filterWithName:@"CISepiaTone"
                       keysAndValues:

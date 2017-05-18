@@ -24,7 +24,7 @@
 
 
 + (instancetype)context {
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
     CIContext *context = [CIContext contextWithOptions:
                           @{
                             kCIContextWorkingColorSpace: (__bridge id)colorSpace,
@@ -73,5 +73,27 @@
 
 
 @end
+
+
+
+
+
+@implementation UIImage (CoreImage)
+
+
+
+- (instancetype)imageByRemovingWhite {
+    return [CIContext imageFromImage:self filters:@[
+        [CIFilter invertColors],
+        [CIFilter maskToAlpha],
+        [CIFilter invertColors],
+    ]];
+}
+
+
+
+@end
+
+
 
 

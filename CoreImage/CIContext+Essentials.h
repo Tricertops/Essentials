@@ -19,7 +19,7 @@
 
 #pragma mark - Creating
 
-/// Creates a CPU-based Core Image context that uses DeviceRGB color space.
+/// Creates a CPU-based Core Image context that uses sRGB color space.
 + (instancetype)context;
 
 
@@ -35,5 +35,20 @@
 
 
 @end
+
+
+
+
+
+@interface UIImage (CoreImage)
+
+
+/// Creates new grayscale image whose black pixels were preserved and white are transparent.
+- (instancetype)imageByRemovingWhite;
+
+
+@end
+
+
 
 
