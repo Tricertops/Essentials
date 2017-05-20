@@ -21,6 +21,7 @@
 		5B1725C31AC4465300832083 /* ESSCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1725C01AC4465300832083 /* ESSCatch.m */; };
 		5B1984EA1AEFC8D4006A6798 /* UIApplication+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1984E91AEFC8D4006A6798 /* UIApplication+Essentials.m */; };
 		5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E48B31AF67107007941E1 /* ESSDrawView.m */; };
+		5B1EDF9D1ED00EF300DA9837 /* UIButton+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */; };
 		5B22FCD01BD95A9400CBA87B /* NSMutableSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B22FCCE1BD95A9400CBA87B /* NSMutableSet+Essentials.h */; };
 		5B22FCD11BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */; };
 		5B22FCD21BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */; };
@@ -157,6 +158,8 @@
 		5B1984E91AEFC8D4006A6798 /* UIApplication+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Essentials.m"; sourceTree = "<group>"; };
 		5B1E48B21AF67107007941E1 /* ESSDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSDrawView.h; sourceTree = "<group>"; };
 		5B1E48B31AF67107007941E1 /* ESSDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSDrawView.m; sourceTree = "<group>"; };
+		5B1EDF9B1ED00EF300DA9837 /* UIButton+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Essentials.h"; sourceTree = "<group>"; };
+		5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Essentials.m"; sourceTree = "<group>"; };
 		5B22FCCE1BD95A9400CBA87B /* NSMutableSet+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Essentials.h"; sourceTree = "<group>"; };
 		5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Essentials.m"; sourceTree = "<group>"; };
 		5B2A32C11923AA05008E5B36 /* UIFont+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Essentials.h"; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				5B1984E91AEFC8D4006A6798 /* UIApplication+Essentials.m */,
 				5B1E48B21AF67107007941E1 /* ESSDrawView.h */,
 				5B1E48B31AF67107007941E1 /* ESSDrawView.m */,
+				5B1EDF9B1ED00EF300DA9837 /* UIButton+Essentials.h */,
+				5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				5B1725C21AC4465300832083 /* ESSCatch.m in Sources */,
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
 				5B22FCD11BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */,
+				5B1EDF9D1ED00EF300DA9837 /* UIButton+Essentials.m in Sources */,
 				5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */,
 				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
 				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
