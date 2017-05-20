@@ -427,6 +427,36 @@
 
 
 
+#pragma mark - Events
+
+
+- (ESSEvent<UIColor *> *)onTintColorChange {
+    ESSEvent<UIColor *> *event = [self associatedObjectForKey:@selector(ess_tintColorDidChange)];
+    if ( ! event) {
+        event = [[ESSEvent alloc] initWithOwner:self initialValue:self.tintColor];
+        [self setAssociatedStrongObject:event forKey:@selector(ess_tintColorDidChange)];
+        
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [UIView swizzleSelector:@selector(    tintColorDidChange)
+                               with:@selector(ess_tintColorDidChange)];
+        });
+    }
+    return event;
+}
+
+
+- (void)ess_tintColorDidChange {
+    [self ess_tintColorDidChange];
+    
+    ESSEvent<UIColor *> *event = [self associatedObjectForKey:@selector(ess_tintColorDidChange)];
+    [event sendValue:self.tintColor];
+}
+
+
+
+
+
 
 - (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block {
     NSMutableArray<UIView *> *stack = [[NSMutableArray alloc] initWithArray:self.subviews];

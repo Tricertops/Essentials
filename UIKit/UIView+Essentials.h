@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ESSEvent.h"
 
 
 
@@ -141,6 +142,12 @@
 
 - (void)addVerticalMotionEffectWithIntensity:(CGFloat)intensity;
 - (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity;
+
+
+
+#pragma mark - Events
+
+@property (readonly) ESSEvent<UIColor *> *onTintColorChange;
 
 
 #pragma mark - Debugging
