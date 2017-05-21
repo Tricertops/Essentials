@@ -43,6 +43,9 @@
     if (canPop) {
         [self.navigationController popViewControllerAnimated:YES];
     }
+    else if (self.parentViewController) {
+        [self.parentViewController dismiss];
+    }
     else {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
