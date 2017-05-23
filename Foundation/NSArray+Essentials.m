@@ -25,6 +25,11 @@
 }
 
 
+- (NSUInteger)lastIndex {
+    return (self.count > 0? self.count - 1 : NSNotFound);
+}
+
+
 
 
 #pragma mark Building

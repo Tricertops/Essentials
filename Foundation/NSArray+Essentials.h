@@ -19,6 +19,9 @@
 /// Range containing all indexes of the receiver.
 @property (readonly) NSRange fullRange;
 
+/// Index of last object in array, returns NSNotFound for empty array.
+@property (readonly) NSUInteger lastIndex;
+
 
 
 #pragma mark Building
