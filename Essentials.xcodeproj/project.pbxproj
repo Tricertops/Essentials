@@ -30,7 +30,6 @@
 		5B3379AF19F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
 		5B3379B019F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
 		5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */; };
-		5B46949B1EAB5FEA002E8E05 /* ESSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4694991EAB5FEA002E8E05 /* ESSFastEnumeration.h */; };
 		5B50779F1C3E518F004F6745 /* NSMapTable+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B50779D1C3E518F004F6745 /* NSMapTable+Essentials.h */; };
 		5B5077A01C3E518F004F6745 /* NSMapTable+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */; };
 		5B5077A11C3E518F004F6745 /* NSMapTable+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */; };
@@ -168,7 +167,6 @@
 		5B3379AD19F299D600CBE28C /* ESSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSLog.m; sourceTree = "<group>"; };
 		5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Essentials.h"; sourceTree = "<group>"; };
 		5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Essentials.m"; sourceTree = "<group>"; };
-		5B4694991EAB5FEA002E8E05 /* ESSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSFastEnumeration.h; sourceTree = "<group>"; };
 		5B50779D1C3E518F004F6745 /* NSMapTable+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+Essentials.h"; sourceTree = "<group>"; };
 		5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+Essentials.m"; sourceTree = "<group>"; };
 		5B61075719E52E930071B547 /* NSLocale+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+Essentials.h"; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 			children = (
 				5F906B4417709E8700097175 /* Foundation+Essentials.h */,
 				5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */,
-				5B4694991EAB5FEA002E8E05 /* ESSFastEnumeration.h */,
 				5B3379AC19F299D600CBE28C /* ESSLog.h */,
 				5B3379AD19F299D600CBE28C /* ESSLog.m */,
 				5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */,
@@ -469,7 +466,6 @@
 				5B7493EB1EBE496900A96210 /* ESSEvent.h in Headers */,
 				5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */,
 				5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */,
-				5B46949B1EAB5FEA002E8E05 /* ESSFastEnumeration.h in Headers */,
 				5B79EA521A98E2670031ED59 /* NSCoder+Essentials.h in Headers */,
 				5B61079D19E6A7FB0071B547 /* NSURLRequest+Essentials.h in Headers */,
 				5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */,

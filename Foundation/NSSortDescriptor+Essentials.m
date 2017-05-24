@@ -54,7 +54,7 @@
 
 + (NSComparator)comparatorForSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors {
     return ^NSComparisonResult(id A, id B) {
-        foreach(descriptor, sortDescriptors) {
+        for (NSSortDescriptor *descriptor in sortDescriptors) {
             NSComparisonResult result = [descriptor compareObject:A toObject:B];
             if (result != NSOrderedSame) {
                 return result;

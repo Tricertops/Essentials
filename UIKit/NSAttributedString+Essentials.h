@@ -42,17 +42,6 @@
 
 
 
-@interface NSAttributedString (EssentialsCopying)
-
-- (NSAttributedString *)copy;
-- (NSMutableAttributedString *)mutableCopy;
-
-@end
-
-
-
-
-
 @interface NSString (NSAttributedString_Essentials) <ESSAttributedString>
 
 

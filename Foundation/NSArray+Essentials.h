@@ -12,17 +12,6 @@
 
 
 
-#define NSArray(first, other...) \
-    ( (NSArray<typeof(first)> *) ({ \
-        typeof(first) _objects[] = {first, other}; \
-        NSUInteger _count = sizeof(_objects) / sizeof(id); \
-        [NSArray arrayWithObjects:_objects count:_count]; \
-    }))
-
-
-
-
-
 @interface NSArray<T> (Essentials)
 
 
@@ -141,19 +130,6 @@
 /// Similar to -subarrayWithRange:, but handles out-of-bounds ranges.
 - (NSArray<T> *)valuesInRange:(NSRange)range;
 
-
-
-@end
-
-
-
-
-
-@interface NSArray<T> (ESSTypeInferrence)
-
-
-- (NSArray<T> *)copy;
-- (NSMutableArray<T> *)mutableCopy;
 
 
 @end

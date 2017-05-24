@@ -12,18 +12,6 @@
 
 
 
-#define NSMutableArray(first, other...) \
-    ( (NSMutableArray<typeof(first)> *) ({ \
-        typeof(first) _objects[] = {first, other}; \
-        NSUInteger _count = sizeof(_objects) / sizeof(id); \
-        [NSMutableArray arrayWithObjects:_objects count:_count]; \
-    }))
-
-
-
-
-
-
 @interface NSMutableArray<T> (Essentials)
 
 

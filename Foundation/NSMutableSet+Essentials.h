@@ -10,22 +10,6 @@
 
 
 
-#define NSSet(first, other...) \
-    ( (NSSet<typeof(first)> *) ({ \
-        typeof(first) _objects[] = {first, other}; \
-        NSUInteger _count = sizeof(_objects) / sizeof(id); \
-        [NSSet setWithObjects:_objects count:_count]; \
-    }))
-
-#define NSMutableSet(first, other...) \
-    ( (NSMutableSet<typeof(first)> *) ({ \
-        typeof(first) _objects[] = {first, other}; \
-        NSUInteger _count = sizeof(_objects) / sizeof(id); \
-        [NSMutableSet setWithObjects:_objects count:_count]; \
-    }))
-
-
-
 @interface NSMutableSet<T> (Essentials)
 
 
