@@ -492,3 +492,7 @@ typedef const char * ESSObjCType;
 
 
 
+#define THIS_IS_NOT_MACRO
+
+
+

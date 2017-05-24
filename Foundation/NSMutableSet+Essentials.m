@@ -6,11 +6,12 @@
 //  Copyright © 2015 iAdverti. All rights reserved.
 //
 
+#import "Foundation+Essentials.h"
 #import "NSMutableSet+Essentials.h"
 
 
 
-@implementation NSMutableSet (Essentials)
+@implementation NSMutableSet THIS_IS_NOT_MACRO (Essentials)
 
 
 

@@ -13,7 +13,7 @@
 
 
 
-@implementation NSMutableArray (Essentials)
+@implementation NSMutableArray THIS_IS_NOT_MACRO (Essentials)
 
 
 

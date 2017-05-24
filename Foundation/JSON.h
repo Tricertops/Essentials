@@ -79,7 +79,7 @@ typedef NSDictionary<JSONString *, JSON *> JSONObject;
 
 
 //! NSArray represents JSON array.
-@interface NSArray (JSON) <JSON>
+@interface NSArray<T> (JSON) <JSON>
 
 //! Returns YES, if the receiver can be converted to JSON data. Performs recursive validation.
 @property (readonly) BOOL isValidForJSONEncoding;
@@ -172,7 +172,7 @@ typedef NSDictionary<JSONString *, JSON *> JSONObject;
 
 
 //! NSArray, which represents JSON array, can be root of JSON file.
-@interface NSArray (JSONCoding) <JSONRoot>
+@interface NSArray<T> (JSONCoding) <JSONRoot>
 
 @end
 
