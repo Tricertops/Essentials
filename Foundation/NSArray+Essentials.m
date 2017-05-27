@@ -162,6 +162,17 @@
 }
 
 
+- (NSArray<id> *)arrayByRemovingObjectsFromSet:(NSSet<id> *)set {
+    NSMutableArray<id> *mutable = [NSMutableArray new];
+    for (id object in self) {
+        if ( ! [set containsObject:object]) {
+            [mutable addObject:object];
+        }
+    }
+    return [mutable copy];
+}
+
+
 
 
 
@@ -211,12 +222,19 @@
 }
 
 
-- (NSArray<id> *)subarrayToIndex:(NSUInteger)index {
-    return [self subarrayWithRange:NSMakeRange(0, index)];
+- (NSArray<id> *)subarrayWithCount:(NSUInteger)count {
+    if (self.count == 0) return @[];
+    if (count >= self.count) return self;
+    
+    return [self subarrayWithRange:NSMakeRange(0, count)];
 }
 
 
-- (NSArray<id> *)subarrayFromIndex:(NSUInteger)index {
+- (NSArray<id> *)subarrayStartingAtIndex:(NSUInteger)index {
+    if (self.count == 0) return @[];
+    if (index >= self.count) return @[];
+    if (index == 0) return self;
+    
     return [self subarrayWithRange:NSMakeRange(index, self.count - index)];
 }
 

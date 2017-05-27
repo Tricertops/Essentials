@@ -67,6 +67,9 @@
 /// Returns new dictionary, whose keys are objects from the receiver and values are corresponding value returned by block.
 - (NSMutableDictionary<T, id> *)dictionaryByMappingToValues:(id(^)(T<NSCopying> key))block;
 
+/// Returns new array without objects from provided set.
+- (NSArray<T> *)arrayByRemovingObjectsFromSet:(NSSet<T> *)set;
+
 
 
 #pragma mark Nested Arrays
@@ -87,11 +90,11 @@
 /// Shorthand for -componentsJoinedByString:lastString:
 - (NSString *)join:(NSString *)separator last:(NSString *)last;
 
-/// Returns a new array containing the receiving array’s elements up to given index.
-- (NSArray<T> *)subarrayToIndex:(NSUInteger)index;
+/// Returns a new array containing the receiving array’s elements up given count. Safe to pass large counts, will be clamped.
+- (NSArray<T> *)subarrayWithCount:(NSUInteger)count;
 
-/// Returns a new array containing the receiving array’s elements from given index.
-- (NSArray<T> *)subarrayFromIndex:(NSUInteger)index;
+/// Returns a new array containing the receiving array’s elements starting at given index. Safe to pass large indexes, will be clamped.
+- (NSArray<T> *)subarrayStartingAtIndex:(NSUInteger)index;
 
 
 
