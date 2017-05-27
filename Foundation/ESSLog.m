@@ -22,6 +22,11 @@ static ESSLogLevel ESSLogLevelLimit = ESSLogLevelDebug;
 static void _ESSLogPrivate(ESSLogLevel level, NSString *message) {
     if (level < ESSLogLevelLimit) return;
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        asl_add_output_file(nil, fileno(stdout), "$(Time): $(Message)", ASL_TIME_FMT_LCL, ASL_FILTER_MASK_UPTO(ASL_LEVEL_DEBUG), ASL_ENCODE_SAFE);
+    });
+    
     NSString *threadInfo = [NSThread isMainThread]? @"" : @"BACKGROUND ";
     asl_log(nil, nil, ASL_LEVEL_DEBUG - level, "%s%s", threadInfo.UTF8String, message.UTF8String);
 }
