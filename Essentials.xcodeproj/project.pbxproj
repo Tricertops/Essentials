@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */; };
 		5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
 		5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410617622CA1008F8F1E /* UIColor+Essentials.m */; };
 		5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
@@ -134,6 +135,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Essentials.h"; sourceTree = "<group>"; };
+		5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Essentials.m"; sourceTree = "<group>"; };
 		5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Essentials.h"; sourceTree = "<group>"; };
 		5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Essentials.m"; sourceTree = "<group>"; };
 		5B13410517622CA1008F8F1E /* UIColor+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Essentials.h"; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				5B7493EA1EBE496900A96210 /* ESSEvent.m */,
 				5B8B95021EBF5D64001E7097 /* JSON.h */,
 				5B8B95031EBF5D64001E7097 /* JSON.m */,
+				5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */,
+				5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */,
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
 				5B61079E19E6A7FB0071B547 /* NSURLRequest+Essentials.m in Sources */,
 				5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */,

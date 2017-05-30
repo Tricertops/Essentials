@@ -37,6 +37,7 @@
 #import "NSCharacterSet+Essentials.h"
 #import "ESSEvent.h"
 #import "JSON.h"
+#import "NSFileManager+Essentials.h"
 
 
 
