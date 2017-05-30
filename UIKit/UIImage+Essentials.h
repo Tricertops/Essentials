@@ -18,6 +18,11 @@
 
 
 
+/// Initializes new instance from contents of given file URL.
++ (instancetype)imageFromURL:(NSURL *)fileURL;
+
+
+
 #pragma mark - NSCopying
 
 /// Returns self.
@@ -138,6 +143,19 @@
 
 /// Returns a image that has a circle drawn around it, with appropriate size
 - (UIImage *)imageWrappedInCircleWithSize:(CGSize)circleSize lineWidth:(CGFloat)lineWidth circleColor:(UIColor *)circleColor;
+
+
+
+#pragma mark - Data Encoding
+
+/// Encodes receiver into PNG format.
+@property (readonly) NSData *PNGData;
+
+/// Encodes receiver into JPEG format with quality 0.9.
+@property (readonly) NSData *JPEGData;
+
+/// Encodes receiver into JPEG format with arbitrary quality in range 0…1.
+- (NSData *)JPEGDataWithQuality:(CGFloat)quality;
 
 
 @end

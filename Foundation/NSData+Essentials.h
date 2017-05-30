@@ -25,5 +25,9 @@
 - (NSString *)hexadecimalString; // -hexString is already used by Foundation
 
 
+/// Formats length using NSByteCountFormatter.
+@property (readonly) NSString *formattedLength;
+
+
 
 @end

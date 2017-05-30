@@ -22,6 +22,16 @@
 
 
 
++ (instancetype)imageFromURL:(NSURL *)URL {
+    ESSAssert(URL.isFileURL) else return nil;
+    
+    return [UIImage imageWithContentsOfFile:URL.path];
+}
+
+
+
+
+
 #pragma mark - NSCopying
 
 
@@ -477,4 +487,31 @@
 }
 
 
+
+
+
+#pragma mark - Data Encoding
+
+- (NSData *)PNGData {
+    return UIImagePNGRepresentation(self);
+}
+
+
+- (NSData *)JPEGData {
+    return [self JPEGDataWithQuality:0.9];
+}
+
+
+- (NSData *)JPEGDataWithQuality:(CGFloat)quality {
+    return UIImageJPEGRepresentation(self, quality);
+}
+
+
+
+
+
 @end
+
+
+
+

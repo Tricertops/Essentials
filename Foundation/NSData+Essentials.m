@@ -64,6 +64,14 @@
 
 
 
+- (NSString *)formattedLength {
+    return [NSByteCountFormatter stringFromByteCount:self.length countStyle:NSByteCountFormatterCountStyleMemory];
+}
+
+
+
+
+
 @end
 
 
