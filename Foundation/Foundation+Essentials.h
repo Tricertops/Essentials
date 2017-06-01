@@ -486,3 +486,9 @@ typedef const char * ESSObjCType;
 
 
 
+
+#define forcount(index, count, by...) \
+    for (NSInteger __count = (count), index = 0; index < __count; index += (by + 0) ?: 1)
+
+
+
