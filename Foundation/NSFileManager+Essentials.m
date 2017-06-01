@@ -27,7 +27,7 @@
 
 
 - (BOOL)isReadableFileAtURL:(NSURL *)URL {
-    if ( ! URL.isFileURL) return nil;
+    if ( ! URL.isFileURL) return NO;
     
     return [self isReadableFileAtPath:URL.path];
 }
