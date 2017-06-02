@@ -362,12 +362,7 @@ ESSLazyMakeUsingIvar(TYPE, GETTER, _##GETTER)
 #pragma mark - Numbers
 
 
-/// Unsigned byte.
-typedef uint8_t NSUByte;
-
-
-/// Signed byte.
-typedef int8_t NSByte;
+typedef uint8_t NSByte;
 
 
 /// Uses arc4random_uniform(). Pass NSUIntegerMax to use arc4random().

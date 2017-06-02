@@ -274,7 +274,7 @@
     static float const multiplier = 255;
     
     return [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
-        NSUByte *bytes = bitmap.mutableBytes;
+        NSByte *bytes = bitmap.mutableBytes;
         NSUInteger count = bitmap.length;
         
         for (NSUInteger index = 0; index < count; index += 4) {

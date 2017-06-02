@@ -324,9 +324,9 @@
 #undef pink   
 #undef orange
     
-    NSUByte redIndex = roundf(self.redComponent * 6);
-    NSUByte greenIndex = roundf(self.greenComponent * 6);
-    NSUByte blueIndex = roundf(self.blueComponent * 6);
+    NSByte redIndex = roundf(self.redComponent * 6);
+    NSByte greenIndex = roundf(self.greenComponent * 6);
+    NSByte blueIndex = roundf(self.blueComponent * 6);
     
     NSString *colorName = names[redIndex][greenIndex][blueIndex];
     return colorName;
@@ -417,13 +417,13 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
 
 
 
-UIColor * UIColorByteRGBA(NSUByte r, NSUByte g, NSUByte b, CGFloat a) {
+UIColor * UIColorByteRGBA(NSByte r, NSByte g, NSByte b, CGFloat a) {
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
 }
 
 
 
-UIColor * UIColorByteRGB(NSUByte r, NSUByte g, NSUByte b) {
+UIColor * UIColorByteRGB(NSByte r, NSByte g, NSByte b) {
     return UIColorByteRGBA(r, g, b, 1);
 }
 

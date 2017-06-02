@@ -125,9 +125,9 @@
 #pragma mark - Functions
 
 /// Convenience function for creating RGBA colors using byte values.
-extern UIColor * UIColorByteRGBA(NSUByte r, NSUByte g, NSUByte b, CGFloat a);
+extern UIColor * UIColorByteRGBA(NSByte r, NSByte g, NSByte b, CGFloat a);
 
 /// Convenience function for creating RGB colors using byte values with alpha 1.
-extern UIColor * UIColorByteRGB(NSUByte r, NSUByte g, NSUByte b);
+extern UIColor * UIColorByteRGB(NSByte r, NSByte g, NSByte b);
 
 
