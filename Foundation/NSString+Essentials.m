@@ -34,7 +34,7 @@
     unsigned long long value = 0;
     BOOL ok = [scanner scanUnsignedLongLong:&value];
     
-    return (ok && value <= NSUIntegerMax ? value : 0);
+    return (ok && value <= NSUIntegerMax ? (NSUInteger)value : 0);
 }
 - (NSFloat)f {
     return self.doubleValue;
