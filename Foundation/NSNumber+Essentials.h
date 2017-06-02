@@ -9,10 +9,20 @@
 #import <Foundation/Foundation.h>
 
 
+typedef double NSFloat;
+
+
 
 
 
 @interface NSNumber (Essentials)
+
+
+
+@property (readonly) NSInteger i;
+@property (readonly) NSUInteger u;
+@property (readonly) NSFloat f;
+@property (readonly) BOOL b;
 
 
 

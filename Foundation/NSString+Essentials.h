@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSNumber+Essentials.h"
 
 
 
@@ -17,7 +18,12 @@
 
 
 /// Returns immutable self or a copy. Provided for polymorphism compatibility with NSNumber.
-- (NSString *)stringValue;
+@property (readonly) NSString *stringValue;
+
+@property (readonly) NSInteger i;
+@property (readonly) NSUInteger u;
+@property (readonly) NSFloat f;
+@property (readonly) BOOL b;
 
 
 

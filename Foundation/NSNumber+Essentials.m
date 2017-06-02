@@ -19,6 +19,23 @@
 
 
 
+- (NSInteger)i {
+    return self.integerValue;
+}
+- (NSUInteger)u {
+    return self.unsignedIntegerValue;
+}
+- (NSFloat)f {
+    return self.doubleValue;
+}
+- (BOOL)b {
+    return self.boolValue;
+}
+
+
+
+
+
 - (void)times:(void(^)(void))block {
     NSParameterAssert(block);
     

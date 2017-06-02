@@ -26,6 +26,24 @@
 }
 
 
+- (NSInteger)i {
+    return self.integerValue;
+}
+- (NSUInteger)u {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    unsigned long long value = 0;
+    BOOL ok = [scanner scanUnsignedLongLong:&value];
+    
+    return (ok && value <= NSUIntegerMax ? value : 0);
+}
+- (NSFloat)f {
+    return self.doubleValue;
+}
+- (BOOL)b {
+    return self.boolValue;
+}
+
+
 
 
 
