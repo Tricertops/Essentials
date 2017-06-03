@@ -122,6 +122,16 @@
 		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5B0C58C71EE29DDF00DFE420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BDA3FD21A023EEB00B3F9E0;
+			remoteInfo = Test;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		5BBFA586176205DF0061E8B5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -137,6 +147,7 @@
 /* Begin PBXFileReference section */
 		5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Essentials.h"; sourceTree = "<group>"; };
 		5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Essentials.m"; sourceTree = "<group>"; };
+		5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Typed.xcodeproj; path = Typed/Typed.xcodeproj; sourceTree = "<group>"; };
 		5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Essentials.h"; sourceTree = "<group>"; };
 		5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Essentials.m"; sourceTree = "<group>"; };
 		5B13410517622CA1008F8F1E /* UIColor+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Essentials.h"; sourceTree = "<group>"; };
@@ -279,6 +290,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B0C58C41EE29DDF00DFE420 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B0C58C81EE29DDF00DFE420 /* Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5B1340F9176222DF008F8F1E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +350,7 @@
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
+				5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */,
 				5BBFA58A176205DF0061E8B5 /* Frameworks */,
 				5BBFA589176205DF0061E8B5 /* Products */,
 			);
@@ -549,6 +569,12 @@
 			mainGroup = 5BBFA57F176205DF0061E8B5;
 			productRefGroup = 5BBFA589176205DF0061E8B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5B0C58C41EE29DDF00DFE420 /* Products */;
+					ProjectRef = 5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5BBFA587176205DF0061E8B5 /* Essentials */,
@@ -556,6 +582,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5B0C58C81EE29DDF00DFE420 /* Test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test;
+			remoteRef = 5B0C58C71EE29DDF00DFE420 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BBFA584176205DF0061E8B5 /* Sources */ = {
@@ -702,6 +738,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "Typed/**";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};
 			name = Debug;
@@ -736,6 +773,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "Typed/**";
 				VALIDATE_PRODUCT = YES;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};
