@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */; };
+		5B0C58D61EE29FD100DFE420 /* jDateFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0C58D31EE29FD100DFE420 /* jDateFormat.h */; };
 		5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
 		5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410617622CA1008F8F1E /* UIColor+Essentials.m */; };
 		5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
@@ -148,6 +149,7 @@
 		5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Essentials.h"; sourceTree = "<group>"; };
 		5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Essentials.m"; sourceTree = "<group>"; };
 		5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Typed.xcodeproj; path = Typed/Typed.xcodeproj; sourceTree = "<group>"; };
+		5B0C58D31EE29FD100DFE420 /* jDateFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jDateFormat.h; sourceTree = "<group>"; };
 		5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Essentials.h"; sourceTree = "<group>"; };
 		5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Essentials.m"; sourceTree = "<group>"; };
 		5B13410517622CA1008F8F1E /* UIColor+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Essentials.h"; sourceTree = "<group>"; };
@@ -298,6 +300,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5B0C58D21EE29FD100DFE420 /* jDateFormat */ = {
+			isa = PBXGroup;
+			children = (
+				5B0C58D31EE29FD100DFE420 /* jDateFormat.h */,
+			);
+			path = jDateFormat;
+			sourceTree = "<group>";
+		};
 		5B1340F9176222DF008F8F1E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +361,7 @@
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
 				5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */,
+				5B0C58D21EE29FD100DFE420 /* jDateFormat */,
 				5BBFA58A176205DF0061E8B5 /* Frameworks */,
 				5BBFA589176205DF0061E8B5 /* Products */,
 			);
@@ -492,6 +503,7 @@
 				5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */,
 				5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */,
 				5B79EA521A98E2670031ED59 /* NSCoder+Essentials.h in Headers */,
+				5B0C58D61EE29FD100DFE420 /* jDateFormat.h in Headers */,
 				5B61079D19E6A7FB0071B547 /* NSURLRequest+Essentials.h in Headers */,
 				5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */,
 				5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */,
@@ -738,7 +750,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "Typed/**";
+				USER_HEADER_SEARCH_PATHS = "Typed/** jDateFormat/**";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};
 			name = Debug;
@@ -773,7 +785,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "Typed/**";
+				USER_HEADER_SEARCH_PATHS = "Typed/** jDateFormat/**";
 				VALIDATE_PRODUCT = YES;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};

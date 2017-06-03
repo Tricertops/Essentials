@@ -10,6 +10,7 @@
 #import "Foundation+Essentials.h"
 
 #import "Typed.h"
+#import "jDateFormat.h"
 
 #if TARGET_OS_IPHONE
     #import <UIKit/UIKit.h>

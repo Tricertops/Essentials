@@ -1,3 +1,6 @@
 [submodule "Typed"]
 	path = Typed
 	url=https://github.com/Tricertops/Typed.git
+[submodule "jDateFormat"]
+	path = jDateFormat
+	url = https://github.com/Tricertops/jDateFormat.git
