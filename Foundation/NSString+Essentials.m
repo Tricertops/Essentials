@@ -9,6 +9,7 @@
 #import "NSString+Essentials.h"
 #import "NSArray+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "Typed.h"
 #import <CommonCrypto/CommonDigest.h>
 
 
@@ -383,6 +384,58 @@
 - (NSString *)normalizedString {
     return [self stringByFoldingWithOptions:(NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch)
                                      locale:[NSLocale currentLocale]];
+}
+
+
+- (NSUInteger)levenshteinDistanceTo:(NSString *)B {
+    //! Copyright © 2014 koyachi (The MIT License)
+    //! https://github.com/koyachi/NSString-LevenshteinDistance
+    //! Edited for my coding style. In fact, completely rewritten.
+    
+    let A = self;
+    
+    // If 16-bits is not enought, just change it here:
+    typedef uint16_t type;
+    type max = ~(type)0;
+    
+    let height = A.length + 1;
+    let width = B.length + 1;
+    var distances = (type*)calloc(height * width, sizeof(type));
+    
+    let at = ^NSUInteger (NSUInteger x, NSUInteger y) {
+        return y * width + x;
+    };
+    
+    forcount (y, height) {
+        distances[at(0, y)] = y;
+    }
+    
+    forcount (x, width) {
+        distances[at(x, 0)] = x;
+    }
+    
+    unichar charactersA[A.length];
+    unichar charactersB[B.length];
+    [A getCharacters:charactersA range:A.fullRange];
+    [B getCharacters:charactersB range:B.fullRange];
+    
+    forcount (y, A.length) {
+        let charA = charactersA[y];
+        forcount (x, B.length) {
+            let charB = charactersB[x];
+            
+            let insert  = distances[at(x+1, y  )] + 1;
+            let remove  = distances[at(x,   y+1)] + 1;
+            let replace = distances[at(x,   y  )] + (charA == charB ? 0 : 1);
+            
+            let smallest = MIN(MIN(insert, remove), replace);
+            distances[at(x+1, y+1)] = MIN(smallest, max);
+        }
+    }
+    
+    let result = distances[at(width-1, height-1)];
+    free(distances);
+    return result;
 }
 
 

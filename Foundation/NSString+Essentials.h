@@ -138,6 +138,9 @@
 /// Enumerate parts of string between opening and closing strings, for example parentheses. It’s safe to mutate the receiver as long as you update continueLocation.
 - (void)enumerateSubstringsBetween:(NSString *)opening and:(NSString *)closing usingBlock:(void(^)(NSString *content, NSRange rangeIncludingDelimiters, NSUInteger *continueLocation))block;
 
+/// Calculates Levenshtein edit distance from receiver to the given string.
+- (NSUInteger)levenshteinDistanceTo:(NSString *)string;
+
 
 
 #pragma mark Splitting
