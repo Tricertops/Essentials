@@ -79,6 +79,10 @@
 - (NSDictionary<K, V> *)merged:(NSDictionary<K, V> *)other;
 
 
+/// Creates new dictionary that contains the same keys, but with new values.
+- (NSMutableDictionary<K, id> *)map:(id (^)(K key, V object))block;
+
+
 
 #pragma mark Inverting
 

@@ -150,6 +150,17 @@
 }
 
 
+- (NSMutableDictionary<id, id> *)map:(id (^)(id key, id object))block {
+    NSMutableDictionary<id, id> *result = [NSMutableDictionary new];
+    
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+        result[key] = block(key, object);
+    }];
+    
+    return result;
+}
+
+
 
 
 
