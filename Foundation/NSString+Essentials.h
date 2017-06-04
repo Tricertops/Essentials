@@ -139,7 +139,7 @@
 - (void)enumerateSubstringsBetween:(NSString *)opening and:(NSString *)closing usingBlock:(void(^)(NSString *content, NSRange rangeIncludingDelimiters, NSUInteger *continueLocation))block;
 
 /// Calculates Levenshtein edit distance from receiver to the given string.
-- (NSUInteger)levenshteinDistanceTo:(NSString *)string;
+- (NSInteger)levenshteinDistanceTo:(NSString *)string;
 
 
 
