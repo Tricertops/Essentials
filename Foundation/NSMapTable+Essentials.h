@@ -13,8 +13,12 @@
 @interface NSMapTable<KeyType, ObjectType> (Essentials)
 
 
++ (instancetype)mapTableWithIdentityComparision;
+
 - (ObjectType)objectForKeyedSubscript:(KeyType)key;
 - (void)setObject:(ObjectType)object forKeyedSubscript:(KeyType)key;
+
+- (ObjectType)objectForKey:(KeyType)key builder:(ObjectType (^)(void))builder;
 
 
 @end

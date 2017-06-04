@@ -387,7 +387,7 @@
 }
 
 
-- (NSUInteger)levenshteinDistanceTo:(NSString *)B {
+- (NSInteger)levenshteinDistanceTo:(NSString *)B {
     //! Copyright © 2014 koyachi (The MIT License)
     //! https://github.com/koyachi/NSString-LevenshteinDistance
     //! Edited for my coding style. In fact, completely rewritten.

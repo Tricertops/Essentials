@@ -14,6 +14,13 @@
 
 
 
++ (instancetype)mapTableWithIdentityComparision {
+    return [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsObjectPointerPersonality
+                                 valueOptions:NSPointerFunctionsObjectPersonality];
+}
+
+
+
 - (id)objectForKeyedSubscript:(id)key {
     return [self objectForKey:key];
 }
@@ -26,6 +33,17 @@
     else {
         [self removeObjectForKey:key];
     }
+}
+
+
+
+- (id)objectForKey:(id)key builder:(id (^)(void))builder {
+    id object = self[key];
+    if ( ! object) {
+        object = builder();
+        self[key] = object;
+    }
+    return object;
 }
 
 
