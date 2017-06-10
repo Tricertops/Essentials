@@ -533,39 +533,6 @@
 }
 
 
-+ (void)debugGuardMainThread {
-#if DEBUG
-    [UIView swizzleSelector:@selector(setNeedsLayout) with:@selector(ess_mainThreadGuard_setNeedsLayout)];
-    [UIView swizzleSelector:@selector(setNeedsDisplay) with:@selector(ess_mainThreadGuard_setNeedsDisplay)];
-    [UIView swizzleSelector:@selector(setNeedsDisplayInRect:) with:@selector(ess_mainThreadGuard_setNeedsDisplayInRect:)];
-#endif
-}
-
-
-- (void)ess_mainThreadGuard {
-    //TODO: This may throw false positives in UIWebView.
-    ESSAssert(NSThread.isMainThread, @"UIKit call off the Main Thread.");
-}
-
-
-- (void)ess_mainThreadGuard_setNeedsLayout {
-    [self ess_mainThreadGuard];
-    [self ess_mainThreadGuard_setNeedsLayout];
-}
-
-
-- (void)ess_mainThreadGuard_setNeedsDisplay {
-    [self ess_mainThreadGuard];
-    [self ess_mainThreadGuard_setNeedsDisplay];
-}
-
-
-- (void)ess_mainThreadGuard_setNeedsDisplayInRect:(CGRect)rect {
-    [self ess_mainThreadGuard];
-    [self ess_mainThreadGuard_setNeedsDisplayInRect:rect];
-}
-
-
 
 
 
