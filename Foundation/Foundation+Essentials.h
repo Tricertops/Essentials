@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
+#define ESSOverloaded __attribute__((overloadable))
+
+
 #import "NSObject+Essentials.h"
 #import "NSString+Essentials.h"
 #import "NSArray+Essentials.h"
@@ -38,6 +41,7 @@
 #import "ESSEvent.h"
 #import "JSON.h"
 #import "NSFileManager+Essentials.h"
+#import "ESSHash.h"
 
 
 
@@ -469,8 +473,6 @@ typedef const char * ESSObjCType;
 
 #pragma mark - Attributes
 
-
-#define ESSOverloaded __attribute__((overloadable))
 
 #define ESSPassthrough(content...)  content
 
