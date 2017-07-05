@@ -381,6 +381,11 @@
 }
 
 
+- (NSString *)substitute:(NSDictionary<NSString *, NSString *> *)substitutions {
+    return [self stringBySubstitutingWithDictionary:substitutions];
+}
+
+
 - (NSString *)normalizedString {
     return [self stringByFoldingWithOptions:(NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch)
                                      locale:[NSLocale currentLocale]];

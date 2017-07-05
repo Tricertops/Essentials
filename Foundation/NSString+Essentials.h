@@ -132,6 +132,9 @@
 /// Replaces {key} placeholders with the values of substitutions[key]
 - (NSString *)stringBySubstitutingWithDictionary:(NSDictionary<NSString *, NSString *> *)substitutions;
 
+/// Shorter form for -stringBySubstitutingWithDictionary:
+- (NSString *)substitute:(NSDictionary<NSString *, NSString *> *)substitutions;
+
 /// Returns new string that is normalized for search without case and diacritics sensitivity.
 - (NSString *)normalizedString;
 
