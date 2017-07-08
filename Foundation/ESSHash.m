@@ -18,12 +18,20 @@
 static NSUInteger const ESSHashFactor = 2654435761U;
 
 
+NSUInteger ESSHash(int value) ESSOverloaded {
+    return ESSHashFactor * (NSUInteger)value;
+}
+
+NSUInteger ESSHash(unsigned int value) ESSOverloaded {
+    return ESSHashFactor * (NSUInteger)value;
+}
+
 NSUInteger ESSHash(long value) ESSOverloaded {
-    return ESSHashFactor * (unsigned long)value;
+    return ESSHashFactor * (NSUInteger)value;
 }
 
 NSUInteger ESSHash(unsigned long value) ESSOverloaded {
-    return ESSHashFactor * value;
+    return ESSHashFactor * (NSUInteger)value;
 }
 
 NSUInteger ESSHash(double value) ESSOverloaded {

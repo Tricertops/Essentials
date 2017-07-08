@@ -14,6 +14,8 @@
 
 
 
+extern NSUInteger ESSHash(int)           ESSOverloaded;
+extern NSUInteger ESSHash(unsigned int)  ESSOverloaded;
 extern NSUInteger ESSHash(long)          ESSOverloaded;
 extern NSUInteger ESSHash(unsigned long) ESSOverloaded;
 extern NSUInteger ESSHash(double)        ESSOverloaded;
