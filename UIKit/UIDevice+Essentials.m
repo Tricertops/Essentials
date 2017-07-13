@@ -272,6 +272,12 @@
                   @"iPad6,11": @"iPad 5", //! Wi-Fi, 2017
                   @"iPad6,12": @"iPad 5", //! Cellular, 2017
                   
+                  @"iPad7,1": @"iPad Pro 12.9″ 2", //! Wi-Fi, 2017
+                  @"iPad7,2": @"iPad Pro 12.9″ 2", //! Cellular, 2017
+                  
+                  @"iPad7,3": @"iPad Pro 10.5″ 1", //! Wi-Fi, 2017
+                  @"iPad7,4": @"iPad Pro 10.5″ 1", //! Cellular, 2017
+                  
                   //! Apple TV
                   @"AppleTV2,1": @"Apple TV 2", //! 2010
                   @"AppleTV3,1": @"Apple TV 3", //! 2012
