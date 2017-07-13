@@ -39,6 +39,9 @@
 /// Returns orientation of the screen.
 - (UIInterfaceOrientation)interfaceOrientation;
 
+/// Renders all windows of this screen including status bar area. Status bar itself cannot be drawn without hacks, but drawing block allows you to add any custom content, including fake status bars.
+- (UIImage *)takeScreenshotWithDrawing:(void (^)(void))drawingBlock;
+
 
 #pragma mark - Class Shorthands
 

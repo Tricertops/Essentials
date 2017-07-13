@@ -77,6 +77,20 @@
 }
 
 
+- (UIImage *)takeScreenshotWithDrawing:(void (^)(void))drawingBlock {
+    UIApplication *app = UIApplication.sharedApplication;
+    
+    return [UIImage drawWithSize:self.bounds.size opaque:YES scale:self.scale block:^{
+        for (UIWindow *window in app.windows) {
+            if (window.screen == self) {
+                [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
+            }
+        }
+        if (drawingBlock) drawingBlock();
+    }];
+}
+
+
 
 
 #pragma mark - Class Shorthands
