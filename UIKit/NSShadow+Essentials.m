@@ -39,6 +39,16 @@
 }
 
 
++ (instancetype)shadowWithVerticalOffset:(CGFloat)offset alpha: (CGFloat)alpha radius:(CGFloat)radius {
+    NSShadow *shadow = [NSShadow new];
+    shadow.offset = UIOffsetMake(0, offset);
+    shadow.color = UIColor.blackColor;
+    shadow.alpha = alpha;
+    shadow.radius = radius;
+    return shadow;
+}
+
+
 
 
 

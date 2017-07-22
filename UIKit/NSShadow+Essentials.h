@@ -25,6 +25,9 @@
 /// Creates new instance with given values. Color is premultiplied by alpha.
 + (instancetype)shadowWithOffset:(UIOffset)offset color:(UIColor *)color alpha:(CGFloat)alpha radius:(CGFloat)radius;
 
+/// Creates new instance with only vertical offset, black color of given alpha, and with blur radius.
++ (instancetype)shadowWithVerticalOffset:(CGFloat)offset alpha: (CGFloat)alpha radius:(CGFloat)radius;
+
 
 
 #pragma mark Accessors
