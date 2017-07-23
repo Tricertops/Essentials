@@ -551,6 +551,17 @@
 
 
 
+#pragma mark Characters
+
++ (NSString *)SPACE { return @" "; }
++ (NSString *)THIN_SPACE { return @"\u2009"; }
++ (NSString *)NO_BREAK_SPACE { return @"\u00A0"; }
++ (NSString *)NEW_LINE { return @"\n"; }
+
+
+
+
+
 @end
 
 

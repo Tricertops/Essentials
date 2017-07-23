@@ -191,6 +191,18 @@
 - (NSString*)repeat:(NSUInteger)times;
 
 
+
+#pragma mark Characters
+
++ (NSString *)SPACE;
++ (NSString *)THIN_SPACE;
++ (NSString *)NO_BREAK_SPACE;
++ (NSString *)NEW_LINE;
+
+
+
+
+
 @end
 
 
