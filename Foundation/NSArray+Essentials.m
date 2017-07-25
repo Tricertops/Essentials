@@ -132,6 +132,15 @@
 }
 
 
+- (NSArray<id> *)filter:(BOOL(^)(id object))block {
+    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
+    for (id object in self) {
+        if (block(object)) [mutable addObject:object];
+    }
+    return [mutable copy];
+}
+
+
 - (NSDictionary<id, id> *)dictionaryByKeyPath:(NSString *)keyPath {
     NSArray<id> *keys = [self valueForKeyPath:keyPath];
     return [NSDictionary dictionaryWithObjects:self forKeys:keys];

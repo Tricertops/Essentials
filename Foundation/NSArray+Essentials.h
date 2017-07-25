@@ -58,6 +58,9 @@
 /// Returns new array with mapped objects using given block. The block takes index and object.
 - (NSArray<id> *)mapIndex:(id(^)(NSUInteger index, T object))block;
 
+/// Returns new array with only objects for which you return YES.
+- (NSArray<id> *)filter:(BOOL(^)(T object))block;
+
 /// Returns new dictionary, whose values are objects from the receiver and keys are obejcts returned for given key-path.
 - (NSDictionary<NSString *, T> *)dictionaryByKeyPath:(NSString *)keyPath;
 
