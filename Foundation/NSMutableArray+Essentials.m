@@ -43,7 +43,7 @@
 #pragma mark Mapping
 
 
-- (NSMutableArray<id> *)replace:(id(^)(id object))block {
+- (void)replace:(id(^)(id object))block {
     NSParameterAssert(block);
     
     for (NSUInteger index = 0; index < self.count; ) {
@@ -58,11 +58,10 @@
             [self removeObjectAtIndex:index];
         }
     }
-    return self;
 }
 
 
-- (NSMutableArray<id> *)replaceIndex:(id(^)(NSUInteger index, id object))block {
+- (void)replaceIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
     for (NSUInteger index = 0; index < self.count; ) {
@@ -77,7 +76,6 @@
             [self removeObjectAtIndex:index];
         }
     }
-    return self;
 }
 
 
@@ -87,13 +85,12 @@
 #pragma mark Nested Arrays
 
 
-- (NSMutableArray<id> *)flatten {
+- (void)flatten {
     NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
     for (NSArray<id> *subarray in self) {
         [builder addObjectsFromArray:subarray];
     }
     [self setArray:builder];
-    return self;
 }
 
 
@@ -102,7 +99,7 @@
 #pragma mark Filtering
 
 
-- (NSMutableArray<id> *)filter:(BOOL(^)(id object))block {
+- (void)filter:(BOOL(^)(id object))block {
     NSParameterAssert(block);
     
     for (NSInteger index = 0; index < self.count; ) {
@@ -111,11 +108,10 @@
         if (passed) index++;
         else [self removeObjectAtIndex:index];
     }
-    return self;
 }
 
 
-- (NSMutableArray<id> *)filterIndex:(BOOL(^)(NSUInteger index, id object))block {
+- (void)filterIndex:(BOOL(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
     for (NSInteger index = 0; index < self.count; ) {
@@ -124,16 +120,14 @@
         if (passed) index++;
         else [self removeObjectAtIndex:index];
     }
-    return self;
 }
 
 #pragma mark Randomize
 
-- (NSMutableArray<id> *)randomizeOrder {
+- (void)randomizeOrder {
     for (NSInteger index = self.count - 1; index > 0; index--) {
         [self exchangeObjectAtIndex:index withObjectAtIndex:NSUIntegerRandom(index+1)];
     }
-    return self;
 }
 
 

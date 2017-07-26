@@ -132,7 +132,7 @@
 }
 
 
-- (NSArray<id> *)filter:(BOOL(^)(id object))block {
+- (NSArray<id> *)filtered:(BOOL(^)(id object))block {
     NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
     for (id object in self) {
         if (block(object)) [mutable addObject:object];
@@ -255,7 +255,9 @@
 
 
 - (NSArray<id> *)arrayByRandomizingOrder {
-   return [self.mutableCopy randomizeOrder];
+    NSMutableArray<id> *mutable = [self mutableCopy];
+    [mutable randomizeOrder];
+    return [mutable copy];
 }
 
 
