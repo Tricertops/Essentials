@@ -51,6 +51,9 @@
 /// Inverse to .hidden property.
 @property BOOL isVisible;
 
+/// Proxy for .accessibilityIgnoresInvertColors property which is safe to invoke on iOS 10 and earlier.
+@property BOOL ignoresInvertColors;
+
 
 
 #pragma mark - Geometry

@@ -6,7 +6,10 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#define ESSOverloaded __attribute__((overloadable))
+#define ESSOverloaded   __attribute__((overloadable))
+
+#define SDK_iOS11  __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+#define SDK_iOS10  __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
 
 
 #import "NSObject+Essentials.h"

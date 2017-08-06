@@ -132,6 +132,38 @@
 
 
 
+- (BOOL)ignoresInvertColors {
+#if SDK_iOS11
+    if (@available(iOS 11.0, *)) {
+        return self.accessibilityIgnoresInvertColors;
+    }
+#endif
+    return NO;
+}
+
+
+- (void)setIgnoresInvertColors:(BOOL)ignoresInvertColors {
+#if SDK_iOS11
+    if (@available(iOS 11.0, *)) {
+        self.accessibilityIgnoresInvertColors = ignoresInvertColors;
+    }
+#endif
+}
+
+
++ (NSSet<NSString *> *)keyPathsForValuesAffectingIgnoresInvertColors {
+#if SDK_iOS11
+    if (@available(iOS 11.0, *)) {
+        return [NSSet setWithObject:ESSKeypathClass(UIView, accessibilityIgnoresInvertColors)];
+    }
+#endif
+    return NSSet.set;
+}
+
+
+
+
+
 #pragma mark - Geometry
 
 
