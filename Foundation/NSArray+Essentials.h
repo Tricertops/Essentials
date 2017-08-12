@@ -80,6 +80,12 @@
 /// Combines nested subarrays to single array.
 - (NSArray<id> *)flattenedArray;
 
+/// Returns array of arrays with elements of receiver. Each nested array contains given numebr of elements, except last one (that contains the remainder).
+- (NSArray<NSArray<T> *> *)splitArrayByCount:(NSUInteger)count;
+
+/// Returns array of N arrays or less. These arrays contain elements of the receiver.
+- (NSArray<NSArray<T> *> *)splitArrayIntoParts:(NSUInteger)count;
+
 
 
 #pragma mark Joining

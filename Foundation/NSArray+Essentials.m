@@ -203,6 +203,21 @@
 }
 
 
+- (NSArray<NSArray<id> *> *)splitArrayByCount:(NSUInteger)count {
+    NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
+    forcount(index, self.count, count) {
+        NSArray<id> *subarray = [self valuesInRange:NSRangeMake(index, count)];
+        [builder addObject:subarray];
+    }
+    return builder;
+}
+
+
+- (NSArray<NSArray<id> *> *)splitArrayIntoParts:(NSUInteger)count {
+    return [self splitArrayByCount:ceil(1.0 * self.count / count)];
+}
+
+
 
 
 
