@@ -444,6 +444,11 @@
 }
 
 
+- (NSString *)nonEmpty {
+    return (self.length ? self : nil);
+}
+
+
 
 
 
@@ -540,6 +545,9 @@
 
 - (NSString*)repeat:(NSUInteger)times
 {
+    if (times == 0)
+        return @"";
+    
     NSMutableString *string = [NSMutableString stringWithCapacity:self.length * times];
     for (NSUInteger index = 0; index < times; index ++) {
         [string appendString:self];

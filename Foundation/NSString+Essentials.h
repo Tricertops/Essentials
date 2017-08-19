@@ -145,6 +145,11 @@
 - (NSInteger)levenshteinDistanceTo:(NSString *)string;
 
 
+/// If the receiver is non-empty, returns receiver. Otherwise returns nil, so it nevers returns empty string. Useful in ternary expressions
+@property (readonly) NSString *nonEmpty;
+// string.nonEmpty ?: @"–"
+
+
 
 #pragma mark Splitting
 
