@@ -51,6 +51,9 @@
 /// Return YES on when idiom is Phone.
 - (BOOL)iPhone;
 
+/// Returns YES, if the device has features of iPhone X.
+- (BOOL)iPhoneX;
+
 /// Return YES on when idiom is Pad.
 - (BOOL)iPad;
 
@@ -70,6 +73,7 @@
 /// These methods call corresponding instance methods on [UIDevice currentDevice] object.
 
 + (BOOL)iPhone;
++ (BOOL)iPhoneX;
 + (BOOL)iPad;
 + (NSString *)idiomName;
 + (NSString *)resourceSuffix;

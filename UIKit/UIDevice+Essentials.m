@@ -95,6 +95,13 @@
 }
 
 
+- (BOOL)iPhoneX {
+    UIScreen *screen = UIScreen.mainScreen;
+    CGSize size = screen.fixedCoordinateSpace.bounds.size;
+    return (self.iPhone && size.width == 375 && size.height == 812 && screen.scale == 3);
+}
+
+
 - (BOOL)iPad {
     return (self.userInterfaceIdiom == UIUserInterfaceIdiomPad);
 }
@@ -136,6 +143,11 @@
 
 + (BOOL)iPhone {
     return self.currentDevice.iPhone;
+}
+
+
++ (BOOL)iPhoneX {
+    return self.currentDevice.iPhoneX;
 }
 
 
