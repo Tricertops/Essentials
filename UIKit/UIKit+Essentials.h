@@ -24,6 +24,8 @@
 #import "UIApplication+Essentials.h"
 #import "ESSDrawView.h"
 #import "UIButton+Essentials.h"
+#import "UISwipeActionsConfiguration+Essentials.h"
+#import "UIContextualAction+Essentials.h"
 
 
 

@@ -55,6 +55,8 @@
 		5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
 		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
 		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
+		5B70C9831F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */; };
+		5B70C9871F73AE1A00A5F811 /* UIContextualAction+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */; };
 		5B7493EB1EBE496900A96210 /* ESSEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7493E91EBE496900A96210 /* ESSEvent.h */; };
 		5B7493EC1EBE496900A96210 /* ESSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7493EA1EBE496900A96210 /* ESSEvent.m */; };
 		5B7493ED1EBE496900A96210 /* ESSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7493EA1EBE496900A96210 /* ESSEvent.m */; };
@@ -203,6 +205,10 @@
 		5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Essentials.h"; sourceTree = "<group>"; };
 		5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Essentials.m"; sourceTree = "<group>"; };
 		5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Essentials.m"; sourceTree = "<group>"; };
+		5B70C9811F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISwipeActionsConfiguration+Essentials.h"; sourceTree = "<group>"; };
+		5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISwipeActionsConfiguration+Essentials.m"; sourceTree = "<group>"; };
+		5B70C9851F73AE1A00A5F811 /* UIContextualAction+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIContextualAction+Essentials.h"; sourceTree = "<group>"; };
+		5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIContextualAction+Essentials.m"; sourceTree = "<group>"; };
 		5B7493E91EBE496900A96210 /* ESSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSEvent.h; sourceTree = "<group>"; };
 		5B7493EA1EBE496900A96210 /* ESSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSEvent.m; sourceTree = "<group>"; };
 		5B74A63619D45F5B00B04E07 /* ESSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSProxy.h; sourceTree = "<group>"; };
@@ -354,6 +360,10 @@
 				5B1E48B31AF67107007941E1 /* ESSDrawView.m */,
 				5B1EDF9B1ED00EF300DA9837 /* UIButton+Essentials.h */,
 				5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */,
+				5B70C9811F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.h */,
+				5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */,
+				5B70C9851F73AE1A00A5F811 /* UIContextualAction+Essentials.h */,
+				5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -577,7 +587,7 @@
 			attributes = {
 				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = iAdverti;
+				ORGANIZATIONNAME = Tricertops;
 			};
 			buildConfigurationList = 5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -619,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */,
+				5B70C9871F73AE1A00A5F811 /* UIContextualAction+Essentials.m in Sources */,
 				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
 				5B61079E19E6A7FB0071B547 /* NSURLRequest+Essentials.m in Sources */,
 				5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */,
@@ -642,6 +653,7 @@
 				5B79EA531A98E2670031ED59 /* NSCoder+Essentials.m in Sources */,
 				5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
 				5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */,
+				5B70C9831F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m in Sources */,
 				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
 				5B8B95051EBF5D64001E7097 /* JSON.m in Sources */,
 				5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */,
