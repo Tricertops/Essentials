@@ -125,7 +125,17 @@
     
     [self addObserver:event.owner handler:^(NSObject *owner, id value) {
          [event sendValue:value];
-     }];
+    }];
+}
+
+
+- (void)replaceValue:(id)replacedValue chainTo:(__weak ESSEvent *)event {
+    ESSAssert(event) else return;
+    ESSAssert(event.owner) else return;
+    
+    [self addObserver:event.owner handler:^(NSObject *owner, id originalValue) {
+        [event sendValue:replacedValue];
+    }];
 }
 
 

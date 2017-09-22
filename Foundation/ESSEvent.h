@@ -51,6 +51,8 @@
 - (void)addObserver:(__weak id)observer selector:(SEL)selector;
 //! Registers special handler that forwards events to other Event object of the same ValueType.
 - (void)chainTo:(__weak ESSEvent<ValueType> *)event;
+//! Registers special handler that sends custom value to other Event object.
+- (void)replaceValue:(id)value chainTo:(__weak ESSEvent *)event;
 //! Removes all handlers registered for given observer
 - (void)removeObserver:(__weak id)observer;
 
