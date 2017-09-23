@@ -85,9 +85,9 @@ typedef void (*ESSCatchHandler)(ESSCatchIssue *issue);
 
 //! Evaluates the condition and if true, creates Issue object and launches handling sequence.
 #define _ESSCatch(CONDITION, MESSAGE...) \
-	(BOOL)({ \
-		_Bool r = (CONDITION); \
-		if (__builtin_expect(r, 0)) { \
+    (BOOL)({ \
+        _Bool r = (CONDITION); \
+        if (__builtin_expect(r, 0)) { \
             NSString *m = [NSString stringWithFormat: @"" MESSAGE]; \
             ESSCatchIssue *i = [ESSCatchIssue _c:@#CONDITION m:m f:@(__FILE__) l:__LINE__ f:@(__PRETTY_FUNCTION__)]; \
             _ESSPause; \
@@ -95,9 +95,9 @@ typedef void (*ESSCatchHandler)(ESSCatchIssue *issue);
                 ESSCatchHandler handler = wrapper.pointerValue; \
                 handler(i); \
             } \
-		} \
-		r; \
-	})
+        } \
+        r; \
+    })
 
 
 //! Defines a function that registers another function as global or file handler.
