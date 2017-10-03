@@ -16,7 +16,7 @@
 
 + (instancetype)actionWithTitle:(NSString *)title color:(UIColor *)color handler:(void (^)(void))handler {
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:title handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
-        handler();
+        [self performHandlerWithoutBlockingAnimation:handler];
         completionHandler(YES);
     }];
     if (color) {
@@ -29,7 +29,7 @@
 
 + (instancetype)actionWithImage:(UIImage *)image color:(UIColor *)color handler:(void (^)(void))handler {
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"" handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
-        handler();
+        [self performHandlerWithoutBlockingAnimation:handler];
         completionHandler(YES);
     }];
     action.image = image;
@@ -43,7 +43,7 @@
 
 + (instancetype)descructiveActionWithTitle:(NSString *)title color:(UIColor *)color handler:(void (^)(void))handler {
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:title handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
-        handler();
+        [self performHandlerWithoutBlockingAnimation:handler];
         completionHandler(YES);
     }];
     if (color) {
@@ -56,7 +56,7 @@
 
 + (instancetype)descructiveActionWithImage:(UIImage *)image color:(UIColor *)color handler:(void (^)(void))handler {
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"" handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
-        handler();
+        [self performHandlerWithoutBlockingAnimation:handler];
         completionHandler(YES);
     }];
     action.image = image;
@@ -64,6 +64,11 @@
         action.backgroundColor = color;
     }
     return action;
+}
+
+
++ (void)performHandlerWithoutBlockingAnimation:(void (^)(void))handler {
+    [NSOperationQueue.mainQueue performSelector:@selector(addOperationWithBlock:) withObject:handler afterDelay:0.03];
 }
 
 
