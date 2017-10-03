@@ -42,6 +42,8 @@
     if ([name hasPrefix:@"iPhone"]) {
         if ([name hasSuffix:@"Plus"])
             return @"iPhone Plus";
+        if ([name hasPrefix:@"iPhone X"])
+            return @"iPhone X";
         return @"iPhone";
     }
     if ([name hasPrefix:@"iPad"]) {
@@ -234,6 +236,13 @@
                   @"iPhone9,3": @"iPhone 7", //! Global, 2016
                   @"iPhone9,4": @"iPhone 7 Plus", //! Global, 2016
                   
+                  @"iPhone10,1": @"iPhone 8", //! CDMA, 2017
+                  @"iPhone10,2": @"iPhone 8 Plus", //! CDMA, 2017
+                  @"iPhone10,3": @"iPhone X", //! CDMA, 2017
+                  @"iPhone10,4": @"iPhone 8", //! Global, 2017
+                  @"iPhone10,5": @"iPhone 8 Plus", //! Global, 2017
+                  @"iPhone10,6": @"iPhone X", //! Global, 2017
+                  
                   //! iPod Touch
                   @"iPod1,1": @"iPod Touch 1", //! 2007
                   @"iPod2,1": @"iPod Touch 2", //! 2008
@@ -291,10 +300,12 @@
                   @"iPad7,4": @"iPad Pro 10.5″ 1", //! Cellular, 2017
                   
                   //! Apple TV
-                  @"AppleTV2,1": @"Apple TV 2", //! 2010
-                  @"AppleTV3,1": @"Apple TV 3", //! 2012
-                  @"AppleTV3,2": @"Apple TV 3", //! 2013
-                  @"AppleTV5,3": @"Apple TV 4", //! 2015
+                  @"AppleTV1,1": @"Apple TV 1", //! macOS, 2007
+                  @"AppleTV2,1": @"Apple TV 2", //! iOS, 2010
+                  @"AppleTV3,1": @"Apple TV 3", //! 1080p, 2012
+                  @"AppleTV3,2": @"Apple TV 3", //! Rev A, 2013
+                  @"AppleTV5,3": @"Apple TV 4", //! tvOS, 2015
+                  @"AppleTV6,2": @"Apple TV 5", //! 4K, 2017
 
                   };
     });
