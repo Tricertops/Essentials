@@ -9,6 +9,7 @@
 #import "UIView+Essentials.h"
 #import "UIColor+Essentials.h"
 #import "UIKit+Essentials.h"
+#import "ESSDragInteractionDelegate.h"
 
 
 
@@ -538,6 +539,39 @@
     horizontalMotion.maximumRelativeValue = @(intensity);
     
     [self addMotionEffect:horizontalMotion];
+}
+
+
+- (UIDragInteraction *)enableDragWithString:(NSString *)string {
+    NSItemProvider *item = [[NSItemProvider alloc] initWithItem:string typeIdentifier:@"public.text"];
+    return [self enableDragWithItem:item];
+}
+
+
+- (UIDragInteraction *)enableDragWithFileURL:(NSURL *)fileURL {
+    NSItemProvider *item = [[NSItemProvider alloc] initWithContentsOfURL:fileURL];
+    return [self enableDragWithItem:item];
+}
+
+
+- (UIDragInteraction *)enableDragWithItem:(NSItemProvider *)itemProvider {
+    if (@available(iOS 11, *)) {
+        id<UIDragInteractionDelegate> delegate = [[ESSDragInteractionDelegate alloc] initWithItems:@[itemProvider]];
+        [self setAssociatedStrongObject:delegate forKey:_cmd];
+        
+        UIDragInteraction *interation = [[UIDragInteraction alloc] initWithDelegate:delegate];
+        interation.enabled = YES;
+        [self addInteraction:interation];
+        return interation;
+    }
+    return nil;
+}
+
+
+- (void)removeAllInteractions {
+    if (@available(iOS 11, *)) {
+        self.interactions = @[];
+    }
 }
 
 

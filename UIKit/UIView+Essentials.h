@@ -146,6 +146,15 @@
 - (void)addVerticalMotionEffectWithIntensity:(CGFloat)intensity;
 - (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity;
 
+//! Creates a drag interaction and adds it to the receiver. Creates item provider from given string.
+- (UIDragInteraction *)enableDragWithString:(NSString *)string API_AVAILABLE(ios(11));
+//! Creates a drag interaction and adds it to the receiver. Creates item provider from given fileURL.
+- (UIDragInteraction *)enableDragWithFileURL:(NSURL *)fileURL API_AVAILABLE(ios(11));
+//! Creates a drag interaction and adds it to the receiver.
+- (UIDragInteraction *)enableDragWithItem:(NSItemProvider *)itemProvider API_AVAILABLE(ios(11));
+
+- (void)removeAllInteractions;
+
 
 
 #pragma mark - Events

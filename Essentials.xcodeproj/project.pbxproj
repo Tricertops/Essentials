@@ -93,6 +93,7 @@
 		5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
 		5BCA600C1B2197D100EFB683 /* UIAlertController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */; };
 		5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */; };
+		5BDDD3311F83D052006F2CB9 /* ESSDragInteractionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDD3301F83D052006F2CB9 /* ESSDragInteractionDelegate.m */; };
 		5BE0A30F1BD384CB006BDA45 /* NSBundle+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */; };
 		5BE0A3101BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
 		5BE0A3111BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
@@ -254,6 +255,8 @@
 		5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Essentials.m"; sourceTree = "<group>"; };
 		5BD8A6381AACB42400B0C398 /* UIViewController+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Essentials.h"; sourceTree = "<group>"; };
 		5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Essentials.m"; sourceTree = "<group>"; };
+		5BDDD32F1F83D052006F2CB9 /* ESSDragInteractionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESSDragInteractionDelegate.h; sourceTree = "<group>"; };
+		5BDDD3301F83D052006F2CB9 /* ESSDragInteractionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESSDragInteractionDelegate.m; sourceTree = "<group>"; };
 		5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Essentials.h"; sourceTree = "<group>"; };
 		5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Essentials.m"; sourceTree = "<group>"; };
 		5BE32D6219BB4D77002605B3 /* CIContext+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIContext+Essentials.h"; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */,
 				5B70C9851F73AE1A00A5F811 /* UIContextualAction+Essentials.h */,
 				5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */,
+				5BDDD32F1F83D052006F2CB9 /* ESSDragInteractionDelegate.h */,
+				5BDDD3301F83D052006F2CB9 /* ESSDragInteractionDelegate.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
 				5B22FCD11BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */,
 				5B1EDF9D1ED00EF300DA9837 /* UIButton+Essentials.m in Sources */,
+				5BDDD3311F83D052006F2CB9 /* ESSDragInteractionDelegate.m in Sources */,
 				5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */,
 				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
 				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,

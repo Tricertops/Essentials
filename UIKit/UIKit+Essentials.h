@@ -26,6 +26,7 @@
 #import "UIButton+Essentials.h"
 #import "UISwipeActionsConfiguration+Essentials.h"
 #import "UIContextualAction+Essentials.h"
+#import "ESSDragInteractionDelegate.h"
 
 
 
