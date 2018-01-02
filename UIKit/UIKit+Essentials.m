@@ -298,6 +298,15 @@ UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets a, UIEdgeInsets b) {
 }
 
 
+UIEdgeInsets UIEdgeInsetsScale(UIEdgeInsets insets, CGFloat scale) {
+    insets.top *= scale;
+    insets.left *= scale;
+    insets.right *= scale;
+    insets.bottom *= scale;
+    return insets;
+}
+
+
 
 
 

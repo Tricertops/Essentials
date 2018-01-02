@@ -200,6 +200,9 @@ extern CGFloat CGPointAngle(CGPoint);
 /// Use to sum up two edge insets.
 extern UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets, UIEdgeInsets);
 
+/// Multiplies all component of insets with given scale.
+UIEdgeInsets UIEdgeInsetsScale(UIEdgeInsets insets, CGFloat scale);
+
 
 
 
