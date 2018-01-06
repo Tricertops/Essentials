@@ -90,6 +90,9 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 + (Class)subclass:(NSString *)name;
 + (Class)deriveClass:(NSString *)name __attribute__((deprecated("Use +subclass: instead")));
 
+/// Allocates subclass of receiver’s class, passes it to the block and then sets it to receiver’s class.
+- (void)swizzleClassWithSuffix:(NSString *)nameSuffix customizations:(void (^)(Class))block;
+
 
 
 #pragma mark - Locking
@@ -114,7 +117,7 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 
 
 
-extern Class ESSSubclass(Class superclass, NSString *name);
+extern Class ESSSubclass(Class superclass, NSString *name, void (^customizations)(Class));
 
 extern NSMutableArray<Class> * ESSSuperclasses(Class class);
 

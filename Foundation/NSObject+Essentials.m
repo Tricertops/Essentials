@@ -199,12 +199,24 @@
 
 
 + (Class)subclass:(NSString *)name {
-    return ESSSubclass(self, name);
+    return ESSSubclass(self, name, nil);
 }
 
 
 + (Class)deriveClass:(NSString *)name {
     return [self subclass:name];
+}
+
+
+- (void)swizzleClassWithSuffix:(NSString *)nameSuffix customizations:(void (^)(Class))customizationBlock {
+    ESSAssert(nameSuffix.length > 0) else return;
+    
+    Class originalClass = object_getClass(self);
+    NSString *originalName = @(class_getName(originalClass));
+    NSString *newName = [originalName stringByAppendingString:nameSuffix];
+    Class newClass = ESSSubclass(originalClass, newName, customizationBlock);
+    
+    object_setClass(self, newClass);
 }
 
 
@@ -248,7 +260,7 @@
 
 
 
-Class ESSSubclass(Class superclass, NSString *name) {
+Class ESSSubclass(Class superclass, NSString *name, void (^customizations)(Class)) {
     ESSAssert(superclass != Nil, @"Cannot subclass Nil!") else return Nil;
     ESSAssert(name.length > 0, @"Cannot create class with no name!") else return superclass;
     
@@ -256,6 +268,7 @@ Class ESSSubclass(Class superclass, NSString *name) {
     
     if ( ! subclass) {
         subclass = objc_allocateClassPair(superclass, name.UTF8String, 0);
+        if (customizations) customizations(subclass);
         objc_registerClassPair(subclass);
     }
     else {

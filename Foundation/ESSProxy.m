@@ -46,7 +46,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 + (Class)subclass:(NSString *)name {
-    return ESSSubclass(self, name);
+    return ESSSubclass(self, name, nil);
 }
 
 
