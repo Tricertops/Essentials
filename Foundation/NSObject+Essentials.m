@@ -220,6 +220,20 @@
 }
 
 
++ (BOOL)overrideSelector:(SEL)selector fromSuperclass:(Class)superclass withBlock:(id)anyBlock {
+    ESSAssert(selector) else return NO;
+    ESSAssert(superclass) else return NO;
+    ESSAssert(anyBlock) else return NO;
+    ESSAssert([self isSubclassOfClass:superclass]) else return NO;
+    
+    IMP implementation = imp_implementationWithBlock(anyBlock);
+    Method originalMethod = class_getInstanceMethod(superclass, selector);
+    const char *types = method_getTypeEncoding(originalMethod);
+    
+    return class_addMethod(self, selector, implementation, types);
+}
+
+
 
 
 

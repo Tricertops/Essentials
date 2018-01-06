@@ -93,6 +93,9 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 /// Allocates subclass of receiver’s class, passes it to the block and then sets it to receiver’s class.
 - (void)swizzleClassWithSuffix:(NSString *)nameSuffix customizations:(void (^)(Class))block;
 
+/// Adds method for given selector implemented using given block. Extra info is gathered from given class.
++ (BOOL)overrideSelector:(SEL)selector fromSuperclass:(Class)superclass withBlock:(id)anyBlockWithIDArgument;
+
 
 
 #pragma mark - Locking
