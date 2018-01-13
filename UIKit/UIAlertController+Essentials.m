@@ -105,7 +105,8 @@
 
 
 - (UIAlertAction *)addActionWithTitle:(NSString *)title style:(UIAlertActionStyle)style handler:(void (^)(void))handler {
-    UIAlertAction *action = [UIAlertAction actionWithTitle:title
+    NSString *fallback = (style == UIAlertActionStyleCancel? @"Cancel" : @"");
+    UIAlertAction *action = [UIAlertAction actionWithTitle:title ?: fallback
                                                      style:style
                                                    handler:^(UIAlertAction *action) {
                                                        if (handler) handler();
