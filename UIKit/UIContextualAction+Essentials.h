@@ -19,11 +19,11 @@
 /// Convenience constructor for Normal style with image and custom color. Uses simplified handler.
 + (instancetype)actionWithImage:(UIImage *)image color:(UIColor *)color handler:(void (^)(void))handler;
 
-/// Convenience constructor for Descructive style with title and custom color. Uses simplified handler.
-+ (instancetype)descructiveActionWithTitle:(NSString *)title color:(UIColor *)color handler:(void (^)(void))handler;
+/// Convenience constructor for Destructive style with title and custom color. Uses simplified handler.
++ (instancetype)destructiveActionWithTitle:(NSString *)title color:(UIColor *)color handler:(void (^)(void))handler;
 
-/// Convenience constructor for Descructive style with image and custom color. Uses simplified handler.
-+ (instancetype)descructiveActionWithImage:(UIImage *)image color:(UIColor *)color handler:(void (^)(void))handler;
+/// Convenience constructor for Destructive style with image and custom color. Uses simplified handler.
++ (instancetype)destructiveActionWithImage:(UIImage *)image color:(UIColor *)color handler:(void (^)(void))handler;
 
 
 @end
