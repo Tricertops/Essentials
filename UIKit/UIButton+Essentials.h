@@ -35,8 +35,6 @@
 
 @property (readonly) ESSButtonState *currentState;
 
-- (void)addTarget:(id)target action:(SEL)action;
-
 @end
 
 

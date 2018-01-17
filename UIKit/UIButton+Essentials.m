@@ -185,12 +185,4 @@
 
 
 
-- (void)addTarget:(id)target action:(SEL)action {
-    [self addTarget:target action:action forControlEvents:UIControlEventPrimaryActionTriggered];
-}
-
-
-
-
-
 @end

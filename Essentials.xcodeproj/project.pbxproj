@@ -31,6 +31,7 @@
 		5B269F441EF1134000F8BD4C /* ESSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B269F421EF1134000F8BD4C /* ESSHash.m */; };
 		5B269F451EF1134000F8BD4C /* ESSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B269F421EF1134000F8BD4C /* ESSHash.m */; };
 		5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */; };
+		5B2FED31200F437F00FDAB14 /* UIControl+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FED30200F437F00FDAB14 /* UIControl+Essentials.m */; };
 		5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3379AC19F299D600CBE28C /* ESSLog.h */; };
 		5B3379AF19F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
 		5B3379B019F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
@@ -187,6 +188,8 @@
 		5B269F421EF1134000F8BD4C /* ESSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSHash.m; sourceTree = "<group>"; };
 		5B2A32C11923AA05008E5B36 /* UIFont+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Essentials.h"; sourceTree = "<group>"; };
 		5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Essentials.m"; sourceTree = "<group>"; };
+		5B2FED2F200F437F00FDAB14 /* UIControl+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+Essentials.h"; sourceTree = "<group>"; };
+		5B2FED30200F437F00FDAB14 /* UIControl+Essentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Essentials.m"; sourceTree = "<group>"; };
 		5B3379AC19F299D600CBE28C /* ESSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSLog.h; sourceTree = "<group>"; };
 		5B3379AD19F299D600CBE28C /* ESSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSLog.m; sourceTree = "<group>"; };
 		5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Essentials.h"; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 				5B1E48B31AF67107007941E1 /* ESSDrawView.m */,
 				5B1EDF9B1ED00EF300DA9837 /* UIButton+Essentials.h */,
 				5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */,
+				5B2FED2F200F437F00FDAB14 /* UIControl+Essentials.h */,
+				5B2FED30200F437F00FDAB14 /* UIControl+Essentials.m */,
 				5B70C9811F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.h */,
 				5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */,
 				5B70C9851F73AE1A00A5F811 /* UIContextualAction+Essentials.h */,
@@ -651,6 +656,7 @@
 				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
 				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
 				5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */,
+				5B2FED31200F437F00FDAB14 /* UIControl+Essentials.m in Sources */,
 				5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */,
 				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
 				5BE32D6719BB4D77002605B3 /* CIContext+Essentials.m in Sources */,
