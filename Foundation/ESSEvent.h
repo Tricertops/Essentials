@@ -53,6 +53,8 @@
 - (void)chainTo:(__weak ESSEvent<ValueType> *)event;
 //! Registers special handler that sends custom value to other Event object.
 - (void)replaceValue:(id)value chainTo:(__weak ESSEvent *)event;
+//! Registers special handler that discards value and notifies the other Event object.
+- (void)ignoreValueAndChainTo:(__weak ESSEvent *)event;
 //! Removes all handlers registered for given observer
 - (void)removeObserver:(__weak id)observer;
 

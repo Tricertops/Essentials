@@ -139,6 +139,16 @@
 }
 
 
+- (void)ignoreValueAndChainTo:(__weak ESSEvent *)event {
+    ESSAssert(event) else return;
+    ESSAssert(event.owner) else return;
+    
+    [self addObserver:event.owner handler:^(NSObject *owner, id originalValue) {
+        [event notify];
+    }];
+}
+
+
 - (void)removeObserver:(NSObject *)observer {
     ESSAssert(observer) else return;
    
