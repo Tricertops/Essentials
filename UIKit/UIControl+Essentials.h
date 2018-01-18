@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ESSEvent.h"
 
 
 
 @interface UIControl (Essentials)
 
 
-/// Add target and action for UIControlEventPrimaryActionTriggered
+/// Add target and action for UIControlEventPrimaryActionTriggered.
 - (void)addTarget:(id)target action:(SEL)action;
+
+/// Returns ESSEvent for UIControlEventPrimaryActionTriggered.
+@property (readonly) ESSEvent<__kindof UIControl *> *onAction;
 
 
 @end
