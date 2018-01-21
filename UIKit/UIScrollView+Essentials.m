@@ -49,7 +49,7 @@
 
 
 - (CGPoint)maximumContentOffset {
-    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
+    CGRect viewport = UIEdgeInsetsInsetRect(self.bounds, self.effectiveContentInsets);
     CGSize boundsSize = viewport.size;
     CGSize contentSize = self.contentSize;
     
@@ -74,7 +74,7 @@
 
 - (CGPoint)contentProgressOffset {
     CGPoint contentOffset = self.contentOffset;
-    UIEdgeInsets contentInset = self.contentInset;
+    UIEdgeInsets contentInset = self.effectiveContentInsets;
     CGPoint offset = {
         .x = contentOffset.x + contentInset.left,
         .y = contentOffset.y + contentInset.top,
@@ -84,7 +84,7 @@
 
 
 - (void)setContentProgressOffset:(CGPoint)contentProgressOffset {
-    UIEdgeInsets contentInset = self.contentInset;
+    UIEdgeInsets contentInset = self.effectiveContentInsets;
     CGPoint max = self.maximumContentOffset;
     CGPoint offset = {
         .x = MIN(contentProgressOffset.x, max.x) - contentInset.left,
@@ -207,6 +207,16 @@
     UIEdgeInsets insets = self.scrollIndicatorInsets;
     insets.top = top;
     self.scrollIndicatorInsets = insets;
+}
+
+
+- (UIEdgeInsets)effectiveContentInsets {
+    if (@available(iOS 11, *)) {
+        return self.adjustedContentInset;
+    }
+    else {
+        return self.contentInset;
+    }
 }
 
 
