@@ -28,7 +28,7 @@
 - (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForBeginningSession:(id<UIDragSession>)session API_AVAILABLE(ios(11)) {
     NSMutableArray<UIDragItem *> *dragItems = [NSMutableArray new];
     
-    for (NSItemProvider *item in self.items) {
+    foreach (item, self.items) {
         UIDragItem *dragItem = [[UIDragItem alloc] initWithItemProvider:item];
         [dragItems addObject:dragItem];
     }
@@ -46,7 +46,7 @@
     id<UIDragSession> nearestSession = nil;
     UIView *view = interaction.view;
     
-    for (id<UIDragSession> session in sessions) {
+    foreach (session, sessions) {
         CGPoint sessionLocation = [session locationInView:view];
         CGFloat distance = CGPointDistanceToPoint(touchLocation, sessionLocation);
         

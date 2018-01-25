@@ -169,7 +169,7 @@
 + (NSString *)randomStringWithLength:(NSUInteger)length letters:(NSString *)lettersString {
     NSArray<NSString *> *letters = lettersString.letters;
     NSMutableString *string = [NSMutableString new];
-    for (NSUInteger index = 0; index < length; index ++) {
+    forcount (index, length) {
         [string appendString: [letters randomObject]];
     }
     return string;
@@ -208,7 +208,7 @@
                                                       @"&gt;"  : @">",
                                                       @"&amp;" : @"&", // Should be last.
                                                       };
-    for (NSString *toFind in escapes) {
+    foreach (toFind, escapes) {
         NSString *toReplace = [escapes objectForKey:toFind];
         [string replaceOccurrencesOfString:toFind withString:toReplace options:0 range:NSMakeRange(0, string.length)];
     }
@@ -322,7 +322,7 @@
 - (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary<NSString *, NSString *> *dictionary))block {
     return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
         NSMutableDictionary<NSString *, NSString *> *dictionary = [NSMutableDictionary new];
-        for (NSString *pair in [placeholder split:@"|"]) {
+        foreach (pair, [placeholder split:@"|"]) {
             NSArray<NSString *> *components = [pair split:@":"];
             NSString *key = (components.count > 1? components[0] : @"");
             NSString *value = (components.count > 1? components[1] : components[0]);
@@ -549,7 +549,7 @@
         return @"";
     
     NSMutableString *string = [NSMutableString stringWithCapacity:self.length * times];
-    for (NSUInteger index = 0; index < times; index ++) {
+    forcount (index, times) {
         [string appendString:self];
     }
     return string;

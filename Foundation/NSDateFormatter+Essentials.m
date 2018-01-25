@@ -99,7 +99,7 @@
                              ];
     });
     
-    for (NSString *format in supportedFormats) {
+    foreach (format, supportedFormats) {
         NSDateFormatter *formatter = [NSDateFormatter ISODateFormatterWithFormat:format];
         NSDate *date = [formatter dateFromString:string];
         if (date) return date;

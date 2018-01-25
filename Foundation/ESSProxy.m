@@ -120,7 +120,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
     NSCache *cache = [self ess_signatureCache];
     NSMethodSignature *signature = [cache objectForKey:key];
     if ( ! signature) {
-        for (NSString *className in [self ess_signatureClassList]) {
+        foreach (className, [self ess_signatureClassList]) {
             Class class = NSClassFromString(className);
             signature = [class instanceMethodSignatureForSelector:selector];
             if (signature) break;
@@ -141,12 +141,12 @@ ESSSharedMake(NSSet<NSString *> *,ess_signatureClassList) {
     Class *classes = (Class *)malloc(sizeof(Class) * count);
     count = objc_getClassList(classes, count);
     
-    for (int index = 0; index < count; index++) {
+    forcount (index, count) {
         Class class = classes[index];
         
         NSArray<Class> *superclasses = ESSSuperclasses(class);
         
-        for (Class superclass in superclasses) {
+        foreach (superclass, superclasses) {
             [excluded addObject:NSStringFromClass(superclass)];
         }
         if (superclasses.lastObject == [NSObject class]) {
@@ -263,7 +263,7 @@ ESSSharedCache(ess_signatureCache)
         
         [invocation invokeWithTarget:self];
         
-        for (NSObject *object in objects) {
+        foreach (object, objects) {
             if ([object respondsToSelector:multicasted.selector]) {
                 [multicasted invokeWithTarget:object]; // Invoke after.
             }

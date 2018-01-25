@@ -51,7 +51,7 @@
 
 + (instancetype)arrayWithCount:(NSUInteger)count builder:(id(^)(NSUInteger index))block {
     NSMutableArray<id> *array = [NSMutableArray arrayWithCapacity:count];
-    for (NSUInteger index = 0; index < count; index++) {
+    forcount (index, count) {
         [array addObject:block(index)];
     }
     return array;
@@ -67,7 +67,7 @@
 - (void)forEach:(void(^)(id object))block {
     NSParameterAssert(block);
     
-    for (id object in self) {
+    foreach (object, self) {
         block(object);
     }
 }
@@ -77,7 +77,7 @@
     NSParameterAssert(block);
     
     NSUInteger index = 0;
-    for (id object in self) {
+    foreach (object, self) {
         block(index, object);
         index++;
     }
@@ -110,7 +110,7 @@
     NSParameterAssert(block);
     
     NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
-    for (id object in self) {
+    foreach (object, self) {
         id mapped = block(object);
         if (mapped) [mutable addObject:mapped];
     }
@@ -123,7 +123,7 @@
     
     NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
     NSUInteger index = 0;
-    for (id object in self) {
+    foreach (object, self) {
         id mapped = block(index, object);
         if (mapped) [mutable addObject:mapped];
         index++;
@@ -134,7 +134,7 @@
 
 - (NSArray<id> *)filtered:(BOOL(^)(id object))block {
     NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
-    for (id object in self) {
+    foreach (object, self) {
         if (block(object)) [mutable addObject:object];
     }
     return [mutable copy];
@@ -149,7 +149,7 @@
 
 - (NSMutableDictionary<id, id> *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block {
     NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
-    for (id value in self) {
+    foreach (value, self) {
         id<NSCopying> key = block(value);
         if (key) {
             [dictionary setObject:value forKey:key];
@@ -161,7 +161,7 @@
 
 - (NSMutableDictionary<id, id> *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
     NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
-    for (id<NSCopying> key in self) {
+    foreach (key, self) {
         id value = block(key);
         if (value) {
             [dictionary setObject:value forKey:key];
@@ -173,7 +173,7 @@
 
 - (NSArray<id> *)arrayByRemovingObjectsFromSet:(NSSet<id> *)set {
     NSMutableArray<id> *mutable = [NSMutableArray new];
-    for (id object in self) {
+    foreach (object, self) {
         if ( ! [set containsObject:object]) {
             [mutable addObject:object];
         }
@@ -191,7 +191,7 @@
 
 - (NSArray<id> *)flattenedArray {
     NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
-    for (id object in self) {
+    foreach (object, self) {
         if ([object isKindOfClass: NSArray.class]) {
             [builder addObjectsFromArray:object];
         }
@@ -205,7 +205,7 @@
 
 - (NSArray<NSArray<id> *> *)splitArrayByCount:(NSUInteger)count {
     NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
-    forcount(index, self.count, count) {
+    forcount (index, self.count, count) {
         NSArray<id> *subarray = [self valuesInRange:NSRangeMake(index, count)];
         [builder addObject:subarray];
     }

@@ -39,8 +39,7 @@
 - (void)times:(void(^)(void))block {
     NSParameterAssert(block);
     
-    NSUInteger count = self.unsignedIntegerValue;
-    for (NSUInteger index = 0; index < count; index++) {
+    forcount (index, self.unsignedIntegerValue) {
         block();
     }
 }
@@ -49,8 +48,7 @@
 - (void)timesIndex:(void(^)(NSUInteger index))block {
     NSParameterAssert(block);
     
-    NSUInteger count = self.unsignedIntegerValue;
-    for (NSUInteger index = 0; index < count; index++) {
+    forcount (index, self.unsignedIntegerValue) {
         block(index);
     }
 }

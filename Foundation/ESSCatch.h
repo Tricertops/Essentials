@@ -91,7 +91,7 @@ typedef void (*ESSCatchHandler)(ESSCatchIssue *issue);
             NSString *m = [NSString stringWithFormat: @"" MESSAGE]; \
             ESSCatchIssue *i = [ESSCatchIssue _c:@#CONDITION m:m f:@(__FILE__) l:__LINE__ f:@(__PRETTY_FUNCTION__)]; \
             _ESSPause; \
-            for (NSValue *wrapper in [i _handlers]) { \
+            foreach (wrapper, [i _handlers]) { \
                 ESSCatchHandler handler = wrapper.pointerValue; \
                 handler(i); \
             } \

@@ -66,7 +66,7 @@
 
 + (instancetype)combinedPathFromPaths:(NSArray<UIBezierPath *> *)paths {
     UIBezierPath *path = [self new];
-    for (UIBezierPath *subpath in paths) {
+    foreach (subpath, paths) {
         [path appendPath:subpath];
     }
     return path;

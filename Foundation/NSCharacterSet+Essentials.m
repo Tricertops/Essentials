@@ -29,7 +29,7 @@
 
 + (instancetype)characterSetByMerging:(NSArray<NSCharacterSet *> *)characterSets {
     NSMutableCharacterSet *unionCharSet = [NSMutableCharacterSet new];
-    for (NSCharacterSet *charSet in characterSets) {
+    foreach (charSet, characterSets) {
         [unionCharSet formUnionWithCharacterSet:charSet];
     }
     return unionCharSet;

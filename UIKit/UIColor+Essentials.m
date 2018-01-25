@@ -141,7 +141,7 @@
     CGFloat blue = 0;
     CGFloat alpha = 0;
     
-    for (UIColor *color in colors) {
+    foreach (color, colors) {
         red += [color redComponent];
         green += [color greenComponent];
         blue += [color blueComponent];
@@ -377,7 +377,7 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
 
 - (CGGradientRef)gradientWithAlphaStops:(NSArray<NSNumber *> *)alphaStops locations:(NSArray<NSNumber *> *)locations {
     NSMutableArray<UIColor *> *colors = [NSMutableArray new];
-    for (NSNumber *alpha in alphaStops) {
+    foreach (alpha, alphaStops) {
         [colors addObject:[self colorWithAlphaComponent:alpha.doubleValue]];
     }
     return [UIColor gradientWithColors:colors locations:locations];
@@ -389,13 +389,13 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
     if (locations && locations.count != colors.count) return NULL;
     
     NSMutableArray<id> *cgColors = [NSMutableArray new];
-    for (UIColor *color in colors) {
+    foreach (color, colors) {
         [cgColors addObject:(__bridge id)color.CGColor];
     }
     
     CGFloat cLocations[locations.count ?: 1]; // If zero, undefined.
     NSUInteger index = 0;
-    for (NSNumber *location in locations) {
+    foreach (location, locations) {
         cLocations[index] = location.doubleValue;
         index ++;
     }

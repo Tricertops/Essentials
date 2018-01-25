@@ -46,7 +46,8 @@
 - (void)replace:(id(^)(id object))block {
     NSParameterAssert(block);
     
-    for (NSUInteger index = 0; index < self.count; ) {
+    NSUInteger index = 0;
+    while (index < self.count) {
         id object = [self objectAtIndex:index];
         id replacement = block(object);
         
@@ -64,7 +65,8 @@
 - (void)replaceIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    for (NSUInteger index = 0; index < self.count; ) {
+    NSUInteger index = 0;
+    while (index < self.count) {
         id object = [self objectAtIndex:index];
         id replacement = block(index, object);
         
@@ -87,8 +89,8 @@
 
 - (void)flatten {
     NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
-    for (NSArray<id> *subarray in self) {
-        [builder addObjectsFromArray:subarray];
+    foreach (subarray, self) {
+        [builder addObjectsFromArray:(NSArray<id> *)subarray];
     }
     [self setArray:builder];
 }
@@ -102,7 +104,8 @@
 - (void)filter:(BOOL(^)(id object))block {
     NSParameterAssert(block);
     
-    for (NSInteger index = 0; index < self.count; ) {
+    NSInteger index = 0;
+    while (index < self.count) {
         id object = [self objectAtIndex:index];
         BOOL passed = block(object);
         if (passed) index++;
@@ -114,7 +117,8 @@
 - (void)filterIndex:(BOOL(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    for (NSInteger index = 0; index < self.count; ) {
+    NSInteger index = 0;
+    while (index < self.count) {
         id object = [self objectAtIndex:index];
         BOOL passed = block(index, object);
         if (passed) index++;

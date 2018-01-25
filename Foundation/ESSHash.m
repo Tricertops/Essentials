@@ -67,7 +67,7 @@ NSUInteger _ESSHashCombine(NSUInteger* _Nonnull hashes, NSUInteger count)
     ESSAssert(count) else return 0;
     
     NSUInteger aggregate = 0;
-    forcount(index, count) {
+    forcount (index, count) {
         ESSHashAggregate(&aggregate, hashes[index]);
     }
     return aggregate;

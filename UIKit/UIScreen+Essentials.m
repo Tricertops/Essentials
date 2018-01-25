@@ -82,7 +82,7 @@
     UIApplication *app = UIApplication.sharedApplication;
     
     return [UIImage drawWithSize:self.bounds.size opaque:YES scale:self.scale block:^{
-        for (UIWindow *window in app.windows) {
+        foreach (window, app.windows) {
             if (window.screen == self) {
                 [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
             }

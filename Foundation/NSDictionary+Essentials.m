@@ -25,7 +25,7 @@
 
 
 - (id)objectForAnyKeyInArray:(NSArray<id> *)keys {
-    for (NSString *key in keys) {
+    foreach (key, keys) {
         id value = [self objectForKey:key];
         if (value) return value;
     }

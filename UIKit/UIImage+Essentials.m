@@ -275,9 +275,8 @@
     
     return [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
         NSByte *bytes = bitmap.mutableBytes;
-        NSUInteger count = bitmap.length;
         
-        for (NSUInteger index = 0; index < count; index += 4) {
+        forcount (index, bitmap.length, 4) {
             GLKVector4 color = GLKVector4Make(bytes[index +0] / multiplier,
                                               bytes[index +1] / multiplier,
                                               bytes[index +2] / multiplier,
@@ -383,7 +382,7 @@
         return [nameShare doubleValue] > minimum;
     }];
     NSMutableDictionary<UIColor *, NSNumber *> *significantColorsToShare = [NSMutableDictionary new];
-    for (NSString *name in significantNames) {
+    foreach (name, significantNames) {
         //! For every significant color name, find the color with the largest share
         NSArray<UIColor *> *namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
                                            ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {

@@ -43,7 +43,7 @@
 
 
 - (void)deselectRowsAnimated:(BOOL)animated {
-    for (NSIndexPath *indexPath in [self.indexPathsForSelectedRows copy]) {
+    foreach (indexPath, [self.indexPathsForSelectedRows copy]) {
         [self deselectRowAtIndexPath:indexPath animated:animated];
     }
 }
