@@ -167,6 +167,10 @@
     return class; // The one with nil superclass.
 }
 
++ (NSBundle *)bundle {
+    return [NSBundle bundleForClass:self];
+    
+}
 
 + (instancetype)cast:(id)something {
     return [something isKindOfClass:self] ? something : nil;

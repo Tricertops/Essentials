@@ -75,6 +75,9 @@ typedef id(^ESSSwizzleBlock)(SEL selector, IMP original);
 /// Return the root superclass.
 - (Class)rootClass;
 
+/// Returns bundle from which this class was loaded.
++ (NSBundle *)bundle;
+
 /// When the argument is of receiver's kind, returns the argument, otherwise nil.
 + (instancetype)cast:(id)something;
 
