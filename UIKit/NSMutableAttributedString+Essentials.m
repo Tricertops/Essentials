@@ -58,8 +58,8 @@
 {
     if ( ! self.length) return;
     
-    NSParagraphStyle *immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
-    NSMutableParagraphStyle *mutable = [immutable mutableCopy];
+    let immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
+    var mutable = [immutable mutableCopy];
     block(mutable);
     self.paragraphStyle = mutable;
 }
@@ -76,10 +76,10 @@
                      inRange:self.fullRange
                      options:kNilOptions
                   usingBlock:^(UIFont *font, NSRange range, BOOL *stop) {
-                      UIFontDescriptor *descriptor = [font.fontDescriptor fontDescriptorByAddingAttributes:
-                                                      @{
-                                                        UIFontDescriptorNameAttribute: fontName,
-                                                        }];
+                      let descriptor = [font.fontDescriptor fontDescriptorByAddingAttributes:
+                                        @{
+                                          UIFontDescriptorNameAttribute: fontName,
+                                          }];
                       [self addAttribute:NSFontAttributeName
                                    value:[UIFont fontWithDescriptor:descriptor size:0]
                                    range:range];
@@ -279,7 +279,7 @@
 
 
 - (void)append: (NSObject<ESSAttributedString> *)string {
-    NSAttributedString *attributedString = string.ess_attributedString;
+    let attributedString = string.ess_attributedString;
     if ( ! attributedString) return;
     
     [self appendAttributedString:attributedString];
@@ -293,7 +293,7 @@
 
 
 - (NSAttributedString *)fitIntoSize:(CGSize)size minimumScaleFactor:(CGFloat)scale {
-    NSStringDrawingContext *drawingSettings = [NSStringDrawingContext new];
+    var drawingSettings = [NSStringDrawingContext new];
     drawingSettings.minimumScaleFactor = scale;
     [self boundingRectWithSize:size
                        options:NSStringDrawingUsesLineFragmentOrigin
@@ -325,7 +325,7 @@
                      inRange:NSMakeRange(0, self.length)
                      options:kNilOptions
                   usingBlock:^(NSParagraphStyle *paragraphStyle, NSRange range, BOOL *stop) {
-                      NSMutableParagraphStyle *mutableParagraphStyle = [(paragraphStyle ?: [NSParagraphStyle defaultParagraphStyle]) mutableCopy];
+                      var mutableParagraphStyle = [(paragraphStyle ?: [NSParagraphStyle defaultParagraphStyle]) mutableCopy];
                       block(mutableParagraphStyle);
                       [self addAttribute:NSParagraphStyleAttributeName
                                    value:[mutableParagraphStyle copy]
@@ -340,10 +340,10 @@
 
 
 - (void)applySuperscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
-    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    let existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
-    UIFont *superscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
+    let superscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
     
     [self addAttribute:NSFontAttributeName
                  value:superscriptFont
@@ -376,10 +376,10 @@
 
 
 - (void)applySubscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
-    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    let existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
-    UIFont *subscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
+    let subscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
     
     [self addAttribute:NSFontAttributeName
                  value:subscriptFont
@@ -415,7 +415,7 @@
 
 
 - (NSMutableAttributedString *)attributed:(void (^)(NSMutableAttributedString *))block {
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:self];
+    var string = [[NSMutableAttributedString alloc] initWithString:self];
     if (block) block(string);
     return string;
 }
@@ -485,8 +485,8 @@
 
 
 - (NSDictionary<NSString *,id> *)attributesAtIndex:(NSUInteger)index effectiveRange:(NSRangePointer)effectiveRange {
-    NSDictionary<NSString *,id> *attributes = [self.target attributesAtIndex:index - self.range.location
-                                                              effectiveRange:effectiveRange];
+    let attributes = [self.target attributesAtIndex:index - self.range.location
+                                     effectiveRange:effectiveRange];
     [self convertFromTarget:effectiveRange];
     return attributes;
 }
@@ -494,31 +494,31 @@
 
 - (NSDictionary<NSString *,id> *)attributesAtIndex:(NSUInteger)index longestEffectiveRange:(NSRangePointer)effectiveRange inRange:(NSRange)rangeLimit {
     [self convertToTarget:&rangeLimit];
-    NSDictionary<NSString *,id> *attributes = [super attributesAtIndex:index - self.range.location
-                                                 longestEffectiveRange:effectiveRange
-                                                               inRange:rangeLimit];
+    let attributes = [super attributesAtIndex:index - self.range.location
+                        longestEffectiveRange:effectiveRange
+                                      inRange:rangeLimit];
     [self convertFromTarget:effectiveRange];
     return attributes;
 }
 
 
 - (id)attribute:(NSString *)attributeName atIndex:(NSUInteger)index effectiveRange:(NSRangePointer)effectiveRange {
-    id attributes = [self.target attribute:attributeName
-                                   atIndex:index - self.range.location
-                            effectiveRange:effectiveRange];
+    id attribute = [self.target attribute:attributeName
+                                  atIndex:index - self.range.location
+                           effectiveRange:effectiveRange];
     [self convertFromTarget:effectiveRange];
-    return attributes;
+    return attribute;
 }
 
 
 - (id)attribute:(NSString *)attributeName atIndex:(NSUInteger)index longestEffectiveRange:(NSRangePointer)effectiveRange inRange:(NSRange)rangeLimit {
     [self convertToTarget:&rangeLimit];
-    id attributes = [self.target attribute:attributeName
-                                   atIndex:index - self.range.location
-                     longestEffectiveRange:effectiveRange
-                                   inRange:rangeLimit];
+    id attribute = [self.target attribute:attributeName
+                                  atIndex:index - self.range.location
+                    longestEffectiveRange:effectiveRange
+                                  inRange:rangeLimit];
     [self convertFromTarget:effectiveRange];
-    return attributes;
+    return attribute;
 }
 
 

@@ -28,13 +28,13 @@
 
 
 - (NSString *)hardwareName {
-    NSString *identifier = self.hardwareIdentifier;
+    let identifier = self.hardwareIdentifier;
     return [UIDevice nameOfHardwareIdentifier: identifier] ?: identifier;
 }
 
 
 - (NSString *)hardwareLine {
-    NSString *name = self.hardwareName;
+    let name = self.hardwareName;
     
     if ([name hasSuffix:@"Simulator"])
         return @"Simulator";
@@ -65,7 +65,7 @@
 
 
 - (NSString *)hardwareFamily {
-    NSString *name = self.hardwareName;
+    let name = self.hardwareName;
     
     if ([name hasSuffix:@"Simulator"])
         return @"Simulator";
@@ -98,7 +98,7 @@
 
 
 - (BOOL)iPhoneX {
-    UIScreen *screen = UIScreen.mainScreen;
+    let screen = UIScreen.mainScreen;
     CGSize size = screen.fixedCoordinateSpace.bounds.size;
     return (self.iPhone && size.width == 375 && size.height == 812 && screen.scale == 3);
 }
@@ -109,10 +109,10 @@
 }
 
 - (NSString *)idiomName {
-    NSDictionary<NSNumber *, NSString *> *mapping = @{
-                                                      @(UIUserInterfaceIdiomPhone): @"iphone",
-                                                      @(UIUserInterfaceIdiomPad): @"ipad",
-                                                      };
+    let mapping = @{
+                    @(UIUserInterfaceIdiomPhone): @"iphone",
+                    @(UIUserInterfaceIdiomPad): @"ipad",
+                    };
     return [mapping objectForKey:@(self.userInterfaceIdiom)];
 }
 

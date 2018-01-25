@@ -24,8 +24,8 @@
 
 
 + (instancetype)context {
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
-    CIContext *context = [CIContext contextWithOptions:
+    let colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
+    let context = [CIContext contextWithOptions:
                           @{
                             kCIContextWorkingColorSpace: (__bridge id)colorSpace,
                             kCIContextOutputColorSpace: (__bridge id)colorSpace,
@@ -50,19 +50,19 @@
     if ( ! inputUI) return nil;
     if ( ! filters.count) return inputUI;
     
-    CIImage *inputCI = [CIImage imageWithCGImage:inputUI.CGImage];
+    let inputCI = [CIImage imageWithCGImage:inputUI.CGImage];
     
     [filters.firstObject setValue:inputCI forKey:kCIInputImageKey];
-    CIFilter *finalFilter = [CIFilter chainFilters:filters];
+    let finalFilter = [CIFilter chainFilters:filters];
     
-    CIImage *outputCI = finalFilter.outputImage;
+    let outputCI = finalFilter.outputImage;
     CGRect extent = outputCI.extent;
     if (CGRectIsInfinite(extent)) {
         NSLog(@"%s: Output image is infinite, crop it.", __PRETTY_FUNCTION__);
         extent = inputCI.extent;
     }
-    CGImageRef outputCG = [self createCGImage:outputCI fromRect:extent];
-    UIImage *outputUI = [UIImage imageWithCGImage:outputCG scale:inputUI.scale orientation:inputUI.imageOrientation];
+    let outputCG = [self createCGImage:outputCI fromRect:extent];
+    let outputUI = [UIImage imageWithCGImage:outputCG scale:inputUI.scale orientation:inputUI.imageOrientation];
     CGImageRelease(outputCG);
     
     return [outputUI imageWithRenderingMode:inputUI.renderingMode];

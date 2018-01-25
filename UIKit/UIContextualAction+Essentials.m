@@ -19,7 +19,7 @@
     if (title.length == 0) {
         title = @" ";
     }
-    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:style title:title handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
+    var action = [UIContextualAction contextualActionWithStyle:style title:title handler:^(UIContextualAction *action, UIView *sourceView, void (^completionHandler)(BOOL)) {
         [self performHandlerWithoutBlockingAnimation:handler];
         completionHandler(YES);
     }];

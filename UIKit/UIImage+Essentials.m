@@ -52,13 +52,13 @@
 
 
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
-    CALayer *layer = [CALayer layer];
+    var layer = [CALayer layer];
     layer.bounds = CGRectMake(0, 0, size.width, size.height);
     layer.backgroundColor = [color CGColor];
     
     UIGraphicsBeginImageContextWithOptions(layer.bounds.size, NO, 0);
     [layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    let image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return image;
@@ -154,7 +154,7 @@
         scale = [[UIScreen mainScreen] scale];
     }
     
-    CGAffineTransform t = CGAffineTransformIdentity;
+    var t = CGAffineTransformIdentity;
     t = CGAffineTransformScale(t, scale * (mirroring? -1 : 1), scale);
     t = CGAffineTransformRotate(t, rotation);
     t = CGAffineTransformTranslate(t, relativeTranslation.x * -size.width * scale,
@@ -172,8 +172,8 @@
     CGRect transformedCropRect = CGRectApplyAffineTransform(cropRect, [self transform]);
     
     /// http://iosdevelopertips.com/graphics/how-to-crop-an-image-take-two.html
-    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, transformedCropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    let imageRef = CGImageCreateWithImageInRect(self.CGImage, transformedCropRect);
+    let croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return croppedImage;
 }
@@ -201,7 +201,7 @@
 + (instancetype)drawWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(void))block {
     UIGraphicsBeginImageContextWithOptions(size, opaque, scale);
     block();
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    let image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
@@ -224,18 +224,18 @@
     NSUInteger width = self.size.width * self.scale;
     NSUInteger height = self.size.height * self.scale;
     
-    NSMutableData *bitmap = [NSMutableData dataWithLength:width * height * 4];
+    var bitmap = [NSMutableData dataWithLength:width * height * 4];
     
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast);
+    let colorSpace = CGColorSpaceCreateDeviceRGB();
+    var context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colorSpace);
     
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), [self CGImage]);
     
     block(bitmap);
     
-    CGImageRef cgImage = CGBitmapContextCreateImage(context);
-    UIImage *processedImage = [UIImage imageWithCGImage:cgImage scale:self.scale orientation:UIImageOrientationUp];
+    let cgImage = CGBitmapContextCreateImage(context);
+    let processedImage = [UIImage imageWithCGImage:cgImage scale:self.scale orientation:UIImageOrientationUp];
     
     CGImageRelease(cgImage);
     CGContextRelease(context);
@@ -309,7 +309,7 @@
 - (NSDictionary<UIColor *, NSNumber *> *)createColorHistogramWithThreshold:(CGFloat)minimum {
     NSUInteger numberOfPixels = self.numberOfPixels;
     if (numberOfPixels > UINT32_MAX) return nil;
-    NSMutableDictionary<UIColor *, NSNumber *> *dictionary = [NSMutableDictionary new];
+    var dictionary = [NSMutableDictionary<UIColor *, NSNumber *> new];
     
     [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
         uint32_t colors = 1 << 16; // 65536 distinct colors
@@ -348,10 +348,10 @@
             //  0000BBBB
             //  0000AAAA
             
-            UIColor *ui = [UIColor colorWithRed:(r * 1.0 / 0xF)
-                                          green:(g * 1.0 / 0xF)
-                                           blue:(b * 1.0 / 0xF)
-                                          alpha:(a * 1.0 / 0xF)];
+            let ui = [UIColor colorWithRed:(r * 1.0 / 0xF)
+                                     green:(g * 1.0 / 0xF)
+                                      blue:(b * 1.0 / 0xF)
+                                     alpha:(a * 1.0 / 0xF)];
             [dictionary setObject:@(share) forKey:ui];
         }
         free(histogram);
@@ -366,29 +366,29 @@
 
 
 - (NSDictionary<UIColor *, NSNumber *> *)createColorHistogramGroupedByNaturalNamesWithThreshold:(CGFloat)minimum {
-    NSDictionary<UIColor *, NSNumber *> *colorsToShare = [self createColorHistogramWithThreshold:0]; // all
-    NSMutableDictionary<NSString *, NSNumber *> *namesToShare = [NSMutableDictionary new];
-    NSMutableDictionary<UIColor *, NSString *> *colorsToName = [NSMutableDictionary new];
+    let colorsToShare = [self createColorHistogramWithThreshold:0]; // all
+    var namesToShare = [NSMutableDictionary<NSString *, NSNumber *> new];
+    var colorsToName = [NSMutableDictionary<UIColor *, NSString *> new];
     [colorsToShare enumerateKeysAndObjectsUsingBlock:^(UIColor *color, NSNumber *colorShare, BOOL *stop) {
         //! Build  color->name  mapping
-        NSString *name = [color naturalName];
+        let name = [color naturalName];
         colorsToName[color] = name;
         //! Sum shares for color named the same into  name->share  mapping
         CGFloat nameShare = [namesToShare[name] doubleValue];
         namesToShare[name] = @(nameShare + [colorShare doubleValue]);
     }];
     //! Exclude color names with too little share
-    NSSet<NSString *> *significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
+    let significantNames = [namesToShare keysOfEntriesPassingTest:^BOOL(NSString *name, NSNumber *nameShare, BOOL *stop) {
         return [nameShare doubleValue] > minimum;
     }];
-    NSMutableDictionary<UIColor *, NSNumber *> *significantColorsToShare = [NSMutableDictionary new];
+    var significantColorsToShare = [NSMutableDictionary<UIColor *, NSNumber *> new];
     foreach (name, significantNames) {
         //! For every significant color name, find the color with the largest share
-        NSArray<UIColor *> *namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
-                                           ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {
-                                               return [colorsToShare[colorA] compare:colorsToShare[colorB]];
-                                           }];
-        UIColor *significantColor = namedColors.lastObject;
+        let namedColors = [[colorsToName allKeysForObject:name] sortedArrayUsingComparator:
+                           ^NSComparisonResult(UIColor *colorA, UIColor *colorB) {
+                               return [colorsToShare[colorA] compare:colorsToShare[colorB]];
+                           }];
+        let significantColor = namedColors.lastObject;
         //! Build final  color->share  mapping, where colors are coalesced by their names
         significantColorsToShare[significantColor] = namesToShare[name];
     }
@@ -427,7 +427,7 @@
         [self drawInRect:rect blendMode:kCGBlendModeDestinationIn alpha:1]; // Apply masking of the receiver.
     }
     
-    UIImage *decodedImage = UIGraphicsGetImageFromCurrentImageContext();
+    let decodedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
 	return decodedImage;
@@ -474,12 +474,12 @@
     
     [self drawInRect:CGRectMake(ceil(circleWidth/2-self.size.width/2), ceil(circleHeight/2-self.size.height/2), self.size.width, self.size.height)];
     [circleColor setStroke];
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, circleWidth, circleHeight)];
+    var path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, circleWidth, circleHeight)];
     [path addClip]; //Stroke the inside
     path.lineWidth = lineWidth*2;
     [path stroke];
     
-    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    let resultImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return [resultImage imageWithRenderingMode:originalRenderingMode];

@@ -328,7 +328,7 @@
     NSByte greenIndex = roundf(self.greenComponent * 6);
     NSByte blueIndex = roundf(self.blueComponent * 6);
     
-    NSString *colorName = names[redIndex][greenIndex][blueIndex];
+    let colorName = names[redIndex][greenIndex][blueIndex];
     return colorName;
 }
 
@@ -376,7 +376,7 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
 
 
 - (CGGradientRef)gradientWithAlphaStops:(NSArray<NSNumber *> *)alphaStops locations:(NSArray<NSNumber *> *)locations {
-    NSMutableArray<UIColor *> *colors = [NSMutableArray new];
+    var colors = [NSMutableArray<UIColor *> new];
     foreach (alpha, alphaStops) {
         [colors addObject:[self colorWithAlphaComponent:alpha.doubleValue]];
     }
@@ -388,7 +388,7 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
     if ( ! colors.count) return NULL;
     if (locations && locations.count != colors.count) return NULL;
     
-    NSMutableArray<id> *cgColors = [NSMutableArray new];
+    var cgColors = [NSMutableArray<id> new];
     foreach (color, colors) {
         [cgColors addObject:(__bridge id)color.CGColor];
     }
@@ -400,9 +400,9 @@ ESSSharedMake(CGColorSpaceRef, deviceCMYKColorSpace) CF_RETURNS_RETAINED {
         index ++;
     }
     
-    CGGradientRef gradient = CGGradientCreateWithColors([UIColor deviceRGBColorSpace],
-                                                        (__bridge CFArrayRef)cgColors,
-                                                        (locations? cLocations : NULL));
+    let gradient = CGGradientCreateWithColors([UIColor deviceRGBColorSpace],
+                                              (__bridge CFArrayRef)cgColors,
+                                              (locations? cLocations : NULL));
     CFAutorelease(gradient);
     return gradient;
 }

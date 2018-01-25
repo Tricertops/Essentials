@@ -35,7 +35,7 @@
 
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, scale);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    let screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return screenshot;
@@ -43,10 +43,10 @@
 
 
 - (UIImageView *)makeSnapshotImageView {
-    UIImage *image = [self snapshot];
+    let image = [self snapshot];
     if ( ! image) return nil;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    var imageView = [[UIImageView alloc] initWithImage:image];
     imageView.contentMode = UIViewContentModeScaleToFill;
     imageView.frame = self.frame;
     imageView.autoresizingMask = self.autoresizingMask;
@@ -56,7 +56,7 @@
 
 
 - (UIImageView *)overlayWithSnapshotImageView {
-    UIImageView *imageView = [self makeSnapshotImageView];
+    var imageView = [self makeSnapshotImageView];
     if (imageView) {
         [self.superview insertSubview:imageView aboveSubview:self];
     }
@@ -306,9 +306,9 @@
 
 
 - (NSShadow *)shadow {
-    NSShadow *shadow = [NSShadow new];
+    var shadow = [NSShadow new];
     shadow.shadowOffset = self.layer.shadowOffset;
-    UIColor *color = self.shadowColor;
+    let color = self.shadowColor;
     CGFloat alpha = CGColorGetAlpha(color.CGColor) * self.shadowAlpha;
     shadow.shadowColor = [color colorWithAlphaComponent:alpha];
     shadow.shadowBlurRadius = self.shadowBlurRadius;
@@ -452,7 +452,7 @@
 }
 
 - (void)adjustTransform:(CGAffineTransform(^)(CGAffineTransform))block {
-    CGAffineTransform transform = self.transform;
+    var transform = self.transform;
     transform = block(transform);
     self.transform = transform;
 }
@@ -493,10 +493,10 @@
 
 
 - (void)enumerateSubviewsRecursivelyWithBlock:(void (^)(UIView *view, BOOL *stop))block {
-    NSMutableArray<UIView *> *stack = [[NSMutableArray alloc] initWithArray:self.subviews];
+    var stack = [self.subviews mutableCopy];
     BOOL stop = NO;
     while (stack.count) {
-        UIView *subview = [stack firstObject];
+        var subview = [stack firstObject];
         [stack removeObjectAtIndex:0];
         
         block(subview, &stop);
@@ -524,8 +524,8 @@
 
 
 - (void)addVerticalMotionEffectWithIntensity:(CGFloat)intensity {
-    UIInterpolatingMotionEffect *horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
-                                                                                                    type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    var horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
+                                                                           type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
     horizontalMotion.minimumRelativeValue = @(-intensity);
     horizontalMotion.maximumRelativeValue = @(intensity);
     
@@ -534,7 +534,7 @@
 
 
 - (void)addHorizontalMotionEffectWithIntensity:(CGFloat)intensity {
-    UIInterpolatingMotionEffect *horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
+    var horizontalMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
                                                                                                     type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     horizontalMotion.minimumRelativeValue = @(-intensity);
     horizontalMotion.maximumRelativeValue = @(intensity);
@@ -544,13 +544,13 @@
 
 
 - (UIDragInteraction *)enableDragWithString:(NSString *)string {
-    NSItemProvider *item = [[NSItemProvider alloc] initWithItem:string typeIdentifier:@"public.text"];
+    var item = [[NSItemProvider alloc] initWithItem:string typeIdentifier:@"public.text"];
     return [self enableDragWithItem:item];
 }
 
 
 - (UIDragInteraction *)enableDragWithFileURL:(NSURL *)fileURL {
-    NSItemProvider *item = [[NSItemProvider alloc] initWithContentsOfURL:fileURL];
+    var item = [[NSItemProvider alloc] initWithContentsOfURL:fileURL];
     return [self enableDragWithItem:item];
 }
 
@@ -560,7 +560,7 @@
         id<UIDragInteractionDelegate> delegate = [[ESSDragInteractionDelegate alloc] initWithItems:@[itemProvider]];
         [self setAssociatedStrongObject:delegate forKey:_cmd];
         
-        UIDragInteraction *interation = [[UIDragInteraction alloc] initWithDelegate:delegate];
+        var interation = [[UIDragInteraction alloc] initWithDelegate:delegate];
         interation.enabled = YES;
         [self addInteraction:interation];
         return interation;

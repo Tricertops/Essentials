@@ -41,16 +41,16 @@
 + (instancetype)alertWithError:(NSError *)error title:(NSString *)title button:(NSString*)button {
     title = title ?: error.localizedFailureReason ?: @"Error";
     
-    NSMutableArray<NSString *> *messageComponents = @[
+    let messageComponents = NSMutableArray(
         error.localizedDescription ?: @"",
         error.localizedFailureReason ?: @"",
         error.localizedRecoverySuggestion ?: @"",
         error.helpAnchor ?: @"",
-    ].mutableCopy;
+    );
     [messageComponents removeObject:@""];
-    NSString *message = [messageComponents componentsJoinedByString:@"\n\n"];
+    let message = [messageComponents componentsJoinedByString:@"\n\n"];
     
-    UIAlertController *alert = [UIAlertController alertWithTitle:title message:message];
+    var alert = [UIAlertController alertWithTitle:title message:message];
     [alert addCancel:(button ?: @"Dismiss")];
     
     [error.localizedRecoveryOptions enumerateObjectsUsingBlock:^(NSString *recoveryOption, NSUInteger index, BOOL *stop) {
@@ -105,12 +105,12 @@
 
 
 - (UIAlertAction *)addActionWithTitle:(NSString *)title style:(UIAlertActionStyle)style handler:(void (^)(void))handler {
-    NSString *fallback = (style == UIAlertActionStyleCancel? @"Cancel" : @"");
-    UIAlertAction *action = [UIAlertAction actionWithTitle:title ?: fallback
-                                                     style:style
-                                                   handler:^(UIAlertAction *action) {
-                                                       if (handler) handler();
-                                                   }];
+    let fallback = (style == UIAlertActionStyleCancel? @"Cancel" : @"");
+    var action = [UIAlertAction actionWithTitle:title ?: fallback
+                                          style:style
+                                        handler:^(UIAlertAction *action) {
+                                            if (handler) handler();
+                                        }];
     [self addAction:action];
     return action;
 }

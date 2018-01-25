@@ -79,7 +79,7 @@
 
 
 - (UIImage *)takeScreenshotWithDrawing:(void (^)(void))drawingBlock {
-    UIApplication *app = UIApplication.sharedApplication;
+    let app = UIApplication.sharedApplication;
     
     return [UIImage drawWithSize:self.bounds.size opaque:YES scale:self.scale block:^{
         foreach (window, app.windows) {

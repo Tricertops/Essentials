@@ -22,7 +22,7 @@
 
 
 + (instancetype)invisibleShadow {
-    NSShadow *shadow = [NSShadow new];
+    var shadow = [NSShadow new];
     shadow.shadowOffset = CGSizeZero;
     shadow.shadowColor = nil;
     return shadow;
@@ -30,7 +30,7 @@
 
 
 + (instancetype)shadowWithOffset:(UIOffset)offset color:(UIColor *)color alpha:(CGFloat)alpha radius:(CGFloat)radius {
-    NSShadow *shadow = [NSShadow new];
+    var shadow = [NSShadow new];
     shadow.offset = offset;
     shadow.color = color;
     shadow.alpha *= alpha;
@@ -40,7 +40,7 @@
 
 
 + (instancetype)shadowWithVerticalOffset:(CGFloat)offset alpha: (CGFloat)alpha radius:(CGFloat)radius {
-    NSShadow *shadow = [NSShadow new];
+    var shadow = [NSShadow new];
     shadow.offset = UIOffsetMake(0, offset);
     shadow.color = UIColor.blackColor;
     shadow.alpha = alpha;

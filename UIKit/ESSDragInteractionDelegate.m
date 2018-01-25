@@ -26,10 +26,10 @@
 
 
 - (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForBeginningSession:(id<UIDragSession>)session API_AVAILABLE(ios(11)) {
-    NSMutableArray<UIDragItem *> *dragItems = [NSMutableArray new];
+    var dragItems = [NSMutableArray<UIDragItem *> new];
     
     foreach (item, self.items) {
-        UIDragItem *dragItem = [[UIDragItem alloc] initWithItemProvider:item];
+        var dragItem = [[UIDragItem alloc] initWithItemProvider:item];
         [dragItems addObject:dragItem];
     }
     return dragItems;
@@ -44,7 +44,7 @@
 - (id<UIDragSession>)dragInteraction:(UIDragInteraction *)interaction sessionForAddingItems:(NSArray<id<UIDragSession>> *)sessions withTouchAtPoint:(CGPoint)touchLocation  API_AVAILABLE(ios(11)) {
     CGFloat nearestDistance = INFINITY;
     id<UIDragSession> nearestSession = nil;
-    UIView *view = interaction.view;
+    var view = interaction.view;
     
     foreach (session, sessions) {
         CGPoint sessionLocation = [session locationInView:view];

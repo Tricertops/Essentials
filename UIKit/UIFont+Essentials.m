@@ -50,7 +50,7 @@
                                  UIFontFeatureSelectorIdentifierKey: @(selector),
                                  }];
     
-    UIFontDescriptor *descriptor = [self.fontDescriptor fontDescriptorByAddingAttributes:@{ UIFontDescriptorFeatureSettingsAttribute: mutableFeatures }];
+    let descriptor = [self.fontDescriptor fontDescriptorByAddingAttributes:@{ UIFontDescriptorFeatureSettingsAttribute: mutableFeatures }];
     return [UIFont fontWithDescriptor:descriptor size:0];
 }
 

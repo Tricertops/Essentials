@@ -62,7 +62,7 @@
 
 
 - (NSAttributedString *)withFont:(UIFont *)font color:(UIColor *)color {
-    NSMutableDictionary<NSString *, NSObject *> *attributes = [NSMutableDictionary new];
+    var attributes = [NSMutableDictionary<NSString *, NSObject *> new];
     if (font)   [attributes setObject:font forKey:NSFontAttributeName];
     if (color)  [attributes setObject:color forKey:NSForegroundColorAttributeName];
     return [[NSAttributedString alloc] initWithString:self attributes:attributes];

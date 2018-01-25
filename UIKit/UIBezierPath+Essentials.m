@@ -29,7 +29,7 @@
 
 
 + (instancetype)lineFrom:(CGPoint)start to:(CGPoint)end {
-    UIBezierPath *line = [self new];
+    var line = [self new];
     [line moveToPoint:start];
     [line addLineToPoint:end];
     return line;
@@ -37,7 +37,7 @@
 
 
 + (instancetype)lineFrom:(CGPoint)start by:(CGPoint)delta {
-    UIBezierPath *line = [self new];
+    var line = [self new];
     [line moveToPoint:start];
     [line addLineToPoint:CGPointAdd(start, delta)];
     return line;
@@ -65,7 +65,7 @@
 
 
 + (instancetype)combinedPathFromPaths:(NSArray<UIBezierPath *> *)paths {
-    UIBezierPath *path = [self new];
+    var path = [self new];
     foreach (subpath, paths) {
         [path appendPath:subpath];
     }
@@ -180,7 +180,7 @@
 
 
 - (void)stroke:(UIColor *)color width:(CGFloat)width {
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    var context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     CGFloat previousWidth = self.lineWidth;
     self.lineWidth = width;
@@ -197,7 +197,7 @@
 
 
 - (void)fill:(UIColor *)color evenOdd:(BOOL)evenOdd {
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    var context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     BOOL previousEvenOdd = self.usesEvenOddFillRule;
     self.usesEvenOddFillRule = evenOdd;

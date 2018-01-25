@@ -47,7 +47,7 @@
 
 
 + (UIView *)viewWithDrawRect:(void (^)(UIView *, CGRect))drawRect {
-    ESSDrawView *view = [ESSDrawView new];
+    var view = [ESSDrawView new];
     view.drawRectBlock = drawRect;
     return view;
 }

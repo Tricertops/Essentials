@@ -23,14 +23,14 @@
 
 
 - (void)adjustContentInset:(void (^)(UIEdgeInsets *))block {
-    UIEdgeInsets contentInset = self.contentInset;
+    var contentInset = self.contentInset;
     block(&contentInset);
     self.contentInset = contentInset;
 }
 
 
 - (void)adjustScrollIndicatorInsets:(void (^)(UIEdgeInsets *))block {
-    UIEdgeInsets scrollIndicatorInsets = self.scrollIndicatorInsets;
+    var scrollIndicatorInsets = self.scrollIndicatorInsets;
     block(&scrollIndicatorInsets);
     self.scrollIndicatorInsets = scrollIndicatorInsets;
 }
@@ -74,7 +74,7 @@
 
 - (CGPoint)contentProgressOffset {
     CGPoint contentOffset = self.contentOffset;
-    UIEdgeInsets contentInset = self.effectiveContentInsets;
+    let contentInset = self.effectiveContentInsets;
     CGPoint offset = {
         .x = contentOffset.x + contentInset.left,
         .y = contentOffset.y + contentInset.top,
@@ -84,7 +84,7 @@
 
 
 - (void)setContentProgressOffset:(CGPoint)contentProgressOffset {
-    UIEdgeInsets contentInset = self.effectiveContentInsets;
+    let contentInset = self.effectiveContentInsets;
     CGPoint max = self.maximumContentOffset;
     CGPoint offset = {
         .x = MIN(contentProgressOffset.x, max.x) - contentInset.left,
@@ -192,7 +192,7 @@
 
 
 - (void)setContentInsetTop:(CGFloat)top {
-    UIEdgeInsets insets = self.contentInset;
+    let insets = self.contentInset;
     insets.top = top;
     self.contentInset = insets;
 }
@@ -204,7 +204,7 @@
 
 
 - (void)setScrollIndicatorInsetTop:(CGFloat)top {
-    UIEdgeInsets insets = self.scrollIndicatorInsets;
+    let insets = self.scrollIndicatorInsets;
     insets.top = top;
     self.scrollIndicatorInsets = insets;
 }

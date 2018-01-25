@@ -14,7 +14,7 @@
 
 
 + (instancetype)configurationWithActions:(NSArray<UIContextualAction *> *)actions performsFirstActionWithFullSwipe:(BOOL)performsFirstActionWithFullSwipe {
-    UISwipeActionsConfiguration *configuration = [UISwipeActionsConfiguration configurationWithActions:actions];
+    var configuration = [UISwipeActionsConfiguration configurationWithActions:actions];
     configuration.performsFirstActionWithFullSwipe = performsFirstActionWithFullSwipe;
     return configuration;
 }

@@ -70,7 +70,7 @@
         return self;
     }
     /// Input is not infinite, but output is infinite.
-    CIFilter *crop = [CIFilter crop:self.inputImage.extent];
+    let crop = [CIFilter crop:self.inputImage.extent];
     [self connectToFilter:crop];
     return crop;
 }
