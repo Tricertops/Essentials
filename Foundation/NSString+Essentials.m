@@ -122,7 +122,7 @@
 - (void)enumerateOccurencesOfString:(NSString *)string options:(NSStringCompareOptions)options usingBlock:(void(^)(NSString *match, NSRange range, BOOL *stop))block {
     NSRange searchRange = NSMakeRange(0, self.length);
     
-    while (INFINITY) {
+    forever {
         NSRange range = [self rangeOfString:string options:options range:searchRange];
         if (range.location == NSNotFound) break;
         
@@ -141,7 +141,7 @@
     NSMutableIndexSet *indexes = [NSMutableIndexSet new];
     NSRange searchRange = NSMakeRange(0, self.length);
     
-    while (INFINITY) {
+    forever {
         NSRange range = [self rangeOfCharacterFromSet:charset options:kNilOptions range:searchRange];
         if (range.location == NSNotFound) break;
         
@@ -242,7 +242,7 @@
 - (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet {
     NSMutableString *mutable = [self mutableCopy];
     NSRange range;
-    while (INFINITY) {
+    forever {
         range = [mutable rangeOfCharacterFromSet:characterSet];
         if (range.location == NSNotFound) break;
         
@@ -357,7 +357,7 @@
 - (void)enumerateSubstringsBetween:(NSString *)opening and:(NSString *)closing usingBlock:(void(^)(NSString *content, NSRange rangeIncludingDelimiters, NSUInteger *continueLocation))block {
     NSRange enclosingRange = NSMakeRange(0, 0);
     
-    while (INFINITY) {
+    forever {
         enclosingRange = [self rangeOfOpening:opening closing:closing after:NSMaxRange(enclosingRange)];
         if (enclosingRange.location == NSNotFound)
             break;
