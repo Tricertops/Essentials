@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "UIKit+Essentials.h"
 #import "ESSEvent.h"
 
 

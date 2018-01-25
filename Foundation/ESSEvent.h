@@ -6,7 +6,7 @@
 //  Copyright © 2016 Martin Kiss. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Foundation+Essentials.h"
 
 
 

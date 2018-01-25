@@ -52,7 +52,6 @@ FOUNDATION_EXPORT const unsigned char EssentialsVersionString[];
 #import "jDateFormat.h"
 
 #if TARGET_OS_IPHONE
-    #import <UIKit/UIKit.h>
     #import "UIKit+Essentials.h"
     #import "UIAlertController+Essentials.h"
     #import "UIColor+Essentials.h"
@@ -78,5 +77,6 @@ FOUNDATION_EXPORT const unsigned char EssentialsVersionString[];
     #import "ESSDragInteractionDelegate.h"
 #endif
 
-#import <CoreImage/CoreImage.h>
 #import "CoreImage+Essentials.h"
+#import "CIContext+Essentials.h"
+#import "CIFilter+Essentials.h"

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 iAdverti. All rights reserved.
 //
 
-#import <CoreImage/CoreImage.h>
+#import "CoreImage+Essentials.h"
 
 
 typedef CGFloat CIScalar;

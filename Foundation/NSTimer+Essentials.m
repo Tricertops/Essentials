@@ -8,7 +8,7 @@
 
 #import "NSTimer+Essentials.h"
 #if TARGET_OS_IPHONE
-    #import <UIKit/UIApplication.h>
+    @import UIKit.UIApplication;
 #endif
 
 

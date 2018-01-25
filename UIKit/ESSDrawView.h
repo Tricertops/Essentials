@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 iAdverti. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIKit+Essentials.h"
 
 
 

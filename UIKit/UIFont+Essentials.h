@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 iAdverti. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIKit+Essentials.h"
 #import <CoreText/SFNTLayoutTypes.h>
 
 

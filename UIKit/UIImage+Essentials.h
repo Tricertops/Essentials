@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
-#import <GLKit/GLKit.h>
+#import "UIKit+Essentials.h"
+@import GLKit;
 
 
 

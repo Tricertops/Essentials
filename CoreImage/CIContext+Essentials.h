@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 iAdverti. All rights reserved.
 //
 
-#import <CoreImage/CoreImage.h>
-#import <UIKit/UIKit.h>
+#import "CoreImage+Essentials.h"
+#import "UIKit+Essentials.h"
 
 
 
