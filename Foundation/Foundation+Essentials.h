@@ -6,45 +6,17 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
+@import ObjectiveC;
+@import Foundation;
+
+#import "ESSLog.h"
+#import "Typed.h"
+
+
 #define ESSOverloaded   __attribute__((overloadable))
 
 #define SDK_iOS11  __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
 #define SDK_iOS10  __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
-
-
-#import "NSObject+Essentials.h"
-#import "NSString+Essentials.h"
-#import "NSArray+Essentials.h"
-#import "NSMutableArray+Essentials.h"
-#import "NSDictionary+Essentials.h"
-#import "NSMutableDictionary+Essentials.h"
-#import "NSError+Essentials.h"
-#import "NSNumber+Essentials.h"
-#import "NSInvocation+Essentials.h"
-#import "NSOperationQueue+Essentials.h"
-#import "NSTimer+Essentials.h"
-#import "NSDate+Essentials.h"
-#import "NSData+Essentials.h"
-#import "NSUUID+Essentials.h"
-#import "NSSortDescriptor+Essentials.h"
-#import "NSIndexPath+Essentials.h"
-#import "NSLocale+Essentials.h"
-#import "NSURLRequest+Essentials.h"
-#import "NSURLSession+Essentials.h"
-#import "ESSURLResponse.h"
-#import "ESSProxy.h"
-#import "ESSLog.h"
-#import "NSCoder+Essentials.h"
-#import "ESSCatch.h"
-#import "NSBundle+Essentials.h"
-#import "NSMutableSet+Essentials.h"
-#import "NSMapTable+Essentials.h"
-#import "NSDateFormatter+Essentials.h"
-#import "NSCharacterSet+Essentials.h"
-#import "ESSEvent.h"
-#import "JSON.h"
-#import "NSFileManager+Essentials.h"
-#import "ESSHash.h"
 
 
 
@@ -383,6 +355,9 @@ extern NSUInteger NSUIntegerRandom(NSUInteger count);
     typeof(MAX) __max = (MAX);\
     (__value > __max ? __max : (__value < __min ? __min : __value));\
 })
+
+
+typedef double NSFloat;
 
 
 /// Infinity.

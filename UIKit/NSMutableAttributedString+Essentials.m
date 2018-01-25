@@ -7,7 +7,7 @@
 //
 
 #import "NSMutableAttributedString+Essentials.h"
-#import "Foundation+Essentials.h"
+#import "NSString+Essentials.h"
 
 
 

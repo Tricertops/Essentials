@@ -8,6 +8,7 @@
 
 #import "NSOperationQueue+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "NSTimer+Essentials.h"
 
 
 

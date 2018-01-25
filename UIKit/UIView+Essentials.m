@@ -9,6 +9,7 @@
 #import "UIView+Essentials.h"
 #import "UIColor+Essentials.h"
 #import "UIKit+Essentials.h"
+#import "NSObject+Essentials.h"
 #import "ESSDragInteractionDelegate.h"
 
 

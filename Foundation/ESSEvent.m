@@ -8,6 +8,7 @@
 
 #import "ESSEvent.h"
 #import "Foundation+Essentials.h"
+#import "NSMapTable+Essentials.h"
 
 
 
@@ -66,10 +67,10 @@
     self.notifyCount ++;
     //! This Event might be mutated while handlers are executed, so copy the collections.
     
-    __auto_type handlersByObserver = [self copyHandlersByObservers];
-    for (NSObject *observer in handlersByObserver) {
-        __auto_type handlers = handlersByObserver[observer];
-        for (void (^handler)(id, id) in handlers) {
+    var handlersByObserver = [self copyHandlersByObservers];
+    foreach (observer, handlersByObserver) {
+        var handlers = handlersByObserver[observer];
+        foreach (handler, handlers) {
             handler(observer, value);
         }
     }
@@ -78,9 +79,9 @@
 
 
 - (NSMapTable<NSObject *, NSArray<void (^)(id, id)> *> *)copyHandlersByObservers NS_RETURNS_NOT_RETAINED {
-    __auto_type weakCollection = self.handlersByObserver;
+    var weakCollection = self.handlersByObserver;
     typeof(self.copyHandlersByObservers) strong = [NSMapTable strongToStrongObjectsMapTable];
-    for (NSObject *observer in weakCollection) {
+    foreach (observer, weakCollection) {
         strong[observer] =  [weakCollection[observer] copy];
     }
     return strong;
@@ -97,7 +98,7 @@
     ESSAssert(observer) else return;
     ESSAssert(handler) else return;
     
-    __auto_type handlers = self.handlersByObserver[observer];
+    var handlers = self.handlersByObserver[observer];
     if ( ! handlers) {
         handlers = [NSMutableArray new];
         self.handlersByObserver[observer] = handlers;

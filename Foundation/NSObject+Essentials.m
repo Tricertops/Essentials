@@ -8,6 +8,7 @@
 
 #import "NSObject+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "NSString+Essentials.h"
 
 
 

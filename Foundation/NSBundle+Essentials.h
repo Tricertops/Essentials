@@ -6,7 +6,7 @@
 //  Copyright © 2015 iAdverti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Foundation+Essentials.h"
 
 
 

@@ -8,6 +8,7 @@
 
 #import "NSDateFormatter+Essentials.h"
 #import "Foundation+Essentials.h"
+#import "NSLocale+Essentials.h"
 
 
 

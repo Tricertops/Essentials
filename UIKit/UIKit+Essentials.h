@@ -6,30 +6,7 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#import "UIAlertController+Essentials.h"
-#import "UIColor+Essentials.h"
-#import "UIDevice+Essentials.h"
-#import "UIImage+Essentials.h"
-#import "UIScreen+Essentials.h"
-#import "UIView+Essentials.h"
-#import "UIScrollView+Essentials.h"
-#import "NSShadow+Essentials.h"
-#import "NSAttributedString+Essentials.h"
-#import "NSMutableAttributedString+Essentials.h"
-#import "UITableView+Essentials.h"
-#import "UIFont+Essentials.h"
-#import "UIBarButtonItem+Essentials.h"
-#import "UIBezierPath+Essentials.h"
-#import "UIViewController+Essentials.h"
-#import "UIApplication+Essentials.h"
-#import "ESSDrawView.h"
-#import "UIButton+Essentials.h"
-#import "UIControl+Essentials.h"
-#import "UISwipeActionsConfiguration+Essentials.h"
-#import "UIContextualAction+Essentials.h"
-#import "ESSDragInteractionDelegate.h"
-
-
+@import UIKit;
 
 
 

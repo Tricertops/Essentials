@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 iAdverti. All rights reserved.
 //
 
-#import <Foundation/NSUUID.h>
-#import <Foundation/NSData.h>
+#import "Foundation+Essentials.h"
 
 
 

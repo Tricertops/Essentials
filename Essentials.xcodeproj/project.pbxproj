@@ -7,111 +7,178 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */; };
 		5B0C58D61EE29FD100DFE420 /* jDateFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0C58D31EE29FD100DFE420 /* jDateFormat.h */; };
-		5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
-		5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410617622CA1008F8F1E /* UIColor+Essentials.m */; };
-		5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
-		5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410C17623C53008F8F1E /* NSDictionary+Essentials.m */; };
-		5B1341101762401C008F8F1E /* UIImage+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410F1762401C008F8F1E /* UIImage+Essentials.m */; };
-		5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13411417624235008F8F1E /* UIScreen+Essentials.m */; };
-		5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B134117176243C2008F8F1E /* UIView+Essentials.m */; };
-		5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B61786DEB8001666F4 /* UIKit.framework */; };
-		5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B13C0B81786DED0001666F4 /* CoreGraphics.framework */; };
 		5B1725C11AC4465300832083 /* ESSCatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1725BF1AC4465300832083 /* ESSCatch.h */; };
-		5B1725C21AC4465300832083 /* ESSCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1725C01AC4465300832083 /* ESSCatch.m */; };
 		5B1725C31AC4465300832083 /* ESSCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1725C01AC4465300832083 /* ESSCatch.m */; };
-		5B1984EA1AEFC8D4006A6798 /* UIApplication+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1984E91AEFC8D4006A6798 /* UIApplication+Essentials.m */; };
-		5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E48B31AF67107007941E1 /* ESSDrawView.m */; };
-		5B1EDF9D1ED00EF300DA9837 /* UIButton+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */; };
 		5B22FCD01BD95A9400CBA87B /* NSMutableSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B22FCCE1BD95A9400CBA87B /* NSMutableSet+Essentials.h */; };
-		5B22FCD11BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */; };
 		5B22FCD21BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */; };
 		5B269F431EF1134000F8BD4C /* ESSHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B269F411EF1134000F8BD4C /* ESSHash.h */; };
-		5B269F441EF1134000F8BD4C /* ESSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B269F421EF1134000F8BD4C /* ESSHash.m */; };
 		5B269F451EF1134000F8BD4C /* ESSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B269F421EF1134000F8BD4C /* ESSHash.m */; };
-		5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */; };
-		5B2FED31200F437F00FDAB14 /* UIControl+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FED30200F437F00FDAB14 /* UIControl+Essentials.m */; };
 		5B3379AE19F299D600CBE28C /* ESSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3379AC19F299D600CBE28C /* ESSLog.h */; };
-		5B3379AF19F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
 		5B3379B019F299D600CBE28C /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
-		5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */; };
 		5B50779F1C3E518F004F6745 /* NSMapTable+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B50779D1C3E518F004F6745 /* NSMapTable+Essentials.h */; };
-		5B5077A01C3E518F004F6745 /* NSMapTable+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */; };
 		5B5077A11C3E518F004F6745 /* NSMapTable+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */; };
 		5B61075919E52E930071B547 /* NSLocale+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61075719E52E930071B547 /* NSLocale+Essentials.h */; };
-		5B61075A19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
 		5B61075B19E52E930071B547 /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
 		5B61079319E67A6B0071B547 /* NSURLSession+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079119E67A6B0071B547 /* NSURLSession+Essentials.h */; };
-		5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079219E67A6B0071B547 /* NSURLSession+Essentials.m */; };
 		5B61079519E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079219E67A6B0071B547 /* NSURLSession+Essentials.m */; };
 		5B61079819E6A5A00071B547 /* ESSURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079619E6A5A00071B547 /* ESSURLResponse.h */; };
-		5B61079919E6A5A00071B547 /* ESSURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079719E6A5A00071B547 /* ESSURLResponse.m */; };
 		5B61079A19E6A5A00071B547 /* ESSURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079719E6A5A00071B547 /* ESSURLResponse.m */; };
 		5B61079D19E6A7FB0071B547 /* NSURLRequest+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079B19E6A7FB0071B547 /* NSURLRequest+Essentials.h */; };
-		5B61079E19E6A7FB0071B547 /* NSURLRequest+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079C19E6A7FB0071B547 /* NSURLRequest+Essentials.m */; };
 		5B61079F19E6A7FB0071B547 /* NSURLRequest+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079C19E6A7FB0071B547 /* NSURLRequest+Essentials.m */; };
 		5B6C499B184F6A6C00C1D075 /* NSData+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */; };
-		5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
 		5B6C499D184F6A6C00C1D075 /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
-		5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
-		5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
-		5B70C9831F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */; };
-		5B70C9871F73AE1A00A5F811 /* UIContextualAction+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */; };
 		5B7493EB1EBE496900A96210 /* ESSEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7493E91EBE496900A96210 /* ESSEvent.h */; };
-		5B7493EC1EBE496900A96210 /* ESSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7493EA1EBE496900A96210 /* ESSEvent.m */; };
 		5B7493ED1EBE496900A96210 /* ESSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7493EA1EBE496900A96210 /* ESSEvent.m */; };
 		5B74A63819D45F5B00B04E07 /* ESSProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B74A63619D45F5B00B04E07 /* ESSProxy.h */; };
-		5B74A63919D45F5B00B04E07 /* ESSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSProxy.m */; };
 		5B74A63A19D45F5B00B04E07 /* ESSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSProxy.m */; };
 		5B79EA521A98E2670031ED59 /* NSCoder+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B79EA501A98E2670031ED59 /* NSCoder+Essentials.h */; };
-		5B79EA531A98E2670031ED59 /* NSCoder+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA511A98E2670031ED59 /* NSCoder+Essentials.m */; };
 		5B79EA541A98E2670031ED59 /* NSCoder+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA511A98E2670031ED59 /* NSCoder+Essentials.m */; };
 		5B79EA571A98F5400031ED59 /* NSValue+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B79EA551A98F5400031ED59 /* NSValue+Essentials.h */; };
-		5B79EA581A98F5400031ED59 /* NSValue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA561A98F5400031ED59 /* NSValue+Essentials.m */; };
 		5B79EA591A98F5400031ED59 /* NSValue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA561A98F5400031ED59 /* NSValue+Essentials.m */; };
-		5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
-		5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */; };
-		5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
 		5B8B95041EBF5D64001E7097 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8B95021EBF5D64001E7097 /* JSON.h */; };
-		5B8B95051EBF5D64001E7097 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
 		5B8B95061EBF5D64001E7097 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
-		5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
-		5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */; };
-		5BAC18081CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
 		5BAC18091CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
-		5BB485D51A161C3900AB82BE /* UIBarButtonItem+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */; };
+		5BAFAAB0201A1461002312AE /* Foundation+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F906B4417709E8700097175 /* Foundation+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAB1201A1461002312AE /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
+		5BAFAAB2201A1461002312AE /* ESSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3379AC19F299D600CBE28C /* ESSLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAB3201A1461002312AE /* ESSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3379AD19F299D600CBE28C /* ESSLog.m */; };
+		5BAFAAB4201A1461002312AE /* NSObject+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1340FE176223DC008F8F1E /* NSObject+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAB5201A1462002312AE /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
+		5BAFAAB6201A1462002312AE /* NSString+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5B31762061F0061E8B5 /* NSString+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAB7201A1462002312AE /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
+		5BAFAAB8201A1462002312AE /* NSArray+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5BC176213B50061E8B5 /* NSArray+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAB9201A1462002312AE /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
+		5BAFAABA201A1462002312AE /* NSMutableArray+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5BF176214D00061E8B5 /* NSMutableArray+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAABB201A1462002312AE /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
+		5BAFAABC201A1462002312AE /* NSDictionary+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13410B17623C53008F8F1E /* NSDictionary+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAABD201A1462002312AE /* NSDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410C17623C53008F8F1E /* NSDictionary+Essentials.m */; };
+		5BAFAABE201A1462002312AE /* NSMutableDictionary+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAABF201A1462002312AE /* NSMutableDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */; };
+		5BAFAAC0201A1462002312AE /* NSError+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5CF17621E490061E8B5 /* NSError+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAC1201A1462002312AE /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
+		5BAFAAC2201A1462002312AE /* NSNumber+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6D194E17749EC800FA2E3E /* NSNumber+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAC3201A1462002312AE /* NSNumber+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D194F17749EC800FA2E3E /* NSNumber+Essentials.m */; };
+		5BAFAAC4201A1462002312AE /* NSInvocation+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5D217621EC30061E8B5 /* NSInvocation+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAC5201A1462002312AE /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
+		5BAFAAC6201A1462002312AE /* NSOperationQueue+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA5D517621F7A0061E8B5 /* NSOperationQueue+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAC7201A1462002312AE /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
+		5BAFAAC8201A1462002312AE /* NSTimer+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFDDE3A19D95F0900AF28D7 /* NSTimer+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAC9201A1462002312AE /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
+		5BAFAACA201A1462002312AE /* NSDate+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A641C180AC74F00E0AEE8 /* NSDate+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAACB201A1462002312AE /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
+		5BAFAACC201A1462002312AE /* NSData+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6C4999184F6A6C00C1D075 /* NSData+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAACD201A1462002312AE /* NSData+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C499A184F6A6C00C1D075 /* NSData+Essentials.m */; };
+		5BAFAACE201A1462002312AE /* NSUUID+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAACF201A1462002312AE /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
+		5BAFAAD0201A1462002312AE /* NSSortDescriptor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAD1201A1462002312AE /* NSSortDescriptor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */; };
+		5BAFAAD2201A1462002312AE /* NSIndexPath+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE8AABC19702FC300F0B09A /* NSIndexPath+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAD3201A1462002312AE /* NSIndexPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */; };
+		5BAFAAD4201A1462002312AE /* NSLocale+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61075719E52E930071B547 /* NSLocale+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAD5201A1462002312AE /* NSLocale+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61075819E52E930071B547 /* NSLocale+Essentials.m */; };
+		5BAFAAD6201A1462002312AE /* NSURLSession+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079119E67A6B0071B547 /* NSURLSession+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAD7201A1462002312AE /* NSURLSession+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079219E67A6B0071B547 /* NSURLSession+Essentials.m */; };
+		5BAFAAD8201A1462002312AE /* NSURLRequest+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079B19E6A7FB0071B547 /* NSURLRequest+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAD9201A1462002312AE /* NSURLRequest+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079C19E6A7FB0071B547 /* NSURLRequest+Essentials.m */; };
+		5BAFAADA201A1462002312AE /* ESSURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61079619E6A5A00071B547 /* ESSURLResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAADB201A1462002312AE /* ESSURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B61079719E6A5A00071B547 /* ESSURLResponse.m */; };
+		5BAFAADC201A1462002312AE /* ESSProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B74A63619D45F5B00B04E07 /* ESSProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAADD201A1462002312AE /* ESSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A63719D45F5B00B04E07 /* ESSProxy.m */; };
+		5BAFAADE201A1462002312AE /* NSValue+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B79EA551A98F5400031ED59 /* NSValue+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAADF201A1462002312AE /* NSValue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA561A98F5400031ED59 /* NSValue+Essentials.m */; };
+		5BAFAAE0201A1462002312AE /* NSCoder+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B79EA501A98E2670031ED59 /* NSCoder+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAE1201A1462002312AE /* NSCoder+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA511A98E2670031ED59 /* NSCoder+Essentials.m */; };
+		5BAFAAE2201A1462002312AE /* ESSCatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1725BF1AC4465300832083 /* ESSCatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAE3201A1462002312AE /* ESSCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1725C01AC4465300832083 /* ESSCatch.m */; };
+		5BAFAAE4201A1462002312AE /* NSBundle+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAE5201A1462002312AE /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
+		5BAFAAE6201A1462002312AE /* NSMutableSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B22FCCE1BD95A9400CBA87B /* NSMutableSet+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAE7201A1462002312AE /* NSMutableSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B22FCCF1BD95A9400CBA87B /* NSMutableSet+Essentials.m */; };
+		5BAFAAE8201A1462002312AE /* NSMapTable+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B50779D1C3E518F004F6745 /* NSMapTable+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAE9201A1462002312AE /* NSMapTable+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50779E1C3E518F004F6745 /* NSMapTable+Essentials.m */; };
+		5BAFAAEA201A1462002312AE /* NSDateFormatter+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAEB201A1462002312AE /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
+		5BAFAAEC201A1462002312AE /* NSCharacterSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAED201A1462002312AE /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
+		5BAFAAEE201A1462002312AE /* ESSEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7493E91EBE496900A96210 /* ESSEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAEF201A1462002312AE /* ESSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7493EA1EBE496900A96210 /* ESSEvent.m */; };
+		5BAFAAF0201A1462002312AE /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8B95021EBF5D64001E7097 /* JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAF1201A1462002312AE /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
+		5BAFAAF2201A1462002312AE /* NSFileManager+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAF3201A1462002312AE /* NSFileManager+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */; };
+		5BAFAAF4201A1462002312AE /* ESSHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B269F411EF1134000F8BD4C /* ESSHash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAF5201A1462002312AE /* ESSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B269F421EF1134000F8BD4C /* ESSHash.m */; };
+		5BAFAAF6201A1469002312AE /* UIKit+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F906B4517709E9400097175 /* UIKit+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAF7201A1469002312AE /* UIKit+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D1999177C45EE00FA2E3E /* UIKit+Essentials.m */; };
+		5BAFAAF8201A1469002312AE /* UIAlertController+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BCA600A1B2197D100EFB683 /* UIAlertController+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAF9201A1469002312AE /* UIAlertController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */; };
+		5BAFAAFA201A1469002312AE /* UIColor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13410517622CA1008F8F1E /* UIColor+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAFB201A1469002312AE /* UIColor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410617622CA1008F8F1E /* UIColor+Essentials.m */; };
+		5BAFAAFC201A1469002312AE /* UIDevice+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13410817622E0F008F8F1E /* UIDevice+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAFD201A1469002312AE /* UIDevice+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410917622E0F008F8F1E /* UIDevice+Essentials.m */; };
+		5BAFAAFE201A1469002312AE /* UIImage+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13410E1762401C008F8F1E /* UIImage+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAAFF201A1469002312AE /* UIImage+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13410F1762401C008F8F1E /* UIImage+Essentials.m */; };
+		5BAFAB00201A1469002312AE /* UIScreen+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13411317624235008F8F1E /* UIScreen+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB01201A1469002312AE /* UIScreen+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B13411417624235008F8F1E /* UIScreen+Essentials.m */; };
+		5BAFAB02201A1469002312AE /* UIView+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B134116176243C2008F8F1E /* UIView+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB03201A1469002312AE /* UIView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B134117176243C2008F8F1E /* UIView+Essentials.m */; };
+		5BAFAB04201A1469002312AE /* UIScrollView+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FC56AAF177B3ACE00AB6A4A /* UIScrollView+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB05201A1469002312AE /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
+		5BAFAB06201A1469002312AE /* NSShadow+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB07201A1469002312AE /* NSShadow+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */; };
+		5BAFAB08201A1469002312AE /* NSAttributedString+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7A38BF17C39E5500C2F24C /* NSAttributedString+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB09201A1469002312AE /* NSAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C017C39E5500C2F24C /* NSAttributedString+Essentials.m */; };
+		5BAFAB0A201A1469002312AE /* NSMutableAttributedString+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7A38C217C3A43300C2F24C /* NSMutableAttributedString+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB0B201A1469002312AE /* NSMutableAttributedString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A38C317C3A43300C2F24C /* NSMutableAttributedString+Essentials.m */; };
+		5BAFAB0C201A1469002312AE /* UITableView+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF8385A17EF6DAA0054CC07 /* UITableView+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB0D201A1469002312AE /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
+		5BAFAB0E201A1469002312AE /* UIFont+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B2A32C11923AA05008E5B36 /* UIFont+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB0F201A1469002312AE /* UIFont+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A32C21923AA05008E5B36 /* UIFont+Essentials.m */; };
+		5BAFAB10201A1469002312AE /* UIBarButtonItem+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BB485D31A161C3900AB82BE /* UIBarButtonItem+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB11201A1469002312AE /* UIBarButtonItem+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */; };
+		5BAFAB12201A1469002312AE /* UIBezierPath+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3A0A451A6160E600B7B55C /* UIBezierPath+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB13201A1469002312AE /* UIBezierPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A0A461A6160E600B7B55C /* UIBezierPath+Essentials.m */; };
+		5BAFAB14201A1469002312AE /* UIViewController+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD8A6381AACB42400B0C398 /* UIViewController+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB15201A1469002312AE /* UIViewController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */; };
+		5BAFAB16201A1469002312AE /* UIApplication+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1984E81AEFC8D4006A6798 /* UIApplication+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB17201A1469002312AE /* UIApplication+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1984E91AEFC8D4006A6798 /* UIApplication+Essentials.m */; };
+		5BAFAB18201A1469002312AE /* ESSDrawView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1E48B21AF67107007941E1 /* ESSDrawView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB19201A1469002312AE /* ESSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E48B31AF67107007941E1 /* ESSDrawView.m */; };
+		5BAFAB1A201A1469002312AE /* UIButton+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1EDF9B1ED00EF300DA9837 /* UIButton+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB1B201A1469002312AE /* UIButton+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EDF9C1ED00EF300DA9837 /* UIButton+Essentials.m */; };
+		5BAFAB1C201A1469002312AE /* UIControl+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B2FED2F200F437F00FDAB14 /* UIControl+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB1D201A1469002312AE /* UIControl+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FED30200F437F00FDAB14 /* UIControl+Essentials.m */; };
+		5BAFAB1E201A1469002312AE /* UISwipeActionsConfiguration+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B70C9811F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB1F201A1469002312AE /* UISwipeActionsConfiguration+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9821F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m */; };
+		5BAFAB20201A1469002312AE /* UIContextualAction+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B70C9851F73AE1A00A5F811 /* UIContextualAction+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB21201A1469002312AE /* UIContextualAction+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C9861F73AE1A00A5F811 /* UIContextualAction+Essentials.m */; };
+		5BAFAB22201A1469002312AE /* ESSDragInteractionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BDDD32F1F83D052006F2CB9 /* ESSDragInteractionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB23201A1469002312AE /* ESSDragInteractionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDD3301F83D052006F2CB9 /* ESSDragInteractionDelegate.m */; };
+		5BAFAB24201A1473002312AE /* CoreImage+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE32D6C19BB4D93002605B3 /* CoreImage+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB25201A1473002312AE /* CIContext+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE32D6219BB4D77002605B3 /* CIContext+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB26201A1473002312AE /* CIContext+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6319BB4D77002605B3 /* CIContext+Essentials.m */; };
+		5BAFAB27201A1473002312AE /* CIFilter+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE32D6419BB4D77002605B3 /* CIFilter+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB28201A1473002312AE /* CIFilter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6519BB4D77002605B3 /* CIFilter+Essentials.m */; };
+		5BAFAB29201A1485002312AE /* jDateFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0C58D31EE29FD100DFE420 /* jDateFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB2A201A14C7002312AE /* Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBFA590176205DF0061E8B5 /* Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB32201A16A5002312AE /* TypedCollectionLiterals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB2D201A16A5002312AE /* TypedCollectionLiterals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB33201A16A5002312AE /* TypedKeyPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB2E201A16A5002312AE /* TypedKeyPaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB34201A16A5002312AE /* TypedNSCopying.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB2F201A16A5002312AE /* TypedNSCopying.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB35201A16A5002312AE /* TypedNSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB30201A16A5002312AE /* TypedNSFastEnumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAFAB36201A16A5002312AE /* Typed.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB31201A16A5002312AE /* Typed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BBF9A761C6F9A15007B24FC /* NSDateFormatter+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */; };
-		5BBF9A771C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
 		5BBF9A781C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
-		5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBFA58B176205DF0061E8B5 /* Foundation.framework */; };
-		5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
-		5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5BD176213B50061E8B5 /* NSArray+Essentials.m */; };
-		5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5C0176214D00061E8B5 /* NSMutableArray+Essentials.m */; };
-		5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D017621E490061E8B5 /* NSError+Essentials.m */; };
-		5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D317621EC30061E8B5 /* NSInvocation+Essentials.m */; };
-		5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */; };
-		5BCA600C1B2197D100EFB683 /* UIAlertController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */; };
-		5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */; };
-		5BDDD3311F83D052006F2CB9 /* ESSDragInteractionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDD3301F83D052006F2CB9 /* ESSDragInteractionDelegate.m */; };
 		5BE0A30F1BD384CB006BDA45 /* NSBundle+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */; };
-		5BE0A3101BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
 		5BE0A3111BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
-		5BE32D6719BB4D77002605B3 /* CIContext+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6319BB4D77002605B3 /* CIContext+Essentials.m */; };
-		5BE32D6A19BB4D77002605B3 /* CIFilter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32D6519BB4D77002605B3 /* CIFilter+Essentials.m */; };
 		5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */; };
-		5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */; };
 		5BE4752B18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */; };
 		5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */; };
-		5BE79BFD189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */; };
 		5BE79BFE189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79BFB189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m */; };
 		5BE79C01189BFE69004A02B1 /* NSUUID+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFF189BFE69004A02B1 /* NSUUID+Essentials.h */; };
-		5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
 		5BE79C03189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE79C00189BFE69004A02B1 /* NSUUID+Essentials.m */; };
-		5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */; };
 		5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8AABD19702FC300F0B09A /* NSIndexPath+Essentials.m */; };
-		5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8385B17EF6DAA0054CC07 /* UITableView+Essentials.m */; };
 		5BFBAC051844BB8900179483 /* Foundation+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */; };
 		5BFBAC061844BB8900179483 /* NSObject+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1340FF176223DC008F8F1E /* NSObject+Essentials.m */; };
 		5BFBAC071844BB8900179483 /* NSString+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFA5B41762061F0061E8B5 /* NSString+Essentials.m */; };
@@ -125,9 +192,7 @@
 		5BFBAC0F1844BB8900179483 /* NSDate+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */; };
 		5BFBAC181844BD7F00179483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFBAC171844BD7F00179483 /* Foundation.framework */; };
 		5BFDDE3C19D95F0900AF28D7 /* NSTimer+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFDDE3A19D95F0900AF28D7 /* NSTimer+Essentials.h */; };
-		5BFDDE3D19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
 		5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDE3B19D95F0900AF28D7 /* NSTimer+Essentials.m */; };
-		5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC56AAE177B3ACE00AB6A4A /* UIScrollView+Essentials.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,18 +204,6 @@
 			remoteInfo = Test;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5BBFA586176205DF0061E8B5 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Essentials.h"; sourceTree = "<group>"; };
@@ -234,11 +287,17 @@
 		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
 		5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCharacterSet+Essentials.h"; sourceTree = "<group>"; };
 		5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Essentials.m"; sourceTree = "<group>"; };
+		5BAFAAA8201A1424002312AE /* Essentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Essentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BAFAAAB201A1424002312AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BAFAB2D201A16A5002312AE /* TypedCollectionLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypedCollectionLiterals.h; sourceTree = "<group>"; };
+		5BAFAB2E201A16A5002312AE /* TypedKeyPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypedKeyPaths.h; sourceTree = "<group>"; };
+		5BAFAB2F201A16A5002312AE /* TypedNSCopying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypedNSCopying.h; sourceTree = "<group>"; };
+		5BAFAB30201A16A5002312AE /* TypedNSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypedNSFastEnumeration.h; sourceTree = "<group>"; };
+		5BAFAB31201A16A5002312AE /* Typed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Typed.h; sourceTree = "<group>"; };
 		5BB485D31A161C3900AB82BE /* UIBarButtonItem+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Essentials.h"; sourceTree = "<group>"; };
 		5BB485D41A161C3900AB82BE /* UIBarButtonItem+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Essentials.m"; sourceTree = "<group>"; };
 		5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Essentials.h"; sourceTree = "<group>"; };
 		5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Essentials.m"; sourceTree = "<group>"; };
-		5BBFA588176205DF0061E8B5 /* libEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssentials.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBFA58B176205DF0061E8B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BBFA590176205DF0061E8B5 /* Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials.h; sourceTree = "<group>"; };
 		5BBFA59A176205DF0061E8B5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -288,13 +347,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5BBFA585176205DF0061E8B5 /* Frameworks */ = {
+		5BAFAAA4201A1424002312AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B13C0BB1786DEE4001666F4 /* CoreGraphics.framework in Frameworks */,
-				5B13C0BA1786DEDF001666F4 /* UIKit.framework in Frameworks */,
-				5BBFA58C176205DF0061E8B5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +434,29 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		5BAFAB2C201A166C002312AE /* Typed (references) */ = {
+			isa = PBXGroup;
+			children = (
+				5BAFAB31201A16A5002312AE /* Typed.h */,
+				5BAFAB2D201A16A5002312AE /* TypedCollectionLiterals.h */,
+				5BAFAB2E201A16A5002312AE /* TypedKeyPaths.h */,
+				5BAFAB2F201A16A5002312AE /* TypedNSCopying.h */,
+				5BAFAB30201A16A5002312AE /* TypedNSFastEnumeration.h */,
+			);
+			name = "Typed (references)";
+			path = Typed/Sources;
+			sourceTree = "<group>";
+		};
 		5BBFA57F176205DF0061E8B5 = {
 			isa = PBXGroup;
 			children = (
+				5BAFAAAB201A1424002312AE /* Info.plist */,
 				5BBFA590176205DF0061E8B5 /* Essentials.h */,
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
 				5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */,
+				5BAFAB2C201A166C002312AE /* Typed (references) */,
 				5B0C58D21EE29FD100DFE420 /* jDateFormat */,
 				5BBFA58A176205DF0061E8B5 /* Frameworks */,
 				5BBFA589176205DF0061E8B5 /* Products */,
@@ -395,8 +466,8 @@
 		5BBFA589176205DF0061E8B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BBFA588176205DF0061E8B5 /* libEssentials.a */,
 				5BFBABDF1844BAC300179483 /* libEssentialsOSX.a */,
+				5BAFAAA8201A1424002312AE /* Essentials.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -522,6 +593,81 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5BAFAAA5201A1424002312AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BAFAAB0201A1461002312AE /* Foundation+Essentials.h in Headers */,
+				5BAFAB32201A16A5002312AE /* TypedCollectionLiterals.h in Headers */,
+				5BAFAAC0201A1462002312AE /* NSError+Essentials.h in Headers */,
+				5BAFAAE2201A1462002312AE /* ESSCatch.h in Headers */,
+				5BAFAB14201A1469002312AE /* UIViewController+Essentials.h in Headers */,
+				5BAFAAB6201A1462002312AE /* NSString+Essentials.h in Headers */,
+				5BAFAAEC201A1462002312AE /* NSCharacterSet+Essentials.h in Headers */,
+				5BAFAAD8201A1462002312AE /* NSURLRequest+Essentials.h in Headers */,
+				5BAFAAE4201A1462002312AE /* NSBundle+Essentials.h in Headers */,
+				5BAFAAE8201A1462002312AE /* NSMapTable+Essentials.h in Headers */,
+				5BAFAB02201A1469002312AE /* UIView+Essentials.h in Headers */,
+				5BAFAB24201A1473002312AE /* CoreImage+Essentials.h in Headers */,
+				5BAFAAC4201A1462002312AE /* NSInvocation+Essentials.h in Headers */,
+				5BAFAB18201A1469002312AE /* ESSDrawView.h in Headers */,
+				5BAFAACA201A1462002312AE /* NSDate+Essentials.h in Headers */,
+				5BAFAAC8201A1462002312AE /* NSTimer+Essentials.h in Headers */,
+				5BAFAB35201A16A5002312AE /* TypedNSFastEnumeration.h in Headers */,
+				5BAFAB0A201A1469002312AE /* NSMutableAttributedString+Essentials.h in Headers */,
+				5BAFAAD0201A1462002312AE /* NSSortDescriptor+Essentials.h in Headers */,
+				5BAFAB36201A16A5002312AE /* Typed.h in Headers */,
+				5BAFAAF4201A1462002312AE /* ESSHash.h in Headers */,
+				5BAFAAF0201A1462002312AE /* JSON.h in Headers */,
+				5BAFAAC6201A1462002312AE /* NSOperationQueue+Essentials.h in Headers */,
+				5BAFAB2A201A14C7002312AE /* Essentials.h in Headers */,
+				5BAFAAEE201A1462002312AE /* ESSEvent.h in Headers */,
+				5BAFAACE201A1462002312AE /* NSUUID+Essentials.h in Headers */,
+				5BAFAB34201A16A5002312AE /* TypedNSCopying.h in Headers */,
+				5BAFAAD6201A1462002312AE /* NSURLSession+Essentials.h in Headers */,
+				5BAFAB0E201A1469002312AE /* UIFont+Essentials.h in Headers */,
+				5BAFAB20201A1469002312AE /* UIContextualAction+Essentials.h in Headers */,
+				5BAFAAF8201A1469002312AE /* UIAlertController+Essentials.h in Headers */,
+				5BAFAABE201A1462002312AE /* NSMutableDictionary+Essentials.h in Headers */,
+				5BAFAB08201A1469002312AE /* NSAttributedString+Essentials.h in Headers */,
+				5BAFAAB4201A1461002312AE /* NSObject+Essentials.h in Headers */,
+				5BAFAB1A201A1469002312AE /* UIButton+Essentials.h in Headers */,
+				5BAFAB1C201A1469002312AE /* UIControl+Essentials.h in Headers */,
+				5BAFAADA201A1462002312AE /* ESSURLResponse.h in Headers */,
+				5BAFAADE201A1462002312AE /* NSValue+Essentials.h in Headers */,
+				5BAFAB0C201A1469002312AE /* UITableView+Essentials.h in Headers */,
+				5BAFAAB2201A1461002312AE /* ESSLog.h in Headers */,
+				5BAFAAF2201A1462002312AE /* NSFileManager+Essentials.h in Headers */,
+				5BAFAB04201A1469002312AE /* UIScrollView+Essentials.h in Headers */,
+				5BAFAB1E201A1469002312AE /* UISwipeActionsConfiguration+Essentials.h in Headers */,
+				5BAFAB12201A1469002312AE /* UIBezierPath+Essentials.h in Headers */,
+				5BAFAB25201A1473002312AE /* CIContext+Essentials.h in Headers */,
+				5BAFAB27201A1473002312AE /* CIFilter+Essentials.h in Headers */,
+				5BAFAAFE201A1469002312AE /* UIImage+Essentials.h in Headers */,
+				5BAFAABC201A1462002312AE /* NSDictionary+Essentials.h in Headers */,
+				5BAFAADC201A1462002312AE /* ESSProxy.h in Headers */,
+				5BAFAB29201A1485002312AE /* jDateFormat.h in Headers */,
+				5BAFAB10201A1469002312AE /* UIBarButtonItem+Essentials.h in Headers */,
+				5BAFAAEA201A1462002312AE /* NSDateFormatter+Essentials.h in Headers */,
+				5BAFAAFC201A1469002312AE /* UIDevice+Essentials.h in Headers */,
+				5BAFAAE6201A1462002312AE /* NSMutableSet+Essentials.h in Headers */,
+				5BAFAAF6201A1469002312AE /* UIKit+Essentials.h in Headers */,
+				5BAFAAD4201A1462002312AE /* NSLocale+Essentials.h in Headers */,
+				5BAFAAB8201A1462002312AE /* NSArray+Essentials.h in Headers */,
+				5BAFAB00201A1469002312AE /* UIScreen+Essentials.h in Headers */,
+				5BAFAB16201A1469002312AE /* UIApplication+Essentials.h in Headers */,
+				5BAFAAE0201A1462002312AE /* NSCoder+Essentials.h in Headers */,
+				5BAFAACC201A1462002312AE /* NSData+Essentials.h in Headers */,
+				5BAFAB33201A16A5002312AE /* TypedKeyPaths.h in Headers */,
+				5BAFAABA201A1462002312AE /* NSMutableArray+Essentials.h in Headers */,
+				5BAFAB06201A1469002312AE /* NSShadow+Essentials.h in Headers */,
+				5BAFAAD2201A1462002312AE /* NSIndexPath+Essentials.h in Headers */,
+				5BAFAAC2201A1462002312AE /* NSNumber+Essentials.h in Headers */,
+				5BAFAB22201A1469002312AE /* ESSDragInteractionDelegate.h in Headers */,
+				5BAFAAFA201A1469002312AE /* UIColor+Essentials.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BFBABDD1844BAC300179483 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -555,13 +701,14 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5BBFA587176205DF0061E8B5 /* Essentials */ = {
+		5BAFAAA7201A1424002312AE /* Essentials */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BBFA5AD176205DF0061E8B5 /* Build configuration list for PBXNativeTarget "Essentials" */;
+			buildConfigurationList = 5BAFAAAD201A1424002312AE /* Build configuration list for PBXNativeTarget "Essentials" */;
 			buildPhases = (
-				5BBFA584176205DF0061E8B5 /* Sources */,
-				5BBFA585176205DF0061E8B5 /* Frameworks */,
-				5BBFA586176205DF0061E8B5 /* CopyFiles */,
+				5BAFAAA3201A1424002312AE /* Sources */,
+				5BAFAAA4201A1424002312AE /* Frameworks */,
+				5BAFAAA5201A1424002312AE /* Headers */,
+				5BAFAAA6201A1424002312AE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -569,8 +716,8 @@
 			);
 			name = Essentials;
 			productName = Essentials;
-			productReference = 5BBFA588176205DF0061E8B5 /* libEssentials.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 5BAFAAA8201A1424002312AE /* Essentials.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		5BFBABDE1844BAC300179483 /* Essentials OS X */ = {
 			isa = PBXNativeTarget;
@@ -598,6 +745,13 @@
 				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Tricertops;
+				TargetAttributes = {
+					5BAFAAA7201A1424002312AE = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = TAQH2MQM62;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -617,7 +771,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				5BBFA587176205DF0061E8B5 /* Essentials */,
+				5BAFAAA7201A1424002312AE /* Essentials */,
 				5BFBABDE1844BAC300179483 /* Essentials OS X */,
 			);
 		};
@@ -633,71 +787,81 @@
 		};
 /* End PBXReferenceProxy section */
 
+/* Begin PBXResourcesBuildPhase section */
+		5BAFAAA6201A1424002312AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		5BBFA584176205DF0061E8B5 /* Sources */ = {
+		5BAFAAA3201A1424002312AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0C58721EDDCA7500DFE420 /* NSFileManager+Essentials.m in Sources */,
-				5B70C9871F73AE1A00A5F811 /* UIContextualAction+Essentials.m in Sources */,
-				5BBFA5B51762061F0061E8B5 /* NSString+Essentials.m in Sources */,
-				5B61079E19E6A7FB0071B547 /* NSURLRequest+Essentials.m in Sources */,
-				5BF8385C17EF6DAA0054CC07 /* UITableView+Essentials.m in Sources */,
-				5BB485D51A161C3900AB82BE /* UIBarButtonItem+Essentials.m in Sources */,
-				5BBFA5BE176213B50061E8B5 /* NSArray+Essentials.m in Sources */,
-				5B8A641E180AC74F00E0AEE8 /* NSDate+Essentials.m in Sources */,
-				5BBF9A771C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */,
-				5B5077A01C3E518F004F6745 /* NSMapTable+Essentials.m in Sources */,
-				5B269F441EF1134000F8BD4C /* ESSHash.m in Sources */,
-				5BE79BFD189BFCF0004A02B1 /* NSMutableDictionary+Essentials.m in Sources */,
-				5BE0A3101BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */,
-				5B1984EA1AEFC8D4006A6798 /* UIApplication+Essentials.m in Sources */,
-				5BBFA5C1176214D00061E8B5 /* NSMutableArray+Essentials.m in Sources */,
-				5B9E640E17BBC8A2008CB772 /* Foundation+Essentials.m in Sources */,
-				5BBFA5D117621E490061E8B5 /* NSError+Essentials.m in Sources */,
-				5B6C499C184F6A6C00C1D075 /* NSData+Essentials.m in Sources */,
-				5B2FED31200F437F00FDAB14 /* UIControl+Essentials.m in Sources */,
-				5B7A38C417C3A43300C2F24C /* NSMutableAttributedString+Essentials.m in Sources */,
-				5BBFA5D417621EC30061E8B5 /* NSInvocation+Essentials.m in Sources */,
-				5BE32D6719BB4D77002605B3 /* CIContext+Essentials.m in Sources */,
-				5BBFA5D717621F7A0061E8B5 /* NSOperationQueue+Essentials.m in Sources */,
-				5B79EA531A98E2670031ED59 /* NSCoder+Essentials.m in Sources */,
-				5B61079419E67A6B0071B547 /* NSURLSession+Essentials.m in Sources */,
-				5B2A32C31923AA05008E5B36 /* UIFont+Essentials.m in Sources */,
-				5B70C9831F73AD8000A5F811 /* UISwipeActionsConfiguration+Essentials.m in Sources */,
-				5B134100176223DC008F8F1E /* NSObject+Essentials.m in Sources */,
-				5B8B95051EBF5D64001E7097 /* JSON.m in Sources */,
-				5B3A0A471A6160E600B7B55C /* UIBezierPath+Essentials.m in Sources */,
-				5B13410717622CA1008F8F1E /* UIColor+Essentials.m in Sources */,
-				5BE8AABE19702FC300F0B09A /* NSIndexPath+Essentials.m in Sources */,
-				5BCA600C1B2197D100EFB683 /* UIAlertController+Essentials.m in Sources */,
-				5B13410A17622E0F008F8F1E /* UIDevice+Essentials.m in Sources */,
-				5B7493EC1EBE496900A96210 /* ESSEvent.m in Sources */,
-				5BE79C02189BFE69004A02B1 /* NSUUID+Essentials.m in Sources */,
-				5B61079919E6A5A00071B547 /* ESSURLResponse.m in Sources */,
-				5BE32D6A19BB4D77002605B3 /* CIFilter+Essentials.m in Sources */,
-				5B3379AF19F299D600CBE28C /* ESSLog.m in Sources */,
-				5B13410D17623C53008F8F1E /* NSDictionary+Essentials.m in Sources */,
-				5B1341101762401C008F8F1E /* UIImage+Essentials.m in Sources */,
-				5B61075A19E52E930071B547 /* NSLocale+Essentials.m in Sources */,
-				5B1725C21AC4465300832083 /* ESSCatch.m in Sources */,
-				5B13411517624235008F8F1E /* UIScreen+Essentials.m in Sources */,
-				5B22FCD11BD95A9400CBA87B /* NSMutableSet+Essentials.m in Sources */,
-				5B1EDF9D1ED00EF300DA9837 /* UIButton+Essentials.m in Sources */,
-				5BDDD3311F83D052006F2CB9 /* ESSDragInteractionDelegate.m in Sources */,
-				5B1E48B41AF67107007941E1 /* ESSDrawView.m in Sources */,
-				5B7A38C117C39E5500C2F24C /* NSAttributedString+Essentials.m in Sources */,
-				5BE4752A18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */,
-				5BAC18081CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */,
-				5BD8A63A1AACB42400B0C398 /* UIViewController+Essentials.m in Sources */,
-				5B134118176243C2008F8F1E /* UIView+Essentials.m in Sources */,
-				5B6D195017749EC900FA2E3E /* NSNumber+Essentials.m in Sources */,
-				5FC56AB0177B3ACE00AB6A4A /* UIScrollView+Essentials.m in Sources */,
-				5B79EA581A98F5400031ED59 /* NSValue+Essentials.m in Sources */,
-				5B74A63919D45F5B00B04E07 /* ESSProxy.m in Sources */,
-				5BFDDE3D19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
-				5B6D199A177C465200FA2E3E /* UIKit+Essentials.m in Sources */,
-				5B9E640517BBB9AF008CB772 /* NSShadow+Essentials.m in Sources */,
+				5BAFAAB3201A1461002312AE /* ESSLog.m in Sources */,
+				5BAFAAD5201A1462002312AE /* NSLocale+Essentials.m in Sources */,
+				5BAFAAD1201A1462002312AE /* NSSortDescriptor+Essentials.m in Sources */,
+				5BAFAAE9201A1462002312AE /* NSMapTable+Essentials.m in Sources */,
+				5BAFAB28201A1473002312AE /* CIFilter+Essentials.m in Sources */,
+				5BAFAAF9201A1469002312AE /* UIAlertController+Essentials.m in Sources */,
+				5BAFAB21201A1469002312AE /* UIContextualAction+Essentials.m in Sources */,
+				5BAFAADF201A1462002312AE /* NSValue+Essentials.m in Sources */,
+				5BAFAAC7201A1462002312AE /* NSOperationQueue+Essentials.m in Sources */,
+				5BAFAB19201A1469002312AE /* ESSDrawView.m in Sources */,
+				5BAFAAE3201A1462002312AE /* ESSCatch.m in Sources */,
+				5BAFAB01201A1469002312AE /* UIScreen+Essentials.m in Sources */,
+				5BAFAAF1201A1462002312AE /* JSON.m in Sources */,
+				5BAFAAE1201A1462002312AE /* NSCoder+Essentials.m in Sources */,
+				5BAFAAC9201A1462002312AE /* NSTimer+Essentials.m in Sources */,
+				5BAFAAB5201A1462002312AE /* NSObject+Essentials.m in Sources */,
+				5BAFAABB201A1462002312AE /* NSMutableArray+Essentials.m in Sources */,
+				5BAFAACB201A1462002312AE /* NSDate+Essentials.m in Sources */,
+				5BAFAB15201A1469002312AE /* UIViewController+Essentials.m in Sources */,
+				5BAFAB0B201A1469002312AE /* NSMutableAttributedString+Essentials.m in Sources */,
+				5BAFAB1B201A1469002312AE /* UIButton+Essentials.m in Sources */,
+				5BAFAB17201A1469002312AE /* UIApplication+Essentials.m in Sources */,
+				5BAFAAF3201A1462002312AE /* NSFileManager+Essentials.m in Sources */,
+				5BAFAADB201A1462002312AE /* ESSURLResponse.m in Sources */,
+				5BAFAAC5201A1462002312AE /* NSInvocation+Essentials.m in Sources */,
+				5BAFAAB7201A1462002312AE /* NSString+Essentials.m in Sources */,
+				5BAFAAC3201A1462002312AE /* NSNumber+Essentials.m in Sources */,
+				5BAFAAFD201A1469002312AE /* UIDevice+Essentials.m in Sources */,
+				5BAFAAEB201A1462002312AE /* NSDateFormatter+Essentials.m in Sources */,
+				5BAFAADD201A1462002312AE /* ESSProxy.m in Sources */,
+				5BAFAB03201A1469002312AE /* UIView+Essentials.m in Sources */,
+				5BAFAAEF201A1462002312AE /* ESSEvent.m in Sources */,
+				5BAFAABF201A1462002312AE /* NSMutableDictionary+Essentials.m in Sources */,
+				5BAFAB26201A1473002312AE /* CIContext+Essentials.m in Sources */,
+				5BAFAAF5201A1462002312AE /* ESSHash.m in Sources */,
+				5BAFAB1F201A1469002312AE /* UISwipeActionsConfiguration+Essentials.m in Sources */,
+				5BAFAAFB201A1469002312AE /* UIColor+Essentials.m in Sources */,
+				5BAFAAB1201A1461002312AE /* Foundation+Essentials.m in Sources */,
+				5BAFAABD201A1462002312AE /* NSDictionary+Essentials.m in Sources */,
+				5BAFAB23201A1469002312AE /* ESSDragInteractionDelegate.m in Sources */,
+				5BAFAAD7201A1462002312AE /* NSURLSession+Essentials.m in Sources */,
+				5BAFAACF201A1462002312AE /* NSUUID+Essentials.m in Sources */,
+				5BAFAAFF201A1469002312AE /* UIImage+Essentials.m in Sources */,
+				5BAFAB07201A1469002312AE /* NSShadow+Essentials.m in Sources */,
+				5BAFAAE7201A1462002312AE /* NSMutableSet+Essentials.m in Sources */,
+				5BAFAACD201A1462002312AE /* NSData+Essentials.m in Sources */,
+				5BAFAB09201A1469002312AE /* NSAttributedString+Essentials.m in Sources */,
+				5BAFAAF7201A1469002312AE /* UIKit+Essentials.m in Sources */,
+				5BAFAAB9201A1462002312AE /* NSArray+Essentials.m in Sources */,
+				5BAFAB05201A1469002312AE /* UIScrollView+Essentials.m in Sources */,
+				5BAFAB0F201A1469002312AE /* UIFont+Essentials.m in Sources */,
+				5BAFAB11201A1469002312AE /* UIBarButtonItem+Essentials.m in Sources */,
+				5BAFAB0D201A1469002312AE /* UITableView+Essentials.m in Sources */,
+				5BAFAAE5201A1462002312AE /* NSBundle+Essentials.m in Sources */,
+				5BAFAAD9201A1462002312AE /* NSURLRequest+Essentials.m in Sources */,
+				5BAFAB13201A1469002312AE /* UIBezierPath+Essentials.m in Sources */,
+				5BAFAAC1201A1462002312AE /* NSError+Essentials.m in Sources */,
+				5BAFAAED201A1462002312AE /* NSCharacterSet+Essentials.m in Sources */,
+				5BAFAB1D201A1469002312AE /* UIControl+Essentials.m in Sources */,
+				5BAFAAD3201A1462002312AE /* NSIndexPath+Essentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,11 +909,63 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5BAFAAAE201A1424002312AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TAQH2MQM62;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.Essentials;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BAFAAAF201A1424002312AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TAQH2MQM62;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.Essentials;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5BBFA5AB176205DF0061E8B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -757,21 +973,25 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -782,12 +1002,11 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "Typed/** jDateFormat/**";
@@ -799,7 +1018,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -807,63 +1028,36 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "ESS_I_have_read_and_agree_to_the_ESSAssert_changes=YES";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "Typed/** jDateFormat/**";
 				VALIDATE_PRODUCT = YES;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
-			};
-			name = Release;
-		};
-		5BBFA5AE176205DF0061E8B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Essentials.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)/usr/lib/system\"",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5BBFA5AF176205DF0061E8B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Essentials.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)/usr/lib/system\"",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -920,20 +1114,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5BAFAAAD201A1424002312AE /* Build configuration list for PBXNativeTarget "Essentials" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BAFAAAE201A1424002312AE /* Debug */,
+				5BAFAAAF201A1424002312AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BBFA5AB176205DF0061E8B5 /* Debug */,
 				5BBFA5AC176205DF0061E8B5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BBFA5AD176205DF0061E8B5 /* Build configuration list for PBXNativeTarget "Essentials" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BBFA5AE176205DF0061E8B5 /* Debug */,
-				5BBFA5AF176205DF0061E8B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,10 +6,7 @@
 //  Copyright (c) 2013 iAdverti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-
-typedef double NSFloat;
+#import "Foundation+Essentials.h"
 
 
 

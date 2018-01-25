@@ -46,7 +46,7 @@
 
 
 
-@implementation NSArray (JSON)
+@implementation NSArray THIS_IS_NOT_MACRO (JSON)
 
 - (BOOL)isValidForJSONEncoding {
     return [NSJSONSerialization isValidJSONObject:self];
@@ -189,7 +189,7 @@
 
 
 
-@implementation NSArray (JSONCoding)
+@implementation NSArray THIS_IS_NOT_MACRO (JSONCoding)
 
 - (NSData *)encodeJSONDataPretty:(BOOL)pretty {
     NSJSONWritingOptions options = (pretty? NSJSONWritingPrettyPrinted : kNilOptions);

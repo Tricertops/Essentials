@@ -8,6 +8,7 @@
 
 #import "UIScreen+Essentials.h"
 #import "UIKit+Essentials.h"
+#import "UIImage+Essentials.h"
 
 
 

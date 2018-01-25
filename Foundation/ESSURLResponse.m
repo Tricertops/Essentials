@@ -7,7 +7,10 @@
 //
 
 #import "ESSURLResponse.h"
-#import "Foundation+Essentials.h"
+#import "NSObject+Essentials.h"
+#import "NSLocale+Essentials.h"
+#import "NSURLSession+Essentials.h"
+#import "NSOperationQueue+Essentials.h"
 
 
 

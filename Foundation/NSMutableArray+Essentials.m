@@ -7,7 +7,7 @@
 //
 
 #import "NSMutableArray+Essentials.h"
-#import "Foundation+Essentials.h"
+#import "NSArray+Essentials.h"
 
 
 
