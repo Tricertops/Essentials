@@ -134,8 +134,8 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 ESSSharedMake(NSSet<NSString *> *,ess_signatureClassList) {
-    NSMutableSet<NSString *> *builder = [[NSMutableSet alloc] init];
-    NSMutableSet<NSString *> *excluded = [NSMutableSet set];
+    NSMutableSet<NSString *> *builder = [NSMutableSet new];
+    NSMutableSet<NSString *> *excluded = [NSMutableSet new];
     
     int count = objc_getClassList(NULL, 0);
     Class *classes = (Class *)malloc(sizeof(Class) * count);

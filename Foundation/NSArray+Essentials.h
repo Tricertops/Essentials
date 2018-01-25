@@ -155,7 +155,7 @@
 (NSMutableArray<id> *)({\
     va_list list;\
     va_start(list, FIRST);\
-    NSMutableArray<id> *objects = [[NSMutableArray alloc] init];\
+    NSMutableArray<id> *objects = [NSMutableArray new];\
     id object = FIRST;\
     while (object) {\
         [objects addObject:object];\

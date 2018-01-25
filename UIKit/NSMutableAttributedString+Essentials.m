@@ -293,7 +293,7 @@
 
 
 - (NSAttributedString *)fitIntoSize:(CGSize)size minimumScaleFactor:(CGFloat)scale {
-    NSStringDrawingContext *drawingSettings = [[NSStringDrawingContext alloc] init];
+    NSStringDrawingContext *drawingSettings = [NSStringDrawingContext new];
     drawingSettings.minimumScaleFactor = scale;
     [self boundingRectWithSize:size
                        options:NSStringDrawingUsesLineFragmentOrigin

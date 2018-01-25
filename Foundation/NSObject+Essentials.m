@@ -300,7 +300,7 @@ Class ESSSubclass(Class superclass, NSString *name, void (^customizations)(Class
 
 NSMutableArray<Class> * ESSSuperclasses(Class class) {
     Class superclass = class_getSuperclass(class);
-    NSMutableArray<Class> *superclasses = [NSMutableArray array];
+    NSMutableArray<Class> *superclasses = [NSMutableArray new];
     while (superclass) {
         [superclasses addObject:superclass];
         superclass = class_getSuperclass(superclass);

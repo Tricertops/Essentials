@@ -306,7 +306,7 @@
 
 
 - (NSShadow *)shadow {
-    NSShadow *shadow = [[NSShadow alloc] init];
+    NSShadow *shadow = [NSShadow new];
     shadow.shadowOffset = self.layer.shadowOffset;
     UIColor *color = self.shadowColor;
     CGFloat alpha = CGColorGetAlpha(color.CGColor) * self.shadowAlpha;

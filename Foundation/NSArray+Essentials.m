@@ -109,7 +109,7 @@
 - (NSArray<id> *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *mutable = [NSMutableArray new];
     foreach (object, self) {
         id mapped = block(object);
         if (mapped) [mutable addObject:mapped];
@@ -121,7 +121,7 @@
 - (NSArray<id> *)mapIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *mutable = [NSMutableArray new];
     NSUInteger index = 0;
     foreach (object, self) {
         id mapped = block(index, object);
@@ -133,7 +133,7 @@
 
 
 - (NSArray<id> *)filtered:(BOOL(^)(id object))block {
-    NSMutableArray<id> *mutable = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *mutable = [NSMutableArray new];
     foreach (object, self) {
         if (block(object)) [mutable addObject:object];
     }
@@ -190,7 +190,7 @@
 
 
 - (NSArray<id> *)flattenedArray {
-    NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *builder = [NSMutableArray new];
     foreach (object, self) {
         if ([object isKindOfClass: NSArray.class]) {
             [builder addObjectsFromArray:object];
@@ -204,7 +204,7 @@
 
 
 - (NSArray<NSArray<id> *> *)splitArrayByCount:(NSUInteger)count {
-    NSMutableArray<id> *builder = [[NSMutableArray alloc] init];
+    NSMutableArray<id> *builder = [NSMutableArray new];
     forcount (index, self.count, count) {
         NSArray<id> *subarray = [self valuesInRange:NSRangeMake(index, count)];
         [builder addObject:subarray];

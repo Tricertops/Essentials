@@ -138,7 +138,7 @@
 
 
 - (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset {
-    NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
+    NSMutableIndexSet *indexes = [NSMutableIndexSet new];
     NSRange searchRange = NSMakeRange(0, self.length);
     
     while (INFINITY) {
