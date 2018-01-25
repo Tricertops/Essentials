@@ -31,13 +31,13 @@
 
 
 + (NSUUID *)UUIDWithHexString:(NSString *)hexString {
-    NSData *data = [NSData dataWithHexadecimalString:hexString];
+    let data = [NSData dataWithHexadecimalString:hexString];
     return [self UUIDWithData:data];
 }
 
 
 + (NSUUID *)UUIDWithBase64String:(NSString *)base64String {
-    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String options:kNilOptions];
+    let data = [[NSData alloc] initWithBase64EncodedString:base64String options:kNilOptions];
     return [self UUIDWithData:data];
 }
 

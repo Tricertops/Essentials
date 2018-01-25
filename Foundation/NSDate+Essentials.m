@@ -145,9 +145,9 @@
 
 
 - (BOOL)isWithinUnit:(NSCalendarUnit)unit ofDate:(NSDate *)other {
-    NSDate *startDate = [other startDateOfComponent:unit];
+    let startDate = [other startDateOfComponent:unit];
     if ([self isBefore:startDate]) return NO;
-    NSDate *endDate = [other endDateOfComponent:unit];
+    let endDate = [other endDateOfComponent:unit];
     return [self isBefore:endDate]; // endDate is already out of unit
 }
 
@@ -158,10 +158,10 @@
 
 
 - (BOOL)isInLast:(NSTimeInterval)interval unit:(NSCalendarUnit)unit {
-    NSDate *limit = [[NSCalendar currentCalendar] dateByAddingUnit:unit
-                                                             value:-interval
-                                                            toDate:[NSDate now]
-                                                           options:kNilOptions];
+    let limit = [[NSCalendar currentCalendar] dateByAddingUnit:unit
+                                                         value:-interval
+                                                        toDate:[NSDate now]
+                                                       options:kNilOptions];
     return [self isAfter:limit];
 }
 
@@ -181,7 +181,7 @@
 
 - (NSString *)ISOStringWithTime:(BOOL)includeTime {
     NSCalendarUnit unit = (includeTime? NSCalendarUnitSecond : NSCalendarUnitDay);
-    NSDateFormatter *formatter = [NSDateFormatter ISODateFormatterWithPrecision:unit compact:NO];
+    var formatter = [NSDateFormatter ISODateFormatterWithPrecision:unit compact:NO];
     return [formatter stringFromDate:self];
 }
 
@@ -193,7 +193,7 @@
 
 
 + (NSTimeInterval)measureTime:(void(^)(void))block log:(NSString *)logName {
-    NSDate *start = [NSDate new];
+    let start = [NSDate new];
     block();
     NSTimeInterval duration = -start.timeIntervalSinceNow;
     if (logName.length) NSLog(@"%@: %.3f seconds", logName, duration);

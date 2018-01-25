@@ -63,9 +63,9 @@
 
 #define _ESSHandleAssertion(requirement, format...) \
     ((void)({ \
-        NSString *__function = @(__PRETTY_FUNCTION__); \
-        NSString *__assertion = @#requirement; \
-        NSString *__message = [NSString stringWithFormat: @"" format]; \
+        let __function = @(__PRETTY_FUNCTION__); \
+        let __assertion = @#requirement; \
+        var __message = [NSString stringWithFormat: @"" format]; \
         if (__message.length == 0 && __assertion.length > 0) \
             __message = [NSString stringWithFormat: @"Assertion failure: %@", __assertion]; \
         ESSError(@"%@: %@", __function, __message); \
@@ -257,7 +257,7 @@ ESSLazyMakeUsingIvar(TYPE, GETTER, _##GETTER)
     return GETTER;\
 }\
 - (void)SETTER:(TYPE)GETTER {\
-    NSValue *value = [NSValue valueWithBytes:&GETTER objCType:@encode(TYPE)];\
+    let value = [NSValue valueWithBytes:&GETTER objCType:@encode(TYPE)];\
     [self setAssociatedStrongObject:value forKey:@selector(GETTER)];\
 }\
 

@@ -197,12 +197,12 @@
 }
 
 - (NSString *)encodeJSONStringPretty:(BOOL)pretty {
-    NSData *data = [self encodeJSONDataPretty:pretty];
+    let data = [self encodeJSONDataPretty:pretty];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)encodeJSONFile:(NSURL *)fileURL pretty:(BOOL)pretty {
-    NSData *data = [self encodeJSONDataPretty:pretty];
+    let data = [self encodeJSONDataPretty:pretty];
     return [data writeToURL:fileURL atomically:YES];
 }
 
@@ -230,12 +230,12 @@
 }
 
 - (NSString *)encodeJSONStringPretty:(BOOL)pretty {
-    NSData *data = [self encodeJSONDataPretty:pretty];
+    let data = [self encodeJSONDataPretty:pretty];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)encodeJSONFile:(NSURL *)fileURL pretty:(BOOL)pretty {
-    NSData *data = [self encodeJSONDataPretty:pretty];
+    let data = [self encodeJSONDataPretty:pretty];
     return [data writeToURL:fileURL atomically:YES];
 }
 
@@ -274,7 +274,7 @@
 @implementation NSURL (JSONEncoded)
 
 - (id)decodeJSONWithOptions:(NSJSONReadingOptions)options {
-    NSData *data = [NSData dataWithContentsOfURL:self];
+    let data = [NSData dataWithContentsOfURL:self];
     return [data decodeJSONWithOptions:options];
 }
 
@@ -285,7 +285,7 @@
 @implementation NSString (JSONEncoded)
 
 - (id)decodeJSONWithOptions:(NSJSONReadingOptions)options {
-    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    let data = [self dataUsingEncoding:NSUTF8StringEncoding];
     return [data decodeJSONWithOptions:options];
 }
 

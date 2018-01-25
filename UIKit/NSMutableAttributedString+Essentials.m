@@ -58,7 +58,7 @@
 {
     if ( ! self.length) return;
     
-    let immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
+    NSParagraphStyle *immutable = [self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil] ?: [NSParagraphStyle defaultParagraphStyle];
     var mutable = [immutable mutableCopy];
     block(mutable);
     self.paragraphStyle = mutable;
@@ -340,7 +340,7 @@
 
 
 - (void)applySuperscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
-    let existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
     let superscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];
@@ -376,7 +376,7 @@
 
 
 - (void)applySubscriptWithScale:(CGFloat)scale inRange:(NSRange)range {
-    let existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
+    UIFont *existingFont = [self attribute:NSFontAttributeName atIndex:range.location effectiveRange:nil];
     ESSAssert(existingFont, @"Attributed string must have defined font in given range.") else return;
     
     let subscriptFont = [existingFont fontWithSize:existingFont.pointSize * scale];

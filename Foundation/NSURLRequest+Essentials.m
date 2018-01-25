@@ -16,7 +16,7 @@
 
 
 + (instancetype)requestWithMethod:(NSString *)HTTPMethod URL:(NSURL *)URL headers:(NSDictionary<NSString *, NSString *> *)headers body:(id<ESSURLRequestBody>)body {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+    var request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = HTTPMethod;
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
         [request addValue:value forHTTPHeaderField:field];
@@ -37,7 +37,7 @@
 
 
 - (void)setBody:(id<ESSURLRequestBody>)body {
-    NSURL *URL = [body essURLRequestBodyFileURL];
+    let URL = [body essURLRequestBodyFileURL];
     if (URL) {
         self.HTTPBodyStream = [NSInputStream inputStreamWithURL:URL];
     }

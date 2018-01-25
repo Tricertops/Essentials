@@ -88,7 +88,7 @@
 
 
 - (void)flatten {
-    NSMutableArray<id> *builder = [NSMutableArray new];
+    var builder = [NSMutableArray<id> new];
     foreach (subarray, self) {
         [builder addObjectsFromArray:(NSArray<id> *)subarray];
     }

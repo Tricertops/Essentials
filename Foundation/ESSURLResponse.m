@@ -66,8 +66,8 @@
             self->_MIMEType = response.MIMEType;
             self->_encoding = [self.class stringEncodingFromEncodingName:response.textEncodingName];
             
-            NSDateFormatter *formatter = [self.class HTTPDateFormatter];
-            NSString *lastModified = [self.headers objectForKey:@"Last-Modified"];
+            var formatter = [self.class HTTPDateFormatter];
+            let lastModified = [self.headers objectForKey:@"Last-Modified"];
             self->_lastModified = [formatter dateFromString:lastModified];
         }{
             self.data = data;
@@ -76,7 +76,7 @@
             
             if (self.location.isFileURL) {
                 NSError *error = nil;
-                NSDictionary<NSString *, id> *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.location.path error:&error];
+                let attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.location.path error:&error];
                 self.fileError = error;
                 self->_length = [[attributes objectForKey:NSFileSize] unsignedIntegerValue];
             }
@@ -156,7 +156,7 @@
 
 
 ESSSharedMake(NSDateFormatter *, HTTPDateFormatter) {
-    NSDateFormatter *formatter = [NSDateFormatter new];
+    var formatter = [NSDateFormatter new];
     formatter.locale = [NSLocale standardizedLocale];
     formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     formatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
@@ -171,9 +171,9 @@ ESSSharedMake(NSDateFormatter *, HTTPDateFormatter) {
 
 
 ESSLazyMake(NSString *, string) {
-    NSData *data = self.data;
+    let data = self.data;
     if ( ! data.length) return nil;
-    NSString *string = [[NSString alloc] initWithData:data encoding:self.encoding];
+    let string = [[NSString alloc] initWithData:data encoding:self.encoding];
     if ( ! string) {
         self.decodingError = [NSError errorWithDomain:NSCocoaErrorDomain
                                                  code:NSFileReadUnknownStringEncodingError
@@ -194,7 +194,7 @@ ESSLazyLoad(NSArray<id> *, JSONArray) {
 
 
 - (void)loadJSON {
-    NSData *data = self.data;
+    let data = self.data;
     if ( ! data.length) return;
     NSError *error = nil;
     id JSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -225,7 +225,7 @@ ESSLazyLoad(NSArray<id> *, propertyListArray) {
 
 
 - (void)loadPropertyList {
-    NSData *data = self.data;
+    let data = self.data;
     if ( ! data.length) return;
     NSError *error = nil;
     id plist = [NSPropertyListSerialization propertyListWithData:data options:kNilOptions format:NULL error:&error];
@@ -243,7 +243,7 @@ ESSLazyLoad(NSArray<id> *, propertyListArray) {
 
 - (BOOL)loadLocationURLToData {
     NSError *error = nil;
-    NSData *data = [NSData dataWithContentsOfURL:self.location options:NSDataReadingMappedIfSafe error:&error];
+    let data = [NSData dataWithContentsOfURL:self.location options:NSDataReadingMappedIfSafe error:&error];
     self.data = data;
     self.fileError = error;
     return (data != nil);
@@ -260,8 +260,8 @@ ESSLazyLoad(NSArray<id> *, propertyListArray) {
 
 
 - (BOOL)moveToCaches {
-    NSArray<NSURL *> *cachesDirs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    NSURL *cacheURL = [cachesDirs firstObject];
+    let cachesDirs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    var cacheURL = [cachesDirs firstObject];
     cacheURL = [cacheURL URLByAppendingPathComponent:NSStringFromClass(self.class) isDirectory:YES];
     cacheURL = [cacheURL URLByAppendingPathComponent:self.location.lastPathComponent];
     return [self moveTo:cacheURL];
@@ -286,8 +286,8 @@ ESSLazyLoad(NSArray<id> *, propertyListArray) {
 
 
 - (BOOL)retryAfter:(NSTimeInterval)delay {
-    NSURLSession *session = self.session;
-    NSURLRequest *request = self.request;
+    var session = self.session;
+    var request = self.request;
     ESSURLResponseBlock handler = self.handler;
     BOOL isFileDownload = (self.location != nil);
     BOOL canRetry = (session != nil && request != nil && handler != nil);

@@ -29,7 +29,7 @@
 
 
 + (instancetype)lineFrom:(CGPoint)start to:(CGPoint)end {
-    var line = [self new];
+    var line = [UIBezierPath new];
     [line moveToPoint:start];
     [line addLineToPoint:end];
     return line;
@@ -37,7 +37,7 @@
 
 
 + (instancetype)lineFrom:(CGPoint)start by:(CGPoint)delta {
-    var line = [self new];
+    var line = [UIBezierPath new];
     [line moveToPoint:start];
     [line addLineToPoint:CGPointAdd(start, delta)];
     return line;
@@ -65,7 +65,7 @@
 
 
 + (instancetype)combinedPathFromPaths:(NSArray<UIBezierPath *> *)paths {
-    var path = [self new];
+    var path = [UIBezierPath new];
     foreach (subpath, paths) {
         [path appendPath:subpath];
     }

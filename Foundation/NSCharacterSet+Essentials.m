@@ -28,7 +28,7 @@
 
 
 + (instancetype)characterSetByMerging:(NSArray<NSCharacterSet *> *)characterSets {
-    NSMutableCharacterSet *unionCharSet = [NSMutableCharacterSet new];
+    var unionCharSet = [NSMutableCharacterSet new];
     foreach (charSet, characterSets) {
         [unionCharSet formUnionWithCharacterSet:charSet];
     }
@@ -42,7 +42,7 @@
 
 
 - (instancetype)characterSetByIntersectionWithSet:(NSCharacterSet *)characterSet {
-    NSMutableCharacterSet *intersectionCharSet = [self mutableCopy];
+    var intersectionCharSet = [self mutableCopy];
     [intersectionCharSet formUnionWithCharacterSet:characterSet];
     return intersectionCharSet;
 }

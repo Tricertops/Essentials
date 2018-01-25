@@ -92,8 +92,8 @@
 + (void)swizzleClass:(Class)class selector:(SEL)originalSelector with:(SEL)replacementSelector {
     /// http://nshipster.com/method-swizzling/
     
-    Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    Method replacementMethod = class_getInstanceMethod(class, replacementSelector);
+    var originalMethod = class_getInstanceMethod(class, originalSelector);
+    var replacementMethod = class_getInstanceMethod(class, replacementSelector);
     
     BOOL didAdd = class_addMethod(class,
                                   originalSelector,
@@ -116,7 +116,7 @@
 
 
 + (void)swizzleSelector:(SEL)selector usingBlock:(ESSSwizzleBlock)swizzleBlock {
-    Method method = class_getInstanceMethod(self, selector);
+    var method = class_getInstanceMethod(self, selector);
     IMP originalImplementation = method_getImplementation(method);
     
     id replacementBlock = swizzleBlock(selector, originalImplementation);
@@ -154,14 +154,14 @@
 
 
 - (NSArray<Class> *)classes {
-    NSMutableArray<Class> *superclasses = ESSSuperclasses(self.class);
+    var superclasses = ESSSuperclasses(self.class);
     [superclasses insertObject:self.class atIndex:0];
     return superclasses;
 }
 
 
 - (Class)rootClass {
-    Class class = [self class];
+    var class = [self class];
     while (class) {
         class = [class superclass];
     }
@@ -193,7 +193,7 @@
 - (instancetype)collectionOfClass:(Class)class or:(id)replacement {
     if ( ! [self conformsToProtocol:@protocol(NSFastEnumeration)]) return replacement;
     
-    NSObject<NSFastEnumeration> *collection = (typeof(collection))self;
+    var collection = (NSObject<NSFastEnumeration> *)self;
     for (id object in collection) {
         if ( ! [object isKindOfClass:class]) {
             return replacement;
@@ -216,10 +216,10 @@
 - (void)swizzleClassWithSuffix:(NSString *)nameSuffix customizations:(void (^)(Class))customizationBlock {
     ESSAssert(nameSuffix.length > 0) else return;
     
-    Class originalClass = object_getClass(self);
-    NSString *originalName = @(class_getName(originalClass));
-    NSString *newName = [originalName stringByAppendingString:nameSuffix];
-    Class newClass = ESSSubclass(originalClass, newName, customizationBlock);
+    let originalClass = object_getClass(self);
+    let originalName = @(class_getName(originalClass));
+    let newName = [originalName stringByAppendingString:nameSuffix];
+    let newClass = ESSSubclass(originalClass, newName, customizationBlock);
     
     object_setClass(self, newClass);
 }
@@ -232,7 +232,7 @@
     ESSAssert([self isSubclassOfClass:superclass]) else return NO;
     
     IMP implementation = imp_implementationWithBlock(anyBlock);
-    Method originalMethod = class_getInstanceMethod(superclass, selector);
+    var originalMethod = class_getInstanceMethod(superclass, selector);
     const char *types = method_getTypeEncoding(originalMethod);
     
     return class_addMethod(self, selector, implementation, types);
@@ -247,7 +247,7 @@
 
 - (void)locked:(void(^)(void))block {
     if ([self conformsToProtocol:@protocol(NSLocking)]) {
-        id<NSLocking> lock = (id<NSLocking>)self;
+        var lock = (id<NSLocking>)self;
         [lock lock];
         block();
         [lock unlock];
@@ -263,7 +263,7 @@
 + (instancetype)measure:(id(^)(void))block log:(NSString *)format, ... {
     CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
     id instance = block();
-    NSString *log = NSStringFromFormat(format);
+    let log = NSStringFromFormat(format);
     CFAbsoluteTime duration = CFAbsoluteTimeGetCurrent() - start;
     if (log.length) NSLog(@"%@: %.3f seconds", log, duration);
     return [self cast:instance];
@@ -283,7 +283,7 @@ Class ESSSubclass(Class superclass, NSString *name, void (^customizations)(Class
     ESSAssert(superclass != Nil, @"Cannot subclass Nil!") else return Nil;
     ESSAssert(name.length > 0, @"Cannot create class with no name!") else return superclass;
     
-    Class subclass = NSClassFromString(name);
+    var subclass = NSClassFromString(name);
     
     if ( ! subclass) {
         subclass = objc_allocateClassPair(superclass, name.UTF8String, 0);
@@ -299,8 +299,8 @@ Class ESSSubclass(Class superclass, NSString *name, void (^customizations)(Class
 
 
 NSMutableArray<Class> * ESSSuperclasses(Class class) {
-    Class superclass = class_getSuperclass(class);
-    NSMutableArray<Class> *superclasses = [NSMutableArray new];
+    var superclass = class_getSuperclass(class);
+    var superclasses = [NSMutableArray<Class> new];
     while (superclass) {
         [superclasses addObject:superclass];
         superclass = class_getSuperclass(superclass);

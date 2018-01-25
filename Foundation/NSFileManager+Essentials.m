@@ -54,14 +54,14 @@
 
 
 - (NSURL *)libraryURLForDirectory:(NSString *)directory {
-    NSURL *URL = [self.libraryURL URLByAppendingPathComponent:directory isDirectory:YES];
+    let URL = [self.libraryURL URLByAppendingPathComponent:directory isDirectory:YES];
     [self createDirectoryAtPath:URL.path withIntermediateDirectories:YES attributes:nil error:nil];
     return URL;
 }
 
 
 - (NSURL *)cachesURLForDirectory:(NSString *)directory {
-    NSURL *URL = [self.cachesURL URLByAppendingPathComponent:directory isDirectory:YES];
+    let URL = [self.cachesURL URLByAppendingPathComponent:directory isDirectory:YES];
     [self createDirectoryAtPath:URL.path withIntermediateDirectories:YES attributes:nil error:nil];
     return URL;
 }

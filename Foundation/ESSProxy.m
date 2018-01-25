@@ -66,7 +66,7 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
         return collection;
     } signature:^NSMethodSignature *(SEL selector) {
         for (id object in collection) {
-            NSMethodSignature *signature = [object methodSignatureForSelector:selector];
+            let signature = [object methodSignatureForSelector:selector];
             if (signature) return signature;
         }
         return [self giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
@@ -116,12 +116,12 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
     
     // I didn’t made this up by myself, it was Nick Lockwood https://github.com/nicklockwood/NullSafe/blob/master/NullSafe/NullSafe.m. Kindly stolen and refactored.
     
-    NSString *key = NSStringFromSelector(selector);
-    NSCache *cache = [self ess_signatureCache];
+    let key = NSStringFromSelector(selector);
+    var cache = [self ess_signatureCache];
     NSMethodSignature *signature = [cache objectForKey:key];
     if ( ! signature) {
         foreach (className, [self ess_signatureClassList]) {
-            Class class = NSClassFromString(className);
+            let class = NSClassFromString(className);
             signature = [class instanceMethodSignatureForSelector:selector];
             if (signature) break;
         }
@@ -134,17 +134,17 @@ typedef void (^ESSProxyForwardInvocationBlock)(NSInvocation *invocation);
 
 
 ESSSharedMake(NSSet<NSString *> *,ess_signatureClassList) {
-    NSMutableSet<NSString *> *builder = [NSMutableSet new];
-    NSMutableSet<NSString *> *excluded = [NSMutableSet new];
+    var builder = [NSMutableSet<NSString *> new];
+    var excluded = [NSMutableSet<NSString *> new];
     
     int count = objc_getClassList(NULL, 0);
     Class *classes = (Class *)malloc(sizeof(Class) * count);
     count = objc_getClassList(classes, count);
     
     forcount (index, count) {
-        Class class = classes[index];
+        let class = classes[index];
         
-        NSArray<Class> *superclasses = ESSSuperclasses(class);
+        let superclasses = ESSSuperclasses(class);
         
         foreach (superclass, superclasses) {
             [excluded addObject:NSStringFromClass(superclass)];
@@ -176,7 +176,7 @@ ESSSharedCache(ess_signatureCache)
 
 
 - (instancetype)threadSafe {
-    NSLock *lock = [NSLock new];
+    var lock = [NSLock new];
     return [[[ESSProxy subclass:@"ESSThreadSafeProxy"] alloc] initWithDescription:^id{
         return self;
     } signature:^NSMethodSignature *(SEL selector) {
@@ -191,15 +191,15 @@ ESSSharedCache(ess_signatureCache)
 
 
 - (instancetype)weakProxy {
-    Class class = self.class;
-    __weak typeof(self) weak = self;
+    let class = self.class;
+    __weak var weak = self;
     return [[[ESSProxy subclass:@"ESSWeakProxy"] alloc] initWithDescription:^id{
         return weak ?: [NSString stringWithFormat:@"deallocated instance of %@", class];
     } signature:^NSMethodSignature *(SEL selector) {
-        typeof(self) local = weak;
-        NSMethodSignature *signature = (local
-                                        ? [local methodSignatureForSelector:selector]
-                                        : [class instanceMethodSignatureForSelector:selector]);
+        var local = weak;
+        let signature = (local
+                         ? [local methodSignatureForSelector:selector]
+                         : [class instanceMethodSignatureForSelector:selector]);
         return signature ?: [ESSProxy giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
     } forward:^(NSInvocation *invocation) {
         [invocation invokeWithTarget:weak];
@@ -259,7 +259,7 @@ ESSSharedCache(ess_signatureCache)
     } signature:^NSMethodSignature *(SEL selector) {
         return [self methodSignatureForSelector:selector];
     } forward:^(NSInvocation *invocation) {
-        NSInvocation *multicasted = [invocation copy]; // Copy before.
+        var multicasted = [invocation copy]; // Copy before.
         
         [invocation invokeWithTarget:self];
         

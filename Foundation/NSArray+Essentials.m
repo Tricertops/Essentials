@@ -50,7 +50,7 @@
 
 
 + (instancetype)arrayWithCount:(NSUInteger)count builder:(id(^)(NSUInteger index))block {
-    NSMutableArray<id> *array = [NSMutableArray arrayWithCapacity:count];
+    var array = [NSMutableArray<id> arrayWithCapacity:count];
     forcount (index, count) {
         [array addObject:block(index)];
     }
@@ -109,7 +109,7 @@
 - (NSArray<id> *)map:(id(^)(id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray<id> *mutable = [NSMutableArray new];
+    var mutable = [NSMutableArray<id> new];
     foreach (object, self) {
         id mapped = block(object);
         if (mapped) [mutable addObject:mapped];
@@ -121,7 +121,7 @@
 - (NSArray<id> *)mapIndex:(id(^)(NSUInteger index, id object))block {
     NSParameterAssert(block);
     
-    NSMutableArray<id> *mutable = [NSMutableArray new];
+    var mutable = [NSMutableArray<id> new];
     NSUInteger index = 0;
     foreach (object, self) {
         id mapped = block(index, object);
@@ -133,7 +133,7 @@
 
 
 - (NSArray<id> *)filtered:(BOOL(^)(id object))block {
-    NSMutableArray<id> *mutable = [NSMutableArray new];
+    var mutable = [NSMutableArray<id> new];
     foreach (object, self) {
         if (block(object)) [mutable addObject:object];
     }
@@ -148,9 +148,9 @@
 
 
 - (NSMutableDictionary<id, id> *)dictionaryByMappingToKeys:(id<NSCopying>(^)(id value))block {
-    NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+    var dictionary = [NSMutableDictionary<id, id> dictionaryWithCapacity:self.count];
     foreach (value, self) {
-        id<NSCopying> key = block(value);
+        var key = block(value);
         if (key) {
             [dictionary setObject:value forKey:key];
         }
@@ -160,7 +160,7 @@
 
 
 - (NSMutableDictionary<id, id> *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
-    NSMutableDictionary<id, id> *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.count];
+    var dictionary = [NSMutableDictionary<id, id> dictionaryWithCapacity:self.count];
     foreach (key, self) {
         id value = block(key);
         if (value) {
@@ -172,7 +172,7 @@
 
 
 - (NSArray<id> *)arrayByRemovingObjectsFromSet:(NSSet<id> *)set {
-    NSMutableArray<id> *mutable = [NSMutableArray new];
+    var mutable = [NSMutableArray<id> new];
     foreach (object, self) {
         if ( ! [set containsObject:object]) {
             [mutable addObject:object];
@@ -190,7 +190,7 @@
 
 
 - (NSArray<id> *)flattenedArray {
-    NSMutableArray<id> *builder = [NSMutableArray new];
+    var builder = [NSMutableArray<id> new];
     foreach (object, self) {
         if ([object isKindOfClass: NSArray.class]) {
             [builder addObjectsFromArray:object];
@@ -204,9 +204,9 @@
 
 
 - (NSArray<NSArray<id> *> *)splitArrayByCount:(NSUInteger)count {
-    NSMutableArray<id> *builder = [NSMutableArray new];
+    var builder = [NSMutableArray<id> new];
     forcount (index, self.count, count) {
-        NSArray<id> *subarray = [self valuesInRange:NSRangeMake(index, count)];
+        let subarray = [self valuesInRange:NSRangeMake(index, count)];
         [builder addObject:subarray];
     }
     return builder;
@@ -226,8 +226,8 @@
 
 - (NSString *)componentsJoinedByString:(NSString *)separator lastString:(NSString *)lastSeparator {
     if (self.count > 1) {
-        NSArray<id> *selfWithoutLast = [self subarrayWithRange:NSMakeRange(0, self.count-1)];
-        NSString *string = [NSString stringWithFormat:@"%@%@%@", [selfWithoutLast componentsJoinedByString:separator], lastSeparator, self.lastObject];
+        let selfWithoutLast = [self subarrayWithRange:NSMakeRange(0, self.count-1)];
+        let string = [NSString stringWithFormat:@"%@%@%@", [selfWithoutLast componentsJoinedByString:separator], lastSeparator, self.lastObject];
         return string;
     }
     else {
@@ -270,7 +270,7 @@
 
 
 - (NSArray<id> *)arrayByRandomizingOrder {
-    NSMutableArray<id> *mutable = [self mutableCopy];
+    var mutable = [self mutableCopy];
     [mutable randomizeOrder];
     return [mutable copy];
 }

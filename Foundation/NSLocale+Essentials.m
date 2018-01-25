@@ -51,7 +51,7 @@
 
 
 - (NSString *)languageNameInLocale:(NSLocale *)localeOrNil {
-    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    let locale = localeOrNil ?: NSLocale.standardizedLocale;
     return [locale displayNameForKey:NSLocaleLanguageCode value:self.languageCode];
 }
 
@@ -67,7 +67,7 @@
 
 
 - (NSString *)countryNameInLocale:(NSLocale *)localeOrNil {
-    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    let locale = localeOrNil ?: NSLocale.standardizedLocale;
     return [locale displayNameForKey:NSLocaleCountryCode value:self.countryCode];
 }
 
@@ -168,7 +168,7 @@
 
 
 - (NSString *)currencyNameInLocale:(NSLocale *)localeOrNil {
-    NSLocale *locale = localeOrNil ?: NSLocale.standardizedLocale;
+    let locale = localeOrNil ?: NSLocale.standardizedLocale;
     return [locale displayNameForKey:NSLocaleCurrencyCode value:self.currencyCode];
 }
 
@@ -211,13 +211,13 @@ ESSSharedMake(NSLocale *, standardizedLocale) {
 
 
 + (instancetype)localeWithComponents:(NSDictionary<NSString *, id> *)components {
-    NSString *identifier = [NSLocale localeIdentifierFromComponents:components];
+    let identifier = [NSLocale localeIdentifierFromComponents:components];
     return [NSLocale localeWithLocaleIdentifier:identifier];
 }
 
 
 - (NSLocale *)localeWithComponentKeys:(NSArray<NSString *> *)keys {
-    NSDictionary<NSString *, id> *components = [keys dictionaryByMappingToValues:^id(NSString *key) {
+    let components = [keys dictionaryByMappingToValues:^id(NSString *key) {
         return [self objectForKey:key];
     }];
     return [NSLocale localeWithComponents:components];
@@ -225,7 +225,7 @@ ESSSharedMake(NSLocale *, standardizedLocale) {
 
 
 - (NSLocale *)localeWithComponents:(NSDictionary<NSString *, id> *)components {
-    NSDictionary<NSString *, id> *combinedComponents = [self.components dictionaryByAddingValuesFromDictionary:components];
+    let combinedComponents = [self.components dictionaryByAddingValuesFromDictionary:components];
     return [NSLocale localeWithComponents:combinedComponents];
 }
 

@@ -26,14 +26,14 @@
 
 
 + (NSData *)dataWithHexadecimalString:(NSString *)hexString {
-    NSArray<NSString *> *ignoringSymbols = @[@"-", @"\n", @" "];
+    let ignoringSymbols = @[@"-", @"\n", @" "];
     foreach (symbol, ignoringSymbols) {
         hexString = [hexString stringByReplacingOccurrencesOfString:symbol withString:@""];
     }
     
     const char *hex = [hexString cStringUsingEncoding:NSUTF8StringEncoding];
     NSUInteger length = strlen(hex);
-    NSMutableData *data = [NSMutableData dataWithCapacity:length];
+    var data = [NSMutableData dataWithCapacity:length];
     
     char byteHex[3] = { '\0', '\0', '\0'};
     forcount (index, length / 2) {
@@ -50,7 +50,7 @@
 
 - (NSString *)hexadecimalString {
     const unsigned char *data = [self bytes];
-    NSMutableString *hex = [NSMutableString stringWithCapacity:(self.length * 2)];
+    var hex = [NSMutableString stringWithCapacity:(self.length * 2)];
     
     forcount (index, self.length) {
         [hex appendFormat:@"%02x", (unsigned char)data[index]];

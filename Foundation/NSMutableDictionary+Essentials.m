@@ -34,7 +34,7 @@
 
 
 - (void)setObjects:(NSArray<id> *)objects forKeys:(NSArray<id> *)keys {
-    NSDictionary<id, id> *dictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    let dictionary = [NSDictionary<id, id> dictionaryWithObjects:objects forKeys:keys];
     [self addEntriesFromDictionary:dictionary];
 }
 

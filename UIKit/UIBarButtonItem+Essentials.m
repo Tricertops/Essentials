@@ -58,7 +58,7 @@
 
 
 + (instancetype)spaceWithWidth:(CGFloat)width {
-    var space = [self systemButton:UIBarButtonSystemItemFlexibleSpace];
+    var space = [UIBarButtonItem systemButton:UIBarButtonSystemItemFlexibleSpace];
     space.width = width;
     return space;
 }

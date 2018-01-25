@@ -22,7 +22,7 @@ static ESSLogLevel ESSLogLevelLimit = ESSLogLevelDebug;
 static void _ESSLogPrivate(ESSLogLevel level, NSString *message) {
     if (level < ESSLogLevelLimit) return;
     
-    NSString *threadInfo = NSThread.isMainThread? @"" : @"BACKGROUND ";
+    let threadInfo = NSThread.isMainThread? @"" : @"BACKGROUND ";
     NSLog(@"%@%@", threadInfo, message);
 }
 
@@ -43,37 +43,37 @@ static NSString * ESSLogLevelName(ESSLogLevel level) {
 
 
 void ESSDebug(NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     _ESSLogPrivate(ESSLogLevelDebug, message);
 }
 
 
 void ESSNotice(NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     _ESSLogPrivate(ESSLogLevelNotice, ESSString(@"╸%@╺", message));
 }
 
 
 void ESSWarning(NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     _ESSLogPrivate(ESSLogLevelWarning, ESSString(@"◆ Warning: %@ ◆", message));
 }
 
 
 void ESSError(NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     _ESSLogPrivate(ESSLogLevelError, ESSString(@">> Error: %@ <<", message));
 }
 
 
 void ESSCritical(NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     _ESSLogPrivate(ESSLogLevelCritical, ESSString(@"*** Critical: %@ ***", message));
 }
 
 
 void ESSLog(ESSLogLevel level, NSString *format, ...) {
-    NSString *message = NSStringFromFormat(format);
+    let message = NSStringFromFormat(format);
     if (level <= ESSLogLevelDebug) ESSDebug(@"%@", message);
     else if (level <= ESSLogLevelNotice) ESSNotice(@"%@", message); // Includes Info level.
     else if (level <= ESSLogLevelWarning) ESSWarning(@"%@", message);
@@ -94,7 +94,7 @@ ESSLogLevel ESSLogGetLevel(void) {
 
 
 ESSLogLevel ESSLogSetLevel(ESSLogLevel level) {
-    NSString *message = ESSString(@"Logging level set to: %@", ESSLogLevelName(level));
+    let message = ESSString(@"Logging level set to: %@", ESSLogLevelName(level));
     BOOL canLogBefore = (level >= ESSLogLevelLimit);
     if (canLogBefore) {
         _ESSLogPrivate(ESSLogLevelDebug, message);

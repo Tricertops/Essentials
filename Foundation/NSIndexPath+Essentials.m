@@ -22,7 +22,7 @@
 
 
 + (NSArray<NSIndexPath *> *)indexPathsForRowsInIndexSet:(NSIndexSet *)indexes inSection:(NSUInteger)section {
-    NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray new];
+    var indexPaths = [NSMutableArray<NSIndexPath *> new];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger row, BOOL *stop) {
         NSUInteger indexes[2] = { section, row };
         [indexPaths addObject:[NSIndexPath indexPathWithIndexes:indexes length:2]];

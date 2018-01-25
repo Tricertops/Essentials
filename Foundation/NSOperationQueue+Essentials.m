@@ -44,7 +44,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 + (instancetype)queueWithName:(NSString *)nameSuffix concurrent:(BOOL)isConcurrent qualityOfService:(NSQualityOfService)qos {
-    NSOperationQueue *queue = [NSOperationQueue new];
+    var queue = [NSOperationQueue new];
     NSString *appID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     queue.name = [appID stringByAppendingFormat:@".%@", nameSuffix ?: [[NSUUID UUID] UUIDString]];
     queue.maxConcurrentOperationCount = (isConcurrent? [self defaultMaxConcurrentOperationCount] : 1);
@@ -76,7 +76,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 - (NSOperation *)perform:(void(^)(void))block {
     if (block == nil) return nil;
     
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    var operation = [NSBlockOperation blockOperationWithBlock:block];
     if (self == [NSOperationQueue currentQueue]) {
         [operation start];
     }
@@ -90,7 +90,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 - (NSOperation *)asynchronous:(void(^)(void))block {
     if (block == nil) return nil;
     
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    var operation = [NSBlockOperation blockOperationWithBlock:block];
     [self addOperation:operation];
     return operation;
 }
@@ -99,7 +99,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 - (NSOperation *)delay:(NSTimeInterval)delay asynchronous:(void(^)(void))block {
     if (block == nil) return nil;
     
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
+    var operation = [NSBlockOperation blockOperationWithBlock:block];
     [NSTimer after:delay block:^{
         [self addOperation:operation];
     }];
@@ -111,7 +111,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 - (NSOperation *)asynchronous:(id (^)(void))backgroundBlock then:(void(^)(id x))foregroundBlock {
-    NSOperationQueue *originalQueue = [NSOperationQueue currentQueue];
+    var originalQueue = [NSOperationQueue currentQueue];
     return [self asynchronous:^{
         id x = backgroundBlock();
         
@@ -159,7 +159,7 @@ ESSSharedMake(NSOperationQueue *, backgroundQueue) {
 
 
 - (instancetype)initWithNameSuffix:(NSString *)nameSuffix numberOfConcurrentOperations:(NSUInteger)concurrent {
-    NSOperationQueue *queue = [self.class queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
+    var queue = [NSOperationQueue queueWithName:nameSuffix concurrent:YES qualityOfService:NSQualityOfServiceBackground];
     queue.maxConcurrentOperationCount = concurrent;
     return queue;
 }

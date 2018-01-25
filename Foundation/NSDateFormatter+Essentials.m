@@ -44,7 +44,7 @@
 + (NSDateFormatter *)ISODateFormatterWithFormat:(NSString *)format {
     if ( ! format.length) return nil;
     
-    NSDateFormatter *formatter = self.cachedISODateFormatters[format];
+    var formatter = self.cachedISODateFormatters[format];
     if ( ! formatter) {
         formatter = [NSDateFormatter new];
         formatter.locale = NSLocale.standardizedLocale;
@@ -100,8 +100,8 @@
     });
     
     foreach (format, supportedFormats) {
-        NSDateFormatter *formatter = [NSDateFormatter ISODateFormatterWithFormat:format];
-        NSDate *date = [formatter dateFromString:string];
+        var formatter = [NSDateFormatter ISODateFormatterWithFormat:format];
+        let date = [formatter dateFromString:string];
         if (date) return date;
     }
     return nil;
@@ -109,7 +109,7 @@
 
 
 + (NSDateFormatter *)ISODateFormatterWithPrecision:(NSCalendarUnit)unit compact:(BOOL)isCompact {
-    NSString *format = [self ISODateFormatWithPrecision:unit compact:isCompact];
+    let format = [self ISODateFormatWithPrecision:unit compact:isCompact];
     return [NSDateFormatter ISODateFormatterWithFormat:format];
 }
 

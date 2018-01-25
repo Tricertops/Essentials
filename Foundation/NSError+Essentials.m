@@ -19,7 +19,7 @@
 
 
 - (NSString *)underlayingLocalizedDescription {
-    NSString *myDescription = self.localizedDescription;
+    var myDescription = self.localizedDescription;
     NSError *underlayingError = [self.userInfo objectForKey:NSUnderlyingErrorKey];
     if (underlayingError) {
         myDescription = [myDescription stringByAppendingFormat:@": %@", underlayingError.localizedDescription];
@@ -38,7 +38,7 @@
 
 
 - (instancetype)errorByAddingUserInfo:(NSDictionary<NSString *, id> *)userInfo; {
-    NSMutableDictionary<NSString *, id> *mutableUserInfo = [NSMutableDictionary dictionaryWithDictionary:self.userInfo];
+    var mutableUserInfo = [self.userInfo mutableCopy];
     [mutableUserInfo addEntriesFromDictionary:userInfo];
     return [self.class errorWithDomain:self.domain code:self.code userInfo:mutableUserInfo];
 }

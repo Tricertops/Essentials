@@ -20,8 +20,8 @@
 
 
 + (instancetype)invocationWithTarget:(id)target selector:(SEL)sel {
-    NSMethodSignature *signature = [target methodSignatureForSelector:sel];
-    NSInvocation *invocation = [self invocationWithMethodSignature:signature];
+    let signature = [target methodSignatureForSelector:sel];
+    var invocation = [self invocationWithMethodSignature:signature];
     invocation.target = target;
     invocation.selector = sel;
     return invocation;

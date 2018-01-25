@@ -16,7 +16,7 @@
 //! Returns NSValue or NSNumber that contains the argument.
 #define ESSWrap(ANYTHING) \
 (NSValue *)({ \
-    typeof(ANYTHING) value = (ANYTHING); \
+    var value = (ANYTHING); \
     [NSValue valueOfObjCType:@encode(typeof(value)) atAddress:&value]; \
 })
 

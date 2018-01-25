@@ -59,38 +59,38 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 
 - (void(^)(NSData *, NSURLResponse *, NSError *))ess_dataCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
-    __weak NSURLSession *weakSession = self;
+    __weak var weakSession = self;
     return ^(NSData *data, NSURLResponse *response, NSError *error) {
-        ESSURLResponse *r = [[ESSURLResponse alloc] initWithSession:weakSession
-                                                            request:transfer.request
-                                                           response:[NSHTTPURLResponse cast:response]
-                                                               data:data
-                                                           location:nil
-                                                              error:error
-                                                            handler:block];
+        var r = [[ESSURLResponse alloc] initWithSession:weakSession
+                                                request:transfer.request
+                                               response:[NSHTTPURLResponse cast:response]
+                                                   data:data
+                                               location:nil
+                                                  error:error
+                                                handler:block];
         block(r);
     };
 }
 
 
 - (void(^)(NSURL *, NSURLResponse *, NSError *))ess_locationCompletionBlockForRequest:(ESSURLResponseRequestTransfer *)transfer handler:(ESSURLResponseBlock)block {
-    __weak NSURLSession *weakSession = self;
+    __weak var weakSession = self;
     return ^(NSURL *location, NSURLResponse *response, NSError *error) {
-        ESSURLResponse *r = [[ESSURLResponse alloc] initWithSession:weakSession
-                                                            request:transfer.request
-                                                           response:[NSHTTPURLResponse cast:response]
-                                                               data:nil
-                                                           location:location
-                                                              error:error
-                                                            handler:block];
+        var r = [[ESSURLResponse alloc] initWithSession:weakSession
+                                                request:transfer.request
+                                               response:[NSHTTPURLResponse cast:response]
+                                                   data:nil
+                                               location:location
+                                                  error:error
+                                                handler:block];
         block(r);
     };
 }
 
 
 - (NSURLSessionTask *)ess_configureTask:(NSURLSessionTask *(^)(ESSURLResponseRequestTransfer *transfer))block {
-    ESSURLResponseRequestTransfer *transfer = [ESSURLResponseRequestTransfer new];
-    NSURLSessionTask *task = block(transfer);
+    var transfer = [ESSURLResponseRequestTransfer new];
+    let task = block(transfer);
     transfer.request = task.originalRequest;
     [task resume];
     return task;
@@ -103,7 +103,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
             return [self downloadTaskWithRequest:request completionHandler:[self ess_locationCompletionBlockForRequest:transfer handler:handler]];
         }
         else {
-            NSData *bodyData = request.HTTPBody;
+            let bodyData = request.HTTPBody;
             if (bodyData) {
                 return [self uploadTaskWithRequest:request fromData:bodyData completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
             }
@@ -142,7 +142,7 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 - (NSURLSessionDataTask *)performMethod:(NSString *)method URL:(NSURL *)URL completion:(ESSURLResponseBlock)handler {
     return [NSURLSessionDataTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
-        NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
+        let request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
         return [self dataTaskWithRequest:request completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
     }]];
 }
@@ -178,8 +178,8 @@ ESSSharedMake(NSURLSession *, mainQueueSession) {
 
 - (NSURLSessionUploadTask *)performMethod:(NSString *)method URL:(NSURL *)URL payload:(id<ESSURLRequestBody>)payload completion:(ESSURLResponseBlock)handler {
     return [NSURLSessionUploadTask cast:[self ess_configureTask:^NSURLSessionTask *(ESSURLResponseRequestTransfer *transfer) {
-        NSURLRequest *request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
-        NSURL *payloadURL = [payload essURLRequestBodyFileURL];
+        let request = [NSURLRequest requestWithMethod:method URL:URL headers:nil body:nil];
+        let payloadURL = [payload essURLRequestBodyFileURL];
         if (payloadURL) {
             return [self uploadTaskWithRequest:request fromFile:payloadURL completionHandler:[self ess_dataCompletionBlockForRequest:transfer handler:handler]];
         }

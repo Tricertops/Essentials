@@ -28,7 +28,7 @@
 #define ESSEncode(IVAR) ESSEncodeCustom(self->IVAR, encoder, @#IVAR)
 #define ESSEncodeCustom(VALUE, ENCODER, KEY) \
 (void)({ \
-    typeof(VALUE) value = (VALUE); \
+    var value = (VALUE); \
     [(ENCODER) encodeValue:&value ofObjCType:@encode(typeof(value)) forKey:(KEY)]; \
 })
 

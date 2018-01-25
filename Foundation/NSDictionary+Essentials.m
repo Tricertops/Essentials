@@ -52,10 +52,10 @@
 
 - (NSData *)dataForKey:(id<NSCopying>)key {
     id object = self[key];
-    NSData *data = [NSData cast:object];
+    let data = [NSData cast:object];
     if (data) return data;
     
-    NSString *base64 = [NSString cast:object];
+    let base64 = [NSString cast:object];
     if ( ! base64) return nil;
     
     return [[NSData alloc] initWithBase64EncodedString:base64 options:kNilOptions];
@@ -84,10 +84,10 @@
 
 
 - (NSURL *)URLForKey:(id<NSCopying>)key {
-    NSURL *URL = [NSURL cast:self[key]];
+    var URL = [NSURL cast:self[key]];
     if (URL) return (URL.scheme? URL : nil);
     
-    NSString *string = [NSString cast:self[key]];
+    let string = [NSString cast:self[key]];
     if ( ! string) return nil;
     
     URL = [NSURL URLWithString:string];
@@ -101,7 +101,7 @@
 
 
 - (NSDate *)dateForKey:(id<NSCopying>)key UNIX:(BOOL)usesUNIXEpoch {
-    NSDate *date = [NSDate cast:self[key]];
+    let date = [NSDate cast:self[key]];
     if (date) return date;
     
     double seconds = [self doubleForKey:key];
@@ -120,9 +120,9 @@
 
 
 - (NSArray<NSString *> *)pairsJoinedByString:(NSString *)joiningString {
-    NSMutableArray<NSString *> *array = [[NSMutableArray alloc] initWithCapacity:self.count];
+    var array = [[NSMutableArray<NSString *> alloc] initWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSArray<NSString *> *pair = @[ [key description], [obj description] ];
+        let pair = @[ [key description], [obj description] ];
         [array addObject:[pair join:joiningString]];
     }];
     return [array copy];
@@ -151,7 +151,7 @@
 
 
 - (NSMutableDictionary<id, id> *)map:(id (^)(id key, id object))block {
-    NSMutableDictionary<id, id> *result = [NSMutableDictionary new];
+    var result = [NSMutableDictionary<id, id> new];
     
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
         result[key] = block(key, object);
@@ -168,8 +168,8 @@
 
 
 - (NSDictionary<id, id> *)invertedDictionary {
-    NSArray<id> *keys = self.allKeys;
-    NSArray<id> *values = [self objectsForKeys:keys notFoundMarker:NSNull.null];
+    let keys = self.allKeys;
+    let values = [self objectsForKeys:keys notFoundMarker:NSNull.null];
     return [self.class dictionaryWithObjects:keys forKeys:values];
 }
 

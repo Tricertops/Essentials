@@ -102,7 +102,7 @@ if (ESSObjCTypeIs(type, TYPE)) { \
     if (address == NULL) return nil;
     
     //! Check NSNumber first.
-    NSNumber *number = [NSNumber numberOfObjCType:type atAddress:address];
+    let number = [NSNumber numberOfObjCType:type atAddress:address];
     if (number) return number;
     
     return [NSValue valueWithBytes:address objCType:type]; //TODO: Handle unsupported types?

@@ -23,7 +23,7 @@
     ESSAssert(address, @"No address.") else return;
     ESSAssert(type, @"No type.") else return;
     
-    NSObject *object = [NSObject objectOfObjCType:type atAddress:address];
+    var object = [NSObject objectOfObjCType:type atAddress:address];
     if (object) [self encodeObject:object forKey:key];
 }
 

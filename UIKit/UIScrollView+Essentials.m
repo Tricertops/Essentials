@@ -192,7 +192,7 @@
 
 
 - (void)setContentInsetTop:(CGFloat)top {
-    let insets = self.contentInset;
+    var insets = self.contentInset;
     insets.top = top;
     self.contentInset = insets;
 }
@@ -204,7 +204,7 @@
 
 
 - (void)setScrollIndicatorInsetTop:(CGFloat)top {
-    let insets = self.scrollIndicatorInsets;
+    var insets = self.scrollIndicatorInsets;
     insets.top = top;
     self.scrollIndicatorInsets = insets;
 }

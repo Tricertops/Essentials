@@ -31,7 +31,7 @@
     return self.integerValue;
 }
 - (NSUInteger)u {
-    NSScanner *scanner = [NSScanner scannerWithString:self];
+    var scanner = [NSScanner scannerWithString:self];
     unsigned long long value = 0;
     BOOL ok = [scanner scanUnsignedLongLong:&value];
     
@@ -72,7 +72,7 @@
         return [self copy];
     }
     else {
-        NSString *truncated = [self substringWithRange:NSMakeRange(0, length)];
+        let truncated = [self substringWithRange:NSMakeRange(0, length)];
         return [truncated stringByAppendingString:truncateString];
     }
 }
@@ -129,7 +129,7 @@
         searchRange.location = range.location + range.length;
         searchRange.length = self.length - searchRange.location;
         
-        NSString *match = [self substringWithRange:range];
+        let match = [self substringWithRange:range];
         BOOL stop = NO;
         block(match, range, &stop);
         if (stop) break;
@@ -138,7 +138,7 @@
 
 
 - (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset {
-    NSMutableIndexSet *indexes = [NSMutableIndexSet new];
+    var indexes = [NSMutableIndexSet new];
     NSRange searchRange = NSMakeRange(0, self.length);
     
     forever {
@@ -167,8 +167,8 @@
 
 
 + (NSString *)randomStringWithLength:(NSUInteger)length letters:(NSString *)lettersString {
-    NSArray<NSString *> *letters = lettersString.letters;
-    NSMutableString *string = [NSMutableString new];
+    let letters = lettersString.letters;
+    var string = [NSMutableString new];
     forcount (index, length) {
         [string appendString: [letters randomObject]];
     }
@@ -193,10 +193,10 @@
 
 
 - (NSString *)stringByDeletingHTML {
-    // Delete HTMl tags.
+    // Delete HTML tags.
     /// http://stackoverflow.com/questions/277055/remove-html-tags-from-an-nsstring-on-the-iphone
-    NSRange range;
-    NSMutableString *string = [self mutableCopy];
+    NSRange range = {};
+    var string = [self mutableCopy];
     while ((range = [string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         [string deleteCharactersInRange:range];
     
@@ -209,14 +209,14 @@
                                                       @"&amp;" : @"&", // Should be last.
                                                       };
     foreach (toFind, escapes) {
-        NSString *toReplace = [escapes objectForKey:toFind];
+        let toReplace = [escapes objectForKey:toFind];
         [string replaceOccurrencesOfString:toFind withString:toReplace options:0 range:NSMakeRange(0, string.length)];
     }
     
     // Replace &#0000; by corresponding Unicode character.
     while ((range = [string rangeOfString:@"&#[0-9]+;" options:NSRegularExpressionSearch]).location != NSNotFound) {
-        NSString *unicodeNumber = [string substringWithRange:NSMakeRange(range.location+2, range.length-3)];
-        NSString *replacement = [NSString stringWithFormat:@"%C", (unichar)unicodeNumber.intValue];
+        let unicodeNumber = [string substringWithRange:NSMakeRange(range.location+2, range.length-3)];
+        let replacement = [NSString stringWithFormat:@"%C", (unichar)unicodeNumber.intValue];
         [string replaceCharactersInRange:range withString:replacement];
     }
     
@@ -234,13 +234,13 @@
 
 
 - (NSString *)stringByConvertingToASCII {
-    NSData *ASCIIData = [self dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    let ASCIIData = [self dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     return [[NSString alloc] initWithData:ASCIIData encoding:NSASCIIStringEncoding];
 }
 
 
 - (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet {
-    NSMutableString *mutable = [self mutableCopy];
+    var mutable = [self mutableCopy];
     NSRange range;
     forever {
         range = [mutable rangeOfCharacterFromSet:characterSet];
@@ -267,28 +267,28 @@
     if (self.length == 1) return [self capitalizedStringWithLocale:locale];
     
     NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
-    NSString *firstCharacter = [self substringToIndex:range.length];
-    NSString *theRest = [self substringFromIndex:range.length];
+    let firstCharacter = [self substringToIndex:range.length];
+    let theRest = [self substringFromIndex:range.length];
     return [[firstCharacter capitalizedStringWithLocale:locale] : theRest];
 }
 
 
 - (NSString *)MD5 {
-    NSMutableData *data = [NSMutableData dataWithLength:CC_MD5_DIGEST_LENGTH];
+    var data = [NSMutableData dataWithLength:CC_MD5_DIGEST_LENGTH];
     CC_MD5(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
     return data.hexadecimalString;
 }
 
 
 - (NSString *)SHA1 {
-    NSMutableData *data = [NSMutableData dataWithLength:CC_SHA1_DIGEST_LENGTH];
+    var data = [NSMutableData dataWithLength:CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
     return data.hexadecimalString;
 }
 
 
 - (NSString *)SHA256 {
-    NSMutableData *data = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    var data = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
     CC_SHA256(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
     return data.hexadecimalString;
 }
@@ -307,10 +307,10 @@
 
 
 - (NSString *)stringBySubstitutingWithBlock:(NSString *(^)(NSString *placeholderKey))block {
-    NSMutableString *mutable = [self mutableCopy];
+    var mutable = [self mutableCopy];
     
     [mutable enumerateSubstitutionsWithBlock:^(NSRange enclosingRange, NSString *content, NSUInteger *continueLocation) {
-        NSString *replacement = block(content);
+        let replacement = block(content);
         [mutable replaceCharactersInRange:enclosingRange withString:replacement ?: @""];
         *continueLocation = enclosingRange.location + replacement.length;
         //TODO: Detect enclosing spaces and remove one of them.
@@ -321,11 +321,11 @@
 
 - (NSString *)stringBySubstitutingWithDictionaryBlock:(NSString *(^)(NSString *placeholder, NSDictionary<NSString *, NSString *> *dictionary))block {
     return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
-        NSMutableDictionary<NSString *, NSString *> *dictionary = [NSMutableDictionary new];
+        var dictionary = [NSMutableDictionary<NSString *, NSString *> new];
         foreach (pair, [placeholder split:@"|"]) {
-            NSArray<NSString *> *components = [pair split:@":"];
-            NSString *key = (components.count > 1? components[0] : @"");
-            NSString *value = (components.count > 1? components[1] : components[0]);
+            let components = [pair split:@":"];
+            let key = (components.count > 1? components[0] : @"");
+            let value = (components.count > 1? components[1] : components[0]);
             dictionary[key] = value;
         }
         return block(placeholder, dictionary);
@@ -363,7 +363,7 @@
             break;
         
         NSRange contentRange = NSMakeRange(enclosingRange.location + opening.length, enclosingRange.length - opening.length - closing.length);
-        NSString *content = [self substringWithRange:contentRange];
+        let content = [self substringWithRange:contentRange];
         
         NSUInteger location = NSMaxRange(enclosingRange);
         block(content, enclosingRange, &location);
@@ -463,7 +463,7 @@
 
 
 - (NSArray<NSString *> *)collect:(NSStringEnumerationOptions)option localized:(BOOL)localized {
-    NSMutableArray<NSString *> *builder = [NSMutableArray new];
+    let builder = [NSMutableArray<NSString *> new];
     NSStringEnumerationOptions localizedOption = (localized? NSStringEnumerationLocalized : kNilOptions);
     [self enumerateSubstringsInRange:self.fullRange
                              options:(option | localizedOption)
@@ -548,7 +548,7 @@
     if (times == 0)
         return @"";
     
-    NSMutableString *string = [NSMutableString stringWithCapacity:self.length * times];
+    var string = [NSMutableString stringWithCapacity:self.length * times];
     forcount (index, times) {
         [string appendString:self];
     }
