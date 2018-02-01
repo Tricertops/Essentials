@@ -146,7 +146,7 @@
 
 
 /// If the receiver is non-empty, returns receiver. Otherwise returns nil, so it nevers returns empty string. Useful in ternary expressions
-@property (readonly) NSString *nonEmpty;
+@property (readonly) NSString *nonEmpty NS_SWIFT_NAME(__essentialsNonEmptyNSString);
 // string.nonEmpty ?: @"–"
 
 
