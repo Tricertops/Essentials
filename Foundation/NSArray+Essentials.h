@@ -32,6 +32,9 @@
 /// Returns newly initialized array populated by N objects returned from builder block.
 + (instancetype)arrayWithCount:(NSUInteger)count builder:(T(^)(NSUInteger index))block;
 
+/// Returns new array with objects sorted using -compare: method.
+@property (readonly) NSArray<T> *sorted;
+
 
 
 #pragma mark Iterating

@@ -58,6 +58,11 @@
 }
 
 
+- (NSArray<id> *)sorted {
+    return [self sortedArrayUsingSelector:@selector(compare:)];
+}
+
+
 
 
 
