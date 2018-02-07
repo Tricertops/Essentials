@@ -470,3 +470,15 @@ typedef const char * ESSObjCType;
 
 
 
+/// Use as @weakify(self) before capturing self in a block. Together with @strongify(self) this avoids retain cycles.
+#define weakify(variable)  \
+    try {} @finally {}  \
+    __weak let variable##_weak = variable
+
+/// Use as @strongify(self) inside a block, after you used weakify. This avoids retain cycles.
+#define strongify(variable)  \
+    try {} @finally {}  \
+    __strong let variable = variable##_weak
+
+
+
