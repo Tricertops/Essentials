@@ -194,7 +194,7 @@
     if (self.suspendDepth > 0)
         self.suspendDepth --;
     
-    if (self.suspendDepth == 0 && alsoNotify)
+    if (self.suspendDepth == 0 && alsoNotify && self.notifyCount > 0)
         [self notify];
 }
 
