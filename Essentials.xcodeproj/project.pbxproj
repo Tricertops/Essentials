@@ -38,6 +38,8 @@
 		5B79EA591A98F5400031ED59 /* NSValue+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B79EA561A98F5400031ED59 /* NSValue+Essentials.m */; };
 		5B8B95041EBF5D64001E7097 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8B95021EBF5D64001E7097 /* JSON.h */; };
 		5B8B95061EBF5D64001E7097 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B95031EBF5D64001E7097 /* JSON.m */; };
+		5B9638392033448B0009B6E6 /* ESSBinaryHeap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9638372033448B0009B6E6 /* ESSBinaryHeap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B96383A2033448B0009B6E6 /* ESSBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9638382033448B0009B6E6 /* ESSBinaryHeap.m */; };
 		5BAC18071CA69CEB00533C1E /* NSCharacterSet+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC18051CA69CEB00533C1E /* NSCharacterSet+Essentials.h */; };
 		5BAC18091CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC18061CA69CEB00533C1E /* NSCharacterSet+Essentials.m */; };
 		5BAFAAB0201A1461002312AE /* Foundation+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F906B4417709E8700097175 /* Foundation+Essentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -282,6 +284,8 @@
 		5B8A641D180AC74F00E0AEE8 /* NSDate+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Essentials.m"; sourceTree = "<group>"; };
 		5B8B95021EBF5D64001E7097 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		5B8B95031EBF5D64001E7097 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
+		5B9638372033448B0009B6E6 /* ESSBinaryHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESSBinaryHeap.h; sourceTree = "<group>"; };
+		5B9638382033448B0009B6E6 /* ESSBinaryHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESSBinaryHeap.m; sourceTree = "<group>"; };
 		5B9E640317BBB9AF008CB772 /* NSShadow+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+Essentials.h"; sourceTree = "<group>"; };
 		5B9E640417BBB9AF008CB772 /* NSShadow+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+Essentials.m"; sourceTree = "<group>"; };
 		5B9E640D17BBC8A2008CB772 /* Foundation+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Essentials.m"; sourceTree = "<group>"; };
@@ -554,6 +558,8 @@
 				5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */,
 				5B269F411EF1134000F8BD4C /* ESSHash.h */,
 				5B269F421EF1134000F8BD4C /* ESSHash.m */,
+				5B9638372033448B0009B6E6 /* ESSBinaryHeap.h */,
+				5B9638382033448B0009B6E6 /* ESSBinaryHeap.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				5BAFAAE4201A1462002312AE /* NSBundle+Essentials.h in Headers */,
 				5BAFAAE8201A1462002312AE /* NSMapTable+Essentials.h in Headers */,
 				5BAFAB02201A1469002312AE /* UIView+Essentials.h in Headers */,
+				5B9638392033448B0009B6E6 /* ESSBinaryHeap.h in Headers */,
 				5BAFAB24201A1473002312AE /* CoreImage+Essentials.h in Headers */,
 				5BAFAAC4201A1462002312AE /* NSInvocation+Essentials.h in Headers */,
 				5BAFAB18201A1469002312AE /* ESSDrawView.h in Headers */,
@@ -803,6 +810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BAFAAB3201A1461002312AE /* ESSLog.m in Sources */,
+				5B96383A2033448B0009B6E6 /* ESSBinaryHeap.m in Sources */,
 				5BAFAAD5201A1462002312AE /* NSLocale+Essentials.m in Sources */,
 				5BAFAAD1201A1462002312AE /* NSSortDescriptor+Essentials.m in Sources */,
 				5BAFAAE9201A1462002312AE /* NSMapTable+Essentials.m in Sources */,
