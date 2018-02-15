@@ -63,21 +63,21 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 }
 
 - (instancetype)initWithSelector:(SEL)selector descending:(BOOL)descending {
-    ESSAssert(selector != nil) return nil;
+    ESSAssert(selector != nil)else  return nil;
     
     let comparator = [ESSBinaryHeap comparatorWithSelector:selector descending:descending];
     return [self initWithComparator:comparator];
 }
 
 - (instancetype)initWithSortDescriptors:(NSArray<NSSortDescriptor *> *)descriptors {
-    ESSAssert(descriptors.count > 0) return nil;
+    ESSAssert(descriptors.count > 0) else return nil;
     
     let comparator = [ESSBinaryHeap comparatorWithSortDescriptors:descriptors];
     return [self initWithComparator:comparator];
 }
 
 - (instancetype)initWithComparator:(NSComparator)comparator {
-    ESSAssert(comparator != nil) return nil;
+    ESSAssert(comparator != nil) else return nil;
     
     self = [super init];
     if (self) {
@@ -101,7 +101,7 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 }
 
 - (instancetype)initWithBinaryHeap:(ESSBinaryHeap *)other {
-    ESSAssert(other != nil) return nil;
+    ESSAssert(other != nil) else return nil;
     
     self = [super init];
     if (self) {
