@@ -63,7 +63,7 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 }
 
 - (instancetype)initWithSelector:(SEL)selector descending:(BOOL)descending {
-    ESSAssert(selector != nil)else  return nil;
+    ESSAssert(selector != nil) else return nil;
     
     let comparator = [ESSBinaryHeap comparatorWithSelector:selector descending:descending];
     return [self initWithComparator:comparator];
@@ -258,7 +258,7 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 #pragma mark - Utilities
 
 + (NSComparator)comparatorWithSortDescriptors:(NSArray<NSSortDescriptor *> *)descriptors {
-    ESSAssert(descriptors.count > 0) return nil;
+    ESSAssert(descriptors.count > 0) else return nil;
     
     return ^NSComparisonResult(id A, id B) {
         foreach (descriptor, descriptors) {
@@ -272,7 +272,7 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 }
 
 + (NSComparator)comparatorWithSelector:(SEL)selector descending:(BOOL)descending {
-    ESSAssert(selector != nil) return nil;
+    ESSAssert(selector != nil) else return nil;
     
     let descriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:!descending selector:selector];
     
