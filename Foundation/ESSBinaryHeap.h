@@ -45,6 +45,8 @@ typedef NSComparisonResult (^NSComparator)(ElementType objectA, ElementType obje
 
 /// Number of objects in the heap.
 @property (readonly) NSUInteger count;
+/// Compares count to zero, pure convenience.
+@property (readonly) BOOL isEmpty;
 /// The object that is ordered first. If there are several objects that are NSOrderedSame, any one may be returned.
 @property (readonly, nullable) ElementType firstObject;
 
@@ -75,8 +77,10 @@ typedef NSComparisonResult (^NSComparator)(ElementType objectA, ElementType obje
 - (void)addObjectsFromArray:(NSArray<ElementType> *)array;
 /// Adds all objects from given set to the heap. Note that heap doesn’t use -isEqual: for equality.
 - (void)addObjectsFromSet:(NSSet<ElementType> *)set;
-/// Removes firatObject from the heap and returns it.
-- (nullable ElementType)removeFirstObject;
+/// Removes firstObject from the heap and returns it.
+- (nullable ElementType)pullFirstObject;
+/// Removes firstObject from the heap.
+- (void)removeFirstObject;
 /// Removes all objects from the heap.
 - (void)removeAllObjects;
 

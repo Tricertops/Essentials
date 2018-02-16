@@ -124,6 +124,10 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
     return CFBinaryHeapGetCount(self->_underlayingHeap);
 }
 
+- (BOOL)isEmpty {
+    return (self.count == 0);
+}
+
 - (id)firstObject {
     return (__bridge id) CFBinaryHeapGetMinimum(self->_underlayingHeap);
 }
@@ -208,10 +212,14 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
     }
 }
 
-- (id)removeFirstObject {
+- (id)pullFirstObject {
     id first = self.firstObject;
-    CFBinaryHeapRemoveMinimumValue(self->_underlayingHeap);
+    [self removeFirstObject];
     return first;
+}
+
+- (void)removeFirstObject {
+    CFBinaryHeapRemoveMinimumValue(self->_underlayingHeap);
 }
 
 - (void)removeAllObjects {
