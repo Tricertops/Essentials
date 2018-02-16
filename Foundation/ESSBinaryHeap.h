@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// Container that stores values sorted using a binary search algorithm and can be useful as priority queue.
-@interface ESSBinaryHeap<ElementType> : NSObject <NSCopying, TypedNSFastEnumeration>
+@interface ESSBinaryHeap<ElementType> : NSObject <NSCopying>
 
 
 #pragma mark - Utilities
@@ -62,11 +62,11 @@ typedef NSComparisonResult (^NSComparator)(ElementType objectA, ElementType obje
 #pragma mark - Enumeration
 
 /// Invokes block on every object in the heap in ascending order. Order of objects that are NSOrderedSame is not defined.
+/// \warning This is NOT efficient. Internally, the heap creates a copy of itself and pulls first objects until it’s empty.
 - (void)enumerateUsingBlock:(void (^)(ElementType object))block;
 /// Ordered collection of all objects in the heap. Order of objects that are NSOrderedSame is not defined.
+/// \warning This is NOT efficient. Internally, the heap creates a copy of itself and pulls first objects until it’s empty.
 @property (readonly) NSArray<ElementType> *allObjects;
-/// Declaration for foreach() macro as required by TypedNSFastEnumeration.
-- (ElementType)Typed_enumeratedType;
 
 
 #pragma mark - Mutating
@@ -87,9 +87,11 @@ typedef NSComparisonResult (^NSComparator)(ElementType objectA, ElementType obje
 
 #pragma mark - Equality & Copying
 
-/// Compares two heaps for equality.
+/// Compares equality of two heap objects.
+/// \warning Does NOT compare content of the heaps, just the identity of their internal CFBinaryHeap objects.
 - (BOOL)isEqual:(nullable ESSBinaryHeap<ElementType> *)other;
 /// Returns a mutable copy of the heap.
+/// \warning Copy is NOT \c -isEqual: to the receiver.
 - (instancetype)copy;
 
 

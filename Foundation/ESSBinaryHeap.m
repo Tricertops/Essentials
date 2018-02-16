@@ -149,45 +149,20 @@ static void ESSBinaryHeap_EnumerationCallback(const void *pointer, void *context
 #pragma mark - Enumeration
 
 - (void)enumerateUsingBlock:(void (^)(id object))block {
+    // Internally, the heap creates a copy of itself and pulls first objects until it’s empty.
     CFBinaryHeapApplyFunction(self->_underlayingHeap, &ESSBinaryHeap_EnumerationCallback, (__bridge void *)block);
 }
 
 - (NSArray<id> *)allObjects {
     let count = self.count;
     var buffer = calloc(count, sizeof(id));
+    
+    // Internally, the heap creates a copy of itself and pulls first objects until it’s empty.
     CFBinaryHeapGetValues(self->_underlayingHeap, buffer);
     
     let array = [NSArray arrayWithObjects:(id __unsafe_unretained *)buffer count:count];
     free(buffer);
     return array;
-}
-
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])providedBuffer count:(NSUInteger)providedLength {
-    // If this is not first invocation, finish by returning 0.
-    if (state->state != 0) {
-        return 0;
-    }
-    let count = self.count;
-    
-    // We are empty.
-    if (count == 0) {
-        return 0;
-    }
-    
-    // We can only get all objects at once into a pre-allocated buffer. This doesn’t work nicely with NSFastEnumeration.
-    __autoreleasing var data = [[NSMutableData alloc] initWithLength:count * sizeof(id)];
-    CFBinaryHeapGetValues(self->_underlayingHeap, data.mutableBytes);
-    
-    // The autoreleased NSData will live long enough to provide the underlaying buffer until for-in loop finishes.
-    state->state = count;
-    state->itemsPtr = (id __unsafe_unretained *) data.mutableBytes;
-    state->mutationsPtr = data.mutableBytes; // Required to be non-nil.
-    
-    return count;
-}
-
-- (id)Typed_enumeratedType {
-    return nil;
 }
 
 
