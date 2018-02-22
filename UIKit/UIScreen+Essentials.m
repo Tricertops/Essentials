@@ -83,7 +83,7 @@
     
     return [UIImage drawWithSize:self.bounds.size opaque:YES scale:self.scale block:^{
         foreach (window, app.windows) {
-            if (window.screen == self) {
+            if (window.screen == self && !window.isHidden) {
                 [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
             }
         }
