@@ -82,7 +82,7 @@
     var weakCollection = self.handlersByObserver;
     typeof(self.copyHandlersByObservers) strong = [NSMapTable strongToStrongObjectsMapTable];
     foreach (observer, weakCollection) {
-        strong[observer] =  [weakCollection[observer] copy];
+        strong[observer] = [weakCollection[observer] copy];
     }
     return strong;
 }
