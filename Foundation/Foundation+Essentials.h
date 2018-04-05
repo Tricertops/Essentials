@@ -377,6 +377,9 @@ extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger coun
 
 #pragma mark - Range
 
+/// Location is and length are zero.
+extern NSRange const NSRangeZero;
+
 /// Location is NSNotFound and length is zero.
 extern NSRange const NSRangeNotFound;
 

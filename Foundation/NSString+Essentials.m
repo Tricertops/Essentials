@@ -56,6 +56,11 @@
 }
 
 
+- (NSUInteger)lastIndex {
+    return self.length - 1;
+}
+
+
 - (NSUInteger)UTF8Length {
     return [self lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 }

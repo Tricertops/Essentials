@@ -54,6 +54,12 @@ NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterval granu
 #pragma mark - Range
 
 
+NSRange const NSRangeZero = (NSRange){
+    .location = 0,
+    .length = 0,
+};
+
+
 NSRange const NSRangeNotFound = (NSRange){
     .location = NSNotFound,
     .length = 0,

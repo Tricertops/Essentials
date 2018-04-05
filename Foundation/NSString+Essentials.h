@@ -32,6 +32,9 @@
 /// Range covering all characters of the receiver.
 @property (readonly) NSRange fullRange;
 
+/// Last valid index inside the string.
+@property (readonly) NSUInteger lastIndex;
+
 /// Returns the number of bytes required to store the receiver in a UTF-8.
 @property (readonly) NSUInteger UTF8Length;
 
