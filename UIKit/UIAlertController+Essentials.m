@@ -51,13 +51,14 @@
     let message = [messageComponents componentsJoinedByString:@"\n\n"];
     
     var alert = [UIAlertController alertWithTitle:title message:message];
-    [alert addCancel:(button ?: @"Dismiss")];
     
     [error.localizedRecoveryOptions enumerateObjectsUsingBlock:^(NSString *recoveryOption, NSUInteger index, BOOL *stop) {
         [alert addAction:recoveryOption handler:^{
             [error.recoveryAttempter attemptRecoveryFromError:error optionIndex:index];
         }];
     }];
+    
+    [alert addCancel:(button ?: @"Dismiss")];
     return alert;
 }
 
