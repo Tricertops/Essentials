@@ -48,6 +48,7 @@ FOUNDATION_EXPORT const unsigned char EssentialsVersionString[];
 #import "ESSHash.h"
 #import "NSValue+Essentials.h"
 #import "ESSBinaryHeap.h"
+#import "ESSEnumerator.h"
 
 #import "Typed.h"
 #import "jDateFormat.h"

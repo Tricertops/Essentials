@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B089D462099C90800D60730 /* ESSEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B089D442099C90800D60730 /* ESSEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B089D472099C90800D60730 /* ESSEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B089D452099C90800D60730 /* ESSEnumerator.m */; };
 		5B0C58D61EE29FD100DFE420 /* jDateFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0C58D31EE29FD100DFE420 /* jDateFormat.h */; };
 		5B1725C11AC4465300832083 /* ESSCatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1725BF1AC4465300832083 /* ESSCatch.h */; };
 		5B1725C31AC4465300832083 /* ESSCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1725C01AC4465300832083 /* ESSCatch.m */; };
@@ -208,6 +210,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B089D442099C90800D60730 /* ESSEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESSEnumerator.h; sourceTree = "<group>"; };
+		5B089D452099C90800D60730 /* ESSEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESSEnumerator.m; sourceTree = "<group>"; };
 		5B0C58701EDDCA7500DFE420 /* NSFileManager+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Essentials.h"; sourceTree = "<group>"; };
 		5B0C58711EDDCA7500DFE420 /* NSFileManager+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Essentials.m"; sourceTree = "<group>"; };
 		5B0C58C31EE29DDF00DFE420 /* Typed.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Typed.xcodeproj; path = Typed/Typed.xcodeproj; sourceTree = "<group>"; };
@@ -560,6 +564,8 @@
 				5B269F421EF1134000F8BD4C /* ESSHash.m */,
 				5B9638372033448B0009B6E6 /* ESSBinaryHeap.h */,
 				5B9638382033448B0009B6E6 /* ESSBinaryHeap.m */,
+				5B089D442099C90800D60730 /* ESSEnumerator.h */,
+				5B089D452099C90800D60730 /* ESSEnumerator.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				5BAFAACC201A1462002312AE /* NSData+Essentials.h in Headers */,
 				5BAFAB33201A16A5002312AE /* TypedKeyPaths.h in Headers */,
 				5BAFAABA201A1462002312AE /* NSMutableArray+Essentials.h in Headers */,
+				5B089D462099C90800D60730 /* ESSEnumerator.h in Headers */,
 				5BAFAB06201A1469002312AE /* NSShadow+Essentials.h in Headers */,
 				5BAFAAD2201A1462002312AE /* NSIndexPath+Essentials.h in Headers */,
 				5BAFAAC2201A1462002312AE /* NSNumber+Essentials.h in Headers */,
@@ -868,6 +875,7 @@
 				5BAFAB13201A1469002312AE /* UIBezierPath+Essentials.m in Sources */,
 				5BAFAAC1201A1462002312AE /* NSError+Essentials.m in Sources */,
 				5BAFAAED201A1462002312AE /* NSCharacterSet+Essentials.m in Sources */,
+				5B089D472099C90800D60730 /* ESSEnumerator.m in Sources */,
 				5BAFAB1D201A1469002312AE /* UIControl+Essentials.m in Sources */,
 				5BAFAAD3201A1462002312AE /* NSIndexPath+Essentials.m in Sources */,
 			);

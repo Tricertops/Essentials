@@ -20,6 +20,10 @@
 @property (readonly) NSString *shortVersionString;
 
 
+//! Enumerator of class names defined in this bundle’s executable. Class names are produced lazily from C strings.
+@property (readonly) NSEnumerator<NSString *> *classNamesEnumerator;
+
+
 @end
 
 
