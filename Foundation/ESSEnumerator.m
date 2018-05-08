@@ -16,7 +16,7 @@
 @property (readonly) id (^nextBlock)(NSUInteger);
 @property (readonly) void (^cleanupBlock)(void);
 
-@property NSUInteger index;
+@property NSUInteger nextIndex;
 
 @end
 
@@ -32,7 +32,7 @@
     self->_cleanupBlock = cleanupBlock;
     
     if (!self.nextBlock) {
-        [self cleanup]
+        [self cleanup];
     }
     
     return self;
@@ -45,9 +45,9 @@
 - (id)nextObject {
     if (!self.nextBlock) return nil;
     
-    let index = self.index;
+    let index = self.nextIndex;
     id object = self.nextBlock(index);
-    self.index = index + 1;
+    self.nextIndex = index + 1;
     
     if (!object) {
         [self cleanup];
