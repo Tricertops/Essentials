@@ -430,7 +430,7 @@
     let decodedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-	return decodedImage;
+    return decodedImage;
 }
 
 
