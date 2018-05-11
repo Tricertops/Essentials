@@ -268,6 +268,21 @@
 }
 
 
+#pragma mark Concatenaing
+
+- (NSArray *) :(NSArray *)a { return [self.class concat:self, a?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b { return [NSArray concat:self, a?:@[], b?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b :(NSArray *)c  { return [NSArray concat:self, a?:@[], b?:@[], c?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b :(NSArray *)c :(NSArray *)d { return [NSArray concat:self, a?:@[], b?:@[], c?:@[], d?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b :(NSArray *)c :(NSArray *)d :(NSArray *)e { return [NSArray concat:self, a?:@[], b?:@[], c?:@[], d?:@[], e?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b :(NSArray *)c :(NSArray *)d :(NSArray *)e :(NSArray *)f { return [NSArray concat:self, a?:@[], b?:@[], c?:@[], d?:@[], e?:@[], f?:@[], nil]; }
+- (NSArray *) :(NSArray *)a :(NSArray *)b :(NSArray *)c :(NSArray *)d :(NSArray *)e :(NSArray *)f :(NSArray *)g { return [NSArray concat:self, a?:@[], b?:@[], c?:@[], d?:@[], e?:@[], f?:@[], g?:@[], nil]; }
+
++ (NSArray *)concat:(NSArray *)firstString, ... NS_REQUIRES_NIL_TERMINATION {
+    return [NSArrayFromVariadicArguments(firstString) flattenedArray];
+}
+
+
 
 
 

@@ -108,6 +108,16 @@
 /// Returns a new array containing the receiving array’s elements starting at given index. Safe to pass large indexes, will be clamped.
 - (NSArray<T> *)subarrayStartingAtIndex:(NSUInteger)index;
 
+- (NSArray<T> *) :(NSArray<T> *)a;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c :(NSArray<T> *)d;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c :(NSArray<T> *)d :(NSArray<T> *)e;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c :(NSArray<T> *)d :(NSArray<T> *)e :(NSArray<T> *)f;
+- (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c :(NSArray<T> *)d :(NSArray<T> *)e :(NSArray<T> *)f :(NSArray<T> *)g;
+
++ (NSArray<T> *)concat:(NSArray<T> *)firstString, ... NS_REQUIRES_NIL_TERMINATION;
+
 
 
 #pragma mark Randomizing
