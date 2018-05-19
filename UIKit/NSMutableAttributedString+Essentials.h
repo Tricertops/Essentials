@@ -63,6 +63,12 @@ ESSWriteOnlyProperty(BOOL, hasLetterpressEffect);
 ESSWriteOnlyProperty(NSTextAttachment *, attachment);
 ESSWriteOnlyProperty(NSURL *, link);
 
+ESSWriteOnlyProperty(CGFloat, speechPitch); /// Between 0…2, where 1 is normal.
+ESSWriteOnlyProperty(BOOL, speakPunctuation);
+ESSWriteOnlyProperty(BOOL, speechQueueAnnouncement);
+ESSWriteOnlyProperty(NSString*, speechLanguage); /// Language code.
+ESSWriteOnlyProperty(NSString*, speechIPANotation);
+
 @end
 
 

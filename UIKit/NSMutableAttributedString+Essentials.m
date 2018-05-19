@@ -271,6 +271,30 @@
 }
 
 
+- (void)setSpeechPitch:(CGFloat)speechPitch {
+    self[UIAccessibilitySpeechAttributePitch] = (speechPitch == 1? nil : @(speechPitch));
+}
+
+- (void)setSpeakPunctuation:(BOOL)speakPunctuation {
+    self[UIAccessibilitySpeechAttributePunctuation] = (speakPunctuation? @YES : nil);
+}
+
+- (void)setSpeechQueueAnnouncement:(BOOL)speechQueueAnnouncement {
+    if (@available(iOS 11, *)) {
+        self[UIAccessibilitySpeechAttributeQueueAnnouncement] = (speechQueueAnnouncement? @YES : nil);
+    }
+}
+
+- (void)setSpeechLanguage:(NSString*)speechLanguage {
+    self[UIAccessibilitySpeechAttributeLanguage] = speechLanguage;
+}
+
+- (void)setSpeechIPANotation:(NSString*)speechIPANotation {
+    if (@available(iOS 11, *)) {
+        self[UIAccessibilitySpeechAttributeIPANotation] = speechIPANotation;
+    }
+}
+
 
 
 
