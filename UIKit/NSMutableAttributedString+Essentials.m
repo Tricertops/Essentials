@@ -54,7 +54,7 @@
 }
 
 
-- (void)updateParagraphStyleUsingBlock:(void (^)(NSMutableParagraphStyle *))block
+- (void)updateParagraphStyleUsingBlock:(NS_NOESCAPE void (^)(NSMutableParagraphStyle *))block
 {
     if ( ! self.length) return;
     
@@ -344,7 +344,7 @@
 #pragma mark Enumerating
 
 
-- (void)enumerateParagraphStyles:(void(^)(NSMutableParagraphStyle *paragraphStyle))block {
+- (void)enumerateParagraphStyles:(NS_NOESCAPE void(^)(NSMutableParagraphStyle *paragraphStyle))block {
     [self enumerateAttribute:NSParagraphStyleAttributeName
                      inRange:NSMakeRange(0, self.length)
                      options:kNilOptions
@@ -438,7 +438,7 @@
 
 
 
-- (NSMutableAttributedString *)attributed:(void (^)(NSMutableAttributedString *))block {
+- (NSMutableAttributedString *)attributed:(NS_NOESCAPE void (^)(NSMutableAttributedString *))block {
     var string = [[NSMutableAttributedString alloc] initWithString:self];
     if (block) block(string);
     return string;
@@ -567,7 +567,7 @@
 }
 
 
-- (void)enumerateAttribute:(NSString *)attributeName inRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(void (^)(id, NSRange, BOOL *))block {
+- (void)enumerateAttribute:(NSString *)attributeName inRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(NS_NOESCAPE void (^)(id, NSRange, BOOL *))block {
     [self convertToTarget:&enumerationRange];
     [self.target enumerateAttribute:attributeName
                             inRange:enumerationRange
@@ -579,7 +579,7 @@
 }
 
 
-- (void)enumerateAttributesInRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(void (^)(NSDictionary<NSString *,id> *, NSRange, BOOL *))block {
+- (void)enumerateAttributesInRange:(NSRange)enumerationRange options:(NSAttributedStringEnumerationOptions)options usingBlock:(NS_NOESCAPE void (^)(NSDictionary<NSString *,id> *, NSRange, BOOL *))block {
     [self convertToTarget:&enumerationRange];
     [self.target enumerateAttributesInRange:enumerationRange
                                     options:options

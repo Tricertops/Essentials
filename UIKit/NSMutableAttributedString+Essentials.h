@@ -101,7 +101,7 @@ ESSWriteOnlyProperty(NSString*, speechIPANotation);
 #pragma mark Enumerating
 
 /// Enumerates paragraph styles in the receiver allowing you to modify it.
-- (void)enumerateParagraphStyles:(void(^)(NSMutableParagraphStyle *paragraphStyle))block;
+- (void)enumerateParagraphStyles:(NS_NOESCAPE void(^)(NSMutableParagraphStyle *paragraphStyle))block;
 
 
 #pragma mark Superscript
@@ -143,7 +143,7 @@ ESSWriteOnlyProperty(NSString*, speechIPANotation);
 
 
 /// Allow you to set attributes of the string using block. Pass nil for no attributes.
-- (NSMutableAttributedString *)attributed:(void (^)(NSMutableAttributedString *string))block;
+- (NSMutableAttributedString *)attributed:(NS_NOESCAPE void (^)(NSMutableAttributedString *string))block;
 
 
 
