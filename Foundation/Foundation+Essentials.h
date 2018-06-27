@@ -372,6 +372,10 @@ extern NSTimeInterval NSTimeIntervalRandom(NSTimeInterval minimum, NSTimeInterva
 extern NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger count);
 
 
+/// Compares two integers.
+extern NSComparisonResult NSIntegerCompare(NSInteger A, NSInteger B);
+
+
 
 
 

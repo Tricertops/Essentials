@@ -29,6 +29,13 @@ NSUInteger ESSIndexFromSignedIndex(NSInteger signedIndex, NSUInteger unsignedCou
 }
 
 
+NSComparisonResult NSIntegerCompare(NSInteger A, NSInteger B) {
+    if (A < B) return NSOrderedAscending;
+    if (A > B) return NSOrderedDescending;
+    return NSOrderedSame;
+}
+
+
 NSTimeInterval const NSTimeIntervalInfinity = INFINITY;
 
 
