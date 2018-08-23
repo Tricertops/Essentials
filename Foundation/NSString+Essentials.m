@@ -200,7 +200,7 @@
 - (NSString *)stringByDeletingHTML {
     // Delete HTML tags.
     /// http://stackoverflow.com/questions/277055/remove-html-tags-from-an-nsstring-on-the-iphone
-    NSRange range = {};
+    NSRange range;
     var string = [self mutableCopy];
     while ((range = [string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         [string deleteCharactersInRange:range];
