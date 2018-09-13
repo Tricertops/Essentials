@@ -22,22 +22,14 @@
 #pragma mark - Dimensions
 
 
-- (BOOL)tall {
-    return (self.fixedBounds.size.height >= 568);
+- (CGFloat)aspectRatio {
+    CGRect bounds = self.fixedBounds;
+    return  bounds.size.width / bounds.size.height;
 }
 
 
 - (BOOL)retina {
     return (self.scale >= 2);
-}
-
-
-- (CGRect)landscapeBounds {
-    CGRect portraitBounds = self.fixedBounds;
-    CGRect landscapeBounds = CGRectZero;
-    landscapeBounds.size.width = portraitBounds.size.height;
-    landscapeBounds.size.height = portraitBounds.size.width;
-    return landscapeBounds;
 }
 
 
@@ -97,18 +89,13 @@
 #pragma mark - Class Shorthands
 
 
-+ (BOOL)tall {
-    return self.mainScreen.tall;
++ (CGFloat)aspectRatio {
+    return self.mainScreen.aspectRatio;
 }
 
 
 + (BOOL)retina {
     return self.mainScreen.retina;
-}
-
-
-+ (CGRect)landscapeBounds {
-    return self.mainScreen.landscapeBounds;
 }
 
 

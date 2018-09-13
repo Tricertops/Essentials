@@ -8,6 +8,7 @@
 
 @import AudioToolbox;
 #import "UIDevice+Essentials.h"
+#import "UIScreen+Essentials.h"
 #import <sys/utsname.h>
 
 
@@ -98,9 +99,7 @@
 
 
 - (BOOL)iPhoneX {
-    let screen = UIScreen.mainScreen;
-    CGSize size = screen.fixedCoordinateSpace.bounds.size;
-    return (self.iPhone && size.width == 375 && size.height == 812 && screen.scale == 3);
+    return (self.iPhone && UIScreen.aspectRatio < 0.56);
 }
 
 

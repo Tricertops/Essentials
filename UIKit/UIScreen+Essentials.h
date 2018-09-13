@@ -18,14 +18,11 @@
 
 #pragma mark - Dimensions
 
-/// Returns whether the receiver has more than 568 points in height. Intended to be used for 4" display detection, usefull only on iPhone.
-- (BOOL)tall __deprecated_msg("Obsolete with iPhone 6 (and Plus)");
+//! Ratio of width to height in portrait.
+- (CGFloat)aspectRatio;
 
 /// Return whether the receiver has scale of 2 (or more).
 - (BOOL)retina;
-
-/// Returns landscape bounds of the screen.
-- (CGRect)landscapeBounds __deprecated_msg("Obsolete with iOS 8, use -rotatedBounds");
 
 /// Returns bounds NOT adjusted for current interface orientation, works for iOS 8 and later.
 - (CGRect)fixedBounds;
@@ -47,9 +44,8 @@
 
 /// These methods call appropriate instance methods on [UIScreen mainScreen] object.
 
-+ (BOOL)tall __deprecated_msg("Obsolete with iPhone 6 (and Plus)");
++ (CGFloat)aspectRatio;
 + (BOOL)retina;
-+ (CGRect)landscapeBounds __deprecated_msg("Obsolete with iOS 8, use -rotatedBounds");
 + (CGRect)fixedBounds;
 + (CGRect)rotatedBounds;
 + (CGFloat)scale;
