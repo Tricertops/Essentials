@@ -24,44 +24,35 @@
 
 #pragma mark - Assertions
 
-#ifndef ESS_I_have_read_and_agree_to_the_ESSAssert_changes
-    #error ESSAssert has changed sematics.
-    //! ESSAssert macros have changed semantics, so their fallback code should start with `else` keyword.
-    //! Example usage: ESSAssert(condition) else return;
-    //! Message is now optional.
-    //! ESSAssertFail() has been renamed to ESSFail().
-    //! ESSAssertException() is has been removed.
-#endif
 
-
-//! Enable assert when Foundation assert are enabled.
 #if DEBUG
-    #define ESS_DEBUG_ASSERT_ENABLED   1
+    #define ESS_ASSERT_CRASHES   0
 #else
-    #define ESS_DEBUG_ASSERT_ENABLED   0
+    #define ESS_ASSERT_CRASHES   1
 #endif
 
 
+//! Evaluates always, crashes on DEBUG, executes `else` on RELEASE.
 #define ESSAssert(requirement, format...) \
     if (({ \
             BOOL __ok = !!(requirement); \
-            if ( ! __ok) _ESSHandleAssertion(requirement, format); \
+            if ( ! __ok) _ESSHandleAssertion(NO, requirement, format); \
             __ok; \
         })) ESSNothing(); \
     // else ...
 
-#if ESS_DEBUG_ASSERT_ENABLED
-    //! Logs the assertion failure and stops execution.
-    #define ESSDebugAssert(requirement, format...)   ESSAssert(requirement, format)
+//! Evaluates and crashes on DEBUG, doesn’t evaluate and executes `else` on RELEASE.
+#if DEBUG
+    #define ESSDebugAssert(requirement, format...)   ESSAssert(requirement, format) // else ...
 #else
-    //! Do nothing.
-    #define ESSDebugAssert(requirement, format...)   ESSAssert(YES)
+    #define ESSDebugAssert(requirement, format...)   ESSAssert(YES) // else ...
 #endif
 
+//! Crashes always, no `else` allowed.
+#define ESSFail(format...)   _ESSHandleAssertion(YES, NO, format)
 
-#define ESSFail(format...)   _ESSHandleAssertion(NO, @"Failed: " format)
 
-#define _ESSHandleAssertion(requirement, format...) \
+#define _ESSHandleAssertion(forceCrash, requirement, format...) \
     ((void)({ \
         let __function = @(__PRETTY_FUNCTION__); \
         let __assertion = @#requirement; \
@@ -69,12 +60,13 @@
         if (__message.length == 0 && __assertion.length > 0) \
             __message = [NSString stringWithFormat: @"Assertion failure: %@", __assertion]; \
         ESSError(@"%@: %@", __function, __message); \
-        if (ESS_DEBUG_ASSERT_ENABLED) {\
+        if (ESS_ASSERT_CRASHES || forceCrash) {\
             [NSAssertionHandler.currentHandler \
                 handleFailureInFunction: __function \
                 file: @(__FILE__) \
                 lineNumber: __LINE__ \
                 description: @"%@", __message]; \
+            abort(); \
         } \
     }))
 
