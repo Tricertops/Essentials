@@ -26,9 +26,9 @@
 
 
 #if DEBUG
-    #define ESS_ASSERT_CRASHES   0
-#else
     #define ESS_ASSERT_CRASHES   1
+#else
+    #define ESS_ASSERT_CRASHES   0
 #endif
 
 
