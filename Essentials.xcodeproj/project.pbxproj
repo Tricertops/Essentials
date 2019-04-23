@@ -757,7 +757,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0610;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
 					5BAFAAA7201A1424002312AE = {
@@ -769,10 +769,11 @@
 			};
 			buildConfigurationList = 5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5BBFA57F176205DF0061E8B5;
 			productRefGroup = 5BBFA589176205DF0061E8B5 /* Products */;
