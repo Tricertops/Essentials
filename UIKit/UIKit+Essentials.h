@@ -175,12 +175,14 @@ extern CGFloat CGPointAngle(CGPoint);
 
 #pragma mark Edge Insets
 
+/// Creates new insets struct with all 4 values equal.
+extern UIEdgeInsets UIEdgeInsetsMakeAll(CGFloat) NS_SWIFT_NAME(UIEdgeInsets(all:));
 
 /// Use to sum up two edge insets.
 extern UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets, UIEdgeInsets);
 
 /// Multiplies all component of insets with given scale.
-UIEdgeInsets UIEdgeInsetsScale(UIEdgeInsets insets, CGFloat scale);
+extern UIEdgeInsets UIEdgeInsetsScale(UIEdgeInsets insets, CGFloat scale);
 
 
 

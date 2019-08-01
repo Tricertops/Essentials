@@ -287,6 +287,17 @@ CGFloat CGPointAngle(CGPoint p) {
 #pragma mark Edge Insets
 
 
+UIEdgeInsets UIEdgeInsetsMakeAll(CGFloat value) {
+    UIEdgeInsets insets = {
+        .top = value,
+        .left = value,
+        .right = value,
+        .bottom = value,
+    };
+    return insets;
+}
+
+
 UIEdgeInsets UIEdgeInsetsAddEdgeInsets(UIEdgeInsets a, UIEdgeInsets b) {
     UIEdgeInsets insets = {
         .top = a.top + b.top,

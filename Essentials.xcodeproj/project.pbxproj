@@ -176,6 +176,13 @@
 		5BBF9A781C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
 		5BE0A30F1BD384CB006BDA45 /* NSBundle+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */; };
 		5BE0A3111BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
+		5BE425C222F2AE5100716CB0 /* Bool+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425C122F2AE5100716CB0 /* Bool+Essentials.swift */; };
+		5BE425C422F2B03200716CB0 /* Math+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425C322F2B03200716CB0 /* Math+Essentials.swift */; };
+		5BE425C622F2BBC600716CB0 /* String+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425C522F2BBC600716CB0 /* String+Essentials.swift */; };
+		5BE425C822F2CDBB00716CB0 /* Array+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425C722F2CDBB00716CB0 /* Array+Essentials.swift */; };
+		5BE425CA22F2CF3500716CB0 /* Optional+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425C922F2CF3500716CB0 /* Optional+Essentials.swift */; };
+		5BE425CC22F2CF7900716CB0 /* OptionSet+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425CB22F2CF7900716CB0 /* OptionSet+Essentials.swift */; };
+		5BE425CE22F2CFA300716CB0 /* Date+Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425CD22F2CFA300716CB0 /* Date+Essentials.swift */; };
 		5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */; };
 		5BE4752B18F8342400C428CB /* NSSortDescriptor+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */; };
 		5BE79BFC189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */; };
@@ -334,6 +341,13 @@
 		5BE32D6419BB4D77002605B3 /* CIFilter+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+Essentials.h"; sourceTree = "<group>"; };
 		5BE32D6519BB4D77002605B3 /* CIFilter+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIFilter+Essentials.m"; sourceTree = "<group>"; };
 		5BE32D6C19BB4D93002605B3 /* CoreImage+Essentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreImage+Essentials.h"; sourceTree = "<group>"; };
+		5BE425C122F2AE5100716CB0 /* Bool+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425C322F2B03200716CB0 /* Math+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Math+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425C522F2BBC600716CB0 /* String+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425C722F2CDBB00716CB0 /* Array+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425C922F2CF3500716CB0 /* Optional+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425CB22F2CF7900716CB0 /* OptionSet+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OptionSet+Essentials.swift"; sourceTree = "<group>"; };
+		5BE425CD22F2CFA300716CB0 /* Date+Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Essentials.swift"; sourceTree = "<group>"; };
 		5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSortDescriptor+Essentials.h"; sourceTree = "<group>"; };
 		5BE4752818F8342400C428CB /* NSSortDescriptor+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSortDescriptor+Essentials.m"; sourceTree = "<group>"; };
 		5BE79BFA189BFCF0004A02B1 /* NSMutableDictionary+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Essentials.h"; sourceTree = "<group>"; };
@@ -460,6 +474,7 @@
 			children = (
 				5BAFAAAB201A1424002312AE /* Info.plist */,
 				5BBFA590176205DF0061E8B5 /* Essentials.h */,
+				5BE425BF22F2AE3100716CB0 /* Swift */,
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
@@ -580,6 +595,20 @@
 				5BE32D6519BB4D77002605B3 /* CIFilter+Essentials.m */,
 			);
 			path = CoreImage;
+			sourceTree = "<group>";
+		};
+		5BE425BF22F2AE3100716CB0 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				5BE425C122F2AE5100716CB0 /* Bool+Essentials.swift */,
+				5BE425C322F2B03200716CB0 /* Math+Essentials.swift */,
+				5BE425C522F2BBC600716CB0 /* String+Essentials.swift */,
+				5BE425C722F2CDBB00716CB0 /* Array+Essentials.swift */,
+				5BE425C922F2CF3500716CB0 /* Optional+Essentials.swift */,
+				5BE425CB22F2CF7900716CB0 /* OptionSet+Essentials.swift */,
+				5BE425CD22F2CFA300716CB0 /* Date+Essentials.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 		5BFBAC161844BD7300179483 /* iOS */ = {
@@ -764,6 +793,7 @@
 					5BAFAAA7201A1424002312AE = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = TAQH2MQM62;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -820,8 +850,10 @@
 			files = (
 				5BAFAAB3201A1461002312AE /* ESSLog.m in Sources */,
 				5B96383A2033448B0009B6E6 /* ESSBinaryHeap.m in Sources */,
+				5BE425C222F2AE5100716CB0 /* Bool+Essentials.swift in Sources */,
 				5BAFAAD5201A1462002312AE /* NSLocale+Essentials.m in Sources */,
 				5BAFAAD1201A1462002312AE /* NSSortDescriptor+Essentials.m in Sources */,
+				5BE425CE22F2CFA300716CB0 /* Date+Essentials.swift in Sources */,
 				5BAFAAE9201A1462002312AE /* NSMapTable+Essentials.m in Sources */,
 				5BAFAB28201A1473002312AE /* CIFilter+Essentials.m in Sources */,
 				5BAFAAF9201A1469002312AE /* UIAlertController+Essentials.m in Sources */,
@@ -839,7 +871,10 @@
 				5BAFAACB201A1462002312AE /* NSDate+Essentials.m in Sources */,
 				5BAFAB15201A1469002312AE /* UIViewController+Essentials.m in Sources */,
 				5BAFAB0B201A1469002312AE /* NSMutableAttributedString+Essentials.m in Sources */,
+				5BE425C822F2CDBB00716CB0 /* Array+Essentials.swift in Sources */,
 				5BAFAB1B201A1469002312AE /* UIButton+Essentials.m in Sources */,
+				5BE425CC22F2CF7900716CB0 /* OptionSet+Essentials.swift in Sources */,
+				5BE425C622F2BBC600716CB0 /* String+Essentials.swift in Sources */,
 				5BAFAB17201A1469002312AE /* UIApplication+Essentials.m in Sources */,
 				5BAFAAF3201A1462002312AE /* NSFileManager+Essentials.m in Sources */,
 				5BAFAADB201A1462002312AE /* ESSURLResponse.m in Sources */,
@@ -849,6 +884,7 @@
 				5BAFAAFD201A1469002312AE /* UIDevice+Essentials.m in Sources */,
 				5BAFAAEB201A1462002312AE /* NSDateFormatter+Essentials.m in Sources */,
 				5BAFAADD201A1462002312AE /* ESSProxy.m in Sources */,
+				5BE425C422F2B03200716CB0 /* Math+Essentials.swift in Sources */,
 				5BAFAB03201A1469002312AE /* UIView+Essentials.m in Sources */,
 				5BAFAAEF201A1462002312AE /* ESSEvent.m in Sources */,
 				5BAFAABF201A1462002312AE /* NSMutableDictionary+Essentials.m in Sources */,
@@ -872,6 +908,7 @@
 				5BAFAB0F201A1469002312AE /* UIFont+Essentials.m in Sources */,
 				5BAFAB11201A1469002312AE /* UIBarButtonItem+Essentials.m in Sources */,
 				5BAFAB0D201A1469002312AE /* UITableView+Essentials.m in Sources */,
+				5BE425CA22F2CF3500716CB0 /* Optional+Essentials.swift in Sources */,
 				5BAFAAE5201A1462002312AE /* NSBundle+Essentials.m in Sources */,
 				5BAFAAD9201A1462002312AE /* NSURLRequest+Essentials.m in Sources */,
 				5BAFAB13201A1469002312AE /* UIBezierPath+Essentials.m in Sources */,
@@ -930,6 +967,7 @@
 		5BAFAAAE201A1424002312AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -951,6 +989,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.Essentials;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -960,6 +1000,7 @@
 		5BAFAAAF201A1424002312AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -981,6 +1022,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.Essentials;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
