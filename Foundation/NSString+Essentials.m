@@ -78,7 +78,7 @@
     }
     else {
         let truncated = [self substringWithRange:NSMakeRange(0, length)];
-        return [truncated stringByAppendingString:truncateString];
+        return [truncated stringByAppendingString:truncateString ?: @""];
     }
 }
 
@@ -485,6 +485,7 @@
 
 
 - (NSString *)firstLetter {
+    if (self.length == 0) return @"";
     if (self.length == 1) return self;
     NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:0];
     return [self substringWithRange:range];

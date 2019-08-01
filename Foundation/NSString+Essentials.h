@@ -10,6 +10,7 @@
 #import "NSNumber+Essentials.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
 
 
 
@@ -49,14 +50,14 @@
 - (NSString *)shortenedDescriptionToLength:(NSUInteger)length;
 
 /// Shortens the string to 40 characters and appends "...".
-- (NSString *)shortenedDescription;
+@property (readonly) NSString *shortenedDescription;
 
 
 
 #pragma mark Content
 
 /// Validates the receiver against email regex pattern.
-- (BOOL)isEmail;
+@property (readonly) BOOL isEmail;
 
 /// Returns YES, if the receiver contains given substring.
 - (BOOL)containsSubstring:(NSString *)string;
@@ -71,7 +72,7 @@
 - (NSIndexSet *)indexesOfCharactersFromSet:(NSCharacterSet *)charset;
 
 /// Returns a character set with characters in the receiver.
-- (NSCharacterSet*)characterSet;
+@property (readonly) NSCharacterSet* characterSet;
 
 /// Creates string with random letters in 0-9, A-Z and a-z.
 + (NSString *)randomStringWithLength:(NSUInteger)length;
@@ -85,16 +86,16 @@
 //TODO: NSMutableString alteratives
 
 /// Removes all html tags (<...>), replaces escaped sequneces and escaped Unicode characters.
-- (NSString *)stringByDeletingHTML;
+@property (readonly) NSString *stringByDeletingHTML;
 
 /// Returns a string trimmed of whitespace and new line characters
-- (NSString *)trimmedString;
+@property (readonly) NSString *trimmedString;
 
 /// Returns a string without diacritics
-- (NSString *)stringByStrippingDiacritics;
+@property (readonly) NSString *stringByStrippingDiacritics;
 
 /// Returns a string that contains only ASCII characters. Slightly faster than -stringByStrippingDiacritics.
-- (NSString *)stringByConvertingToASCII;
+@property (readonly) NSString *stringByConvertingToASCII;
 
 /// Deletes all characters from given set.
 - (NSString *)stringByDeletingCharactersFromSet:(NSCharacterSet *)characterSet;
@@ -103,13 +104,13 @@
 - (NSString *)stringByPreservingOnlyCharactersFromSet:(NSCharacterSet *)characterSet;
 
 /// Converts first character to uppercase.
-- (NSString *)stringByCapitalizingFirstCharacter;
+@property (readonly) NSString *stringByCapitalizingFirstCharacter;
 
 /// Converts first character to uppercase using given NSLocale.
-- (NSString *)stringByCapitalizingFirstCharacterUsingLocale:(NSLocale*)locale;
+- (NSString *)stringByCapitalizingFirstCharacterUsingLocale:(nullable NSLocale*)locale;
 
 /// Returns NSURL created using receiver, unless the receiver is empty.
-@property (readonly) NSURL *URLValue;
+@property (readonly, nullable) NSURL *URLValue;
 
 /// Returns MD5 hash of the receiver.
 @property (readonly) NSString *MD5;
@@ -139,7 +140,7 @@
 - (NSString *)substitute:(NSDictionary<NSString *, NSString *> *)substitutions;
 
 /// Returns new string that is normalized for search without case and diacritics sensitivity.
-- (NSString *)normalizedString;
+@property (readonly) NSString *normalizedString;
 
 /// Enumerate parts of string between opening and closing strings, for example parentheses. It’s safe to mutate the receiver as long as you update continueLocation.
 - (void)enumerateSubstringsBetween:(NSString *)opening and:(NSString *)closing usingBlock:(void(^)(NSString *content, NSRange rangeIncludingDelimiters, NSUInteger *continueLocation))block;
@@ -149,7 +150,7 @@
 
 
 /// If the receiver is non-empty, returns receiver. Otherwise returns nil, so it nevers returns empty string. Useful in ternary expressions
-@property (readonly) NSString *nonEmpty NS_SWIFT_NAME(__essentialsNonEmptyNSString);
+@property (readonly, nullable) NSString *nonEmpty NS_SWIFT_NAME(__essentialsNonEmptyNSString);
 // string.nonEmpty ?: @"–"
 
 
@@ -160,25 +161,25 @@
 - (NSArray<NSString *> *)split:(NSString *)separator;
 
 /// Returns an array of strings, each with length of 1.
-- (NSArray<NSString *> *)letters;
+@property (readonly) NSArray<NSString *> *letters;
 
 /// The first letter.
 @property (readonly) NSString *firstLetter;
 
 /// Returns an array of lines.
-- (NSArray<NSString *> *)lines;
+@property (readonly) NSArray<NSString *> *lines;
 
 /// Returns an array of paragraphs.
-- (NSArray<NSString *> *)paragraphs;
+@property (readonly) NSArray<NSString *> *paragraphs;
 
 /// Returns an array of sentences.
-- (NSArray<NSString *> *)sentences;
+@property (readonly) NSArray<NSString *> *sentences;
 
 /// Returns an array of words without surrounding punctuation.
-- (NSArray<NSString *> *)words;
+@property (readonly) NSArray<NSString *> *words;
 
 /// Returns an array of words normalized for search.
-- (NSArray<NSString *> *)normalizedWords;
+@property (readonly) NSArray<NSString *> *normalizedWords;
 
 
 
@@ -202,10 +203,10 @@
 
 #pragma mark Characters
 
-+ (NSString *)SPACE;
-+ (NSString *)THIN_SPACE;
-+ (NSString *)NO_BREAK_SPACE;
-+ (NSString *)NEW_LINE;
+@property (class, readonly) NSString *SPACE;
+@property (class, readonly) NSString *THIN_SPACE;
+@property (class, readonly) NSString *NO_BREAK_SPACE;
+@property (class, readonly) NSString *NEW_LINE;
 
 
 
@@ -227,3 +228,6 @@
     va_end(__vargs);\
     __string;\
 })
+
+
+NS_ASSUME_NONNULL_END
