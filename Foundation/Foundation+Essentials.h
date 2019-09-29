@@ -15,8 +15,7 @@
 
 #define ESSOverloaded   __attribute__((overloadable))
 
-#define SDK_iOS11  __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
-#define SDK_iOS10  __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
+#define SDK_iOS13  __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 
 
 
