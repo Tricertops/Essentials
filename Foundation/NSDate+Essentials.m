@@ -72,11 +72,6 @@
 
 
 
-+ (instancetype)now {
-    return [self new];
-}
-
-
 + (instancetype)after:(NSTimeInterval)interval {
     return [self dateWithTimeIntervalSinceNow:interval];
 }
@@ -153,14 +148,14 @@
 
 
 - (BOOL)isToday {
-    return [self isWithinUnit:NSCalendarUnitDay ofDate:[NSDate now]];
+    return [self isWithinUnit:NSCalendarUnitDay ofDate:[NSDate new]];
 }
 
 
 - (BOOL)isInLast:(NSTimeInterval)interval unit:(NSCalendarUnit)unit {
     let limit = [[NSCalendar currentCalendar] dateByAddingUnit:unit
                                                          value:-interval
-                                                        toDate:[NSDate now]
+                                                        toDate:[NSDate new]
                                                        options:kNilOptions];
     return [self isAfter:limit];
 }

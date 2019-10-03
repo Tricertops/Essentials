@@ -42,9 +42,6 @@
 /// Shorter alias for -timeIntervalSince1970
 @property (atomic, readonly, assign) NSTimeInterval UNIXTimestamp;
 
-/// Returns current date.
-+ (instancetype)now;
-
 /// Shorter alias for -dateWithTimeIntervalSinceNow:
 + (instancetype)after:(NSTimeInterval)interval;
 
