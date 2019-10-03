@@ -134,32 +134,6 @@
 
 
 
-- (BOOL)ignoresInvertColors {
-    if (@available(iOS 11.0, *)) {
-        return self.accessibilityIgnoresInvertColors;
-    }
-    return NO;
-}
-
-
-- (void)setIgnoresInvertColors:(BOOL)ignoresInvertColors {
-    if (@available(iOS 11.0, *)) {
-        self.accessibilityIgnoresInvertColors = ignoresInvertColors;
-    }
-}
-
-
-+ (NSSet<NSString *> *)keyPathsForValuesAffectingIgnoresInvertColors {
-    if (@available(iOS 11.0, *)) {
-        return [NSSet setWithObject:ESSKeypathClass(UIView, accessibilityIgnoresInvertColors)];
-    }
-    return NSSet.set;
-}
-
-
-
-
-
 #pragma mark - Geometry
 
 
@@ -550,23 +524,18 @@
 
 
 - (UIDragInteraction *)enableDragWithItem:(NSItemProvider *)itemProvider {
-    if (@available(iOS 11, *)) {
-        id<UIDragInteractionDelegate> delegate = [[ESSDragInteractionDelegate alloc] initWithItems:@[itemProvider]];
-        [self setAssociatedStrongObject:delegate forKey:_cmd];
-        
-        var interation = [[UIDragInteraction alloc] initWithDelegate:delegate];
-        interation.enabled = YES;
-        [self addInteraction:interation];
-        return interation;
-    }
-    return nil;
+    id<UIDragInteractionDelegate> delegate = [[ESSDragInteractionDelegate alloc] initWithItems:@[itemProvider]];
+    [self setAssociatedStrongObject:delegate forKey:_cmd];
+    
+    var interation = [[UIDragInteraction alloc] initWithDelegate:delegate];
+    interation.enabled = YES;
+    [self addInteraction:interation];
+    return interation;
 }
 
 
 - (void)removeAllInteractions {
-    if (@available(iOS 11, *)) {
-        self.interactions = @[];
-    }
+    self.interactions = @[];
 }
 
 

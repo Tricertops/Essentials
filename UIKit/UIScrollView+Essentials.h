@@ -51,9 +51,6 @@
 /// Accessor for .scrollIndicatorinsets.top
 @property CGFloat scrollIndicatorInsetTop;
 
-/// Backward compatible accessor for .adjustedContentInset
-@property (readonly) UIEdgeInsets effectiveContentInsets;
-
 
 
 #pragma mark - Touch Handling

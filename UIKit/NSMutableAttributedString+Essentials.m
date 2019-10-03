@@ -280,9 +280,7 @@
 }
 
 - (void)setSpeechQueueAnnouncement:(BOOL)speechQueueAnnouncement {
-    if (@available(iOS 11, *)) {
-        self[UIAccessibilitySpeechAttributeQueueAnnouncement] = (speechQueueAnnouncement? @YES : nil);
-    }
+    self[UIAccessibilitySpeechAttributeQueueAnnouncement] = (speechQueueAnnouncement? @YES : nil);
 }
 
 - (void)setSpeechLanguage:(NSString*)speechLanguage {
@@ -290,9 +288,7 @@
 }
 
 - (void)setSpeechIPANotation:(NSString*)speechIPANotation {
-    if (@available(iOS 11, *)) {
-        self[UIAccessibilitySpeechAttributeIPANotation] = speechIPANotation;
-    }
+    self[UIAccessibilitySpeechAttributeIPANotation] = speechIPANotation;
 }
 
 

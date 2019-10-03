@@ -25,7 +25,7 @@
 
 
 
-- (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForBeginningSession:(id<UIDragSession>)session API_AVAILABLE(ios(11)) {
+- (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForBeginningSession:(id<UIDragSession>)session {
     var dragItems = [NSMutableArray<UIDragItem *> new];
     
     foreach (item, self.items) {
@@ -36,12 +36,12 @@
 }
 
 
-- (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForAddingToSession:(id<UIDragSession>)session withTouchAtPoint:(CGPoint)point API_AVAILABLE(ios(11)) {
+- (NSArray<UIDragItem *> *)dragInteraction:(UIDragInteraction *)interaction itemsForAddingToSession:(id<UIDragSession>)session withTouchAtPoint:(CGPoint)point {
     return [self dragInteraction:interaction itemsForBeginningSession:session];
 }
 
 
-- (id<UIDragSession>)dragInteraction:(UIDragInteraction *)interaction sessionForAddingItems:(NSArray<id<UIDragSession>> *)sessions withTouchAtPoint:(CGPoint)touchLocation  API_AVAILABLE(ios(11)) {
+- (id<UIDragSession>)dragInteraction:(UIDragInteraction *)interaction sessionForAddingItems:(NSArray<id<UIDragSession>> *)sessions withTouchAtPoint:(CGPoint)touchLocation {
     CGFloat nearestDistance = INFINITY;
     id<UIDragSession> nearestSession = nil;
     var view = interaction.view;
