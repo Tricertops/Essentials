@@ -276,29 +276,3 @@ ESSSharedCache(ess_signatureCache)
 @end
 
 
-
-
-
-@implementation NSInvocation (ESSProxy)
-
-
-
-- (instancetype)copy {
-    __block NSInvocation *copy = nil;
-    id catcher = [[[ESSProxy subclass:@"ESSInvocationCopyProxy"] alloc] initWithDescription:^id{
-        return self;
-    } signature:^NSMethodSignature *(SEL selector) {
-        return [ESSProxy giveMeAnyMethodSignatureForSelector:selector IProceedAtMyOwnRisk:YES];
-    } forward:^(NSInvocation *invocation) {
-        copy = invocation;
-        // Not invoking the invocation returns zeroes.
-    }];
-    [self invokeWithTarget:catcher]; // Leaves the receiver untouched.
-    return copy;
-}
-
-
-
-@end
-
-
