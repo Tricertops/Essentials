@@ -155,7 +155,8 @@
 
 #pragma mark - Events
 
-@property (readonly) ESSEvent<UIColor *> *onTintColorChange;
+@property (readonly) ESSEvent<UIColor *> *onTintColorChange; //!< Value is current tint color.
+@property (readonly) ESSEvent<UITraitCollection *> *onTraitCollectionChange; //!< Value is previous trait collection.
 
 
 #pragma mark - Debugging

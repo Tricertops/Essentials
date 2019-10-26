@@ -433,15 +433,15 @@
 
 
 - (ESSEvent<UIColor *> *)onTintColorChange {
-    ESSEvent<UIColor *> *event = [self associatedObjectForKey:@selector(ess_tintColorDidChange)];
+    SEL selector = @selector(ess_tintColorDidChange);
+    ESSEvent<UIColor *> *event = [self associatedObjectForKey:selector];
     if ( ! event) {
         event = [[ESSEvent alloc] initWithOwner:self initialValue:self.tintColor];
-        [self setAssociatedStrongObject:event forKey:@selector(ess_tintColorDidChange)];
+        [self setAssociatedStrongObject:event forKey:selector];
         
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            [UIView swizzleSelector:@selector(    tintColorDidChange)
-                               with:@selector(ess_tintColorDidChange)];
+            [UIView swizzleSelector:@selector(tintColorDidChange) with:selector];
         });
     }
     return event;
@@ -454,6 +454,33 @@
     ESSEvent<UIColor *> *event = [self associatedObjectForKey:@selector(ess_tintColorDidChange)];
     [event sendValue:self.tintColor];
 }
+
+
+
+
+- (ESSEvent<UIColor *> *)onTraitCollectionChange {
+    SEL selector = @selector(ess_traitCollectionDidChange:);
+    ESSEvent<UIColor *> *event = [self associatedObjectForKey:selector];
+    if ( ! event) {
+        event = [[ESSEvent alloc] initWithOwner:self initialValue:self.tintColor];
+        [self setAssociatedStrongObject:event forKey:selector];
+        
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [UIView swizzleSelector:@selector(traitCollectionDidChange:) with:selector];
+        });
+    }
+    return event;
+}
+
+
+- (void)ess_traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [self ess_traitCollectionDidChange:previousTraitCollection];
+    
+    ESSEvent<UITraitCollection *> *event = [self associatedObjectForKey:@selector(ess_traitCollectionDidChange:)];
+    [event sendValue:previousTraitCollection];
+}
+
 
 
 
