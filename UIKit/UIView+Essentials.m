@@ -437,6 +437,7 @@
     ESSEvent<UIColor *> *event = [self associatedObjectForKey:selector];
     if ( ! event) {
         event = [[ESSEvent alloc] initWithOwner:self initialValue:self.tintColor];
+        [event notify]; //! Any future listener is immediatelly notified.
         [self setAssociatedStrongObject:event forKey:selector];
         
         static dispatch_once_t onceToken;
@@ -462,7 +463,8 @@
     SEL selector = @selector(ess_traitCollectionDidChange:);
     ESSEvent<UIColor *> *event = [self associatedObjectForKey:selector];
     if ( ! event) {
-        event = [[ESSEvent alloc] initWithOwner:self initialValue:self.tintColor];
+        event = [[ESSEvent alloc] initWithOwner:self initialValue:self.traitCollection];
+        [event notify]; //! Any future listener is immediatelly notified.
         [self setAssociatedStrongObject:event forKey:selector];
         
         static dispatch_once_t onceToken;
@@ -470,6 +472,7 @@
             [UIView swizzleSelector:@selector(traitCollectionDidChange:) with:selector];
         });
     }
+    
     return event;
 }
 
