@@ -323,7 +323,16 @@
 
 
 - (void)setShadowColor:(UIColor *)shadowColor {
-    self.layer.shadowColor = shadowColor.CGColor;
+    if (@available(iOS 13, *)) {
+        //! We listen for appearance changes and update the color automatically.
+        [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
+            UIColor *resolvedColor = [shadowColor resolvedColorWithTraitCollection:self.traitCollection];
+            self.layer.shadowColor = resolvedColor.CGColor;
+        }];
+    }
+    else {
+        self.layer.shadowColor = shadowColor.CGColor;
+    }
 }
 
 
@@ -392,7 +401,16 @@
 }
 
 - (void)setBorderColor:(UIColor *)borderColor {
-    self.layer.borderColor = borderColor.CGColor;
+    if (@available(iOS 13, *)) {
+        //! We listen for appearance changes and update the color automatically.
+        [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
+            UIColor *resolvedColor = [borderColor resolvedColorWithTraitCollection:self.traitCollection];
+            self.layer.borderColor = resolvedColor.CGColor;
+        }];
+    }
+    else {
+        self.layer.borderColor = borderColor.CGColor;
+    }
 }
 
 
