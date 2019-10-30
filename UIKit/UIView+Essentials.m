@@ -478,6 +478,10 @@
 
 
 - (ESSEvent<UIColor *> *)onTraitCollectionChange {
+    //! As of October 2019 on iOS 13, UIImageView didn’t notify on traitCollection properly.
+    if ([self isKindOfClass:UIImageView.class]) {
+        ESSWarning(@"Observing traitCollection changes doesn’t work on UIImageView.");
+    }
     SEL selector = @selector(ess_traitCollectionDidChange:);
     ESSEvent<UIColor *> *event = [self associatedObjectForKey:selector];
     if ( ! event) {
