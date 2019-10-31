@@ -24,6 +24,12 @@
 //! Dismisses the receiver by unqinding its presentation.
 - (IBAction)dismiss;
 
+//! Adds child view controller to the receiver (with proper method sequence).
+- (void)addChildInstantly:(UIViewController *)childViewController;
+
+//! Removes view from superview and the receiver from its parent (with proper method sequence).
+- (void)removeFromParentInstantly;
+
 
 @end
 

@@ -55,6 +55,26 @@
 
 
 
+- (void)addChildInstantly:(UIViewController *)child {
+    [self addChildViewController:child];
+    [child didMoveToParentViewController:self];
+}
+
+
+- (void)removeFromParentInstantly {
+    if (self.parentViewController == nil) return;
+    
+    if (self.isViewLoaded) {
+        [self.view removeFromSuperview];
+    }
+    [self willMoveToParentViewController:nil];
+    [self removeFromParentViewController];
+}
+
+
+
+
+
 @end
 
 
