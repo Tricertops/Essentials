@@ -7,7 +7,7 @@
 //
 
 #import "UIKit+Essentials.h"
-@import GLKit;
+@import simd;
 
 
 
@@ -93,7 +93,7 @@
 - (UIImage *)imageByProcessingSamples:(void(^)(NSUInteger count, float *samples, float *quarter))block;
 
 /// Returns new image created by processing receiver's samples using given block.
-- (UIImage *)imageByEnumeratingPixels:(GLKVector4(^)(GLKVector4 color))block;
+- (UIImage *)imageByEnumeratingPixels:(simd_float4(^)(simd_float4 color))block;
 
 /// Returns image with inverted red, green and blue and preserved alpha.
 - (UIImage *)invertedImage;
