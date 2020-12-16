@@ -270,33 +270,33 @@
 }
 
 
-- (UIImage *)imageByEnumeratingPixels:(GLKVector4(^)(GLKVector4 color))block {
+- (UIImage *)imageByEnumeratingPixels:(simd_float4(^)(simd_float4 color))block {
     static float const multiplier = 255;
     
     return [self imageByProcessingBitmap:^(NSMutableData *bitmap) {
         NSByte *bytes = bitmap.mutableBytes;
         
         forcount (index, bitmap.length, 4) {
-            GLKVector4 color = GLKVector4Make(bytes[index +0] / multiplier,
-                                              bytes[index +1] / multiplier,
-                                              bytes[index +2] / multiplier,
-                                              bytes[index +3] / multiplier);
+            simd_float4 color = simd_make_float4(bytes[index +0] / multiplier,
+                                                 bytes[index +1] / multiplier,
+                                                 bytes[index +2] / multiplier,
+                                                 bytes[index +3] / multiplier);
             color = block(color);
-            bytes[index +0] = color.r * multiplier;
-            bytes[index +1] = color.g * multiplier;
-            bytes[index +2] = color.b * multiplier;
-            bytes[index +3] = color.a * multiplier;
+            bytes[index +0] = color[0] * multiplier;
+            bytes[index +1] = color[1] * multiplier;
+            bytes[index +2] = color[2] * multiplier;
+            bytes[index +3] = color[3] * multiplier;
         }
     }];
 }
 
 
 - (UIImage *)invertedImage {
-    return [self imageByEnumeratingPixels:^GLKVector4(GLKVector4 color) {
-        return GLKVector4Make(1 - color.r,
-                              1 - color.g,
-                              1 - color.b,
-                              color.a);
+    return [self imageByEnumeratingPixels:^simd_float4(simd_float4 color) {
+        return simd_make_float4(1 - color.r,
+                                1 - color.g,
+                                1 - color.b,
+                                color.a);
     }];
 }
 
