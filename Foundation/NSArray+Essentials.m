@@ -164,7 +164,7 @@
 }
 
 
-- (NSMutableDictionary<id, id> *)dictionaryByMappingToValues:(id(^)(id<NSCopying> key))block {
+- (NSMutableDictionary<id, id> *)dictionaryByMappingToValues:(id(^)(id key))block {
     var dictionary = [NSMutableDictionary<id, id> dictionaryWithCapacity:self.count];
     foreach (key, self) {
         id value = block(key);

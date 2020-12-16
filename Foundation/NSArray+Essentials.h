@@ -71,7 +71,7 @@
 - (NSMutableDictionary<id, T> *)dictionaryByMappingToKeys:(id<NSCopying>(^)(T value))block;
 
 /// Returns new dictionary, whose keys are objects from the receiver and values are corresponding value returned by block.
-- (NSMutableDictionary<T, id> *)dictionaryByMappingToValues:(id(^)(T<NSCopying> key))block;
+- (NSMutableDictionary<T, id> *)dictionaryByMappingToValues:(id(^)(T key))block;
 
 /// Returns new array without objects from provided set.
 - (NSArray<T> *)arrayByRemovingObjectsFromSet:(NSSet<T> *)set;
