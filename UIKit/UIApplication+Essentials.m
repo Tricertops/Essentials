@@ -29,6 +29,21 @@
 }
 
 
+- (UIWindow *)legacyKeyWindow {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return self.keyWindow;
+#pragma clang diagnostic pop
+}
+
+- (CGRect)legacyStatusBarFrame {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return self.statusBarFrame;
+#pragma clang diagnostic pop
+}
+
+
 
 
 
