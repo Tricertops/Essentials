@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -787,7 +787,7 @@
 			attributes = {
 				CLASSPREFIX = ESS;
 				LastTestingUpgradeCheck = 0610;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1299;
 				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
 					5BAFAAA7201A1424002312AE = {
@@ -799,7 +799,7 @@
 				};
 			};
 			buildConfigurationList = 5BBFA583176205DF0061E8B5 /* Build configuration list for PBXProject "Essentials" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
