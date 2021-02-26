@@ -268,6 +268,13 @@
 }
 
 
+- (NSArray<id> *)insertingObject:(id)object atIndex:(NSUInteger)index {
+    NSMutableArray<id> *mutable = [self mutableCopy];
+    [mutable insertObject:object atIndex:index];
+    return mutable;
+}
+
+
 #pragma mark Concatenaing
 
 - (NSArray *) :(NSArray *)a { return [self.class concat:self, a?:@[], nil]; }

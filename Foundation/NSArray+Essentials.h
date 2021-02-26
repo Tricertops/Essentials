@@ -108,6 +108,9 @@
 /// Returns a new array containing the receiving array’s elements starting at given index. Safe to pass large indexes, will be clamped.
 - (NSArray<T> *)subarrayStartingAtIndex:(NSUInteger)index;
 
+/// Returns a new array with the given object inserted at given index.
+- (NSArray<T> *)insertingObject:(T)object atIndex:(NSUInteger)index;
+
 - (NSArray<T> *) :(NSArray<T> *)a;
 - (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b;
 - (NSArray<T> *) :(NSArray<T> *)a :(NSArray<T> *)b :(NSArray<T> *)c;
