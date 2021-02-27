@@ -174,6 +174,8 @@
 		5BAFAB36201A16A5002312AE /* Typed.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAFAB31201A16A5002312AE /* Typed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BBF9A761C6F9A15007B24FC /* NSDateFormatter+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBF9A741C6F9A15007B24FC /* NSDateFormatter+Essentials.h */; };
 		5BBF9A781C6F9A15007B24FC /* NSDateFormatter+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF9A751C6F9A15007B24FC /* NSDateFormatter+Essentials.m */; };
+		5BD4153A25EA339B00F32508 /* Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4153925EA339B00F32508 /* Essentials.swift */; };
+		5BD4153B25EA339B00F32508 /* Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4153925EA339B00F32508 /* Essentials.swift */; };
 		5BE0A30F1BD384CB006BDA45 /* NSBundle+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE0A30D1BD384CB006BDA45 /* NSBundle+Essentials.h */; };
 		5BE0A3111BD384CB006BDA45 /* NSBundle+Essentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A30E1BD384CB006BDA45 /* NSBundle+Essentials.m */; };
 		5BE4752918F8342400C428CB /* NSSortDescriptor+Essentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE4752718F8342400C428CB /* NSSortDescriptor+Essentials.h */; };
@@ -323,6 +325,7 @@
 		5BBFA5D617621F7A0061E8B5 /* NSOperationQueue+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+Essentials.m"; sourceTree = "<group>"; };
 		5BCA600A1B2197D100EFB683 /* UIAlertController+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Essentials.h"; sourceTree = "<group>"; };
 		5BCA600B1B2197D100EFB683 /* UIAlertController+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Essentials.m"; sourceTree = "<group>"; };
+		5BD4153925EA339B00F32508 /* Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Essentials.swift; sourceTree = "<group>"; };
 		5BD8A6381AACB42400B0C398 /* UIViewController+Essentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Essentials.h"; sourceTree = "<group>"; };
 		5BD8A6391AACB42400B0C398 /* UIViewController+Essentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Essentials.m"; sourceTree = "<group>"; };
 		5BDDD32F1F83D052006F2CB9 /* ESSDragInteractionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESSDragInteractionDelegate.h; sourceTree = "<group>"; };
@@ -460,6 +463,7 @@
 			children = (
 				5BAFAAAB201A1424002312AE /* Info.plist */,
 				5BBFA590176205DF0061E8B5 /* Essentials.h */,
+				5BD4153925EA339B00F32508 /* Essentials.swift */,
 				5BBFA58D176205DF0061E8B5 /* Foundation */,
 				5B1340F9176222DF008F8F1E /* UIKit */,
 				5BE32D6119BB4D77002605B3 /* CoreImage */,
@@ -764,8 +768,11 @@
 					5BAFAAA7201A1424002312AE = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = TAQH2MQM62;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
+					};
+					5BFBABDE1844BAC300179483 = {
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -867,6 +874,7 @@
 				5BAFAAE7201A1462002312AE /* NSMutableSet+Essentials.m in Sources */,
 				5BAFAACD201A1462002312AE /* NSData+Essentials.m in Sources */,
 				5BAFAB09201A1469002312AE /* NSAttributedString+Essentials.m in Sources */,
+				5BD4153A25EA339B00F32508 /* Essentials.swift in Sources */,
 				5BAFAAF7201A1469002312AE /* UIKit+Essentials.m in Sources */,
 				5BAFAAB9201A1462002312AE /* NSArray+Essentials.m in Sources */,
 				5BAFAB05201A1469002312AE /* UIScrollView+Essentials.m in Sources */,
@@ -922,6 +930,7 @@
 				5BE8AABF19702FD000F0B09A /* NSIndexPath+Essentials.m in Sources */,
 				5BAC18091CA69CEB00533C1E /* NSCharacterSet+Essentials.m in Sources */,
 				5BFDDE3E19D95F0900AF28D7 /* NSTimer+Essentials.m in Sources */,
+				5BD4153B25EA339B00F32508 /* Essentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,6 +1112,7 @@
 		5BFBABFF1844BAC300179483 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -1120,15 +1130,23 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = EssentialsOSX;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		5BFBAC001844BAC300179483 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -1144,9 +1162,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = EssentialsOSX;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
