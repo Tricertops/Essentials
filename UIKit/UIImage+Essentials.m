@@ -181,9 +181,9 @@
 
 - (UIImage *)resizedImageToSize:(CGSize)size {
     CGRect rect = CGRectFitIntoRect(CGRectMakeSize(self.size), CGRectMakeSize(size));
-    return [UIImage drawWithSize:rect.size opaque:NO scale:self.scale block:^{
+    return [[UIImage drawWithSize:rect.size opaque:NO scale:self.scale block:^{
         [self drawInRect:rect];
-    }];
+    }] imageWithRenderingMode:self.renderingMode];
 }
 
 
