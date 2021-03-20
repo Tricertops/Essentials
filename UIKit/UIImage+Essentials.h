@@ -39,6 +39,19 @@
 
 
 
+#pragma mark - System Images
+
++ (instancetype)system:(NSString *)systemName API_AVAILABLE(ios(13));
++ (instancetype)smallSystem:(NSString *)systemName API_AVAILABLE(ios(13));
++ (instancetype)mediumSystem:(NSString *)systemName API_AVAILABLE(ios(13));
++ (instancetype)largeSystem:(NSString *)systemName API_AVAILABLE(ios(13));
++ (instancetype)system:(NSString *)systemName font:(UIFont *)font API_AVAILABLE(ios(13));
++ (instancetype)smallSystem:(NSString *)systemName font:(UIFont *)font API_AVAILABLE(ios(13));
++ (instancetype)mediumSystem:(NSString *)systemName font:(UIFont *)font API_AVAILABLE(ios(13));
++ (instancetype)largeSystem:(NSString *)systemName font:(UIFont *)font API_AVAILABLE(ios(13));
+
+    
+
 #pragma mark - Coordinates
 
 /// A rectangle with zero origin that specifies the extent of the image in points.

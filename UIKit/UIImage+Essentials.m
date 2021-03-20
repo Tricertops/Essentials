@@ -68,6 +68,51 @@
 
 
 
+#pragma mark - System Images
+
++ (instancetype)system:(NSString *)systemName {
+    return [UIImage systemImageNamed:systemName];
+}
+
++ (instancetype)smallSystem:(NSString *)systemName {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithScale:UIImageSymbolScaleSmall];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)mediumSystem:(NSString *)systemName {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithScale:UIImageSymbolScaleMedium];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)largeSystem:(NSString *)systemName {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithScale:UIImageSymbolScaleLarge];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)system:(NSString *)systemName font:(UIFont *)font {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithFont:font];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)smallSystem:(NSString *)systemName font:(UIFont *)font {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithFont:font scale:UIImageSymbolScaleSmall];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)mediumSystem:(NSString *)systemName font:(UIFont *)font {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithFont:font scale:UIImageSymbolScaleMedium];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
++ (instancetype)largeSystem:(NSString *)systemName font:(UIFont *)font {
+    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithFont:font scale:UIImageSymbolScaleLarge];
+    return [UIImage systemImageNamed:systemName withConfiguration:configuration];
+}
+
+
+
+
+
 #pragma mark - Coordinates
 
 
