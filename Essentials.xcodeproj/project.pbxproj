@@ -762,7 +762,7 @@
 			attributes = {
 				CLASSPREFIX = ESS;
 				LastTestingUpgradeCheck = 0610;
-				LastUpgradeCheck = 1299;
+				LastUpgradeCheck = 1399;
 				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
 					5BAFAAA7201A1424002312AE = {
