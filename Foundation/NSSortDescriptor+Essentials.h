@@ -30,6 +30,8 @@ typedef enum : BOOL {
 
 + (NSComparator)comparatorForSortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors;
 
++ (instancetype)sortDescriptorAscending:(BOOL)ascending accessor:(id(^)(id))accessor;
+
 
 @end
 
@@ -52,5 +54,11 @@ typedef enum : BOOL {
     } \
     SEL selector = NSSelectorFromString(@#compareSelector); \
     [NSSortDescriptor sortDescriptorWithKey:@#keyPath ascending:ESSSort##ascend selector:selector]; \
+})
+
+
+#define ESSSortAccess(Class, expression, ascend) \
+(NSSortDescriptor *)({ \
+    [NSSortDescriptor sortDescriptorAscending:ESSSort##ascend accessor:^(Class *x){ return (expression); }]; \
 })
 

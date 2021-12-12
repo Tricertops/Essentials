@@ -68,6 +68,18 @@
 
 
 
++ (instancetype)sortDescriptorAscending:(BOOL)ascending accessor:(id(^)(id))accessor {
+    return [NSSortDescriptor sortDescriptorWithKey:nil ascending:ascending comparator:^NSComparisonResult(id object1, id object2) {
+        id value1 = accessor(object1);
+        id value2 = accessor(object2);
+        return [value1 compare:value2];
+    }];
+}
+
+
+
+
+
 @end
 
 
