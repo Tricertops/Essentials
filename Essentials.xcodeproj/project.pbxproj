@@ -723,9 +723,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BAFAAAD201A1424002312AE /* Build configuration list for PBXNativeTarget "Essentials" */;
 			buildPhases = (
+				5BAFAAA5201A1424002312AE /* Headers */,
 				5BAFAAA3201A1424002312AE /* Sources */,
 				5BAFAAA4201A1424002312AE /* Frameworks */,
-				5BAFAAA5201A1424002312AE /* Headers */,
 				5BAFAAA6201A1424002312AE /* Resources */,
 			);
 			buildRules = (
