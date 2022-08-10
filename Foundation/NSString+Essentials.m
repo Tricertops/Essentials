@@ -380,8 +380,21 @@
 
 
 - (NSString *)stringBySubstitutingWithDictionary:(NSDictionary<NSString *, NSString *> *)substitutions {
-    return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholderKey) {
-        return [[substitutions objectForKey:placeholderKey] description];
+    let selector = substitutions[@"|"];
+    return [self stringBySubstitutingWithBlock:^NSString *(NSString *placeholder) {
+        // Handle special key for picking a variant.
+        if (selector && [placeholder containsString:@"|"]) {
+            foreach (pair, [placeholder split:@"|"]) {
+                let components = [pair split:@":"];
+                let key = (components.count > 1? components[0] : @"");
+                let value = (components.count > 1? components[1] : components[0]);
+                
+                if (NSEqual(key, selector)) {
+                    return value;
+                }
+            }
+        }
+        return [substitutions objectForKey:placeholder];
     }];
 }
 
