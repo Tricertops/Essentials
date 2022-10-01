@@ -34,7 +34,7 @@
 
 #pragma mark - Moves
 
-- (void)moveTo:(CGPoint)point;
+- (void)moveTo:(CGPoint)point NS_SWIFT_UNAVAILABLE("Already provided.");
 - (void)moveXTo:(CGFloat)x;
 - (void)moveYTo:(CGFloat)y;
 - (void)moveBy:(CGPoint)point;
