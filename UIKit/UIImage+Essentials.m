@@ -272,7 +272,7 @@
     var bitmap = [NSMutableData dataWithLength:width * height * 4];
     
     let colorSpace = CGColorSpaceCreateDeviceRGB();
-    var context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast);
+    var context = CGBitmapContextCreate(bitmap.mutableBytes, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Big | (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colorSpace);
     
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), [self CGImage]);
