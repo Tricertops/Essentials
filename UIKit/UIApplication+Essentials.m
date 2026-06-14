@@ -25,7 +25,8 @@
 
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    [self.keyWindow.rootViewController.deepestPresentedViewController presentViewController:viewControllerToPresent animated:flag completion:completion];
+    UIWindowScene * scene = (UIWindowScene *)self.connectedScenes.anyObject;
+    [scene.keyWindow.rootViewController.deepestPresentedViewController presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 

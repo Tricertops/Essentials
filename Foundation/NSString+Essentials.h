@@ -112,9 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns NSURL created using receiver, unless the receiver is empty.
 @property (readonly, nullable) NSURL *URLValue;
 
-/// Returns MD5 hash of the receiver.
-@property (readonly) NSString *MD5;
-
 /// Returns SHA1 hash of the receiver.
 @property (readonly) NSString *SHA1;
 

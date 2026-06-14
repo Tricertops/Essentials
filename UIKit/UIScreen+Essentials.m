@@ -34,29 +34,12 @@
 
 
 - (CGRect)fixedBounds {
-    if ([self respondsToSelector:@selector(fixedCoordinateSpace)]) {
-        /// iOS 8.0 and later
-        return [self.fixedCoordinateSpace bounds];
-    }
-    else {
-        /// iOS 7.1 and earlier
-        return self.bounds;
-    }
+    return [self.fixedCoordinateSpace bounds];
 }
 
 
 - (CGRect)rotatedBounds {
-    CGRect bounds = self.bounds;
-    
-    if ( ! [self respondsToSelector:@selector(fixedCoordinateSpace)]) {
-        /// iOS 7.1 and earlier
-        BOOL isLandscape = UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
-        if (isLandscape) {
-            bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
-        }
-    }
-    
-    return bounds;
+    return self.bounds;
 }
 
 
@@ -65,16 +48,12 @@
 }
 
 
-- (UIInterfaceOrientation)interfaceOrientation {
-    return [[UIApplication sharedApplication] statusBarOrientation];
-}
-
-
 - (UIImage *)takeScreenshotWithDrawing:(void (^)(void))drawingBlock {
     let app = UIApplication.sharedApplication;
+    let scene = (UIWindowScene *)app.connectedScenes.anyObject;
     
     return [UIImage drawWithSize:self.bounds.size opaque:YES scale:self.scale block:^{
-        foreach (window, app.windows) {
+        foreach (window, scene.windows) {
             if (window.screen == self && !window.isHidden) {
                 [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
             }
@@ -113,10 +92,6 @@
 
 + (CGFloat)pixel {
     return self.mainScreen.pixel;
-}
-
-+ (UIInterfaceOrientation)interfaceOrientation {
-    return self.mainScreen.interfaceOrientation;
 }
 
 + (CGFloat)width {

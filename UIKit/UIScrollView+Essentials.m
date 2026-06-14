@@ -30,9 +30,16 @@
 
 
 - (void)adjustScrollIndicatorInsets:(void (^)(UIEdgeInsets *))block {
-    var scrollIndicatorInsets = self.scrollIndicatorInsets;
-    block(&scrollIndicatorInsets);
-    self.scrollIndicatorInsets = scrollIndicatorInsets;
+    {
+        var scrollIndicatorInsets = self.verticalScrollIndicatorInsets;
+        block(&scrollIndicatorInsets);
+        self.verticalScrollIndicatorInsets = scrollIndicatorInsets;
+    }
+    {
+        var scrollIndicatorInsets = self.horizontalScrollIndicatorInsets;
+        block(&scrollIndicatorInsets);
+        self.horizontalScrollIndicatorInsets = scrollIndicatorInsets;
+    }
 }
 
 
@@ -199,14 +206,14 @@
 
 
 - (CGFloat)scrollIndicatorInsetTop {
-    return self.scrollIndicatorInsets.top;
+    return self.verticalScrollIndicatorInsets.top;
 }
 
 
 - (void)setScrollIndicatorInsetTop:(CGFloat)top {
-    var insets = self.scrollIndicatorInsets;
+    var insets = self.verticalScrollIndicatorInsets;
     insets.top = top;
-    self.scrollIndicatorInsets = insets;
+    self.verticalScrollIndicatorInsets = insets;
 }
 
 

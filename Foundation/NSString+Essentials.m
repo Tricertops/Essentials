@@ -278,13 +278,6 @@
 }
 
 
-- (NSString *)MD5 {
-    var data = [NSMutableData dataWithLength:CC_MD5_DIGEST_LENGTH];
-    CC_MD5(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
-    return data.hexadecimalString;
-}
-
-
 - (NSString *)SHA1 {
     var data = [NSMutableData dataWithLength:CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.UTF8String, (CC_LONG)self.UTF8Length, data.mutableBytes);
