@@ -69,33 +69,37 @@
 
 
 + (CGFloat)aspectRatio {
-    return self.mainScreen.aspectRatio;
+    return self.deprecatedMainScreen.aspectRatio;
 }
 
 
 + (BOOL)retina {
-    return self.mainScreen.retina;
+    return self.deprecatedMainScreen.retina;
 }
 
 
 + (CGRect)fixedBounds {
-    return self.mainScreen.fixedBounds;
+    return self.deprecatedMainScreen.fixedBounds;
 }
 
 + (CGRect)rotatedBounds {
-    return self.mainScreen.rotatedBounds;
+    return self.deprecatedMainScreen.rotatedBounds;
 }
 
 + (CGFloat)scale {
-    return self.mainScreen.scale;
+    return self.deprecatedMainScreen.scale;
 }
 
 + (CGFloat)pixel {
-    return self.mainScreen.pixel;
+    return self.deprecatedMainScreen.pixel;
 }
 
 + (CGFloat)width {
-    return self.mainScreen.fixedBounds.size.width;
+    return self.deprecatedMainScreen.fixedBounds.size.width;
+}
+
++ (UIScreen*)deprecatedMainScreen {
+    return self.mainScreen;
 }
 
 

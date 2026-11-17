@@ -763,7 +763,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = ESS;
 				LastTestingUpgradeCheck = 0610;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2720;
 				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
 					5BAFAAA7201A1424002312AE = {
@@ -953,7 +953,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -986,7 +986,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1149,7 +1149,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
 				PRODUCT_NAME = EssentialsOSX;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1181,7 +1181,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
 				PRODUCT_NAME = EssentialsOSX;
 				SDKROOT = macosx;
 			};

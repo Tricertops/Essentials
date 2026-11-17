@@ -11,6 +11,7 @@
 #import "Foundation+Essentials.h"
 #import "UIKit+Essentials.h"
 #import "UIColor+Essentials.h"
+#import "UIScreen+Essentials.h"
 
 
 
@@ -196,7 +197,7 @@
     CGPoint relativeTranslation = [self relativeTranslationForOrientation:orientation];
     BOOL mirroring = [self mirroringForOrientation:orientation];
     if (scale == 0) {
-        scale = [[UIScreen mainScreen] scale];
+        scale = [[UIScreen deprecatedMainScreen] scale];
     }
     
     var t = CGAffineTransformIdentity;
@@ -515,7 +516,7 @@
     CGFloat circleWidth = circleSize.width;
     CGFloat circleHeight = circleSize.height;
     
-    UIGraphicsBeginImageContextWithOptions(circleSize, NO, [[UIScreen mainScreen] scale]);
+    UIGraphicsBeginImageContextWithOptions(circleSize, NO, [[UIScreen deprecatedMainScreen] scale]);
     
     [self drawInRect:CGRectMake(ceil(circleWidth/2-self.size.width/2), ceil(circleHeight/2-self.size.height/2), self.size.width, self.size.height)];
     [circleColor setStroke];

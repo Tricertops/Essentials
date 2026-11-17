@@ -301,16 +301,11 @@
 
 
 - (void)setShadowColor:(UIColor *)shadowColor {
-    if (@available(iOS 13, *)) {
-        //! We listen for appearance changes and update the color automatically.
-        [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
-            UIColor *resolvedColor = [shadowColor resolvedColorWithTraitCollection:self.traitCollection];
-            self.layer.shadowColor = resolvedColor.CGColor;
-        }];
-    }
-    else {
-        self.layer.shadowColor = shadowColor.CGColor;
-    }
+    //! We listen for appearance changes and update the color automatically.
+    [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
+        UIColor *resolvedColor = [shadowColor resolvedColorWithTraitCollection:self.traitCollection];
+        self.layer.shadowColor = resolvedColor.CGColor;
+    }];
 }
 
 
@@ -379,16 +374,11 @@
 }
 
 - (void)setBorderColor:(UIColor *)borderColor {
-    if (@available(iOS 13, *)) {
-        //! We listen for appearance changes and update the color automatically.
-        [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
-            UIColor *resolvedColor = [borderColor resolvedColorWithTraitCollection:self.traitCollection];
-            self.layer.borderColor = resolvedColor.CGColor;
-        }];
-    }
-    else {
-        self.layer.borderColor = borderColor.CGColor;
-    }
+    //! We listen for appearance changes and update the color automatically.
+    [self.onTraitCollectionChange addObserver:self handler:^(UIView *self, UITraitCollection *previous) {
+        UIColor *resolvedColor = [borderColor resolvedColorWithTraitCollection:self.traitCollection];
+        self.layer.borderColor = resolvedColor.CGColor;
+    }];
 }
 
 

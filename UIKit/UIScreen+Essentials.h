@@ -49,6 +49,8 @@
 + (CGFloat)pixel;
 + (CGFloat)width;
 
+@property (class, readonly) UIScreen *deprecatedMainScreen;
+
 
 @end
 
