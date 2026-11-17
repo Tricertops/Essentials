@@ -40,11 +40,6 @@
 #pragma mark - Language Accessors
 
 
-- (NSString *)languageCode {
-    return [self objectForKey:NSLocaleLanguageCode];
-}
-
-
 - (NSString *)languageName {
     return [self languageNameInLocale:nil];
 }
@@ -52,12 +47,7 @@
 
 - (NSString *)languageNameInLocale:(NSLocale *)localeOrNil {
     let locale = localeOrNil ?: NSLocale.standardizedLocale;
-    return [locale displayNameForKey:NSLocaleLanguageCode value:self.languageCode];
-}
-
-
-- (NSString *)countryCode {
-    return [self objectForKey:NSLocaleCountryCode];
+    return [locale displayNameForKey:NSLocaleLanguageCode value:[self objectForKey:NSLocaleLanguageCode]];
 }
 
 
@@ -68,38 +58,7 @@
 
 - (NSString *)countryNameInLocale:(NSLocale *)localeOrNil {
     let locale = localeOrNil ?: NSLocale.standardizedLocale;
-    return [locale displayNameForKey:NSLocaleCountryCode value:self.countryCode];
-}
-
-
-- (NSString *)variantCode {
-    return [self objectForKey:NSLocaleVariantCode];
-}
-
-
-
-
-
-#pragma mark - Writing Accessors
-
-
-- (NSString *)scriptCode {
-    return [self objectForKey:NSLocaleScriptCode];
-}
-
-
-- (NSCharacterSet *)exemplarCharacterSet {
-    return [self objectForKey:NSLocaleExemplarCharacterSet];
-}
-
-
-- (NSString *)collationIdentifier {
-    return [self objectForKey:NSLocaleCollationIdentifier];
-}
-
-
-- (NSString *)collatorIdentifier {
-    return [self objectForKey:NSLocaleCollatorIdentifier];
+    return [locale displayNameForKey:NSLocaleCountryCode value:[self objectForKey:NSLocaleCountryCode]];
 }
 
 
@@ -120,29 +79,8 @@
 #pragma mark - Measurement Acessors
 
 
-- (BOOL)usesMetricSystem {
-    return [[self objectForKey:NSLocaleUsesMetricSystem] boolValue];
-}
-
-
 - (NSString *)measurementSystem {
     return [self objectForKey:NSLocaleMeasurementSystem];
-}
-
-
-
-
-
-#pragma mark - Numbers Accessors
-
-
-- (NSString *)decimalSeparator {
-    return [self objectForKey:NSLocaleDecimalSeparator];
-}
-
-
-- (NSString *)groupingSeparator {
-    return [self objectForKey:NSLocaleGroupingSeparator];
 }
 
 
@@ -152,16 +90,6 @@
 #pragma mark - Currency Accessors
 
 
-- (NSString *)currencySymbol {
-    return [self objectForKey:NSLocaleCurrencySymbol];
-}
-
-
-- (NSString *)currencyCode {
-    return [self objectForKey:NSLocaleCurrencyCode];
-}
-
-
 - (NSString *)currencyName {
     return [self currencyNameInLocale:nil];
 }
@@ -169,33 +97,7 @@
 
 - (NSString *)currencyNameInLocale:(NSLocale *)localeOrNil {
     let locale = localeOrNil ?: NSLocale.standardizedLocale;
-    return [locale displayNameForKey:NSLocaleCurrencyCode value:self.currencyCode];
-}
-
-
-
-
-
-#pragma mark - Quotation Accessors
-
-
-- (NSString *)quotationBeginDelimiter {
-    return [self objectForKey:NSLocaleQuotationBeginDelimiterKey];
-}
-
-
-- (NSString *)quotationEndDelimiter {
-    return [self objectForKey:NSLocaleQuotationEndDelimiterKey];
-}
-
-
-- (NSString *)alternateQuotationBeginDelimiter {
-    return [self objectForKey:NSLocaleAlternateQuotationBeginDelimiterKey];
-}
-
-
-- (NSString *)alternateQuotationEndDelimiter {
-    return [self objectForKey:NSLocaleAlternateQuotationEndDelimiterKey];
+    return [locale displayNameForKey:NSLocaleCurrencyCode value:[self objectForKey:NSLocaleCurrencyCode]];
 }
 
 

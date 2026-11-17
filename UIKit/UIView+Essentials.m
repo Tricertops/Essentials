@@ -167,28 +167,6 @@
 }
 
 
-- (CGPoint)anchorPoint {
-    return CGScalePoint(self.relativeAnchorPoint, self.bounds.size);
-}
-
-
-- (void)setAnchorPoint:(CGPoint)anchorPoint {
-    self.relativeAnchorPoint = CGScalePoint(anchorPoint, CGScaleInvert(self.bounds.size));
-}
-
-
-+ (NSSet<NSString *> *)keyPathsForValuesAffectingAnchorPoint {
-    return [NSSet setWithObjects:ESSKeypathClass(UIView, bounds), ESSKeypathClass(UIView, relativeAnchorPoint), nil];
-}
-
-
-- (void)moveAnchorPointTo:(CGPoint)anchorPoint {
-    CGPoint innerDelta = CGPointSubtract(anchorPoint, self.anchorPoint);
-    self.anchorPoint = anchorPoint;
-    self.position = CGPointAdd(self.position, innerDelta);
-}
-
-
 - (CGFloat)rotation {
     CGFloat radians = [[self.layer valueForKeyPath:@"transform.rotation.z"] doubleValue];
     return CGDegrees(radians);

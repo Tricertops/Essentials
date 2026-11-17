@@ -20,24 +20,6 @@
 
 
 
-#pragma mark - Creating
-
-
-+ (instancetype)context {
-    let colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
-    let context = [CIContext contextWithOptions:
-                          @{
-                            kCIContextWorkingColorSpace: (__bridge id)colorSpace,
-                            kCIContextOutputColorSpace: (__bridge id)colorSpace,
-                            }];
-    CGColorSpaceRelease(colorSpace);
-    return context;
-}
-
-
-
-
-
 #pragma mark - Processing Images
 
 
