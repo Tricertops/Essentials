@@ -27,7 +27,7 @@
 
 
 + (instancetype)doneButtonWithTitle:(NSString *)title {
-    return [[self alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:nil action:nil];
+    return [[self alloc] initWithTitle:title style:UIBarButtonItemStyleProminent target:nil action:nil];
 }
 
 

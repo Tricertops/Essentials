@@ -10,6 +10,7 @@
 #import "UIColor+Essentials.h"
 #import "UIKit+Essentials.h"
 #import "NSObject+Essentials.h"
+#import "UIScreen+Essentials.h"
 #import "ESSDragInteractionDelegate.h"
 
 
@@ -90,7 +91,7 @@
 - (void)setShouldRasterize:(BOOL)shouldRasterize {
     self.layer.shouldRasterize = shouldRasterize;
     if (shouldRasterize) {
-        self.layer.rasterizationScale = UIScreen.mainScreen.scale;
+        self.layer.rasterizationScale = UIScreen.deprecatedMainScreen.scale;
     }
 }
 

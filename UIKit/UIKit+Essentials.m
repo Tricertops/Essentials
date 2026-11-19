@@ -7,6 +7,7 @@
 //
 
 #import "UIKit+Essentials.h"
+#import "UIScreen+Essentials.h"
 
 
 
@@ -100,7 +101,7 @@ CGFloat CGFloatRoundToScale(CGFloat value, CGFloat scale, NSRoundingMode mode) {
         case NSRoundDown:    function = &floor; break;
         case NSRoundBankers: function = &round; break;
     }
-    if ( ! scale) scale = [[UIScreen mainScreen] scale];
+    if ( ! scale) scale = [[UIScreen deprecatedMainScreen] scale];
     CGFloat result = function(value * scale) / scale;
     return result;
 }
